@@ -25,6 +25,7 @@
     padding:24px 16px 60px;
     -webkit-font-smoothing:antialiased;
   }
+  body.in-game .top-bar{display:none}
   .app{width:100%;max-width:1320px;display:flex;flex-direction:column;align-items:center;position:relative}
 
   .screen{display:none;width:100%;flex-direction:column;align-items:center;gap:22px}
@@ -35,8 +36,8 @@
   .top-bar{
     position:fixed;
     top:20px;right:20px;
-    display:flex;flex-direction:column;align-items:flex-end;gap:8px;
-    z-index:50;
+    display:flex;flex-direction:row;align-items:center;gap:8px;
+    z-index:50;flex-wrap:wrap;justify-content:flex-end;
   }
   .points-badge{
     display:flex;align-items:center;gap:6px;
@@ -48,55 +49,36 @@
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   }
   .points-badge .pb-value{
-    font-size:15px;font-weight:800;
-    color:#fff;
-    font-variant-numeric:tabular-nums;
-    letter-spacing:-.01em;
+    font-size:15px;font-weight:800;color:#fff;
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em;
   }
   .points-badge .pb-label{
-    font-size:10px;
-    color:#c4b5fd;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:.1em;
+    font-size:10px;color:#c4b5fd;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;
   }
   .bar-btn{
-    display:flex;align-items:center;gap:6px;
-    padding:9px 16px;
-    border-radius:99px;
-    background:rgba(255,255,255,.04);
-    border:1px solid var(--border);
-    color:#d0d0dc;
-    font:inherit;font-size:12.5px;font-weight:600;
-    cursor:pointer;
-    backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    padding:9px 16px;border-radius:99px;
+    background:rgba(255,255,255,.04);border:1px solid var(--border);
+    color:#d0d0dc;font:inherit;font-size:12.5px;font-weight:600;
+    cursor:pointer;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
     transition:background .18s, border-color .18s, color .18s, transform .18s;
-    min-width:120px;
-    justify-content:center;
   }
   .bar-btn:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2);color:#fff;transform:translateY(-1px)}
-  .bar-btn:active{transform:translateY(0)}
   @media (max-width:700px){
     .top-bar{top:14px;right:14px;gap:6px}
     .points-badge{padding:8px 13px}
     .points-badge .pb-value{font-size:13.5px}
     .points-badge .pb-label{display:none}
-    .bar-btn{padding:8px 12px;font-size:11.5px;min-width:96px}
+    .bar-btn{padding:8px 12px;font-size:11.5px}
   }
 
   /* МЕНЮ */
   #screen-menu{text-align:center;padding-top:40px;gap:0}
   .logo{
-    font-size:clamp(30px,5.4vw,52px);
-    font-weight:800;
-    letter-spacing:-.025em;
-    line-height:1.05;
+    font-size:clamp(30px,5.4vw,52px);font-weight:800;letter-spacing:-.025em;line-height:1.05;
     background:linear-gradient(100deg,#fff 20%,#c4b5fd 55%,#f9a8d4 90%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    margin-bottom:12px;
-    padding:0 12px;
-    max-width:100%;
-    word-break:break-word;
+    margin-bottom:12px;padding:0 12px;max-width:100%;word-break:break-word;
   }
   .logo-sub{font-size:14.5px;color:var(--muted);font-weight:500;margin-bottom:40px}
   .menu-buttons{display:flex;flex-direction:column;gap:14px;width:100%;max-width:300px;margin:0 auto}
@@ -122,135 +104,93 @@
   .btn-large{padding:20px 44px;font-size:17px;letter-spacing:.02em}
   .menu-stats{margin-top:40px;font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.7}
   .menu-stats b{color:#c4b5fd;font-weight:700}
+  .menu-credit{
+    margin-top:22px;
+    font-size:12.5px;
+    color:#6a6a7c;
+    letter-spacing:.02em;
+  }
+  .menu-credit a{
+    color:#c4b5fd;
+    text-decoration:none;
+    font-weight:700;
+    transition:color .18s;
+  }
+  .menu-credit a:hover{color:#f9a8d4}
 
-  /* ЭКРАН ВЫБОРА РЕЖИМА */
+  /* ВЫБОР РЕЖИМА */
   #screen-modes{width:100%;padding-top:20px}
   .mode-screen-title{
     font-size:clamp(24px,4vw,34px);font-weight:800;letter-spacing:-.02em;
     background:linear-gradient(100deg,#fff 20%,#c4b5fd 55%,#f9a8d4 90%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
-    text-align:center;
-    margin-bottom:6px;
+    text-align:center;margin-bottom:6px;
   }
-  .mode-screen-sub{
-    font-size:13.5px;color:var(--muted);
-    text-align:center;
-    margin-bottom:24px;
-  }
+  .mode-screen-sub{font-size:13.5px;color:var(--muted);text-align:center;margin-bottom:24px}
   .mode-cards{
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:14px;
-    width:100%;
-    max-width:820px;
-    margin:0 auto;
+    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
+    gap:14px;width:100%;max-width:900px;margin:0 auto;
   }
   .mode-card{
-    padding:22px 20px;
-    border-radius:20px;
-    background:var(--card);
-    border:1px solid var(--border);
-    cursor:pointer;
-    color:inherit;font:inherit;text-align:left;
+    padding:22px 20px;border-radius:20px;
+    background:var(--card);border:1px solid var(--border);
+    cursor:pointer;color:inherit;font:inherit;text-align:left;
     transition:transform .25s cubic-bezier(.2,.8,.2,1),
                border-color .25s, background .25s, box-shadow .25s;
-    display:flex;flex-direction:column;gap:6px;
-    min-height:120px;
+    display:flex;flex-direction:column;gap:6px;min-height:120px;
   }
   .mode-card:hover{
-    transform:translateY(-4px);
-    background:rgba(255,255,255,.07);
+    transform:translateY(-4px);background:rgba(255,255,255,.07);
     border-color:rgba(255,255,255,.20);
     box-shadow:0 20px 48px -22px rgba(139,92,246,1);
   }
   .mode-card:active{transform:translateY(-2px) scale(.99)}
   .mode-card.selected{
-    background:rgba(139,92,246,.12);
-    border-color:rgba(139,92,246,.65);
+    background:rgba(139,92,246,.12);border-color:rgba(139,92,246,.65);
     box-shadow:0 20px 50px -20px rgba(139,92,246,1);
     transform:translateY(-4px);
   }
-  .mode-card .mc-title{
-    font-size:17px;font-weight:800;letter-spacing:-.01em;
-    color:#fff;
-  }
+  .mode-card .mc-title{font-size:17px;font-weight:800;letter-spacing:-.01em;color:#fff}
   .mode-card.selected .mc-title{color:#e9d5ff}
-  .mode-card .mc-sub{
-    font-size:12.5px;color:var(--muted);
-    line-height:1.4;
-  }
+  .mode-card .mc-sub{font-size:12.5px;color:var(--muted);line-height:1.4}
   .mode-card.selected .mc-sub{color:#b8a8d8}
 
   .mode-desc{
-    width:100%;max-width:820px;
-    margin:8px auto 0;
-    padding:0;
-    border-radius:18px;
-    background:rgba(255,255,255,.025);
-    border:1px solid var(--border);
-    overflow:hidden;
-    transition:padding .3s ease, min-height .3s ease;
-    min-height:0;
+    width:100%;max-width:900px;margin:8px auto 0;padding:0;
+    border-radius:18px;background:rgba(255,255,255,.025);
+    border:1px solid var(--border);overflow:hidden;
+    transition:padding .3s ease, min-height .3s ease;min-height:0;
   }
-  .mode-desc.has-content{
-    padding:20px 22px;
-  }
-  .mode-desc-empty{
-    padding:24px 22px;
-    text-align:center;
-    color:var(--muted);
-    font-size:13px;
-    letter-spacing:.02em;
-  }
-  .mode-desc-title{
-    font-size:16px;font-weight:800;letter-spacing:-.01em;
-    color:#c4b5fd;
-    margin-bottom:8px;
-  }
-  .mode-desc-text{
-    font-size:13.5px;line-height:1.55;
-    color:#cfcfe0;
-    margin-bottom:10px;
-  }
+  .mode-desc.has-content{padding:20px 22px}
+  .mode-desc-empty{padding:24px 22px;text-align:center;color:var(--muted);font-size:13px;letter-spacing:.02em}
+  .mode-desc-title{font-size:16px;font-weight:800;letter-spacing:-.01em;color:#c4b5fd;margin-bottom:8px}
+  .mode-desc-text{font-size:13.5px;line-height:1.55;color:#cfcfe0;margin-bottom:10px}
   .mode-desc-reward{
-    font-size:12.5px;line-height:1.5;
-    color:#8b8b9e;
-    padding:10px 14px;
-    border-radius:10px;
+    font-size:12.5px;line-height:1.55;color:#8b8b9e;
+    padding:10px 14px;border-radius:10px;
     background:rgba(139,92,246,.08);
-    border:1px solid rgba(139,92,246,.22);
-    margin-bottom:4px;
+    border:1px solid rgba(139,92,246,.22);margin-bottom:4px;
   }
   .mode-desc-reward b{color:#c4b5fd;font-weight:700}
   .mode-submodes{
-    display:flex;gap:8px;
-    margin-top:14px;
-    padding-top:14px;
+    display:flex;gap:8px;margin-top:14px;padding-top:14px;
     border-top:1px dashed rgba(255,255,255,.08);
   }
   .mode-submode-btn{
-    flex:1;
-    padding:11px 16px;
-    border-radius:12px;
-    border:1px solid var(--border);
-    background:rgba(255,255,255,.03);
-    color:#c4c4d4;
-    font:inherit;font-size:13px;font-weight:600;
+    flex:1;padding:11px 16px;border-radius:12px;
+    border:1px solid var(--border);background:rgba(255,255,255,.03);
+    color:#c4c4d4;font:inherit;font-size:13px;font-weight:600;
     cursor:pointer;
     transition:background .18s, border-color .18s, color .18s, transform .18s;
   }
   .mode-submode-btn:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18);color:#fff}
   .mode-submode-btn.active{
-    background:rgba(139,92,246,.20);
-    border-color:rgba(139,92,246,.55);
-    color:#fff;
+    background:rgba(139,92,246,.20);border-color:rgba(139,92,246,.55);color:#fff;
   }
   .mode-actions{
-    display:flex;gap:12px;
-    width:100%;max-width:820px;
-    margin:14px auto 0;
-    justify-content:center;
-    flex-wrap:wrap;
+    display:flex;gap:12px;width:100%;max-width:900px;margin:14px auto 0;
+    justify-content:center;flex-wrap:wrap;
   }
   .mode-actions .btn-primary{width:auto;min-width:200px;padding:16px 40px}
   .mode-actions .btn-secondary{width:auto;min-width:140px}
@@ -317,8 +257,7 @@
   }
   .card.right{animation-delay:.07s}
   .card:hover{
-    transform:translateY(-7px);
-    background:rgba(255,255,255,.075);
+    transform:translateY(-7px);background:rgba(255,255,255,.075);
     border-color:rgba(255,255,255,.22);
     box-shadow:0 28px 60px -26px rgba(139,92,246,1);
   }
@@ -336,8 +275,7 @@
   .title{font-size:15.5px;font-weight:700;line-height:1.25;letter-spacing:-.01em}
   .artist{font-size:12.5px;color:var(--muted);font-weight:500}
   .card.winner{
-    transform:translateY(-7px) scale(1.035);
-    border-color:#22c55e;
+    transform:translateY(-7px) scale(1.035);border-color:#22c55e;
     box-shadow:0 0 0 1px #22c55e, 0 26px 70px -22px rgba(34,197,94,.9);
     animation:winPulse .6s ease;
   }
@@ -376,33 +314,64 @@
   .end-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
   .end-actions .btn-primary, .end-actions .btn-secondary{width:auto;padding:12px 26px;font-size:14px}
 
-  .points-earned{
-    display:inline-flex;align-items:center;gap:8px;
-    margin-top:6px;
-    padding:8px 18px;
-    border-radius:99px;
-    background:linear-gradient(135deg, rgba(139,92,246,.22), rgba(236,72,153,.14));
-    border:1px solid rgba(139,92,246,.5);
-    box-shadow:0 8px 24px -8px rgba(139,92,246,.9);
-    font-size:13px;font-weight:800;
+  /* Points breakdown */
+  .points-breakdown{
+    display:inline-flex;flex-direction:column;gap:6px;
+    margin-top:12px;
+    padding:16px 20px 14px;
+    border-radius:16px;
+    background:rgba(139,92,246,.08);
+    border:1px solid rgba(139,92,246,.32);
+    min-width:300px;
+    max-width:100%;
+    text-align:left;
+  }
+  .pb-total-hero{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:10px 14px;
+    margin:-4px -6px 4px;
+    border-radius:12px;
+    background:linear-gradient(135deg, rgba(139,92,246,.35), rgba(236,72,153,.22));
+    border:1px solid rgba(139,92,246,.6);
+    box-shadow:0 8px 24px -10px rgba(139,92,246,1);
+  }
+  .pb-total-hero .pb-th-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:#e9d5ff;
+  }
+  .pb-total-hero .pb-th-value{
+    font-size:22px;
+    font-weight:800;
     color:#fff;
     font-variant-numeric:tabular-nums;
-    animation:pointsPop .6s cubic-bezier(.2,.8,.2,1) .2s both;
+    letter-spacing:-.02em;
+    text-shadow:0 2px 12px rgba(139,92,246,.5);
   }
-  .points-earned .pe-total{color:#c4b5fd;font-weight:700;margin-left:6px;font-size:11px}
-  @keyframes pointsPop{
-    0%{transform:scale(.6);opacity:0}
-    60%{transform:scale(1.06)}
-    100%{transform:scale(1);opacity:1}
+  .pb-rows{
+    display:flex;flex-direction:column;gap:4px;
+    padding-top:4px;
+    border-top:1px dashed rgba(255,255,255,.1);
   }
+  .pb-row{
+    display:flex;justify-content:space-between;gap:14px;
+    font-size:12.5px;color:#a0a0b0;
+  }
+  .pb-row b{color:#eaeaf3;font-weight:700;font-variant-numeric:tabular-nums}
+  .pb-total-line{
+    margin-top:10px;font-size:11.5px;color:#8b8b9e;
+    text-align:center;
+  }
+  .pb-total-line b{color:#c4b5fd;font-weight:700;font-variant-numeric:tabular-nums}
 
   /* BRACKET */
   .bracket-wrap{width:100%;display:flex;flex-direction:column;gap:12px;animation:cardIn .55s cubic-bezier(.2,.8,.2,1) .1s both}
   .bracket-title{text-align:center;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
   .bracket-hint{text-align:center;font-size:11px;color:#6a6a7c;margin-top:-6px}
   .bracket-viewport{
-    position:relative;width:100%;height:500px;overflow:hidden;
-    border-radius:16px;
+    position:relative;width:100%;height:500px;overflow:hidden;border-radius:16px;
     background:radial-gradient(600px 300px at 50% 0%, rgba(139,92,246,.10), transparent 70%), rgba(255,255,255,.015);
     border:1px solid var(--border);cursor:grab;touch-action:none;
     user-select:none;-webkit-user-select:none;
@@ -448,7 +417,6 @@
   .chrono-panel-head{padding:11px 15px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:rgba(0,0,0,.18);flex-shrink:0}
   .chrono-panel-head h3{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
   .chrono-panel-head .count{font-size:11.5px;font-weight:700;color:#c4b5fd;font-variant-numeric:tabular-nums}
-
   .pool-search{padding:8px 12px 6px;border-bottom:1px solid var(--border);background:rgba(0,0,0,.1);flex-shrink:0}
   .pool-search input{
     width:100%;padding:9px 14px;border-radius:10px;
@@ -460,12 +428,10 @@
   .pool-search input:focus{border-color:rgba(139,92,246,.55);background:rgba(139,92,246,.06);box-shadow:0 0 0 3px rgba(139,92,246,.12)}
   .pool-item.hidden-search{display:none}
   .pool-empty{padding:24px 16px;text-align:center;color:var(--muted);font-size:12px;width:100%;letter-spacing:.02em}
-
   .pool{flex:1;overflow-y:auto;padding:12px;display:flex;flex-wrap:wrap;gap:6px;align-content:flex-start}
   .pool::-webkit-scrollbar{width:8px}
   .pool::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px;margin:8px 0}
   .pool::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(139,92,246,.85),rgba(236,72,153,.85));border-radius:99px;border:2px solid transparent;background-clip:padding-box}
-
   .pool-item{
     display:flex;flex-direction:column;gap:1px;padding:6px 10px;border-radius:9px;
     background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08);
@@ -476,15 +442,12 @@
   .pool-item.dragging-source{opacity:.28;transform:scale(.95)}
   .pool-item .pi-title{font-size:12px;font-weight:600;line-height:1.25;color:#eaeaf3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
   .pool-item .pi-artist{font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:200px}
-
   .chrono-board{flex:1;overflow-y:auto;padding:14px 16px 22px;display:flex;flex-direction:column;gap:16px}
   .chrono-board::-webkit-scrollbar{width:8px}
   .chrono-board::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px;margin:8px 0}
   .chrono-board::-webkit-scrollbar-thumb{background:linear-gradient(180deg,rgba(139,92,246,.85),rgba(236,72,153,.85));border-radius:99px;border:2px solid transparent;background-clip:padding-box}
-
   .chrono-section{display:flex;flex-direction:column;gap:10px}
   .chrono-section-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px dashed rgba(255,255,255,.08)}
-
   .album-block{
     padding:10px 12px;border-radius:14px;
     background:rgba(255,255,255,.025);border:1px solid var(--border);
@@ -496,13 +459,11 @@
   .album-block.incorrect{border-color:#ef4444 !important;background:rgba(239,68,68,.10) !important;box-shadow:0 0 0 1px rgba(239,68,68,.4)}
   .album-block.dragging-source{opacity:.3}
   .album-block.target{border-color:rgba(139,92,246,.9) !important;background:rgba(139,92,246,.12) !important;transform:scale(1.01)}
-
   .album-head{display:flex;align-items:center;gap:10px;cursor:grab;touch-action:none;user-select:none;border-radius:8px;padding:2px 4px 2px 0;transition:background .18s}
   .album-head:hover{background:rgba(255,255,255,.04)}
   .album-head:active{cursor:grabbing}
   .album-handle{width:20px;flex-shrink:0;display:grid;place-items:center;color:#5a5a70;font-size:14px;letter-spacing:-2px;transition:color .18s}
   .album-head:hover .album-handle{color:#c4b5fd}
-
   .album-cover{
     width:38px;height:38px;flex-shrink:0;border-radius:9px;
     background:rgba(255,255,255,.03);border:1.5px dashed rgba(255,255,255,.15);
@@ -515,9 +476,7 @@
   .album-cover.revealed img{opacity:1}
   .album-cover.revealed .ph-icon{opacity:0}
   .album-name{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd;flex:1}
-
   .album-slots{display:flex;flex-wrap:wrap;gap:6px}
-
   .slot{
     height:44px;min-width:44px;padding:0;border-radius:9px;
     border:1.5px dashed rgba(255,255,255,.14);background:rgba(255,255,255,.015);
@@ -535,7 +494,6 @@
   .slot.correct{border-color:#22c55e !important;background:rgba(34,197,94,.16) !important;box-shadow:0 0 0 1px rgba(34,197,94,.45)}
   .slot.incorrect{border-color:#ef4444 !important;background:rgba(239,68,68,.16) !important;box-shadow:0 0 0 1px rgba(239,68,68,.45)}
   .slot.empty-incorrect{border-color:rgba(239,68,68,.55) !important;border-style:dashed !important}
-
   .drag-ghost{
     position:fixed !important;pointer-events:none;z-index:9999;
     transform:rotate(-2deg) scale(1.05);
@@ -545,7 +503,6 @@
     color:#fff !important;
   }
   .drag-ghost.album-ghost{background:rgba(30,30,46,.95) !important;border-color:rgba(139,92,246,.7) !important;padding:10px 12px;border-radius:14px;width:300px}
-
   .chrono-footer{width:100%;display:flex;justify-content:center;padding-top:4px}
   .chrono-footer .btn-primary{width:auto;padding:15px 48px;font-size:15px}
   .chrono-footer .btn-primary:disabled{cursor:not-allowed;background:rgba(255,255,255,.06);color:#6a6a7c;box-shadow:none;transform:none;filter:none}
@@ -553,21 +510,12 @@
   /* ODD ONE OUT */
   #screen-odd{width:100%;gap:20px}
   .odd-grid{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:16px;
-    width:100%;
-    max-width:560px;
-    margin:0 auto;
+    display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:16px;width:100%;max-width:560px;margin:0 auto;
   }
   .odd-card{
-    position:relative;
-    aspect-ratio:1/1;
-    border-radius:18px;
-    overflow:hidden;
-    cursor:pointer;
-    border:2px solid transparent;
-    background:rgba(255,255,255,.03);
+    position:relative;aspect-ratio:1/1;border-radius:18px;overflow:hidden;
+    cursor:pointer;border:2px solid transparent;background:rgba(255,255,255,.03);
     transition:transform .28s cubic-bezier(.2,.8,.2,1),
                border-color .28s, box-shadow .28s, opacity .3s;
     animation:cardIn .45s cubic-bezier(.2,.8,.2,1) both;
@@ -576,39 +524,21 @@
   .odd-card:nth-child(2){animation-delay:.05s}
   .odd-card:nth-child(3){animation-delay:.1s}
   .odd-card:nth-child(4){animation-delay:.15s}
-  .odd-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 22px 50px -20px rgba(139,92,246,1);
-  }
+  .odd-card:hover{transform:translateY(-5px);box-shadow:0 22px 50px -20px rgba(139,92,246,1)}
   .odd-card:active{transform:translateY(-2px) scale(.99)}
   .odd-card .odd-letter{
-    position:absolute;inset:0;
-    display:grid;place-items:center;
-    font-size:clamp(48px, 9vw, 72px);
-    font-weight:800;color:#fff;
-    background:linear-gradient(135deg, var(--c1), var(--c2));
-    z-index:0;
+    position:absolute;inset:0;display:grid;place-items:center;
+    font-size:clamp(48px, 9vw, 72px);font-weight:800;color:#fff;
+    background:linear-gradient(135deg, var(--c1), var(--c2));z-index:0;
   }
-  .odd-card img{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;
-    z-index:1;
-  }
+  .odd-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
   .odd-card .odd-label{
-    position:absolute;bottom:0;left:0;right:0;
-    padding:12px 14px;
+    position:absolute;bottom:0;left:0;right:0;padding:12px 14px;
     background:linear-gradient(0deg, rgba(0,0,0,.92), rgba(0,0,0,.4) 60%, transparent);
     z-index:2;
   }
-  .odd-card .odd-title{
-    font-size:13px;font-weight:700;color:#fff;line-height:1.2;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  }
-  .odd-card .odd-artist{
-    font-size:11px;color:rgba(255,255,255,.7);margin-top:2px;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  }
+  .odd-card .odd-title{font-size:13px;font-weight:700;color:#fff;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .odd-card .odd-artist{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .odd-card.disabled{pointer-events:none}
   .odd-card.selected{
     border-color:#ffffff;
@@ -619,7 +549,6 @@
     0%{box-shadow:0 0 0 2px #ffffff, 0 0 0 0 rgba(255,255,255,.7)}
     100%{box-shadow:0 0 0 2px #ffffff, 0 0 0 24px rgba(255,255,255,0)}
   }
-
   .odd-details{flex:1;overflow-y:auto;max-height:42vh;margin-top:14px;padding-right:6px}
   .odd-details::-webkit-scrollbar{width:6px}
   .odd-details::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
@@ -631,24 +560,101 @@
   }
   .odd-details-list{display:grid;grid-template-columns:repeat(2, 1fr);gap:4px}
   .odd-detail-row{
-    display:flex;align-items:center;gap:8px;
-    padding:4px 10px;border-radius:6px;font-size:12px;
+    display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:6px;font-size:12px;
     border-left:2px solid transparent;
   }
   .odd-detail-row.correct{border-left-color:#22c55e;background:rgba(34,197,94,.06)}
   .odd-detail-row.wrong{border-left-color:#ef4444;background:rgba(239,68,68,.07)}
-  .odd-detail-num{
-    width:24px;color:#5a5a70;font-size:10.5px;font-weight:700;
-    font-variant-numeric:tabular-nums;text-align:right;
-  }
+  .odd-detail-num{width:24px;color:#5a5a70;font-size:10.5px;font-weight:700;font-variant-numeric:tabular-nums;text-align:right}
   .odd-detail-row.correct .odd-detail-num{color:#4ade80}
   .odd-detail-row.wrong .odd-detail-num{color:#f87171}
   .odd-detail-icon{width:16px;font-weight:800}
   .odd-detail-row.correct .odd-detail-icon{color:#4ade80}
   .odd-detail-row.wrong .odd-detail-icon{color:#f87171}
-  .odd-detail-time{
-    margin-left:auto;font-variant-numeric:tabular-nums;
-    color:#c4b5fd;font-weight:700;
+  .odd-detail-time{margin-left:auto;font-variant-numeric:tabular-nums;color:#c4b5fd;font-weight:700}
+
+  /* COMPARE */
+  #screen-compare{width:100%;gap:20px}
+  .cmp-prompt{
+    text-align:center;font-size:16px;font-weight:700;
+    color:#c4b5fd;letter-spacing:.01em;margin-top:-6px;
+  }
+  .cmp-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:18px;width:100%;max-width:600px;margin:0 auto;
+  }
+  .cmp-card{
+    display:flex;flex-direction:column;gap:12px;padding:14px;
+    border-radius:20px;background:var(--card);border:2px solid var(--border);
+    cursor:pointer;color:inherit;font:inherit;text-align:left;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),
+               border-color .25s, box-shadow .25s, background .25s, opacity .3s;
+    animation:cardIn .4s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .cmp-card:nth-child(1){animation-delay:0s}
+  .cmp-card:nth-child(2){animation-delay:.06s}
+  .cmp-card:hover:not(.disabled){
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,.2);
+    box-shadow:0 20px 50px -22px rgba(139,92,246,1);
+  }
+  .cmp-card:active:not(.disabled){transform:translateY(-2px) scale(.99)}
+  .cmp-card.disabled{pointer-events:none}
+  .cmp-card.selected-correct{
+    border-color:#22c55e;
+    box-shadow:0 0 0 2px #22c55e, 0 20px 60px -20px rgba(34,197,94,.9);
+  }
+  .cmp-card.selected-wrong{
+    border-color:#ef4444;
+    box-shadow:0 0 0 2px #ef4444, 0 20px 60px -20px rgba(239,68,68,.9);
+  }
+  .cmp-card.reveal-correct{
+    border-color:#22c55e;
+    box-shadow:0 0 0 2px #22c55e;
+    opacity:.85;
+  }
+  .cmp-cover{
+    position:relative;aspect-ratio:1/1;border-radius:14px;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+    display:grid;place-items:center;
+    font-size:clamp(38px,6.5vw,56px);font-weight:800;color:#fff;
+    overflow:hidden;box-shadow:inset 0 0 60px rgba(0,0,0,.28);
+  }
+  .cmp-cover::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 48%);
+    pointer-events:none;z-index:2;
+  }
+  .cmp-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .cmp-cover-letter{position:relative;z-index:0}
+
+  .cmp-value{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    padding:16px 14px 14px;
+    text-align:center;
+    font-size:clamp(26px,4.5vw,38px);
+    font-weight:800;
+    color:#fff;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:-.02em;
+    background:linear-gradient(0deg, rgba(0,0,0,.88), rgba(0,0,0,.45) 55%, transparent);
+    z-index:3;
+    opacity:0;
+    transition:opacity .3s;
+    text-shadow:0 3px 18px rgba(0,0,0,.6);
+  }
+  .cmp-value.visible{opacity:1}
+  .cmp-card.selected-correct .cmp-value{color:#4ade80;text-shadow:0 3px 22px rgba(34,197,94,.9)}
+  .cmp-card.selected-wrong   .cmp-value{color:#f87171;text-shadow:0 3px 22px rgba(239,68,68,.9)}
+  .cmp-card.reveal-correct   .cmp-value{color:#4ade80;text-shadow:0 3px 22px rgba(34,197,94,.9)}
+
+  .cmp-info{text-align:center;min-height:42px}
+  .cmp-title{font-size:13.5px;font-weight:700;line-height:1.2;letter-spacing:-.005em;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .cmp-artist{font-size:11.5px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media (max-width:700px){
+    .cmp-grid{grid-template-columns:1fr;max-width:340px}
   }
 
   /* МОДАЛКИ */
@@ -659,33 +665,23 @@
   }
   .modal.open{display:flex;animation:fadeIn .2s ease}
   @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-
   .modal-content{
-    position:relative;
-    max-width:560px;width:100%;
-    max-height:90vh;
-    overflow:hidden;
-    display:flex;flex-direction:column;
-    padding:48px 26px 22px;
-    border-radius:24px;
+    position:relative;max-width:560px;width:100%;max-height:90vh;overflow:hidden;
+    display:flex;flex-direction:column;padding:48px 26px 22px;border-radius:24px;
     background:#12121c;border:1px solid var(--border);
     box-shadow:0 40px 100px -30px rgba(0,0,0,.9);
     animation:screenIn .3s cubic-bezier(.2,.8,.2,1);
   }
   .modal-content.wide{max-width:680px}
   .modal-content.no-x{padding-top:28px}
-
   .modal-close-x{
-    position:absolute;top:14px;right:14px;
-    width:30px;height:30px;border-radius:50%;border:none;
+    position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:50%;border:none;
     background:rgba(255,255,255,.08);color:#c4c4d4;
     font-size:15px;font-weight:700;line-height:1;cursor:pointer;
-    display:grid;place-items:center;padding:0 0 2px 0;
-    z-index:10;
+    display:grid;place-items:center;padding:0 0 2px 0;z-index:10;
     transition:background .18s, color .18s, transform .18s;
   }
   .modal-close-x:hover{background:rgba(239,68,68,.3);color:#fff;transform:rotate(90deg)}
-
   .mode-tabs{display:flex;gap:6px;margin-bottom:20px;padding:4px;background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border)}
   .mode-tabs button{
     flex:1;padding:9px 14px;border-radius:99px;border:none;background:transparent;
@@ -694,7 +690,6 @@
   }
   .mode-tabs button.active{background:rgba(139,92,246,.22);color:#fff}
   .mode-tabs button:hover:not(.active){color:#c4b5fd}
-
   .tab-content{display:none;animation:screenIn .25s}
   .tab-content.active{display:block}
   .tab-content h3{font-size:19px;font-weight:800;letter-spacing:-.015em;margin-bottom:14px;background:linear-gradient(100deg,#fff,#c4b5fd);-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -705,26 +700,14 @@
   .modal-close-btn{margin-top:8px;width:100%}
 
   /* Hello modal */
-  .hello-content{padding-top:8px}
-  .hello-section{
-    padding:16px 0;
-    border-bottom:1px dashed rgba(255,255,255,.08);
-  }
-  .hello-section:last-child{border-bottom:none}
-  .hello-text{
-    font-size:13.5px;line-height:1.55;
-    color:#cfcfe0;
-    margin-bottom:10px;
-  }
+  .hello-section{padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
+  .hello-section:last-child{border-bottom:none;padding-bottom:0}
+  .hello-text{font-size:13.5px;line-height:1.55;color:#cfcfe0;margin-bottom:10px}
   .hello-link{
     display:inline-flex;align-items:center;gap:8px;
-    padding:10px 18px;
-    border-radius:12px;
-    background:rgba(139,92,246,.14);
-    border:1px solid rgba(139,92,246,.4);
-    color:#e9d5ff;
-    font-size:14px;font-weight:700;
-    text-decoration:none;
+    padding:10px 18px;border-radius:12px;
+    background:rgba(139,92,246,.14);border:1px solid rgba(139,92,246,.4);
+    color:#e9d5ff;font-size:14px;font-weight:700;text-decoration:none;
     transition:background .18s, border-color .18s, transform .18s;
   }
   .hello-link:hover{background:rgba(139,92,246,.24);border-color:rgba(139,92,246,.65);transform:translateY(-1px)}
@@ -732,18 +715,15 @@
   /* RESULTS MODAL */
   .results-hero{text-align:center;padding:0 0 18px;display:flex;flex-direction:column;align-items:center;gap:6px}
   .results-percent{
-    font-size:clamp(48px,8vw,68px);
-    font-weight:800;letter-spacing:-.04em;line-height:1;
+    font-size:clamp(48px,8vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;
     font-variant-numeric:tabular-nums;
   }
   .results-percent.good{background:linear-gradient(100deg,#4ade80,#22c55e);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent.mid{background:linear-gradient(100deg,#fbbf24,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent.bad{background:linear-gradient(100deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent-label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-
   .results-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
-    padding:0 0 16px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 0 16px;
     border-bottom:1px solid var(--border);
   }
   .rg-item{padding:10px 6px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);text-align:center}
@@ -754,7 +734,6 @@
   .rg-value.blue{color:#60a5fa}
   .rg-value.orange{color:#fbbf24}
   .rg-label{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
-
   .results-tabs{display:flex;gap:6px;margin:14px 0 10px;padding:4px;background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border)}
   .results-tabs button{
     flex:1;padding:8px 14px;border-radius:99px;border:none;background:transparent;
@@ -763,79 +742,50 @@
   }
   .results-tabs button.active{background:rgba(139,92,246,.22);color:#fff}
   .results-tabs button:hover:not(.active){color:#c4b5fd}
-
   .results-list{
-    flex:1 1 auto;
-    min-height:160px;
-    max-height:55vh;
-    overflow-y:auto;
-    padding:2px 4px 2px 0;
-    display:flex;flex-direction:column;gap:14px;
+    flex:1 1 auto;min-height:160px;max-height:55vh;overflow-y:auto;
+    padding:2px 4px 2px 0;display:flex;flex-direction:column;gap:14px;
   }
   .results-list::-webkit-scrollbar{width:6px}
   .results-list::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
   .results-list::-webkit-scrollbar-thumb{background:rgba(139,92,246,.55);border-radius:99px}
-
   .rl-section{display:flex;flex-direction:column;gap:1px}
   .rl-section-header{
     display:flex;align-items:center;justify-content:space-between;
     padding:3px 6px 6px;
     font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    color:#c4b5fd;
-    border-bottom:1px solid rgba(255,255,255,.06);
-    margin-bottom:3px;
+    color:#c4b5fd;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:3px;
   }
   .rl-section-name{display:flex;align-items:center;gap:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
   .rl-section-count{
-    padding:1px 7px;border-radius:99px;
-    background:rgba(255,255,255,.05);
+    padding:1px 7px;border-radius:99px;background:rgba(255,255,255,.05);
     font-variant-numeric:tabular-nums;letter-spacing:.04em;
-    font-size:9.5px;color:#8b8b9e;
-    flex-shrink:0;
+    font-size:9.5px;color:#8b8b9e;flex-shrink:0;
   }
   .rl-section-count.all-correct{background:rgba(34,197,94,.22);color:#86efac}
   .rl-section-count.has-errors{background:rgba(239,68,68,.18);color:#fca5a5}
-
   .rl-row{
-    display:flex;align-items:center;gap:8px;
-    padding:3px 8px;
-    border-radius:6px;
-    border-left:2px solid transparent;
-    font-size:12px;
-    line-height:1.3;
-    min-height:22px;
+    display:flex;align-items:center;gap:8px;padding:3px 8px;border-radius:6px;
+    border-left:2px solid transparent;font-size:12px;line-height:1.3;min-height:22px;
   }
   .rl-row.correct{border-left-color:#22c55e;background:rgba(34,197,94,.06)}
   .rl-row.wrong{border-left-color:#ef4444;background:rgba(239,68,68,.07)}
-
-  .rl-num{
-    width:22px;flex-shrink:0;
-    text-align:right;
-    font-size:10px;font-weight:700;
-    font-variant-numeric:tabular-nums;
-    color:#5a5a70;
-  }
+  .rl-num{width:22px;flex-shrink:0;text-align:right;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;color:#5a5a70}
   .rl-row.correct .rl-num{color:#4ade80}
   .rl-row.wrong .rl-num{color:#f87171}
-
   .rl-line{flex:1;min-width:0;display:flex;align-items:baseline;gap:6px;overflow:hidden}
   .rl-title{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
   .rl-row.correct .rl-title{color:#bbf7d0}
   .rl-row.wrong .rl-title{color:#fca5a5}
-
   .rl-artist{font-size:10.5px;color:#6a6a7c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;max-width:45%}
-
   .rl-correct{
     font-size:10.5px;color:#8b8b9e;font-style:italic;
     flex-shrink:0;padding-left:8px;max-width:48%;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    text-align:right;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;
   }
   .rl-correct .arrow{color:#6a6a7c;margin-right:3px;font-style:normal}
-
   .results-perfect{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:40px 20px;text-align:center}
   .results-perfect .rp-text{font-size:15px;font-weight:700;color:#86efac}
-
   .results-actions{display:flex;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
   .results-actions .btn-primary, .results-actions .btn-secondary{flex:1;width:auto;padding:13px 20px;font-size:14px}
 
@@ -845,119 +795,72 @@
     background:linear-gradient(100deg,#fff 20%,#c4b5fd 60%,#f9a8d4 95%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-
   .stats-general{padding:6px 2px 4px}
   .stats-general-hero{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    padding:16px;
+    display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;
     border-radius:16px;
     background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.08));
-    border:1px solid rgba(139,92,246,.32);
-    margin-bottom:14px;
+    border:1px solid rgba(139,92,246,.32);margin-bottom:14px;
   }
   .stats-hero-item{display:flex;flex-direction:column;gap:4px;min-width:0}
-  .stats-hero-label{
-    font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-    color:#8b8b9e;
-  }
+  .stats-hero-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9e}
   .stats-hero-value{
-    font-size:22px;font-weight:800;
-    color:#eaeaf3;
-    font-variant-numeric:tabular-nums;letter-spacing:-.02em;
-    line-height:1.1;
-    overflow:hidden;text-overflow:ellipsis;
-    white-space:nowrap;
+    font-size:22px;font-weight:800;color:#eaeaf3;
+    font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   }
   .stats-hero-value.purple{color:#c4b5fd}
-
-  .stats-block{
-    padding:14px 16px;
-    margin-bottom:10px;
-    border-radius:14px;
-    background:rgba(255,255,255,.025);
-    border:1px solid var(--border);
-  }
+  .stats-block{padding:14px 16px;margin-bottom:10px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid var(--border)}
   .stats-block-head{
     display:flex;align-items:center;justify-content:space-between;
     padding-bottom:10px;margin-bottom:10px;
     border-bottom:1px dashed rgba(255,255,255,.08);
   }
-  .stats-block-title{
-    display:flex;align-items:center;gap:8px;
-    font-size:12px;font-weight:700;
-    letter-spacing:.08em;text-transform:uppercase;
-    color:#c4b5fd;
-  }
+  .stats-block-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd}
   .stats-block-count{
-    font-size:12px;font-weight:800;
-    color:#eaeaf3;
-    font-variant-numeric:tabular-nums;
-    padding:3px 10px;border-radius:99px;
+    font-size:12px;font-weight:800;color:#eaeaf3;
+    font-variant-numeric:tabular-nums;padding:3px 10px;border-radius:99px;
     background:rgba(255,255,255,.05);
   }
   .stats-block-rows{display:flex;flex-direction:column;gap:8px}
   .stats-block-row{
-    display:flex;align-items:baseline;justify-content:space-between;
-    gap:12px;
-    font-size:12.5px;
-    color:#a0a0b0;
+    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+    font-size:12.5px;color:#a0a0b0;
   }
-  .stats-block-row .lbl{
-    display:flex;align-items:center;gap:6px;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-    min-width:0;
-  }
-  .stats-block-row b{
-    color:#eaeaf3;font-weight:700;
-    font-variant-numeric:tabular-nums;
-    flex-shrink:0;
-  }
-  .stats-block-empty{
-    padding:24px 16px;
-    text-align:center;color:var(--muted);font-size:12.5px;
-  }
-
+  .stats-block-row .lbl{display:flex;align-items:center;gap:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .stats-block-row b{color:#eaeaf3;font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0}
+  .stats-block-empty{padding:24px 16px;text-align:center;color:var(--muted);font-size:12.5px}
   .records-tabs{
     display:flex;gap:6px;margin-bottom:14px;padding:4px;
-    background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border);
-    flex-wrap:wrap;
+    background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border);flex-wrap:wrap;
   }
   .records-tabs button{
     flex:1;padding:8px 12px;border-radius:99px;border:none;background:transparent;
     color:var(--muted);font:inherit;font-size:12px;font-weight:600;cursor:pointer;
-    transition:background .18s, color .18s;
-    white-space:nowrap;min-width:80px;
+    transition:background .18s, color .18s;white-space:nowrap;min-width:80px;
   }
   .records-tabs button.active{background:rgba(139,92,246,.22);color:#fff}
   .records-tabs button:hover:not(.active){color:#c4b5fd}
-
   .records-subtabs{
-    display:flex;gap:6px;margin-bottom:14px;
-    padding:4px;background:rgba(139,92,246,.06);
-    border-radius:99px;border:1px solid rgba(139,92,246,.22);
-    flex-wrap:wrap;
+    display:flex;gap:6px;margin-bottom:14px;padding:4px;
+    background:rgba(139,92,246,.06);border-radius:99px;
+    border:1px solid rgba(139,92,246,.22);flex-wrap:wrap;
   }
   .records-subtabs button{
     flex:1;padding:7px 14px;border-radius:99px;border:none;background:transparent;
     color:var(--muted);font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
-    transition:background .18s, color .18s;
-    white-space:nowrap;min-width:80px;
+    transition:background .18s, color .18s;white-space:nowrap;min-width:80px;
   }
   .records-subtabs button.active{background:rgba(139,92,246,.28);color:#fff}
   .records-subtabs button:hover:not(.active){color:#c4b5fd}
-
   .ri-mode{
-    display:inline-block;
-    font-size:9.5px;font-weight:700;
-    letter-spacing:.06em;text-transform:uppercase;
-    padding:2px 7px;border-radius:99px;
-    margin-left:6px;vertical-align:middle;
+    display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;
+    text-transform:uppercase;padding:2px 7px;border-radius:99px;margin-left:6px;vertical-align:middle;
   }
   .ri-mode.covers{background:rgba(139,92,246,.22);color:#c4b5fd}
   .ri-mode.titles{background:rgba(236,72,153,.20);color:#f9a8d4}
-
+  .ri-mode.plays{background:rgba(96,165,250,.20);color:#93c5fd}
+  .ri-mode.duration{background:rgba(251,191,36,.18);color:#fcd34d}
   .records-body{flex:1;overflow-y:auto;min-height:200px;max-height:56vh;padding-right:6px}
   .records-body::-webkit-scrollbar{width:6px}
   .records-body::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
@@ -971,15 +874,13 @@
   }
   .record-list{display:flex;flex-direction:column;gap:6px}
   .record-item{
-    display:flex;align-items:center;gap:12px;
-    padding:10px 12px;border-radius:10px;
+    display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;
     background:rgba(255,255,255,.025);border:1px solid var(--border);
     transition:background .18s, border-color .18s;
   }
   .record-item:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
   .ri-rank{
-    width:26px;height:26px;flex-shrink:0;
-    display:grid;place-items:center;border-radius:8px;
+    width:26px;height:26px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;
     font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;
     background:rgba(255,255,255,.05);color:#8b8b9e;
   }
@@ -996,14 +897,12 @@
   .records-empty .txt{font-size:13.5px;line-height:1.5}
   .records-footer{
     display:flex;justify-content:space-between;align-items:center;
-    margin-top:14px;padding-top:12px;
-    border-top:1px solid var(--border);
+    margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
     font-size:11px;color:#5a5a70;
   }
   .records-footer button{
-    background:transparent;border:none;color:#8b8b9e;
-    font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
-    padding:6px 10px;border-radius:99px;
+    background:transparent;border:none;color:#8b8b9e;font:inherit;
+    font-size:11.5px;font-weight:600;cursor:pointer;padding:6px 10px;border-radius:99px;
     transition:background .18s, color .18s;
   }
   .records-footer button:hover{background:rgba(239,68,68,.15);color:#f87171}
@@ -1011,14 +910,14 @@
   /* History */
   .history-list{display:flex;flex-direction:column;gap:6px}
   .history-item{
-    display:flex;align-items:center;gap:12px;
-    padding:12px 14px;border-radius:10px;
+    display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;
     background:rgba(255,255,255,.025);border:1px solid var(--border);
     border-left:3px solid transparent;
   }
   .history-item.tournament{border-left-color:#60a5fa}
   .history-item.chronology{border-left-color:#c4b5fd}
   .history-item.odd{border-left-color:#f9a8d4}
+  .history-item.compare{border-left-color:#93c5fd}
   .history-item .hi-body{flex:1;min-width:0}
   .history-item .hi-label{font-size:13.5px;font-weight:700;color:#eaeaf3;line-height:1.2}
   .history-item .hi-detail{font-size:11.5px;color:var(--muted);margin-top:3px}
@@ -1049,7 +948,6 @@
 
 <div class="app">
 
-  <!-- Верхняя панель -->
   <div class="top-bar">
     <div class="points-badge" title="Общие баллы за все игры">
       <span class="pb-value" id="pointsValue">0</span>
@@ -1059,7 +957,6 @@
     <button class="bar-btn" id="helloBtn">Привет</button>
   </div>
 
-  <!-- ГЛАВНОЕ МЕНЮ -->
   <section class="screen active" id="screen-menu">
     <div class="logo">Kai Angel Tracks Game</div>
     <div class="logo-sub" id="menuSub">Загрузка треков…</div>
@@ -1071,9 +968,9 @@
     </div>
 
     <div class="menu-stats" id="menuStats"></div>
+    <div class="menu-credit">by <a href="https://t.me/fatmatilda" target="_blank" rel="noopener">fatmatilda</a></div>
   </section>
 
-  <!-- ВЫБОР РЕЖИМА -->
   <section class="screen" id="screen-modes">
     <div class="mode-screen-title">Выбери режим</div>
     <div class="mode-screen-sub">Нажми на режим, чтобы увидеть описание</div>
@@ -1091,6 +988,10 @@
         <div class="mc-title">Кто лишний</div>
         <div class="mc-sub">Найди подвох среди четырёх</div>
       </button>
+      <button class="mode-card" data-mode="compare">
+        <div class="mc-title">Что больше?</div>
+        <div class="mc-sub">Угадай, где значение выше</div>
+      </button>
     </div>
 
     <div class="mode-desc" id="modeDesc">
@@ -1103,14 +1004,12 @@
     </div>
   </section>
 
-  <!-- ПЕРЕМЕШИВАНИЕ -->
   <section class="screen" id="screen-shuffle">
     <div class="shuffle-title" id="shuffleTitle">Перемешиваем треки…</div>
     <div class="shuffle-sub" id="shuffleSub">Готовим игровое поле</div>
     <div class="shuffle-bar-wrap"><div id="shuffleBar"></div></div>
   </section>
 
-  <!-- ТУРНИР -->
   <section class="screen" id="screen-tournament">
     <header class="game-header">
       <h1 class="game-title">Турнир</h1>
@@ -1129,7 +1028,6 @@
     <main class="arena" id="arena"></main>
   </section>
 
-  <!-- ХРОНОЛОГИЯ -->
   <section class="screen" id="screen-chronology">
     <header class="game-header">
       <h1 class="game-title">Хронология</h1>
@@ -1172,7 +1070,6 @@
     </div>
   </section>
 
-  <!-- КТО ЛИШНИЙ -->
   <section class="screen" id="screen-odd">
     <header class="game-header">
       <h1 class="game-title" id="oddTitle">Кто лишний</h1>
@@ -1192,6 +1089,26 @@
     <div class="odd-grid" id="oddGrid"></div>
   </section>
 
+  <section class="screen" id="screen-compare">
+    <header class="game-header">
+      <h1 class="game-title" id="cmpTitle">Что больше? · Прослушивания</h1>
+      <div class="status-row">
+        <div class="sub" id="cmpInfo">Раунд 1 / 30</div>
+        <div class="timer-pill" id="cmpTimerPill">
+          <span class="dot"></span>
+          <span id="cmpTimer">00:00</span>
+        </div>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="cmpProgressBar"></div></div>
+        <span class="progress-percent" id="cmpProgressPercent">0%</span>
+      </div>
+    </header>
+
+    <div class="cmp-prompt" id="cmpPrompt">Где больше прослушиваний?</div>
+    <div class="cmp-grid" id="cmpGrid"></div>
+  </section>
+
 </div>
 
 <!-- МОДАЛКА ПРАВИЛ -->
@@ -1206,20 +1123,26 @@
     <div class="tab-content active" data-content="general">
       <h3>Как играть</h3>
       <ul>
-        <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион. Расслабляющий режим примерно на 20–35 минут.</li>
+        <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион. Расслабляющий режим на 20–35 минут.</li>
         <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра, обычно 30–50 минут, требует внимания.</li>
-        <li><b>Кто лишний.</b> 30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты. Есть два режима: обложки и названия.</li>
-        <li>Результаты всех игр сохраняются в статистике, а последние 10 партий — в истории (кнопка справа вверху).</li>
+        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты. Два режима: обложки и названия.</li>
+        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше: прослушиваний или длительности. После клика цифры внутри карточек растут от нуля до реального значения, а выбранная подсвечивается зелёным или красным.</li>
+        <li>Результаты всех игр сохраняются в статистике, последние 10 партий — в истории (кнопка справа вверху в меню).</li>
       </ul>
     </div>
 
     <div class="tab-content" data-content="points">
       <h3>Баллы</h3>
       <ul>
-        <li><b>Турнир</b> — фиксированная награда за завершение. Ровно <b>25 баллов</b>, независимо от времени и результата. Режим ради удовольствия.</li>
-        <li><b>Хронология</b> — 1–350 баллов. Зависит от точности и времени. <b>Ориентир — 35 минут:</b> быстрее = бонус, дольше = штраф. Точность важнее: низкая точность сильно уменьшает награду.</li>
-        <li><b>Кто лишний</b> — 1–45 баллов. <b>Ориентир — 2 минуты:</b> быстрее = бонус, дольше = штраф. Точность критична: 30% дают в разы меньше, чем 90%.</li>
-        <li>Проще говоря: чем точнее и быстрее — тем больше баллов. Долгая игра с низкой точностью даёт почти ничего.</li>
+        <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b> (+ фиксированный бонус за режим, если есть).</li>
+        <li><b>Множитель точности</b> (квадратичный): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 70% → ×0.49, 50% → ×0.25, 30% → ×0.09. То есть 50% даёт в 4 раза меньше, чем 100%.</li>
+        <li><b>Множитель времени.</b> У каждой игры свой ориентир. Быстрее — до ×1.60, медленнее — штраф до ×0.20.</li>
+        <li><b>Турнир</b> — ровно <b>25 баллов</b>. Без множителей.</li>
+        <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>. Итог: от 1 до ~640.</li>
+        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия), ориентир <b>2 минуты</b>. Итог: от 1 до ~53.</li>
+        <li><b>Что больше · Прослушивания</b> — база <b>50</b>, ориентир <b>2 минуты 30 секунд</b>. Итог: от 1 до ~80.</li>
+        <li><b>Что больше · Длительность</b> — база <b>75</b> (в 1.5 раза выше), ориентир <b>2 минуты 30 секунд</b>. Итог: от 1 до ~120.</li>
+        <li>После каждой партии показывается полная разбивка: база, множители и итоговая сумма.</li>
       </ul>
     </div>
 
@@ -1233,17 +1156,13 @@
     <button class="modal-close-x" id="closeHelloX">×</button>
     <div class="records-content">
       <h3>Привет</h3>
-      <div class="hello-content">
+      <div>
         <div class="hello-section">
-          <div class="hello-text">
-            Если хочешь предложить идеи, нашёл ошибку или просто хочешь что-то сказать — напиши мне в Telegram.
-          </div>
+          <div class="hello-text">Если хочешь предложить идеи, нашёл ошибку или просто хочешь что-то сказать — напиши мне в Telegram.</div>
           <a href="https://t.me/fattilda" target="_blank" rel="noopener" class="hello-link">@fattilda</a>
         </div>
         <div class="hello-section">
-          <div class="hello-text">
-            Если хочешь посмотреть крутые видео про Kai Angel — заходи в TikTok.
-          </div>
+          <div class="hello-text">Если хочешь посмотреть крутые видео про Kai Angel — заходи в TikTok.</div>
           <a href="https://www.tiktok.com/@fatmatilda" target="_blank" rel="noopener" class="hello-link">@fatmatilda</a>
         </div>
       </div>
@@ -1258,23 +1177,18 @@
       <div class="results-percent" id="resultPercent">0%</div>
       <div class="results-percent-label">Точность</div>
     </div>
-
     <div class="results-grid">
       <div class="rg-item"><div class="rg-value green" id="rgCorrect">0</div><div class="rg-label">Верно</div></div>
       <div class="rg-item"><div class="rg-value red" id="rgIncorrect">0</div><div class="rg-label">Ошибок</div></div>
       <div class="rg-item"><div class="rg-value purple" id="rgTime">00:00</div><div class="rg-label">Время</div></div>
       <div class="rg-item"><div class="rg-value blue" id="rgAlbums">0/0</div><div class="rg-label">Альбомы</div></div>
     </div>
-
     <div id="rgPointsWrap" style="text-align:center;padding:12px 0 0"></div>
-
     <div class="results-tabs">
       <button class="active" data-rtab="all">Все ответы</button>
       <button data-rtab="errors">Только ошибки</button>
     </div>
-
     <div class="results-list" id="resultsList"></div>
-
     <div class="results-actions">
       <button class="btn-primary" id="rPlayAgain">Играть снова</button>
       <button class="btn-secondary" id="rToMenu">В меню</button>
@@ -1289,7 +1203,6 @@
       <div class="results-percent" id="oddResultPercent">0%</div>
       <div class="results-percent-label">Точность</div>
     </div>
-
     <div class="results-grid" style="grid-template-columns:repeat(5,1fr)">
       <div class="rg-item"><div class="rg-value green" id="oddRgCorrect">0</div><div class="rg-label">Верно</div></div>
       <div class="rg-item"><div class="rg-value red" id="oddRgIncorrect">0</div><div class="rg-label">Ошибок</div></div>
@@ -1297,14 +1210,34 @@
       <div class="rg-item"><div class="rg-value blue" id="oddRgAvg">0.00с</div><div class="rg-label">Среднее</div></div>
       <div class="rg-item"><div class="rg-value orange" id="oddRgRange">—</div><div class="rg-label">Мин/макс</div></div>
     </div>
-
     <div id="oddRgPointsWrap" style="text-align:center;padding:12px 0 0"></div>
-
     <div class="odd-details" id="oddDetails"></div>
-
     <div class="results-actions">
       <button class="btn-primary" id="oddPlayAgain">Играть снова</button>
       <button class="btn-secondary" id="oddToMenu">В меню</button>
+    </div>
+  </div>
+</div>
+
+<!-- МОДАЛКА РЕЗУЛЬТАТОВ ЧТО БОЛЬШЕ -->
+<div class="modal" id="cmpResultsModal">
+  <div class="modal-content wide no-x">
+    <div class="results-hero">
+      <div class="results-percent" id="cmpResultPercent">0%</div>
+      <div class="results-percent-label">Точность</div>
+    </div>
+    <div class="results-grid" style="grid-template-columns:repeat(5,1fr)">
+      <div class="rg-item"><div class="rg-value green" id="cmpRgCorrect">0</div><div class="rg-label">Верно</div></div>
+      <div class="rg-item"><div class="rg-value red" id="cmpRgIncorrect">0</div><div class="rg-label">Ошибок</div></div>
+      <div class="rg-item"><div class="rg-value purple" id="cmpRgTotal">00:00</div><div class="rg-label">Всего</div></div>
+      <div class="rg-item"><div class="rg-value blue" id="cmpRgAvg">0.00с</div><div class="rg-label">Среднее</div></div>
+      <div class="rg-item"><div class="rg-value orange" id="cmpRgRange">—</div><div class="rg-label">Мин/макс</div></div>
+    </div>
+    <div id="cmpRgPointsWrap" style="text-align:center;padding:12px 0 0"></div>
+    <div class="odd-details" id="cmpDetails"></div>
+    <div class="results-actions">
+      <button class="btn-primary" id="cmpPlayAgain">Играть снова</button>
+      <button class="btn-secondary" id="cmpToMenu">В меню</button>
     </div>
   </div>
 </div>
@@ -1320,6 +1253,7 @@
         <button data-rtab="tournament">Турнир</button>
         <button data-rtab="chronology">Хронология</button>
         <button data-rtab="odd">Кто лишний</button>
+        <button data-rtab="compare">Что больше</button>
       </div>
       <div class="records-body" id="recordsBody"></div>
       <div class="records-footer">
@@ -1347,21 +1281,19 @@
 <script>
 /* ====================== FALLBACK ====================== */
 const DEFAULT_TRACKS_TEXT = `
-Kai Angel - freddy krueger - freddy.png
-Kai Angel - Club Tainted - club.png
-Kai Angel - body double
+Kai Angel - boost it - boostit.png - 510K - 02:03
+Kai Angel - Madonna - madonna.png - 1.13M - 01:57
+Kai Angel - Korea Graves - koreagraves.png - 1.39M - 02:16
+Kai Angel - i need to chill - 1.75M - 02:16
+Kai Angel - SKULL - 724K - 01:52
 -----
---- SHADOW FREESTYLE
-Kai Angel - SHADOW FREESTYLE - shadow.png
-Kai Angel - SILVER CP - shadow.png
---- KaIcOrE - kaicore.png
-Kai Angel - what's uppppppxddDDD - kaicore.png
-Kai Angel - ~boo~ - kaicore.png
-Kai Angel - rain (hEaVy) - kaicore.png
---- MM - mm.png
-Kai Angel - FRIDAY 13 - mm.png
-Kai Angel - MONROE TEARS - mm.png
-Kai Angel - PRADA PARTY - mm.png
+--- SHADOW FREESTYLE - shadow.png
+Kai Angel - SHADOW FREESTYLE - shadow.png - 523K - 02:24
+Kai Angel - SILVER CP - shadow.png - 240K - 01:50
+--- kAiCoRe - kaicore.png
+Kai Angel - what's uppppppxddDDD - kaicore.png - 2.5M - 01:39
+Kai Angel - ~boo~ - kaicore.png - 377K - 02:13
+Kai Angel - rain (hEaVy) - kaicore.png - 240K - 02:10
 `;
 
 /* ====================== DOM ====================== */
@@ -1372,6 +1304,7 @@ const screens = {
   tournament: document.getElementById('screen-tournament'),
   chronology: document.getElementById('screen-chronology'),
   odd:        document.getElementById('screen-odd'),
+  compare:    document.getElementById('screen-compare'),
 };
 
 const arena       = document.getElementById('arena');
@@ -1413,6 +1346,15 @@ const oddTimerPill = document.getElementById('oddTimerPill');
 const oddProgressBar = document.getElementById('oddProgressBar');
 const oddProgressPercent = document.getElementById('oddProgressPercent');
 
+const cmpGrid = document.getElementById('cmpGrid');
+const cmpInfo = document.getElementById('cmpInfo');
+const cmpTitleEl = document.getElementById('cmpTitle');
+const cmpPrompt = document.getElementById('cmpPrompt');
+const cmpTimerEl = document.getElementById('cmpTimer');
+const cmpTimerPill = document.getElementById('cmpTimerPill');
+const cmpProgressBar = document.getElementById('cmpProgressBar');
+const cmpProgressPercent = document.getElementById('cmpProgressPercent');
+
 /* ====================== СОСТОЯНИЕ ====================== */
 let allTracks = [];
 let trackStructure = { singles: [], albums: [] };
@@ -1441,10 +1383,26 @@ let oddCards = [];
 let oddTimerStart = 0;
 let oddTimerInterval = null;
 let oddMode = 'covers';
+let oddUsedIds = new Set();
 
-// Режим выбранный на экране modes
+const COMPARE_ROUNDS = 30;
+let cmpRoundIndex = 0;
+let cmpRoundStartTime = 0;
+let cmpRoundTimes = [];
+let cmpRoundResults = [];
+let cmpCorrectCount = 0;
+let cmpGameActive = false;
+let cmpLocked = false;
+let cmpCurrentWinnerId = null;
+let cmpMode = 'plays';
+let cmpTimerStart = 0;
+let cmpTimerInterval = null;
+let cmpCards = [];
+let cmpUsedIds = new Set();
+
 let selectedMode = null;
 let selectedOddSubmode = 'covers';
+let selectedCmpSubmode = 'plays';
 
 /* ====================== УТИЛИТЫ ====================== */
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1474,18 +1432,14 @@ function formatTime(sec){
   const s = String(s0 % 60).padStart(2,'0');
   return `${m}:${s}`;
 }
-function formatSeconds(s){
-  return Number(s).toFixed(2) + 'с';
-}
+function formatSeconds(s){ return Number(s).toFixed(2) + 'с'; }
 function formatDuration(totalSeconds){
   const s0 = Math.max(0, Math.round(Number(totalSeconds)));
   const s = s0 % 60;
   const totalMin = Math.floor(s0 / 60);
   const m = totalMin % 60;
   const h = Math.floor(totalMin / 60);
-  if (h > 0){
-    return `${h}ч ${String(m).padStart(2,'0')}м ${String(s).padStart(2,'0')}с`;
-  }
+  if (h > 0) return `${h}ч ${String(m).padStart(2,'0')}м ${String(s).padStart(2,'0')}с`;
   return `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
 }
 function formatDate(ts){
@@ -1507,34 +1461,59 @@ function formatRelative(ts){
   if (days < 7) return `${days} дн назад`;
   return formatDate(ts);
 }
-
-/* ====================== БАЛЛЫ ======================
-   Турнир — фиксированная награда (25 баллов).
-   Хронология — середина 35 минут, точность критична.
-   Кто лишний — середина 2 минуты, точность критична.
-===================================================== */
-const POINTS_FIXED_TOURNAMENT = 25;
-
-function calcTournamentPoints(){
-  return POINTS_FIXED_TOURNAMENT;
+function formatBigNum(n){
+  n = Math.max(0, Math.round(n));
+  if (n >= 1000000000){
+    const v = n / 1000000000;
+    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'B';
+  }
+  if (n >= 1000000){
+    const v = n / 1000000;
+    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'M';
+  }
+  if (n >= 1000){
+    const v = n / 1000;
+    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1).replace(/\.0$/,'')) + 'K';
+  }
+  return String(n);
+}
+function formatMmSs(sec){
+  sec = Math.max(0, Math.round(sec));
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${m}:${String(s).padStart(2,'0')}`;
 }
 
-function calcChronologyPoints(timeSec, percent){
-  const base = 250;
+/* ====================== БАЛЛЫ ====================== */
+const POINTS_FIXED_TOURNAMENT = 25;
+
+function calcTournamentBreakdown(){
+  return {
+    base: POINTS_FIXED_TOURNAMENT,
+    accuracyMultiplier: 1,
+    speedMultiplier: 1,
+    total: POINTS_FIXED_TOURNAMENT,
+    midTimeSec: 0,
+    modeBonus: 0,
+  };
+}
+
+function calcChronologyBreakdown(timeSec, percent){
+  const base = 400;
   const acc = Math.max(0, Math.min(100, percent)) / 100;
   const accuracyMultiplier = acc * acc;
   const MID_TIME = 35 * 60;
   let speedMultiplier;
   if (timeSec <= MID_TIME){
-    speedMultiplier = 1 + (MID_TIME - timeSec) / MID_TIME * 0.4;
+    speedMultiplier = 1 + (MID_TIME - timeSec) / MID_TIME * 0.6;
   } else {
-    speedMultiplier = Math.max(0.25, 1 - (timeSec - MID_TIME) / MID_TIME * 0.75);
+    speedMultiplier = Math.max(0.2, 1 - (timeSec - MID_TIME) / MID_TIME * 0.8);
   }
-  const points = Math.round(base * accuracyMultiplier * speedMultiplier);
-  return Math.max(1, points);
+  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier));
+  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus: 0 };
 }
 
-function calcOddPoints(totalTime, accuracy, mode){
+function calcOddBreakdown(totalTime, accuracy, mode){
   const base = 30;
   const acc = Math.max(0, Math.min(100, accuracy)) / 100;
   const accuracyMultiplier = acc * acc;
@@ -1546,8 +1525,59 @@ function calcOddPoints(totalTime, accuracy, mode){
     speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 180 * 0.8);
   }
   const modeBonus = mode === 'titles' ? 5 : 0;
-  const points = Math.round(base * accuracyMultiplier * speedMultiplier) + modeBonus;
-  return Math.max(1, points);
+  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier) + modeBonus);
+  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus };
+}
+
+function calcCompareBreakdown(totalTime, accuracy, mode){
+  // Ориентир — 2:30 (150 сек) для обеих категорий
+  const MID_TIME = 150;
+  const base = mode === 'duration' ? 75 : 50;
+  const acc = Math.max(0, Math.min(100, accuracy)) / 100;
+  const accuracyMultiplier = acc * acc;
+  let speedMultiplier;
+  if (totalTime <= MID_TIME){
+    speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
+  } else {
+    speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 120 * 0.8);
+  }
+  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier));
+  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus: 0 };
+}
+
+function renderPointsBreakdownHTML(bd, opts = {}){
+  const fmtMult = x => '×' + x.toFixed(2);
+
+  const accuracyRow = (opts.showAccuracy === false) ? '' : `
+    <div class="pb-row">
+      <span>Точность: ${opts.percentLabel || '—'}</span>
+      <b>${fmtMult(bd.accuracyMultiplier)}</b>
+    </div>`;
+
+  const speedRow = (opts.showSpeed === false) ? '' : `
+    <div class="pb-row">
+      <span>Время: ${opts.timeLabel || '—'}</span>
+      <b>${fmtMult(bd.speedMultiplier)}</b>
+    </div>`;
+
+  const modeRow = bd.modeBonus ? `
+    <div class="pb-row">
+      <span>Бонус режима:</span>
+      <b>+${bd.modeBonus}</b>
+    </div>` : '';
+
+  return `<div class="points-breakdown">
+    <div class="pb-total-hero">
+      <span class="pb-th-label">Итого</span>
+      <span class="pb-th-value">+${bd.total}</span>
+    </div>
+    <div class="pb-rows">
+      <div class="pb-row"><span>База:</span><b>${bd.base}</b></div>
+      ${accuracyRow}
+      ${speedRow}
+      ${modeRow}
+    </div>
+  </div>`;
 }
 
 /* ====================== ГЕНЕРАТОР ОПЕЧАТОК ====================== */
@@ -1562,7 +1592,6 @@ const HIDDEN_PAIRS = [['rn','m'],['cl','d'],['vv','w']];
 function makeTypo(title){
   if (!title || title.length < 3) return null;
   const transforms = [];
-
   for (let i = 0; i < title.length - 1; i++){
     if (title[i] === title[i+1] && title[i] !== ' ') transforms.push({ type:'remove', i, weight: 4 });
   }
@@ -1575,7 +1604,6 @@ function makeTypo(title){
     transforms.push({ type:'remove', i: title.length - 1, weight: 3 });
   }
   if (title.endsWith('.')) transforms.push({ type:'remove', i: title.length - 1, weight: 5 });
-
   for (let i = 1; i < title.length; i++){
     if (title[i] === ' ') continue;
     transforms.push({ type:'dup', i, weight: 2 });
@@ -1611,10 +1639,8 @@ function makeTypo(title){
     const c = title[i];
     if (c === '-' || c === "'" || c === '’' || c === '_') transforms.push({ type:'remove', i, weight: 3 });
   }
-
   if (!transforms.length) return null;
   const totalWeight = transforms.reduce((s, t) => s + (t.weight || 1), 0);
-
   for (let attempt = 0; attempt < 25; attempt++){
     let r = Math.random() * totalWeight;
     let picked = transforms[0];
@@ -1638,7 +1664,22 @@ function makeTypo(title){
 /* ====================== ПАРСЕР ====================== */
 const IMG_EXT_RE = /\.(png|jpe?g|webp|gif|avif|bmp|svg)$/i;
 const COVER_TAIL_RE = /^(.*?)\s+-\s+(\S+\.(?:png|jpe?g|webp|gif|avif|bmp|svg))\s*$/i;
+const DURATION_RE = /^(\d{1,2}):(\d{2})$/;
+const SIZE_RE = /^(\d+(?:[.,]\d+)?)\s*([KMGkmg])$/;
 
+function parseDurationStr(s){
+  const m = String(s).trim().match(DURATION_RE);
+  if (!m) return null;
+  return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+}
+function parseSizeStr(s){
+  const m = String(s).trim().match(SIZE_RE);
+  if (!m) return null;
+  const num = parseFloat(m[1].replace(',', '.'));
+  const unit = m[2].toUpperCase();
+  const mult = unit === 'K' ? 1000 : unit === 'M' ? 1000000 : unit === 'G' ? 1000000000 : 1;
+  return Math.round(num * mult);
+}
 function resolveCover(cover){
   if (!cover) return null;
   if (/^https?:\/\//i.test(cover)) return cover;
@@ -1646,24 +1687,40 @@ function resolveCover(cover){
   return `pics/${cover}`;
 }
 function parseOneTrack(line){
-  let parts;
-  if (line.includes('|')) parts = line.split('|').map(s => s.trim());
-  else parts = line.split(/\s+-\s+/).map(s => s.trim());
+  const parts = line.split(/\s+-\s+/).map(s => s.trim()).filter(Boolean);
+  let plays = null, duration = null, cover = null;
 
-  let artist = '', title = '', cover = '';
-  const last = parts[parts.length - 1] || '';
-  const lastIsFile = IMG_EXT_RE.test(last);
+  if (parts.length){
+    const d = parseDurationStr(parts[parts.length - 1]);
+    if (d !== null){ duration = d; parts.pop(); }
+  }
+  if (parts.length){
+    const p = parseSizeStr(parts[parts.length - 1]);
+    if (p !== null){ plays = p; parts.pop(); }
+  }
+  if (parts.length > 1){
+    const last = parts[parts.length - 1];
+    if (IMG_EXT_RE.test(last)){ cover = last; parts.pop(); }
+  }
 
-  if (parts.length >= 3 && lastIsFile){
-    artist = parts[0]; title = parts.slice(1, -1).join(' - '); cover = last;
-  } else if (parts.length >= 2){
-    artist = parts[0]; title = parts.slice(1).join(' - ');
-  } else {
-    title = parts[0] || '';
+  let artist = '', title = '';
+  if (parts.length >= 2){
+    artist = parts[0];
+    title = parts.slice(1).join(' - ');
+  } else if (parts.length === 1){
+    title = parts[0];
   }
   if (!title) return null;
+
   const c = colorsFor(title + artist);
-  return { id: nextTrackId++, title, artist: artist || '—', cover: resolveCover(cover), c1: c.c1, c2: c.c2 };
+  return {
+    id: nextTrackId++,
+    title,
+    artist: artist || '—',
+    cover: resolveCover(cover),
+    c1: c.c1, c2: c.c2,
+    plays, duration,
+  };
 }
 function parseTracks(text){
   const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
@@ -1720,6 +1777,7 @@ async function loadTracks(){
 function showScreen(name){
   Object.values(screens).forEach(s => s.classList.remove('active'));
   screens[name].classList.add('active');
+  document.body.classList.toggle('in-game', name !== 'menu' && name !== 'modes');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 function openModal(id){ document.getElementById(id).classList.add('open'); }
@@ -1756,12 +1814,39 @@ const MODE_DESCRIPTIONS = {
   chronology: {
     title: 'Хронология',
     text: 'Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра, обычно 30–50 минут, требует внимания.',
-    reward: 'Награда: <b>1–350 баллов</b>. Ориентир — 35 минут. Точность критична: чем хуже расстановка, тем меньше награда.',
+    reward: 'Награда: <b>база 400</b>. Множитель точности: 100% → ×1.00, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир 35 минут, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~640 баллов.',
   },
   odd: {
     title: 'Кто лишний',
-    text: '30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты. Есть два режима: обложки и названия.',
-    reward: 'Награда: <b>1–45 баллов</b>. Ориентир — 2 минуты. Точность критична: 30% дают в разы меньше, чем 90%.',
+    text: '30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты.',
+    reward: 'Выбери подкатегорию ниже, чтобы увидеть точную формулу баллов.',
+  },
+  compare: {
+    title: 'Что больше?',
+    text: '30 раундов по две карточки. Нужно угадать, где значение выше. После клика цифра внутри квадрата растёт от нуля до реального значения, а карточка подсвечивается.',
+    reward: 'Выбери подкатегорию ниже, чтобы увидеть точную формулу баллов.',
+  },
+};
+
+const ODD_SUBMODE_DESCRIPTIONS = {
+  covers: {
+    text: 'У трёх треков обложки правильные, у одного — подменённая на чужую из папки pics. Ищи трек с неправильной обложкой.',
+    reward: 'Награда: <b>база 30</b>. Множитель точности (квадратично): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир 2 минуты, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~48 баллов.',
+  },
+  titles: {
+    text: 'У трёх треков названия правильные, у одного — с незаметной опечаткой (убрана, удвоена или переставлена буква). Ищи трек с ошибкой.',
+    reward: 'Награда: <b>база 30 + 5 бонус</b> за режим «Названия». Множитель точности такой же квадратичный, ориентир времени — 2 минуты. Итог: от 1 до ~53 баллов.',
+  },
+};
+
+const CMP_SUBMODE_DESCRIPTIONS = {
+  plays: {
+    text: 'Угадываешь, у какого из двух треков больше прослушиваний. После клика цифры растут от нуля до реального значения.',
+    reward: 'Награда: <b>база 50</b>. Множитель точности (квадратично): 100% → ×1.00, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир <b>2 минуты 30 секунд</b>, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~80 баллов.',
+  },
+  duration: {
+    text: 'Угадываешь, какой из двух треков длиннее. После клика цифры растут от нуля до реальной длины трека.',
+    reward: 'Награда: <b>база 75</b> (в 1.5 раза выше, чем за прослушивания). Ориентир времени — <b>2 минуты 30 секунд</b>. Множители точности и времени работают так же. Итог: от 1 до ~120 баллов.',
   },
 };
 
@@ -1773,9 +1858,18 @@ function renderModeDescription(){
     return;
   }
 
-  const data = MODE_DESCRIPTIONS[selectedMode];
-  modeDescEl.className = 'mode-desc has-content';
+  let data = MODE_DESCRIPTIONS[selectedMode];
 
+  if (selectedMode === 'odd'){
+    const sub = ODD_SUBMODE_DESCRIPTIONS[selectedOddSubmode];
+    data = { ...data, text: sub.text, reward: sub.reward };
+  }
+  if (selectedMode === 'compare'){
+    const sub = CMP_SUBMODE_DESCRIPTIONS[selectedCmpSubmode];
+    data = { ...data, text: sub.text, reward: sub.reward };
+  }
+
+  modeDescEl.className = 'mode-desc has-content';
   let html = `
     <div class="mode-desc-title">${data.title}</div>
     <div class="mode-desc-text">${data.text}</div>
@@ -1783,20 +1877,29 @@ function renderModeDescription(){
   `;
 
   if (selectedMode === 'odd'){
-    html += `
-      <div class="mode-submodes">
-        <button class="mode-submode-btn ${selectedOddSubmode === 'covers' ? 'active' : ''}" data-submode="covers">Обложки</button>
-        <button class="mode-submode-btn ${selectedOddSubmode === 'titles' ? 'active' : ''}" data-submode="titles">Названия</button>
-      </div>
-    `;
+    html += `<div class="mode-submodes">
+      <button class="mode-submode-btn ${selectedOddSubmode === 'covers' ? 'active' : ''}" data-submode="covers">Обложки</button>
+      <button class="mode-submode-btn ${selectedOddSubmode === 'titles' ? 'active' : ''}" data-submode="titles">Названия</button>
+    </div>`;
   }
-
+  if (selectedMode === 'compare'){
+    html += `<div class="mode-submodes">
+      <button class="mode-submode-btn ${selectedCmpSubmode === 'plays' ? 'active' : ''}" data-csubmode="plays">Прослушивания</button>
+      <button class="mode-submode-btn ${selectedCmpSubmode === 'duration' ? 'active' : ''}" data-csubmode="duration">Длительность</button>
+    </div>`;
+  }
   modeDescEl.innerHTML = html;
   btnModeStart.disabled = false;
 
-  modeDescEl.querySelectorAll('.mode-submode-btn').forEach(btn => {
+  modeDescEl.querySelectorAll('.mode-submode-btn[data-submode]').forEach(btn => {
     btn.addEventListener('click', () => {
       selectedOddSubmode = btn.dataset.submode;
+      renderModeDescription();
+    });
+  });
+  modeDescEl.querySelectorAll('.mode-submode-btn[data-csubmode]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      selectedCmpSubmode = btn.dataset.csubmode;
       renderModeDescription();
     });
   });
@@ -1817,21 +1920,22 @@ btnModeStart.addEventListener('click', () => {
   if (selectedMode === 'tournament') runTournamentFlow();
   else if (selectedMode === 'chronology') runChronologyFlow();
   else if (selectedMode === 'odd') runOddFlow(selectedOddSubmode);
+  else if (selectedMode === 'compare') runCompareFlow(selectedCmpSubmode);
 });
 
 btnModeBack.addEventListener('click', () => {
-  // Сброс выбора
   selectedMode = null;
   selectedOddSubmode = 'covers';
+  selectedCmpSubmode = 'plays';
   modeCardsEl.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
   renderModeDescription();
   showScreen('menu');
 });
 
 document.getElementById('btnStart').addEventListener('click', () => {
-  // Сброс выбора при каждом входе
   selectedMode = null;
   selectedOddSubmode = 'covers';
+  selectedCmpSubmode = 'plays';
   modeCardsEl.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
   renderModeDescription();
   showScreen('modes');
@@ -1844,7 +1948,17 @@ document.getElementById('closeHistoryX').addEventListener('click', () => closeMo
 historyModal.addEventListener('click', e => { if (e.target === historyModal) closeModal('historyModal'); });
 
 /* ====================== RECORDS ====================== */
-const RECORDS_KEY = 'kaiAngelTracksGame_records_v5';
+const RECORDS_KEY = 'kaiAngelTracksGame_records_v9';
+const LEGACY_KEYS = [
+  'kaiAngelTracksGame_records_v8',
+  'kaiAngelTracksGame_records_v7',
+  'kaiAngelTracksGame_records_v6',
+  'kaiAngelTracksGame_records_v5',
+  'kaiAngelTracksGame_records_v4',
+  'kaiAngelTracksGame_records_v3',
+  'kaiAngelTracksGame_records_v2',
+  'kaiAngelTracksGame_records_v1',
+];
 const MAX_LIST = 20;
 const MAX_HISTORY = 10;
 
@@ -1856,31 +1970,47 @@ function defaultRecords(){
     chronologyAccuracy: [],
     chronologyRatio: [],
     oddOneOut: [],
+    comparisonResults: [],
     totalPoints: 0,
     history: [],
+  };
+}
+function normalizeRecords(raw){
+  const r = raw || {};
+  return {
+    trackPoints: r.trackPoints || {},
+    tournamentTimes: Array.isArray(r.tournamentTimes) ? r.tournamentTimes : [],
+    chronologyTimes: Array.isArray(r.chronologyTimes) ? r.chronologyTimes : [],
+    chronologyAccuracy: Array.isArray(r.chronologyAccuracy) ? r.chronologyAccuracy : [],
+    chronologyRatio: Array.isArray(r.chronologyRatio) ? r.chronologyRatio : [],
+    oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
+    comparisonResults: Array.isArray(r.comparisonResults) ? r.comparisonResults : [],
+    totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
+    history: Array.isArray(r.history) ? r.history : [],
   };
 }
 function loadRecords(){
   try {
     const raw = localStorage.getItem(RECORDS_KEY);
-    if (!raw) return defaultRecords();
-    const r = JSON.parse(raw);
-    return {
-      trackPoints: r.trackPoints || {},
-      tournamentTimes: Array.isArray(r.tournamentTimes) ? r.tournamentTimes : [],
-      chronologyTimes: Array.isArray(r.chronologyTimes) ? r.chronologyTimes : [],
-      chronologyAccuracy: Array.isArray(r.chronologyAccuracy) ? r.chronologyAccuracy : [],
-      chronologyRatio: Array.isArray(r.chronologyRatio) ? r.chronologyRatio : [],
-      oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
-      totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
-      history: Array.isArray(r.history) ? r.history : [],
-    };
+    if (raw){
+      try { return normalizeRecords(JSON.parse(raw)); } catch {}
+    }
+    for (const key of LEGACY_KEYS){
+      const legacyRaw = localStorage.getItem(key);
+      if (legacyRaw){
+        try {
+          const migrated = normalizeRecords(JSON.parse(legacyRaw));
+          try { localStorage.setItem(RECORDS_KEY, JSON.stringify(migrated)); } catch {}
+          return migrated;
+        } catch {}
+      }
+    }
+    return defaultRecords();
   } catch { return defaultRecords(); }
 }
 function saveRecords(r){
   try { localStorage.setItem(RECORDS_KEY, JSON.stringify(r)); } catch(e){ console.warn(e); }
 }
-
 function addPointsToHistory(points, type, label, detail){
   const r = loadRecords();
   r.totalPoints = (r.totalPoints || 0) + points;
@@ -1889,23 +2019,18 @@ function addPointsToHistory(points, type, label, detail){
   saveRecords(r);
   refreshPointsBadge();
 }
-
 function refreshPointsBadge(){
   const r = loadRecords();
-  const v = r.totalPoints || 0;
-  pointsValueEl.textContent = v.toLocaleString('ru-RU');
+  pointsValueEl.textContent = (r.totalPoints || 0).toLocaleString('ru-RU');
 }
-
 function renderHistoryModal(){
   const r = loadRecords();
   const body = document.getElementById('historyBody');
   const hist = r.history || [];
-
   if (!hist.length){
     body.innerHTML = `<div class="records-empty"><div class="txt">Ещё нет сыгранных игр</div></div>`;
     return;
   }
-
   let html = `<div class="history-list">`;
   hist.forEach(h => {
     html += `<div class="history-item ${h.type}">
@@ -1924,7 +2049,6 @@ function computeTrackPoints(bracket, totalTracks){
   const survived = {};
   const info = {};
   const keyOf = t => `${t.artist}||${t.title}`;
-
   bracket.forEach(round => {
     round.matches.forEach(m => {
       const wk = keyOf(m.winner);
@@ -1938,10 +2062,8 @@ function computeTrackPoints(bracket, totalTracks){
       }
     });
   });
-
   const arr = Object.entries(survived).map(([k, v]) => ({ key: k, survived: v, ...info[k] }));
   arr.sort((a, b) => b.survived - a.survived);
-
   const result = {};
   let currentRank = 1, lastV = null;
   arr.forEach((item, i) => {
@@ -1954,7 +2076,6 @@ function computeTrackPoints(bracket, totalTracks){
   });
   return result;
 }
-
 function saveTournamentResult(timeSec, trackPoints){
   const r = loadRecords();
   Object.entries(trackPoints).forEach(([k, v]) => {
@@ -1967,7 +2088,6 @@ function saveTournamentResult(timeSec, trackPoints){
   r.tournamentTimes = r.tournamentTimes.slice(0, MAX_LIST);
   saveRecords(r);
 }
-
 function saveChronologyResult(timeSec, percent, correct, total, albumCorrect, totalAlbums){
   const r = loadRecords();
   const entry = { time: timeSec, percent, correct, total, albumCorrect, totalAlbums, tracks: allTracks.length, date: Date.now() };
@@ -1982,12 +2102,18 @@ function saveChronologyResult(timeSec, percent, correct, total, albumCorrect, to
   r.chronologyRatio = r.chronologyRatio.slice(0, MAX_LIST);
   saveRecords(r);
 }
-
 function saveOddResult(entry){
   const r = loadRecords();
   r.oddOneOut.push(entry);
   r.oddOneOut.sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime);
   r.oddOneOut = r.oddOneOut.slice(0, MAX_LIST);
+  saveRecords(r);
+}
+function saveCompareResult(entry){
+  const r = loadRecords();
+  r.comparisonResults.push(entry);
+  r.comparisonResults.sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime);
+  r.comparisonResults = r.comparisonResults.slice(0, MAX_LIST);
   saveRecords(r);
 }
 
@@ -1996,23 +2122,29 @@ function renderGeneralStatsHTML(r){
   const tournCount = r.tournamentTimes.length;
   const chronoCount = r.chronologyTimes.length;
   const oddCount = r.oddOneOut.length;
-  const totalGames = tournCount + chronoCount + oddCount;
+  const cmpCount = r.comparisonResults.length;
+  const totalGames = tournCount + chronoCount + oddCount + cmpCount;
 
   const tournTime = r.tournamentTimes.reduce((a, e) => a + e.time, 0);
   const chronoTime = r.chronologyTimes.reduce((a, e) => a + e.time, 0);
   const oddTime = r.oddOneOut.reduce((a, e) => a + (e.totalTime || 0), 0);
-  const totalTime = tournTime + chronoTime + oddTime;
+  const cmpTime = r.comparisonResults.reduce((a, e) => a + (e.totalTime || 0), 0);
+  const totalTime = tournTime + chronoTime + oddTime + cmpTime;
 
   const avgTourn = tournCount ? tournTime / tournCount : 0;
   const avgChrono = chronoCount ? chronoTime / chronoCount : 0;
   const avgOdd = oddCount ? oddTime / oddCount : 0;
+  const avgCmp = cmpCount ? cmpTime / cmpCount : 0;
 
   const avgChronoAcc = chronoCount ? r.chronologyTimes.reduce((a, e) => a + e.percent, 0) / chronoCount : 0;
   const avgOddAcc = oddCount ? r.oddOneOut.reduce((a, e) => a + e.accuracy, 0) / oddCount : 0;
-  const totalAccuracySamples = chronoCount + oddCount;
+  const avgCmpAcc = cmpCount ? r.comparisonResults.reduce((a, e) => a + e.accuracy, 0) / cmpCount : 0;
+
+  const totalAccuracySamples = chronoCount + oddCount + cmpCount;
   const totalAccuracySum =
     (chronoCount ? r.chronologyTimes.reduce((a, e) => a + e.percent, 0) : 0) +
-    (oddCount ? r.oddOneOut.reduce((a, e) => a + e.accuracy, 0) : 0);
+    (oddCount ? r.oddOneOut.reduce((a, e) => a + e.accuracy, 0) : 0) +
+    (cmpCount ? r.comparisonResults.reduce((a, e) => a + e.accuracy, 0) : 0);
   const avgAccuracy = totalAccuracySamples ? totalAccuracySum / totalAccuracySamples : 0;
 
   const totalPoints = r.totalPoints || 0;
@@ -2020,46 +2152,23 @@ function renderGeneralStatsHTML(r){
   if (totalGames === 0){
     return `<div class="stats-general">
       <div class="stats-general-hero">
-        <div class="stats-hero-item">
-          <span class="stats-hero-label">Всего баллов</span>
-          <span class="stats-hero-value purple">0</span>
-        </div>
-        <div class="stats-hero-item">
-          <span class="stats-hero-label">Всего игр</span>
-          <span class="stats-hero-value">0</span>
-        </div>
+        <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">0</span></div>
+        <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">0</span></div>
       </div>
-      <div class="stats-block">
-        <div class="stats-block-empty">Сыграй любую игру, чтобы собрать статистику</div>
-      </div>
+      <div class="stats-block"><div class="stats-block-empty">Сыграй любую игру, чтобы собрать статистику</div></div>
     </div>`;
   }
 
   return `<div class="stats-general">
     <div class="stats-general-hero">
-      <div class="stats-hero-item">
-        <span class="stats-hero-label">Всего баллов</span>
-        <span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span>
-      </div>
-      <div class="stats-hero-item">
-        <span class="stats-hero-label">Всего игр</span>
-        <span class="stats-hero-value">${totalGames}</span>
-      </div>
-      <div class="stats-hero-item">
-        <span class="stats-hero-label">Общее время</span>
-        <span class="stats-hero-value">${formatDuration(totalTime)}</span>
-      </div>
-      <div class="stats-hero-item">
-        <span class="stats-hero-label">Средняя точность</span>
-        <span class="stats-hero-value">${totalAccuracySamples ? avgAccuracy.toFixed(1) + '%' : '—'}</span>
-      </div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">${totalGames}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Общее время</span><span class="stats-hero-value">${formatDuration(totalTime)}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Средняя точность</span><span class="stats-hero-value">${totalAccuracySamples ? avgAccuracy.toFixed(1) + '%' : '—'}</span></div>
     </div>
 
     <div class="stats-block">
-      <div class="stats-block-head">
-        <div class="stats-block-title">Турнир</div>
-        <div class="stats-block-count">${tournCount}</div>
-      </div>
+      <div class="stats-block-head"><div class="stats-block-title">Турнир</div><div class="stats-block-count">${tournCount}</div></div>
       <div class="stats-block-rows">
         ${tournCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(tournTime)}</b></div>
@@ -2071,10 +2180,7 @@ function renderGeneralStatsHTML(r){
     </div>
 
     <div class="stats-block">
-      <div class="stats-block-head">
-        <div class="stats-block-title">Хронология</div>
-        <div class="stats-block-count">${chronoCount}</div>
-      </div>
+      <div class="stats-block-head"><div class="stats-block-title">Хронология</div><div class="stats-block-count">${chronoCount}</div></div>
       <div class="stats-block-rows">
         ${chronoCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(chronoTime)}</b></div>
@@ -2087,10 +2193,7 @@ function renderGeneralStatsHTML(r){
     </div>
 
     <div class="stats-block">
-      <div class="stats-block-head">
-        <div class="stats-block-title">Кто лишний</div>
-        <div class="stats-block-count">${oddCount}</div>
-      </div>
+      <div class="stats-block-head"><div class="stats-block-title">Кто лишний</div><div class="stats-block-count">${oddCount}</div></div>
       <div class="stats-block-rows">
         ${oddCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(oddTime)}</b></div>
@@ -2101,18 +2204,32 @@ function renderGeneralStatsHTML(r){
         ` : `<div class="stats-block-empty">Ещё не сыграно ни одной партии «Кто лишний»</div>`}
       </div>
     </div>
+
+    <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">Что больше</div><div class="stats-block-count">${cmpCount}</div></div>
+      <div class="stats-block-rows">
+        ${cmpCount ? `
+          <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(cmpTime)}</b></div>
+          <div class="stats-block-row"><span class="lbl">Среднее время</span><b>${formatDuration(avgCmp)}</b></div>
+          <div class="stats-block-row"><span class="lbl">Средняя точность</span><b>${avgCmpAcc.toFixed(1)}%</b></div>
+          <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.comparisonResults.reduce((m, e) => Math.max(m, e.accuracy), 0)).toFixed(2)}%</b></div>
+          <div class="stats-block-row"><span class="lbl">Лучшее время</span><b>${formatTime(Math.min(...r.comparisonResults.map(e => e.totalTime)))}</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно ни одной партии «Что больше»</div>`}
+      </div>
+    </div>
   </div>`;
 }
 
 let recordsTab = 'general';
-let oddSubtab = 'covers';
+let oddSubtab = 'all';
 let tournSubtab = 'records';
+let cmpSubtab = 'all';
 
 function renderRecords(){
   const r = loadRecords();
   const body = document.getElementById('recordsBody');
   const count = document.getElementById('recordsCount');
-  const total = r.tournamentTimes.length + r.chronologyTimes.length + r.oddOneOut.length;
+  const total = r.tournamentTimes.length + r.chronologyTimes.length + r.oddOneOut.length + r.comparisonResults.length;
 
   if (recordsTab === 'general'){
     count.textContent = `Всего баллов: ${(r.totalPoints || 0).toLocaleString('ru-RU')}`;
@@ -2120,7 +2237,7 @@ function renderRecords(){
     return;
   }
 
-  count.textContent = `Турниров: ${r.tournamentTimes.length} · Хронологий: ${r.chronologyTimes.length} · Кто лишний: ${r.oddOneOut.length}`;
+  count.textContent = `Турниров: ${r.tournamentTimes.length} · Хронологий: ${r.chronologyTimes.length} · Кто лишний: ${r.oddOneOut.length} · Что больше: ${r.comparisonResults.length}`;
 
   if (recordsTab === 'tournament'){
     const subtabsHtml = `<div class="records-subtabs">
@@ -2148,7 +2265,6 @@ function renderRecords(){
       bindTournSubtabs();
       return;
     }
-
     const arr = Object.values(r.trackPoints).sort((a, b) => b.points - a.points).slice(0, 20);
     if (!arr.length){
       body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет данных. Сыграй турнир, чтобы собрать статистику треков.');
@@ -2214,9 +2330,9 @@ function renderRecords(){
 
   else if (recordsTab === 'odd'){
     const subtabsHtml = `<div class="records-subtabs">
+      <button data-ostab="all" class="${oddSubtab === 'all' ? 'active' : ''}">Все</button>
       <button data-ostab="covers" class="${oddSubtab === 'covers' ? 'active' : ''}">Обложки</button>
       <button data-ostab="titles" class="${oddSubtab === 'titles' ? 'active' : ''}">Названия</button>
-      <button data-ostab="all" class="${oddSubtab === 'all' ? 'active' : ''}">Все</button>
     </div>`;
 
     const filtered = r.oddOneOut.filter(e => {
@@ -2283,6 +2399,78 @@ function renderRecords(){
     body.innerHTML = html;
     bindOddSubtabs();
   }
+
+  else if (recordsTab === 'compare'){
+    const subtabsHtml = `<div class="records-subtabs">
+      <button data-cstab="all" class="${cmpSubtab === 'all' ? 'active' : ''}">Все</button>
+      <button data-cstab="plays" class="${cmpSubtab === 'plays' ? 'active' : ''}">Прослушивания</button>
+      <button data-cstab="duration" class="${cmpSubtab === 'duration' ? 'active' : ''}">Длительность</button>
+    </div>`;
+
+    const filtered = r.comparisonResults.filter(e => {
+      const m = e.mode || 'plays';
+      return cmpSubtab === 'all' ? true : m === cmpSubtab;
+    });
+
+    if (!filtered.length){
+      body.innerHTML = subtabsHtml + emptyRecordsHTML(
+        cmpSubtab === 'plays' ? 'Нет результатов в режиме «Прослушивания».'
+        : cmpSubtab === 'duration' ? 'Нет результатов в режиме «Длительность».'
+        : 'Пока нет ни одного результата в «Что больше».'
+      );
+      bindCmpSubtabs();
+      return;
+    }
+
+    let html = subtabsHtml;
+    const modeBadge = (m) => {
+      const label = m === 'duration' ? 'Длительность' : 'Прослушивания';
+      return `<span class="ri-mode ${m === 'duration' ? 'duration' : 'plays'}">${label}</span>`;
+    };
+
+    const byAccuracy = filtered.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 5);
+    html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
+    byAccuracy.forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      const m = e.mode || 'plays';
+      html += `<div class="record-item">
+        <div class="ri-rank ${rc}">${i + 1}</div>
+        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
+        <div class="ri-score green">${e.correct}/${e.total}</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+
+    const byTime = filtered.slice().sort((a, b) => a.totalTime - b.totalTime || b.accuracy - a.accuracy).slice(0, 5);
+    html += `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
+    byTime.forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      const m = e.mode || 'plays';
+      html += `<div class="record-item">
+        <div class="ri-rank ${rc}">${i + 1}</div>
+        <div class="ri-info"><div class="ri-title">${formatTime(e.totalTime)} ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.accuracy.toFixed(2)}% · ср. ${formatSeconds(e.avgTime)} · макс ${formatSeconds(e.maxTime)}</div></div>
+        <div class="ri-score blue">${e.accuracy.toFixed(0)}%</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+
+    const byRatio = filtered.slice().map(e => ({ ...e, ratio: e.accuracy / (e.totalTime + 1) }))
+      .sort((a, b) => b.ratio - a.ratio).slice(0, 5);
+    html += `<div class="record-section"><div class="record-section-title">Лучший баланс скорость / точность</div><div class="record-list">`;
+    byRatio.forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      const m = e.mode || 'plays';
+      html += `<div class="record-item">
+        <div class="ri-rank ${rc}">${i + 1}</div>
+        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% за ${formatTime(e.totalTime)} ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
+        <div class="ri-score blue">${e.ratio.toFixed(2)}</div>
+      </div>`;
+    });
+    html += `</div></div>`;
+
+    body.innerHTML = html;
+    bindCmpSubtabs();
+  }
 }
 
 function bindOddSubtabs(){
@@ -2295,7 +2483,6 @@ function bindOddSubtabs(){
     });
   });
 }
-
 function bindTournSubtabs(){
   const wrap = document.querySelector('.records-subtabs');
   if (!wrap) return;
@@ -2306,7 +2493,16 @@ function bindTournSubtabs(){
     });
   });
 }
-
+function bindCmpSubtabs(){
+  const wrap = document.querySelector('.records-subtabs');
+  if (!wrap) return;
+  wrap.querySelectorAll('button[data-cstab]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      cmpSubtab = btn.dataset.cstab;
+      renderRecords();
+    });
+  });
+}
 function emptyRecordsHTML(msg){
   return `<div class="records-empty"><div class="txt">${esc(msg)}</div></div>`;
 }
@@ -2460,8 +2656,10 @@ function showChampion(){
   const trackPoints = computeTrackPoints(bracket, allTracks.length);
   saveTournamentResult(totalSeconds, trackPoints);
 
-  const earned = calcTournamentPoints();
-  addPointsToHistory(earned, 'tournament', 'Турнир', `${formatTime(totalSeconds)} · ${allTracks.length} треков`);
+  const bd = calcTournamentBreakdown();
+  addPointsToHistory(bd.total, 'tournament', 'Турнир', `${formatTime(totalSeconds)} · ${allTracks.length} треков`);
+
+  const totalAfter = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
 
   arena.className = 'arena champion-screen';
   arena.innerHTML = `
@@ -2470,10 +2668,8 @@ function showChampion(){
       <h2>${esc(t.title)}</h2>
       <p>${esc(t.artist)}</p>
       <div class="badge">Победитель · <span class="time">${formatTime(totalSeconds)}</span></div>
-      <div class="points-earned">
-        <span>+${earned} баллов</span>
-        <span class="pe-total">всего: ${(loadRecords().totalPoints || 0).toLocaleString('ru-RU')}</span>
-      </div>
+      ${renderPointsBreakdownHTML(bd, { showAccuracy: false, showSpeed: false })}
+      <div class="pb-total-line">Всего: <b>${totalAfter}</b></div>
     </div>
     <div class="bracket-wrap">
       <div class="bracket-title">Сетка турнира · все места</div>
@@ -2609,7 +2805,6 @@ function buildChronoBoard(){
   chronoBoardEl.innerHTML = html;
   updatePlacedCount();
 }
-
 function startChronoTimer(){
   stopChronoTimer();
   chronoStartTime = Date.now();
@@ -2620,14 +2815,12 @@ function startChronoTimer(){
 function updateChronoTimer(){ chronoTimerEl.textContent = formatTime(Math.floor((Date.now() - chronoStartTime) / 1000)); }
 function stopChronoTimer(){ if (chronoTimerInterval) clearInterval(chronoTimerInterval); chronoTimerInterval = null; chronoTimerPill.classList.add('stopped'); }
 function getChronoElapsed(){ return Math.floor((Date.now() - chronoStartTime) / 1000); }
-
 function startChronology(){
   buildChronoBoard();
   startChronoTimer();
   chronoInfo.textContent = 'Перетащи треки в нужные разделы';
   showScreen('chronology');
 }
-
 function fillSlot(slot, trackId){
   const t = allTracks.find(x => x.id === trackId);
   if (!t) return;
@@ -2676,7 +2869,6 @@ function updatePlacedCount(){
   finishBtn.disabled = !allFilled;
   finishBtn.textContent = allFilled ? 'Закончить' : `Заполни все (${filled} / ${total})`;
 }
-
 function updatePoolEmptyPlaceholder(show){
   let el = poolEl.querySelector('.pool-empty');
   if (show && !el){
@@ -2686,7 +2878,6 @@ function updatePoolEmptyPlaceholder(show){
     poolEl.appendChild(el);
   } else if (!show && el) el.remove();
 }
-
 function updateAlbumCovers(){
   chronoBoardEl.querySelectorAll('.album-block').forEach(block => {
     const hasTracks = block.querySelector('.slot.filled') !== null;
@@ -2698,12 +2889,10 @@ function updateAlbumCovers(){
     else if (!hasTracks) coverEl.classList.remove('revealed');
   });
 }
-
 function applyPoolFilter(){
   if (!poolSearchEl) return;
   const q = poolSearchEl.value.trim().toLowerCase();
   const items = poolEl.querySelectorAll('.pool-item');
-
   if (!q){
     items.forEach(el => el.classList.remove('hidden-search'));
   } else {
@@ -2762,7 +2951,6 @@ function onPointerDown(e){
   };
   e.preventDefault();
 }
-
 function onPointerMove(e){
   if (!dragging) return;
   const dx = e.clientX - dragging.startX;
@@ -2782,7 +2970,6 @@ function onPointerMove(e){
     if (t && t !== dragging.sourceEl) t.classList.add('highlight');
   }
 }
-
 function onPointerUp(e){
   if (!dragging) return;
   const d = dragging;
@@ -2834,7 +3021,6 @@ function onPointerUp(e){
   }
   d.sourceEl.classList.remove('dragging-source');
 }
-
 function swapAlbumBlocks(a, b){
   const aHTML = a.innerHTML;
   const bHTML = b.innerHTML;
@@ -2845,7 +3031,6 @@ function swapAlbumBlocks(a, b){
   b.dataset.albumIdx = aIdx;
   updateAlbumCovers();
 }
-
 function finishChronology(){
   if (chronoFinished) return;
   const slots = chronoBoardEl.querySelectorAll('.slot');
@@ -2899,7 +3084,6 @@ function finishChronology(){
 
   const correctAlbums = albumOrder.filter(a => a.ok).length;
   const totalAlbums = albumOrder.length;
-
   const totalAnswers = slotData.length + totalAlbums;
   const totalCorrect = correct + correctAlbums;
   const totalIncorrect = incorrect + (totalAlbums - correctAlbums);
@@ -2907,31 +3091,17 @@ function finishChronology(){
 
   saveChronologyResult(elapsed, percent, totalCorrect, totalAnswers, correctAlbums, totalAlbums);
 
-  const earned = calcChronologyPoints(elapsed, percent);
-  addPointsToHistory(earned, 'chronology', 'Хронология', `${formatTime(elapsed)} · ${percent.toFixed(1)}%`);
+  const bd = calcChronologyBreakdown(elapsed, percent);
+  addPointsToHistory(bd.total, 'chronology', 'Хронология', `${formatTime(elapsed)} · ${percent.toFixed(1)}%`);
 
-  lastResults = {
-    percent,
-    correct: totalCorrect,
-    incorrect: totalIncorrect,
-    total: totalAnswers,
-    elapsed,
-    correctAlbums,
-    totalAlbums,
-    earnedPoints: earned,
-    details, albumOrder,
-  };
-
+  lastResults = { percent, correct: totalCorrect, incorrect: totalIncorrect, total: totalAnswers, elapsed, correctAlbums, totalAlbums, earnedBreakdown: bd, details, albumOrder };
   chronoInfo.textContent = 'Результат';
   openResultsModal(lastResults);
 }
-
-/* ====================== МОДАЛКА РЕЗУЛЬТАТОВ ХРОНОЛОГИИ ====================== */
 function openResultsModal(r){
   document.getElementById('resultPercent').textContent = r.percent.toFixed(2) + '%';
   const pctEl = document.getElementById('resultPercent');
   pctEl.className = 'results-percent ' + (r.percent >= 90 ? 'good' : r.percent >= 60 ? 'mid' : 'bad');
-
   document.getElementById('rgCorrect').textContent = r.correct;
   document.getElementById('rgIncorrect').textContent = r.incorrect;
   document.getElementById('rgTime').textContent = formatTime(r.elapsed);
@@ -2939,58 +3109,50 @@ function openResultsModal(r){
 
   const wrap = document.getElementById('rgPointsWrap');
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
-  wrap.innerHTML = `<div class="points-earned" style="display:inline-flex">
-    <span>+${r.earnedPoints} баллов</span>
-    <span class="pe-total">всего: ${total}</span>
-  </div>`;
+  const target = r.earnedBreakdown.midTimeSec ? formatTime(r.earnedBreakdown.midTimeSec) : '';
+  const timeValue = target ? `${formatTime(r.elapsed)} / ${target}` : formatTime(r.elapsed);
+  wrap.innerHTML = `${renderPointsBreakdownHTML(r.earnedBreakdown, {
+    percentLabel: r.percent.toFixed(1) + '%',
+    timeLabel: timeValue,
+  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
 
   resultTab = 'all';
   document.querySelectorAll('.results-tabs button').forEach(b => b.classList.toggle('active', b.dataset.rtab === 'all'));
   renderResultsList();
   openModal('resultsModal');
 }
-
 function renderResultsList(){
   if (!lastResults) return;
   const list = document.getElementById('resultsList');
   const r = lastResults;
-
   const items = resultTab === 'errors' ? r.details.filter(d => !d.ok) : r.details;
   const allAlbumsOk = r.albumOrder.every(a => a.ok);
-
   if (resultTab === 'errors' && items.length === 0 && allAlbumsOk){
     list.innerHTML = `<div class="results-perfect"><div class="rp-text">Идеально! Ни одной ошибки</div></div>`;
     return;
   }
-
   const groups = new Map();
   items.forEach(d => {
     if (!groups.has(d.section)) groups.set(d.section, []);
     groups.get(d.section).push(d);
   });
-
   let html = '';
   let globalIdx = 0;
-
   groups.forEach((sectionItems, sectionName) => {
     const okCount = sectionItems.filter(i => i.ok).length;
     const totalCount = sectionItems.length;
     const countCls = okCount === totalCount ? 'all-correct' : 'has-errors';
-
     html += `<div class="rl-section">
       <div class="rl-section-header">
         <div class="rl-section-name">${esc(sectionName)}</div>
         <div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div>
       </div>`;
-
     sectionItems.forEach(item => {
       globalIdx++;
       const cls = item.ok ? 'correct' : 'wrong';
       const placedTitle = item.placed ? item.placed.title : '— пусто —';
       const placedArtist = item.placed ? item.placed.artist : '';
-      const hint = !item.ok
-        ? `<span class="rl-correct"><span class="arrow">→</span>${esc(item.correct.title)}</span>`
-        : '';
+      const hint = !item.ok ? `<span class="rl-correct"><span class="arrow">→</span>${esc(item.correct.title)}</span>` : '';
       html += `<div class="rl-row ${cls}">
         <span class="rl-num">${globalIdx}</span>
         <span class="rl-line">
@@ -3000,39 +3162,30 @@ function renderResultsList(){
         ${hint}
       </div>`;
     });
-
     html += `</div>`;
   });
-
   if (resultTab === 'all' && r.albumOrder.length){
     const okCount = r.albumOrder.filter(a => a.ok).length;
     const totalCount = r.albumOrder.length;
     const countCls = okCount === totalCount ? 'all-correct' : 'has-errors';
-
     html += `<div class="rl-section">
       <div class="rl-section-header">
         <div class="rl-section-name">Порядок альбомов</div>
         <div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div>
       </div>`;
-
     r.albumOrder.forEach((a, i) => {
       const cls = a.ok ? 'correct' : 'wrong';
-      const hint = !a.ok
-        ? `<span class="rl-correct"><span class="arrow">→</span>должен быть на ${a.correctIdx + 1} месте</span>`
-        : '';
+      const hint = !a.ok ? `<span class="rl-correct"><span class="arrow">→</span>должен быть на ${a.correctIdx + 1} месте</span>` : '';
       html += `<div class="rl-row ${cls}">
         <span class="rl-num">${i + 1}</span>
         <span class="rl-line"><span class="rl-title">${esc(a.name)}</span></span>
         ${hint}
       </div>`;
     });
-
     html += `</div>`;
   }
-
   list.innerHTML = html;
 }
-
 document.querySelectorAll('.results-tabs button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.results-tabs button').forEach(b => b.classList.remove('active'));
@@ -3063,7 +3216,6 @@ function stopOddTimer(){
   oddTimerInterval = null;
   oddTimerPill.classList.add('stopped');
 }
-
 function startOddGame(mode){
   oddMode = mode;
   oddRoundIndex = 0;
@@ -3072,6 +3224,7 @@ function startOddGame(mode){
   oddCorrectCount = 0;
   oddLocked = false;
   oddGameActive = true;
+  oddUsedIds = new Set();
   oddProgressBar.style.width = '0%';
   oddProgressPercent.textContent = '0%';
   oddInfo.textContent = `Раунд 1 / ${ODD_ROUNDS}`;
@@ -3079,12 +3232,10 @@ function startOddGame(mode){
   startOddTimer();
   nextOddRound();
 }
-
 function nextOddRound(){
-  if (oddRoundIndex >= ODD_ROUNDS){
-    finishOddGame();
-    return;
-  }
+  if (oddRoundIndex >= ODD_ROUNDS){ finishOddGame(); return; }
+
+  oddLocked = false;
 
   oddInfo.textContent = `Раунд ${oddRoundIndex + 1} / ${ODD_ROUNDS}`;
   const roundPct = (oddRoundIndex / ODD_ROUNDS) * 100;
@@ -3104,16 +3255,29 @@ function nextOddRound(){
     if (coverKeys.length < 5){ oddRoundIndex++; nextOddRound(); return; }
 
     const selectedCovers = shuffle(coverKeys).slice(0, 4);
-    const picks = selectedCovers.map(c => {
+    let picks = selectedCovers.map(c => {
       const arr = coverGroups[c];
-      return arr[Math.floor(Math.random() * arr.length)];
+      const fresh = arr.filter(t => !oddUsedIds.has(t.id));
+      const arr2 = fresh.length ? fresh : arr;
+      return arr2[Math.floor(Math.random() * arr2.length)];
     });
+
+    const ids = new Set(picks.map(t => t.id));
+    if (ids.size < picks.length){
+      oddUsedIds = new Set();
+      picks = selectedCovers.map(c => {
+        const arr = coverGroups[c];
+        return arr[Math.floor(Math.random() * arr.length)];
+      });
+    }
 
     const oddIndex = Math.floor(Math.random() * 4);
     const oddTrack = picks[oddIndex];
     const otherCovers = picks.filter((_, i) => i !== oddIndex).map(t => t.cover);
     const availableFakeCovers = coverKeys.filter(c => c !== oddTrack.cover && !otherCovers.includes(c));
     if (availableFakeCovers.length === 0){ oddRoundIndex++; nextOddRound(); return; }
+
+    picks.forEach(t => oddUsedIds.add(t.id));
 
     const fakeCover = availableFakeCovers[Math.floor(Math.random() * availableFakeCovers.length)];
     const cards = shuffle(picks.map((t, i) => ({
@@ -3125,7 +3289,6 @@ function nextOddRound(){
 
     oddCards = cards;
     oddCurrentOddId = oddTrack.id;
-    oddLocked = false;
     renderOddRound(cards);
     oddRoundStartTime = Date.now();
   }
@@ -3134,11 +3297,18 @@ function nextOddRound(){
     if (tracksWithCovers.length < 4){ oddRoundIndex = ODD_ROUNDS; finishOddGame(); return; }
 
     for (let attempt = 0; attempt < 40; attempt++){
-      const picks = shuffle(tracksWithCovers).slice(0, 4);
+      let pool = tracksWithCovers.filter(t => !oddUsedIds.has(t.id));
+      if (pool.length < 4){ oddUsedIds = new Set(); pool = tracksWithCovers; }
+
+      const picks = shuffle(pool).slice(0, 4);
+      if (new Set(picks.map(t => t.id)).size < 4) continue;
+
       const oddIndex = Math.floor(Math.random() * 4);
       const oddTrack = picks[oddIndex];
       const typo = makeTypo(oddTrack.title);
       if (!typo) continue;
+
+      picks.forEach(t => oddUsedIds.add(t.id));
 
       const cards = shuffle(picks.map((t, i) => ({
         track: t,
@@ -3149,7 +3319,6 @@ function nextOddRound(){
 
       oddCards = cards;
       oddCurrentOddId = oddTrack.id;
-      oddLocked = false;
       renderOddRound(cards);
       oddRoundStartTime = Date.now();
       return;
@@ -3157,7 +3326,6 @@ function nextOddRound(){
     oddRoundIndex++; nextOddRound();
   }
 }
-
 function renderOddRound(cards){
   oddGrid.innerHTML = cards.map(c => {
     const t = c.track;
@@ -3173,7 +3341,6 @@ function renderOddRound(cards){
     </div>`;
   }).join('');
 }
-
 oddGrid.addEventListener('click', (e) => {
   if (!oddGameActive || oddLocked) return;
   const card = e.target.closest('.odd-card');
@@ -3191,18 +3358,15 @@ oddGrid.addEventListener('click', (e) => {
   oddGrid.querySelectorAll('.odd-card').forEach(c => c.classList.add('disabled'));
   card.classList.add('selected');
 
-  setTimeout(() => {
-    oddRoundIndex++;
-    nextOddRound();
-  }, 220);
+  setTimeout(() => { oddRoundIndex++; nextOddRound(); }, 220);
 });
-
 function finishOddGame(){
   oddGameActive = false;
   stopOddTimer();
 
-  const totalTimeMs = oddRoundTimes.reduce((a, b) => a + b, 0);
-  const avgTimeMs = oddRoundTimes.length ? totalTimeMs / oddRoundTimes.length : 0;
+  // ВАЖНО: используем wall-clock (Date.now() - oddTimerStart), чтобы совпадало с таймером на экране
+  const totalTimeMs = Date.now() - oddTimerStart;
+  const avgTimeMs = oddRoundTimes.length ? (oddRoundTimes.reduce((a, b) => a + b, 0)) / oddRoundTimes.length : 0;
   const maxTimeMs = oddRoundTimes.length ? Math.max(...oddRoundTimes) : 0;
   const minTimeMs = oddRoundTimes.length ? Math.min(...oddRoundTimes) : 0;
   const accuracy = oddRoundResults.length ? (oddCorrectCount / oddRoundResults.length * 100) : 0;
@@ -3226,19 +3390,17 @@ function finishOddGame(){
 
   saveOddResult(entry);
 
-  const earned = calcOddPoints(entry.totalTime, entry.accuracy, oddMode);
+  const bd = calcOddBreakdown(entry.totalTime, entry.accuracy, oddMode);
   const modeLabel = oddMode === 'titles' ? 'Названия' : 'Обложки';
-  addPointsToHistory(earned, 'odd', `Кто лишний · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
+  addPointsToHistory(bd.total, 'odd', `Кто лишний · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
 
-  entry.earnedPoints = earned;
+  entry.earnedBreakdown = bd;
   showOddResults(entry);
 }
-
 function showOddResults(e){
   const pctEl = document.getElementById('oddResultPercent');
   pctEl.textContent = e.accuracy.toFixed(2) + '%';
   pctEl.className = 'results-percent ' + (e.accuracy >= 90 ? 'good' : e.accuracy >= 60 ? 'mid' : 'bad');
-
   document.getElementById('oddRgCorrect').textContent = e.correct;
   document.getElementById('oddRgIncorrect').textContent = e.total - e.correct;
   document.getElementById('oddRgTotal').textContent = formatTime(e.totalTime);
@@ -3247,10 +3409,12 @@ function showOddResults(e){
 
   const wrap = document.getElementById('oddRgPointsWrap');
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
-  wrap.innerHTML = `<div class="points-earned" style="display:inline-flex">
-    <span>+${e.earnedPoints} баллов</span>
-    <span class="pe-total">всего: ${total}</span>
-  </div>`;
+  const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
+  const timeValue = target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime);
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, {
+    percentLabel: e.accuracy.toFixed(1) + '%',
+    timeLabel: timeValue,
+  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
 
   let html = `<div class="odd-details-title">Все раунды · режим: ${e.mode === 'titles' ? 'Названия' : 'Обложки'}</div><div class="odd-details-list">`;
   e.rounds.forEach((r, i) => {
@@ -3264,12 +3428,243 @@ function showOddResults(e){
   });
   html += `</div>`;
   document.getElementById('oddDetails').innerHTML = html;
-
   openModal('oddResultsModal');
 }
-
 document.getElementById('oddPlayAgain').addEventListener('click', () => { closeModal('oddResultsModal'); runOddFlow(oddMode); });
 document.getElementById('oddToMenu').addEventListener('click', () => { closeModal('oddResultsModal'); showScreen('menu'); });
+
+/* ====================== ЧТО БОЛЬШЕ? ====================== */
+function startCmpTimer(){
+  stopCmpTimer();
+  cmpTimerStart = Date.now();
+  cmpTimerPill.classList.remove('stopped');
+  updateCmpTimer();
+  cmpTimerInterval = setInterval(updateCmpTimer, 100);
+}
+function updateCmpTimer(){
+  const el = (Date.now() - cmpTimerStart) / 1000;
+  const m = String(Math.floor(el / 60)).padStart(2,'0');
+  const s = String(Math.floor(el % 60)).padStart(2,'0');
+  cmpTimerEl.textContent = `${m}:${s}`;
+}
+function stopCmpTimer(){
+  if (cmpTimerInterval) clearInterval(cmpTimerInterval);
+  cmpTimerInterval = null;
+  cmpTimerPill.classList.add('stopped');
+}
+function startCompareGame(mode){
+  cmpMode = mode;
+  cmpRoundIndex = 0;
+  cmpRoundTimes = [];
+  cmpRoundResults = [];
+  cmpCorrectCount = 0;
+  cmpLocked = false;
+  cmpGameActive = true;
+  cmpUsedIds = new Set();
+  cmpProgressBar.style.width = '0%';
+  cmpProgressPercent.textContent = '0%';
+  cmpInfo.textContent = `Раунд 1 / ${COMPARE_ROUNDS}`;
+  cmpTitleEl.textContent = mode === 'duration' ? 'Что больше? · Длительность' : 'Что больше? · Прослушивания';
+  cmpPrompt.textContent = mode === 'duration' ? 'Какой трек длиннее?' : 'Где больше прослушиваний?';
+  startCmpTimer();
+  nextCmpRound();
+}
+function pickCmpPair(field){
+  let pool = allTracks.filter(t => t[field] !== null && t[field] !== undefined && t[field] > 0);
+  let available = pool.filter(t => !cmpUsedIds.has(t.id));
+
+  if (available.length < 2){
+    cmpUsedIds = new Set();
+    available = pool;
+  }
+  if (available.length < 2) return null;
+
+  for (let attempt = 0; attempt < 30; attempt++){
+    const shuffled = shuffle(available);
+    if (shuffled.length < 2) return null;
+    const a = shuffled[0], b = shuffled[1];
+    if (a[field] === b[field]) continue;
+    cmpUsedIds.add(a.id);
+    cmpUsedIds.add(b.id);
+    return [a, b];
+  }
+
+  const shuffled = shuffle(available);
+  if (shuffled.length < 2) return null;
+  const a = shuffled[0], b = shuffled[1];
+  cmpUsedIds.add(a.id);
+  cmpUsedIds.add(b.id);
+  return [a, b];
+}
+function nextCmpRound(){
+  if (cmpRoundIndex >= COMPARE_ROUNDS){ finishCmpGame(); return; }
+
+  cmpLocked = false;
+
+  cmpInfo.textContent = `Раунд ${cmpRoundIndex + 1} / ${COMPARE_ROUNDS}`;
+  const roundPct = (cmpRoundIndex / COMPARE_ROUNDS) * 100;
+  cmpProgressBar.style.width = roundPct + '%';
+  cmpProgressPercent.textContent = Math.round(roundPct) + '%';
+
+  const field = cmpMode === 'duration' ? 'duration' : 'plays';
+  const pair = pickCmpPair(field);
+
+  if (!pair){
+    cmpRoundIndex = COMPARE_ROUNDS; finishCmpGame(); return;
+  }
+
+  const [a, b] = pair;
+  cmpCards = [a, b];
+  cmpCurrentWinnerId = (a[field] > b[field]) ? a.id : b.id;
+
+  renderCmpRound([a, b]);
+  cmpRoundStartTime = Date.now();
+}
+function renderCmpRound(cards){
+  const field = cmpMode === 'duration' ? 'duration' : 'plays';
+  cmpGrid.innerHTML = cards.map(t => {
+    const letter = esc((t.title[0] || '♪').toUpperCase());
+    const img = t.cover ? `<img src="${esc(t.cover)}" alt="" onerror="this.remove()">` : '';
+    return `<div class="cmp-card" data-id="${t.id}">
+      <div class="cmp-cover" style="--c1:${t.c1};--c2:${t.c2}">
+        <span class="cmp-cover-letter">${letter}</span>
+        ${img}
+        <div class="cmp-value" data-value="${t[field]}">0</div>
+      </div>
+      <div class="cmp-info">
+        <div class="cmp-title">${esc(t.title)}</div>
+        <div class="cmp-artist">${esc(t.artist)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+function animateCmpValue(el, target, formatter, duration = 1300){
+  return new Promise(resolve => {
+    const startTime = performance.now();
+    function frame(now){
+      const t = Math.min(1, (now - startTime) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const value = Math.round(target * eased);
+      el.textContent = formatter(value);
+      if (t < 1) requestAnimationFrame(frame);
+      else resolve();
+    }
+    requestAnimationFrame(frame);
+  });
+}
+cmpGrid.addEventListener('click', (e) => {
+  if (!cmpGameActive || cmpLocked) return;
+  const card = e.target.closest('.cmp-card');
+  if (!card) return;
+
+  cmpLocked = true;
+  const clickedId = +card.dataset.id;
+  const isCorrect = clickedId === cmpCurrentWinnerId;
+  const roundTime = Date.now() - cmpRoundStartTime;
+
+  cmpRoundTimes.push(roundTime);
+  cmpRoundResults.push(isCorrect);
+  if (isCorrect) cmpCorrectCount++;
+
+  const valueEls = cmpGrid.querySelectorAll('.cmp-value');
+  const formatter = cmpMode === 'duration' ? formatMmSs : formatBigNum;
+  valueEls.forEach(el => el.classList.add('visible'));
+
+  const animations = [...valueEls].map(el => {
+    const target = +el.dataset.value;
+    return animateCmpValue(el, target, formatter, 1300);
+  });
+
+  cmpGrid.querySelectorAll('.cmp-card').forEach(c => c.classList.add('disabled'));
+
+  Promise.all(animations).then(() => {
+    const selectedCard = cmpGrid.querySelector(`.cmp-card[data-id="${clickedId}"]`);
+    const correctCard = cmpGrid.querySelector(`.cmp-card[data-id="${cmpCurrentWinnerId}"]`);
+    if (selectedCard){
+      if (isCorrect) selectedCard.classList.add('selected-correct');
+      else selectedCard.classList.add('selected-wrong');
+    }
+    if (!isCorrect && correctCard){
+      correctCard.classList.add('reveal-correct');
+    }
+    setTimeout(() => {
+      cmpRoundIndex++;
+      nextCmpRound();
+    }, 750);
+  });
+});
+function finishCmpGame(){
+  cmpGameActive = false;
+  stopCmpTimer();
+
+  // ВАЖНО: используем wall-clock, чтобы совпадало с таймером на экране
+  const totalTimeMs = Date.now() - cmpTimerStart;
+  const avgTimeMs = cmpRoundTimes.length ? (cmpRoundTimes.reduce((a, b) => a + b, 0)) / cmpRoundTimes.length : 0;
+  const maxTimeMs = cmpRoundTimes.length ? Math.max(...cmpRoundTimes) : 0;
+  const minTimeMs = cmpRoundTimes.length ? Math.min(...cmpRoundTimes) : 0;
+  const accuracy = cmpRoundResults.length ? (cmpCorrectCount / cmpRoundResults.length * 100) : 0;
+
+  cmpProgressBar.style.width = '100%';
+  cmpProgressPercent.textContent = '100%';
+  cmpInfo.textContent = 'Игра завершена';
+
+  const entry = {
+    totalTime: +(totalTimeMs / 1000).toFixed(2),
+    avgTime: +(avgTimeMs / 1000).toFixed(2),
+    maxTime: +(maxTimeMs / 1000).toFixed(2),
+    minTime: +(minTimeMs / 1000).toFixed(2),
+    accuracy: +accuracy.toFixed(2),
+    correct: cmpCorrectCount,
+    total: cmpRoundResults.length,
+    mode: cmpMode,
+    rounds: cmpRoundTimes.map((t, i) => ({ time: +(t / 1000).toFixed(2), correct: cmpRoundResults[i] })),
+    date: Date.now(),
+  };
+
+  saveCompareResult(entry);
+
+  const bd = calcCompareBreakdown(entry.totalTime, entry.accuracy, cmpMode);
+  const modeLabel = cmpMode === 'duration' ? 'Длительность' : 'Прослушивания';
+  addPointsToHistory(bd.total, 'compare', `Что больше · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
+
+  entry.earnedBreakdown = bd;
+  showCmpResults(entry);
+}
+function showCmpResults(e){
+  const pctEl = document.getElementById('cmpResultPercent');
+  pctEl.textContent = e.accuracy.toFixed(2) + '%';
+  pctEl.className = 'results-percent ' + (e.accuracy >= 90 ? 'good' : e.accuracy >= 60 ? 'mid' : 'bad');
+  document.getElementById('cmpRgCorrect').textContent = e.correct;
+  document.getElementById('cmpRgIncorrect').textContent = e.total - e.correct;
+  document.getElementById('cmpRgTotal').textContent = formatTime(e.totalTime);
+  document.getElementById('cmpRgAvg').textContent = formatSeconds(e.avgTime);
+  document.getElementById('cmpRgRange').textContent = formatSeconds(e.minTime) + ' / ' + formatSeconds(e.maxTime);
+
+  const wrap = document.getElementById('cmpRgPointsWrap');
+  const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
+  const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
+  const timeValue = target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime);
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, {
+    percentLabel: e.accuracy.toFixed(1) + '%',
+    timeLabel: timeValue,
+  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
+
+  let html = `<div class="odd-details-title">Все раунды · режим: ${e.mode === 'duration' ? 'Длительность' : 'Прослушивания'}</div><div class="odd-details-list">`;
+  e.rounds.forEach((r, i) => {
+    const cls = r.correct ? 'correct' : 'wrong';
+    const icon = r.correct ? '✓' : '✗';
+    html += `<div class="odd-detail-row ${cls}">
+      <span class="odd-detail-num">${i + 1}</span>
+      <span class="odd-detail-icon">${icon}</span>
+      <span class="odd-detail-time">${formatSeconds(r.time)}</span>
+    </div>`;
+  });
+  html += `</div>`;
+  document.getElementById('cmpDetails').innerHTML = html;
+  openModal('cmpResultsModal');
+}
+document.getElementById('cmpPlayAgain').addEventListener('click', () => { closeModal('cmpResultsModal'); runCompareFlow(cmpMode); });
+document.getElementById('cmpToMenu').addEventListener('click', () => { closeModal('cmpResultsModal'); showScreen('menu'); });
 
 /* ====================== ПОТОКИ ====================== */
 function runShuffleFlow(title, sub, callback){
@@ -3294,6 +3689,10 @@ function runOddFlow(mode){
   const sub = mode === 'titles' ? 'Подбираем названия для 30 раундов' : 'Подбираем обложки для 30 раундов';
   runShuffleFlow('Готовим раунды…', sub, () => { startOddGame(mode); showScreen('odd'); });
 }
+function runCompareFlow(mode){
+  const sub = mode === 'duration' ? 'Сравниваем длительности треков' : 'Сравниваем прослушивания';
+  runShuffleFlow('Готовим раунды…', sub, () => { startCompareGame(mode); showScreen('compare'); });
+}
 
 /* ====================== ИНИЦИАЛИЗАЦИЯ ====================== */
 async function init(){
@@ -3302,19 +3701,13 @@ async function init(){
   trackStructure = parsed.structure;
 
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 3 режима`;
+    menuSub.textContent = `${allTracks.length} треков · 4 режима`;
     menuStats.innerHTML =
-      `Синлов: <b>${trackStructure.singles.length}</b><br>` +
+      `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
       `Всего треков: <b>${allTracks.length}</b>`;
     btnStart.disabled = false;
     btnRecords.disabled = false;
-
-    const tracksWithCovers = allTracks.filter(t => t.cover);
-    const uniqueCovers = new Set(tracksWithCovers.map(t => t.cover));
-    // Проверка для "Кто лишний" — нужно 4 разных обложки + минимум 1 дополнительная
-    // Если нет — всё равно даём запустить, но с пропуском раундов
-    // Кнопка "Начать" в режиме modes просто откроет игру
   } else {
     menuSub.textContent = 'Недостаточно треков для игры';
     menuStats.textContent = 'Добавь минимум 2 трека в tracks.txt';
@@ -3325,7 +3718,6 @@ async function init(){
 }
 
 finishBtn.addEventListener('click', finishChronology);
-
 document.addEventListener('pointerdown', onPointerDown);
 document.addEventListener('pointermove', onPointerMove);
 document.addEventListener('pointerup', onPointerUp);
