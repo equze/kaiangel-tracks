@@ -577,7 +577,7 @@
   @media (max-width:700px){.cmp-grid{grid-template-columns:1fr;max-width:340px}}
 
   /* ================================================== */
-  /* LINE GAME (ОТКУДА СТРОЧКА) — ПЕРЕДЕЛАНО */
+  /* LINE GAME (ОТКУДА СТРОЧКА) */
   /* ================================================== */
   #screen-line{width:100%;gap:18px}
 
@@ -597,62 +597,56 @@
     gap:18px;
   }
 
-  /* --- CHOICE MODE: центральный prompt + квадраты по углам --- */
-  .line-stage{
+  /* --- CHOICE MODE: строка сверху + 4 маленьких квадрата под ней --- */
+  .line-choice-wrap{
     width:100%;
-    max-width:720px;
+    max-width:640px;
     margin:0 auto;
-    display:grid;
-    grid-template-columns: 1fr 1.3fr 1fr;
-    grid-template-rows: 1fr 1.3fr 1fr;
-    gap:14px;
-    min-height:520px;
-    align-items:stretch;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
     animation:screenIn .35s cubic-bezier(.2,.8,.2,1);
   }
 
-  .line-stage .slot-tl{grid-column:1;grid-row:1}
-  .line-stage .slot-tr{grid-column:3;grid-row:1}
-  .line-stage .slot-bl{grid-column:1;grid-row:3}
-  .line-stage .slot-br{grid-column:3;grid-row:3}
-
-  .line-center{
-    grid-column:2;grid-row:2;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px 18px;
+  .line-choice-prompt{
+    width:100%;
+    padding:26px 24px;
     border-radius:20px;
     background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(236,72,153,.09));
     border:1px solid rgba(139,92,246,.45);
-    box-shadow:0 16px 44px -20px rgba(139,92,246,.9), inset 0 0 60px rgba(139,92,246,.05);
-    position:relative;
+    box-shadow:0 16px 44px -20px rgba(139,92,246,.9);
     text-align:center;
+    position:relative;
     animation:cardIn .4s cubic-bezier(.2,.8,.2,1) both;
   }
-  .line-center::before{
+  .line-choice-prompt::before{
     content:'"';
-    position:absolute;top:-8px;left:10px;
-    font-size:48px;font-weight:800;line-height:1;
+    position:absolute;top:-8px;left:12px;
+    font-size:52px;font-weight:800;line-height:1;
     color:rgba(196,181,253,.4);
     pointer-events:none;
   }
-  .line-center::after{
+  .line-choice-prompt::after{
     content:'"';
-    position:absolute;bottom:-28px;right:10px;
-    font-size:48px;font-weight:800;line-height:1;
+    position:absolute;bottom:-30px;right:12px;
+    font-size:52px;font-weight:800;line-height:1;
     color:rgba(196,181,253,.4);
     pointer-events:none;
   }
-  .line-center .line-prompt-text{
-    font-size:clamp(14px, 1.7vw, 18px);
+  .line-choice-prompt .line-prompt-text{
+    font-size:clamp(15px, 2vw, 19px);
     font-weight:700;
     line-height:1.45;
     letter-spacing:-.005em;
     color:#fff;
     position:relative;z-index:1;
-    max-width:100%;
     word-break:break-word;
+  }
+
+  .line-choice-grid{
+    display:grid;
+    grid-template-columns:repeat(4, minmax(0, 1fr));
+    gap:12px;
   }
 
   .line-option{
@@ -696,8 +690,8 @@
   .line-option-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent 60%);pointer-events:none;z-index:2}
   .line-option-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
   .line-option-letter{position:relative;z-index:0}
-  .line-option-title{font-size:12.5px;font-weight:700;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .line-option-artist{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-option-title{font-size:12px;font-weight:700;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-option-artist{font-size:10.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
   /* --- SEARCH MODE --- */
   .line-search-wrap{
@@ -802,21 +796,14 @@
   .line-search-empty{padding:20px;text-align:center;color:var(--muted);font-size:12.5px}
 
   @media (max-width:700px){
-    .line-stage{
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto auto auto;
+    .line-choice-grid{
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap:10px;
-      min-height:auto;
-      max-width:100%;
     }
-    .line-stage .line-center{grid-column:1/-1;grid-row:1}
-    .line-stage .slot-tl{grid-column:1;grid-row:2}
-    .line-stage .slot-tr{grid-column:2;grid-row:2}
-    .line-stage .slot-bl{grid-column:1;grid-row:3}
-    .line-stage .slot-br{grid-column:2;grid-row:3}
+    .line-choice-prompt{padding:22px 20px}
     .line-option{padding:8px}
     .line-option-cover{font-size:26px}
-    .line-option-title{font-size:11.5px}
+    .line-option-title{font-size:11px}
     .line-option-artist{font-size:10px}
   }
 
@@ -3397,17 +3384,15 @@ function startLineGame(mode){
   nextLineRound();
 }
 
-/* Тру рандом: сначала шафлим очередь целиком, при исчерпании — заново (с защитой от повторов подряд) */
+/* Тру-рандом: шаффл-очередь из всех текстов + защита от повтора подряд */
 let lineQueue = [];
 let lineLastKey = null;
 
 function buildLineQueue(){
   lineQueue = shuffle(lyricEntries.slice());
 }
-
 function popLineEntry(){
   if (!lineQueue.length) buildLineQueue();
-  // защита от повтора подряд
   if (lineQueue.length > 1 && lineQueue[0].key === lineLastKey){
     const tmp = lineQueue[0];
     lineQueue[0] = lineQueue[1];
@@ -3417,7 +3402,6 @@ function popLineEntry(){
   lineLastKey = e ? e.key : null;
   return e;
 }
-
 function pickDistractors(winner, count){
   const others = [];
   const used = new Set([winner.key]);
@@ -3450,12 +3434,10 @@ function nextLineRound(){
   if (!winner || !winner.lines.length){ lineRoundIndex++; nextLineRound(); return; }
   lineCurrentWinner = winner;
 
-  // случайная строка
   const lineText = winner.lines[Math.floor(Math.random() * winner.lines.length)];
 
   if (lineMode === 'choice'){
     const distractors = pickDistractors(winner, 3);
-    // если по какой-то причине не набралось 3 — добираем ещё раз
     while (distractors.length < 3){
       const e = lyricEntries[Math.floor(Math.random() * lyricEntries.length)];
       if (e.key !== winner.key && !distractors.find(d => d.key === e.key)) distractors.push(e);
@@ -3487,12 +3469,13 @@ function optionHTML(entry){
 }
 
 function renderLineChoiceRound(choices, lineText){
-  const slots = ['slot-tl', 'slot-tr', 'slot-bl', 'slot-br'];
   lineGameArea.innerHTML = `
-    <div class="line-stage">
-      ${choices.slice(0, 4).map((c, i) => `<button class="line-option ${slots[i]}" data-key="${esc(c.key)}">${optionHTML(c)}</button>`).join('')}
-      <div class="line-center">
+    <div class="line-choice-wrap">
+      <div class="line-choice-prompt">
         <div class="line-prompt-text">${esc(lineText)}</div>
+      </div>
+      <div class="line-choice-grid">
+        ${choices.slice(0, 4).map(c => `<button class="line-option" data-key="${esc(c.key)}">${optionHTML(c)}</button>`).join('')}
       </div>
     </div>
   `;
