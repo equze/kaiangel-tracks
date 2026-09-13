@@ -34,28 +34,20 @@
 
   /* Верхняя панель */
   .top-bar{
-    position:fixed;
-    top:20px;right:20px;
+    position:fixed;top:20px;right:20px;
     display:flex;flex-direction:row;align-items:center;gap:8px;
     z-index:50;flex-wrap:wrap;justify-content:flex-end;
   }
   .points-badge{
     display:flex;align-items:center;gap:6px;
-    padding:10px 16px;
-    border-radius:99px;
+    padding:10px 16px;border-radius:99px;
     background:linear-gradient(135deg, rgba(139,92,246,.28), rgba(236,72,153,.18));
     border:1px solid rgba(139,92,246,.5);
     box-shadow:0 12px 32px -12px rgba(139,92,246,.9);
     backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   }
-  .points-badge .pb-value{
-    font-size:15px;font-weight:800;color:#fff;
-    font-variant-numeric:tabular-nums;letter-spacing:-.01em;
-  }
-  .points-badge .pb-label{
-    font-size:10px;color:#c4b5fd;font-weight:700;
-    text-transform:uppercase;letter-spacing:.1em;
-  }
+  .points-badge .pb-value{font-size:15px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .points-badge .pb-label{font-size:10px;color:#c4b5fd;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
   .bar-btn{
     padding:9px 16px;border-radius:99px;
     background:rgba(255,255,255,.04);border:1px solid var(--border);
@@ -104,18 +96,8 @@
   .btn-large{padding:20px 44px;font-size:17px;letter-spacing:.02em}
   .menu-stats{margin-top:40px;font-size:13px;color:var(--muted);letter-spacing:.02em;line-height:1.7}
   .menu-stats b{color:#c4b5fd;font-weight:700}
-  .menu-credit{
-    margin-top:22px;
-    font-size:12.5px;
-    color:#6a6a7c;
-    letter-spacing:.02em;
-  }
-  .menu-credit a{
-    color:#c4b5fd;
-    text-decoration:none;
-    font-weight:700;
-    transition:color .18s;
-  }
+  .menu-credit{margin-top:22px;font-size:12.5px;color:#6a6a7c;letter-spacing:.02em}
+  .menu-credit a{color:#c4b5fd;text-decoration:none;font-weight:700;transition:color .18s}
   .menu-credit a:hover{color:#f9a8d4}
 
   /* ВЫБОР РЕЖИМА */
@@ -129,16 +111,16 @@
   .mode-screen-sub{font-size:13.5px;color:var(--muted);text-align:center;margin-bottom:24px}
   .mode-cards{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(190px, 1fr));
-    gap:14px;width:100%;max-width:900px;margin:0 auto;
+    grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+    gap:14px;width:100%;max-width:960px;margin:0 auto;
   }
   .mode-card{
-    padding:22px 20px;border-radius:20px;
+    padding:20px 18px;border-radius:20px;
     background:var(--card);border:1px solid var(--border);
     cursor:pointer;color:inherit;font:inherit;text-align:left;
     transition:transform .25s cubic-bezier(.2,.8,.2,1),
                border-color .25s, background .25s, box-shadow .25s;
-    display:flex;flex-direction:column;gap:6px;min-height:120px;
+    display:flex;flex-direction:column;gap:6px;min-height:110px;
   }
   .mode-card:hover{
     transform:translateY(-4px);background:rgba(255,255,255,.07);
@@ -151,9 +133,9 @@
     box-shadow:0 20px 50px -20px rgba(139,92,246,1);
     transform:translateY(-4px);
   }
-  .mode-card .mc-title{font-size:17px;font-weight:800;letter-spacing:-.01em;color:#fff}
+  .mode-card .mc-title{font-size:16px;font-weight:800;letter-spacing:-.01em;color:#fff}
   .mode-card.selected .mc-title{color:#e9d5ff}
-  .mode-card .mc-sub{font-size:12.5px;color:var(--muted);line-height:1.4}
+  .mode-card .mc-sub{font-size:12px;color:var(--muted);line-height:1.4}
   .mode-card.selected .mc-sub{color:#b8a8d8}
 
   .mode-desc{
@@ -317,53 +299,24 @@
   /* Points breakdown */
   .points-breakdown{
     display:inline-flex;flex-direction:column;gap:6px;
-    margin-top:12px;
-    padding:16px 20px 14px;
-    border-radius:16px;
+    margin-top:12px;padding:16px 20px 14px;border-radius:16px;
     background:rgba(139,92,246,.08);
     border:1px solid rgba(139,92,246,.32);
-    min-width:300px;
-    max-width:100%;
-    text-align:left;
+    min-width:300px;max-width:100%;text-align:left;
   }
   .pb-total-hero{
     display:flex;align-items:center;justify-content:space-between;gap:14px;
-    padding:10px 14px;
-    margin:-4px -6px 4px;
-    border-radius:12px;
+    padding:10px 14px;margin:-4px -6px 4px;border-radius:12px;
     background:linear-gradient(135deg, rgba(139,92,246,.35), rgba(236,72,153,.22));
     border:1px solid rgba(139,92,246,.6);
     box-shadow:0 8px 24px -10px rgba(139,92,246,1);
   }
-  .pb-total-hero .pb-th-label{
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#e9d5ff;
-  }
-  .pb-total-hero .pb-th-value{
-    font-size:22px;
-    font-weight:800;
-    color:#fff;
-    font-variant-numeric:tabular-nums;
-    letter-spacing:-.02em;
-    text-shadow:0 2px 12px rgba(139,92,246,.5);
-  }
-  .pb-rows{
-    display:flex;flex-direction:column;gap:4px;
-    padding-top:4px;
-    border-top:1px dashed rgba(255,255,255,.1);
-  }
-  .pb-row{
-    display:flex;justify-content:space-between;gap:14px;
-    font-size:12.5px;color:#a0a0b0;
-  }
+  .pb-total-hero .pb-th-label{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#e9d5ff}
+  .pb-total-hero .pb-th-value{font-size:22px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;letter-spacing:-.02em;text-shadow:0 2px 12px rgba(139,92,246,.5)}
+  .pb-rows{display:flex;flex-direction:column;gap:4px;padding-top:4px;border-top:1px dashed rgba(255,255,255,.1)}
+  .pb-row{display:flex;justify-content:space-between;gap:14px;font-size:12.5px;color:#a0a0b0}
   .pb-row b{color:#eaeaf3;font-weight:700;font-variant-numeric:tabular-nums}
-  .pb-total-line{
-    margin-top:10px;font-size:11.5px;color:#8b8b9e;
-    text-align:center;
-  }
+  .pb-total-line{margin-top:10px;font-size:11.5px;color:#8b8b9e;text-align:center}
   .pb-total-line b{color:#c4b5fd;font-weight:700;font-variant-numeric:tabular-nums}
 
   /* BRACKET */
@@ -575,14 +528,8 @@
 
   /* COMPARE */
   #screen-compare{width:100%;gap:20px}
-  .cmp-prompt{
-    text-align:center;font-size:16px;font-weight:700;
-    color:#c4b5fd;letter-spacing:.01em;margin-top:-6px;
-  }
-  .cmp-grid{
-    display:grid;grid-template-columns:1fr 1fr;
-    gap:18px;width:100%;max-width:600px;margin:0 auto;
-  }
+  .cmp-prompt{text-align:center;font-size:16px;font-weight:700;color:#c4b5fd;letter-spacing:.01em;margin-top:-6px}
+  .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;max-width:600px;margin:0 auto}
   .cmp-card{
     display:flex;flex-direction:column;gap:12px;padding:14px;
     border-radius:20px;background:var(--card);border:2px solid var(--border);
@@ -594,25 +541,14 @@
   .cmp-card:nth-child(1){animation-delay:0s}
   .cmp-card:nth-child(2){animation-delay:.06s}
   .cmp-card:hover:not(.disabled){
-    transform:translateY(-4px);
-    border-color:rgba(255,255,255,.2);
+    transform:translateY(-4px);border-color:rgba(255,255,255,.2);
     box-shadow:0 20px 50px -22px rgba(139,92,246,1);
   }
   .cmp-card:active:not(.disabled){transform:translateY(-2px) scale(.99)}
   .cmp-card.disabled{pointer-events:none}
-  .cmp-card.selected-correct{
-    border-color:#22c55e;
-    box-shadow:0 0 0 2px #22c55e, 0 20px 60px -20px rgba(34,197,94,.9);
-  }
-  .cmp-card.selected-wrong{
-    border-color:#ef4444;
-    box-shadow:0 0 0 2px #ef4444, 0 20px 60px -20px rgba(239,68,68,.9);
-  }
-  .cmp-card.reveal-correct{
-    border-color:#22c55e;
-    box-shadow:0 0 0 2px #22c55e;
-    opacity:.85;
-  }
+  .cmp-card.selected-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e, 0 20px 60px -20px rgba(34,197,94,.9)}
+  .cmp-card.selected-wrong{border-color:#ef4444;box-shadow:0 0 0 2px #ef4444, 0 20px 60px -20px rgba(239,68,68,.9)}
+  .cmp-card.reveal-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e;opacity:.85}
   .cmp-cover{
     position:relative;aspect-ratio:1/1;border-radius:14px;
     background:linear-gradient(135deg,var(--c1),var(--c2));
@@ -620,41 +556,174 @@
     font-size:clamp(38px,6.5vw,56px);font-weight:800;color:#fff;
     overflow:hidden;box-shadow:inset 0 0 60px rgba(0,0,0,.28);
   }
-  .cmp-cover::after{
-    content:'';position:absolute;inset:0;
-    background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 48%);
-    pointer-events:none;z-index:2;
-  }
+  .cmp-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 48%);pointer-events:none;z-index:2}
   .cmp-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
   .cmp-cover-letter{position:relative;z-index:0}
-
   .cmp-value{
-    position:absolute;
-    left:0;right:0;bottom:0;
-    padding:16px 14px 14px;
-    text-align:center;
-    font-size:clamp(26px,4.5vw,38px);
-    font-weight:800;
-    color:#fff;
-    font-variant-numeric:tabular-nums;
-    letter-spacing:-.02em;
+    position:absolute;left:0;right:0;bottom:0;padding:16px 14px 14px;text-align:center;
+    font-size:clamp(26px,4.5vw,38px);font-weight:800;color:#fff;
+    font-variant-numeric:tabular-nums;letter-spacing:-.02em;
     background:linear-gradient(0deg, rgba(0,0,0,.88), rgba(0,0,0,.45) 55%, transparent);
-    z-index:3;
-    opacity:0;
-    transition:opacity .3s;
+    z-index:3;opacity:0;transition:opacity .3s;
     text-shadow:0 3px 18px rgba(0,0,0,.6);
   }
   .cmp-value.visible{opacity:1}
   .cmp-card.selected-correct .cmp-value{color:#4ade80;text-shadow:0 3px 22px rgba(34,197,94,.9)}
   .cmp-card.selected-wrong   .cmp-value{color:#f87171;text-shadow:0 3px 22px rgba(239,68,68,.9)}
   .cmp-card.reveal-correct   .cmp-value{color:#4ade80;text-shadow:0 3px 22px rgba(34,197,94,.9)}
-
   .cmp-info{text-align:center;min-height:42px}
-  .cmp-title{font-size:13.5px;font-weight:700;line-height:1.2;letter-spacing:-.005em;
-    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .cmp-title{font-size:13.5px;font-weight:700;line-height:1.2;letter-spacing:-.005em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .cmp-artist{font-size:11.5px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media (max-width:700px){.cmp-grid{grid-template-columns:1fr;max-width:340px}}
+
+  /* LINE GAME */
+  #screen-line{width:100%;gap:20px}
+  .line-prompt{
+    width:100%;max-width:640px;margin:0 auto;
+    padding:28px 26px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.08));
+    border:1px solid rgba(139,92,246,.4);
+    box-shadow:0 16px 44px -20px rgba(139,92,246,.9);
+    text-align:center;
+    position:relative;
+    animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .line-prompt::before{
+    content:'"';
+    position:absolute;top:-6px;left:14px;
+    font-size:64px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.35);
+    pointer-events:none;
+  }
+  .line-prompt::after{
+    content:'"';
+    position:absolute;bottom:-34px;right:14px;
+    font-size:64px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.35);
+    pointer-events:none;
+  }
+  .line-prompt-text{
+    font-size:clamp(17px,2.4vw,22px);
+    font-weight:700;
+    line-height:1.45;
+    letter-spacing:-.005em;
+    color:#fff;
+    position:relative;z-index:1;
+  }
+  .line-hint{
+    text-align:center;
+    font-size:13px;
+    color:#8b8b9e;
+    margin-top:-8px;
+    letter-spacing:.02em;
+  }
+
+  /* Mode 1: 4 options */
+  .line-options{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:14px;
+    width:100%;
+    max-width:640px;
+    margin:0 auto;
+  }
+  .line-option{
+    display:flex;flex-direction:column;gap:8px;
+    padding:14px;
+    border-radius:16px;
+    background:var(--card);
+    border:2px solid var(--border);
+    color:inherit;font:inherit;text-align:left;cursor:pointer;
+    transition:transform .2s cubic-bezier(.2,.8,.2,1),
+               border-color .2s, box-shadow .2s, background .2s, opacity .3s;
+    animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both;
+    min-width:0;
+  }
+  .line-option:nth-child(1){animation-delay:0s}
+  .line-option:nth-child(2){animation-delay:.04s}
+  .line-option:nth-child(3){animation-delay:.08s}
+  .line-option:nth-child(4){animation-delay:.12s}
+  .line-option:hover:not(.disabled){
+    transform:translateY(-4px);
+    border-color:rgba(255,255,255,.2);
+    box-shadow:0 20px 50px -22px rgba(139,92,246,1);
+  }
+  .line-option:active:not(.disabled){transform:translateY(-2px) scale(.99)}
+  .line-option.disabled{pointer-events:none}
+  .line-option.selected-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e, 0 20px 60px -20px rgba(34,197,94,.9)}
+  .line-option.selected-wrong{border-color:#ef4444;box-shadow:0 0 0 2px #ef4444, 0 20px 60px -20px rgba(239,68,68,.9)}
+  .line-option.reveal-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e;opacity:.85}
+  .line-option-cover{
+    position:relative;
+    aspect-ratio:16/9;
+    border-radius:10px;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+    display:grid;place-items:center;
+    overflow:hidden;
+    font-size:38px;font-weight:800;color:#fff;
+  }
+  .line-option-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent 60%);pointer-events:none;z-index:2}
+  .line-option-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .line-option-letter{position:relative;z-index:0}
+  .line-option-title{font-size:13.5px;font-weight:700;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-option-artist{font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+  /* Mode 2: search */
+  .line-search{
+    width:100%;max-width:640px;margin:0 auto;
+    display:flex;flex-direction:column;gap:10px;
+  }
+  .line-search-input{
+    width:100%;padding:14px 18px;
+    border-radius:14px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    color:var(--text);font:inherit;font-size:15px;
+    outline:none;
+    transition:border-color .18s, background .18s, box-shadow .18s;
+  }
+  .line-search-input::placeholder{color:#5a5a70}
+  .line-search-input:focus{
+    border-color:rgba(139,92,246,.55);
+    background:rgba(139,92,246,.06);
+    box-shadow:0 0 0 3px rgba(139,92,246,.12);
+  }
+  .line-search-list{
+    max-height:340px;
+    overflow-y:auto;
+    display:flex;flex-direction:column;gap:4px;
+    padding:4px;
+    border-radius:14px;
+    background:rgba(255,255,255,.02);
+    border:1px solid var(--border);
+  }
+  .line-search-list::-webkit-scrollbar{width:6px}
+  .line-search-list::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
+  .line-search-list::-webkit-scrollbar-thumb{background:rgba(139,92,246,.6);border-radius:99px}
+  .line-search-item{
+    display:flex;flex-direction:column;gap:1px;
+    padding:9px 12px;border-radius:9px;
+    background:rgba(255,255,255,.02);
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:background .15s, border-color .15s;
+    text-align:left;
+    color:inherit;font:inherit;
+    min-width:0;
+  }
+  .line-search-item:hover{background:rgba(139,92,246,.14);border-color:rgba(139,92,246,.4)}
+  .line-search-item.selected-correct{background:rgba(34,197,94,.18);border-color:#22c55e;box-shadow:0 0 0 1px #22c55e}
+  .line-search-item.selected-wrong{background:rgba(239,68,68,.18);border-color:#ef4444;box-shadow:0 0 0 1px #ef4444}
+  .line-search-item.reveal-correct{background:rgba(34,197,94,.14);border-color:#22c55e}
+  .line-search-item .lsi-title{font-size:13px;font-weight:600;color:#eaeaf3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-search-item .lsi-artist{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-search-empty{padding:20px;text-align:center;color:var(--muted);font-size:12.5px}
+  .line-search-hint{font-size:11.5px;color:#6a6a7c;text-align:center;letter-spacing:.02em;padding:4px 0}
+
   @media (max-width:700px){
-    .cmp-grid{grid-template-columns:1fr;max-width:340px}
+    .line-options{grid-template-columns:1fr;max-width:340px}
+    .line-prompt{padding:22px 20px}
   }
 
   /* МОДАЛКИ */
@@ -699,7 +768,7 @@
   .tab-content li b{color:#c4b5fd;font-weight:700}
   .modal-close-btn{margin-top:8px;width:100%}
 
-  /* Hello modal */
+  /* Hello */
   .hello-section{padding:16px 0;border-bottom:1px dashed rgba(255,255,255,.08)}
   .hello-section:last-child{border-bottom:none;padding-bottom:0}
   .hello-text{font-size:13.5px;line-height:1.55;color:#cfcfe0;margin-bottom:10px}
@@ -714,18 +783,12 @@
 
   /* RESULTS MODAL */
   .results-hero{text-align:center;padding:0 0 18px;display:flex;flex-direction:column;align-items:center;gap:6px}
-  .results-percent{
-    font-size:clamp(48px,8vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;
-    font-variant-numeric:tabular-nums;
-  }
+  .results-percent{font-size:clamp(48px,8vw,68px);font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
   .results-percent.good{background:linear-gradient(100deg,#4ade80,#22c55e);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent.mid{background:linear-gradient(100deg,#fbbf24,#f59e0b);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent.bad{background:linear-gradient(100deg,#f87171,#ef4444);-webkit-background-clip:text;background-clip:text;color:transparent}
   .results-percent-label{font-size:11px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;font-weight:700}
-  .results-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 0 16px;
-    border-bottom:1px solid var(--border);
-  }
+  .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:0 0 16px;border-bottom:1px solid var(--border)}
   .rg-item{padding:10px 6px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);text-align:center}
   .rg-value{font-size:17px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.1}
   .rg-value.green{color:#4ade80}
@@ -735,39 +798,20 @@
   .rg-value.orange{color:#fbbf24}
   .rg-label{font-size:9px;color:var(--muted);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-top:5px}
   .results-tabs{display:flex;gap:6px;margin:14px 0 10px;padding:4px;background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border)}
-  .results-tabs button{
-    flex:1;padding:8px 14px;border-radius:99px;border:none;background:transparent;
-    color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;
-    transition:background .18s, color .18s;
-  }
+  .results-tabs button{flex:1;padding:8px 14px;border-radius:99px;border:none;background:transparent;color:var(--muted);font:inherit;font-size:12.5px;font-weight:600;cursor:pointer;transition:background .18s, color .18s}
   .results-tabs button.active{background:rgba(139,92,246,.22);color:#fff}
   .results-tabs button:hover:not(.active){color:#c4b5fd}
-  .results-list{
-    flex:1 1 auto;min-height:160px;max-height:55vh;overflow-y:auto;
-    padding:2px 4px 2px 0;display:flex;flex-direction:column;gap:14px;
-  }
+  .results-list{flex:1 1 auto;min-height:160px;max-height:55vh;overflow-y:auto;padding:2px 4px 2px 0;display:flex;flex-direction:column;gap:14px}
   .results-list::-webkit-scrollbar{width:6px}
   .results-list::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
   .results-list::-webkit-scrollbar-thumb{background:rgba(139,92,246,.55);border-radius:99px}
   .rl-section{display:flex;flex-direction:column;gap:1px}
-  .rl-section-header{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:3px 6px 6px;
-    font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
-    color:#c4b5fd;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:3px;
-  }
+  .rl-section-header{display:flex;align-items:center;justify-content:space-between;padding:3px 6px 6px;font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#c4b5fd;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:3px}
   .rl-section-name{display:flex;align-items:center;gap:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-  .rl-section-count{
-    padding:1px 7px;border-radius:99px;background:rgba(255,255,255,.05);
-    font-variant-numeric:tabular-nums;letter-spacing:.04em;
-    font-size:9.5px;color:#8b8b9e;flex-shrink:0;
-  }
+  .rl-section-count{padding:1px 7px;border-radius:99px;background:rgba(255,255,255,.05);font-variant-numeric:tabular-nums;letter-spacing:.04em;font-size:9.5px;color:#8b8b9e;flex-shrink:0}
   .rl-section-count.all-correct{background:rgba(34,197,94,.22);color:#86efac}
   .rl-section-count.has-errors{background:rgba(239,68,68,.18);color:#fca5a5}
-  .rl-row{
-    display:flex;align-items:center;gap:8px;padding:3px 8px;border-radius:6px;
-    border-left:2px solid transparent;font-size:12px;line-height:1.3;min-height:22px;
-  }
+  .rl-row{display:flex;align-items:center;gap:8px;padding:3px 8px;border-radius:6px;border-left:2px solid transparent;font-size:12px;line-height:1.3;min-height:22px}
   .rl-row.correct{border-left-color:#22c55e;background:rgba(34,197,94,.06)}
   .rl-row.wrong{border-left-color:#ef4444;background:rgba(239,68,68,.07)}
   .rl-num{width:22px;flex-shrink:0;text-align:right;font-size:10px;font-weight:700;font-variant-numeric:tabular-nums;color:#5a5a70}
@@ -778,112 +822,56 @@
   .rl-row.correct .rl-title{color:#bbf7d0}
   .rl-row.wrong .rl-title{color:#fca5a5}
   .rl-artist{font-size:10.5px;color:#6a6a7c;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;max-width:45%}
-  .rl-correct{
-    font-size:10.5px;color:#8b8b9e;font-style:italic;
-    flex-shrink:0;padding-left:8px;max-width:48%;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;
-  }
+  .rl-correct{font-size:10.5px;color:#8b8b9e;font-style:italic;flex-shrink:0;padding-left:8px;max-width:48%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
   .rl-correct .arrow{color:#6a6a7c;margin-right:3px;font-style:normal}
   .results-perfect{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:40px 20px;text-align:center}
   .results-perfect .rp-text{font-size:15px;font-weight:700;color:#86efac}
   .results-actions{display:flex;gap:10px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
   .results-actions .btn-primary, .results-actions .btn-secondary{flex:1;width:auto;padding:13px 20px;font-size:14px}
 
-  /* STATS MODAL */
-  .records-content h3{
-    font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;
-    background:linear-gradient(100deg,#fff 20%,#c4b5fd 60%,#f9a8d4 95%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
-  }
+  /* STATS */
+  .records-content h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:14px;background:linear-gradient(100deg,#fff 20%,#c4b5fd 60%,#f9a8d4 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
   .stats-general{padding:6px 2px 4px}
-  .stats-general-hero{
-    display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;
-    border-radius:16px;
-    background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.08));
-    border:1px solid rgba(139,92,246,.32);margin-bottom:14px;
-  }
+  .stats-general-hero{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:16px;border-radius:16px;background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.08));border:1px solid rgba(139,92,246,.32);margin-bottom:14px}
   .stats-hero-item{display:flex;flex-direction:column;gap:4px;min-width:0}
   .stats-hero-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8b8b9e}
-  .stats-hero-value{
-    font-size:22px;font-weight:800;color:#eaeaf3;
-    font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
-  }
+  .stats-hero-value{font-size:22px;font-weight:800;color:#eaeaf3;font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .stats-hero-value.purple{color:#c4b5fd}
   .stats-block{padding:14px 16px;margin-bottom:10px;border-radius:14px;background:rgba(255,255,255,.025);border:1px solid var(--border)}
-  .stats-block-head{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-bottom:10px;margin-bottom:10px;
-    border-bottom:1px dashed rgba(255,255,255,.08);
-  }
+  .stats-block-head{display:flex;align-items:center;justify-content:space-between;padding-bottom:10px;margin-bottom:10px;border-bottom:1px dashed rgba(255,255,255,.08)}
   .stats-block-title{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#c4b5fd}
-  .stats-block-count{
-    font-size:12px;font-weight:800;color:#eaeaf3;
-    font-variant-numeric:tabular-nums;padding:3px 10px;border-radius:99px;
-    background:rgba(255,255,255,.05);
-  }
+  .stats-block-count{font-size:12px;font-weight:800;color:#eaeaf3;font-variant-numeric:tabular-nums;padding:3px 10px;border-radius:99px;background:rgba(255,255,255,.05)}
   .stats-block-rows{display:flex;flex-direction:column;gap:8px}
-  .stats-block-row{
-    display:flex;align-items:baseline;justify-content:space-between;gap:12px;
-    font-size:12.5px;color:#a0a0b0;
-  }
+  .stats-block-row{display:flex;align-items:baseline;justify-content:space-between;gap:12px;font-size:12.5px;color:#a0a0b0}
   .stats-block-row .lbl{display:flex;align-items:center;gap:6px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
   .stats-block-row b{color:#eaeaf3;font-weight:700;font-variant-numeric:tabular-nums;flex-shrink:0}
   .stats-block-empty{padding:24px 16px;text-align:center;color:var(--muted);font-size:12.5px}
-  .records-tabs{
-    display:flex;gap:6px;margin-bottom:14px;padding:4px;
-    background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border);flex-wrap:wrap;
-  }
-  .records-tabs button{
-    flex:1;padding:8px 12px;border-radius:99px;border:none;background:transparent;
-    color:var(--muted);font:inherit;font-size:12px;font-weight:600;cursor:pointer;
-    transition:background .18s, color .18s;white-space:nowrap;min-width:80px;
-  }
+  .records-tabs{display:flex;gap:6px;margin-bottom:14px;padding:4px;background:rgba(255,255,255,.04);border-radius:99px;border:1px solid var(--border);flex-wrap:wrap}
+  .records-tabs button{flex:1;padding:8px 12px;border-radius:99px;border:none;background:transparent;color:var(--muted);font:inherit;font-size:12px;font-weight:600;cursor:pointer;transition:background .18s, color .18s;white-space:nowrap;min-width:80px}
   .records-tabs button.active{background:rgba(139,92,246,.22);color:#fff}
   .records-tabs button:hover:not(.active){color:#c4b5fd}
-  .records-subtabs{
-    display:flex;gap:6px;margin-bottom:14px;padding:4px;
-    background:rgba(139,92,246,.06);border-radius:99px;
-    border:1px solid rgba(139,92,246,.22);flex-wrap:wrap;
-  }
-  .records-subtabs button{
-    flex:1;padding:7px 14px;border-radius:99px;border:none;background:transparent;
-    color:var(--muted);font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
-    transition:background .18s, color .18s;white-space:nowrap;min-width:80px;
-  }
+  .records-subtabs{display:flex;gap:6px;margin-bottom:14px;padding:4px;background:rgba(139,92,246,.06);border-radius:99px;border:1px solid rgba(139,92,246,.22);flex-wrap:wrap}
+  .records-subtabs button{flex:1;padding:7px 14px;border-radius:99px;border:none;background:transparent;color:var(--muted);font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;transition:background .18s, color .18s;white-space:nowrap;min-width:80px}
   .records-subtabs button.active{background:rgba(139,92,246,.28);color:#fff}
   .records-subtabs button:hover:not(.active){color:#c4b5fd}
-  .ri-mode{
-    display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;
-    text-transform:uppercase;padding:2px 7px;border-radius:99px;margin-left:6px;vertical-align:middle;
-  }
+  .ri-mode{display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:99px;margin-left:6px;vertical-align:middle}
   .ri-mode.covers{background:rgba(139,92,246,.22);color:#c4b5fd}
   .ri-mode.titles{background:rgba(236,72,153,.20);color:#f9a8d4}
   .ri-mode.plays{background:rgba(96,165,250,.20);color:#93c5fd}
   .ri-mode.duration{background:rgba(251,191,36,.18);color:#fcd34d}
+  .ri-mode.line-choice{background:rgba(34,197,94,.20);color:#86efac}
+  .ri-mode.line-input{background:rgba(168,85,247,.25);color:#e9d5ff}
   .records-body{flex:1;overflow-y:auto;min-height:200px;max-height:56vh;padding-right:6px}
   .records-body::-webkit-scrollbar{width:6px}
   .records-body::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
   .records-body::-webkit-scrollbar-thumb{background:rgba(139,92,246,.6);border-radius:99px}
   .record-section{margin-bottom:22px}
   .record-section:last-child{margin-bottom:0}
-  .record-section-title{
-    font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
-    color:var(--muted);padding-bottom:8px;margin-bottom:10px;
-    border-bottom:1px dashed rgba(255,255,255,.08);
-  }
+  .record-section-title{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;margin-bottom:10px;border-bottom:1px dashed rgba(255,255,255,.08)}
   .record-list{display:flex;flex-direction:column;gap:6px}
-  .record-item{
-    display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;
-    background:rgba(255,255,255,.025);border:1px solid var(--border);
-    transition:background .18s, border-color .18s;
-  }
+  .record-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid var(--border);transition:background .18s, border-color .18s}
   .record-item:hover{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15)}
-  .ri-rank{
-    width:26px;height:26px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;
-    font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;
-    background:rgba(255,255,255,.05);color:#8b8b9e;
-  }
+  .ri-rank{width:26px;height:26px;flex-shrink:0;display:grid;place-items:center;border-radius:8px;font-size:12px;font-weight:800;font-variant-numeric:tabular-nums;background:rgba(255,255,255,.05);color:#8b8b9e}
   .ri-rank.gold{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:#1a1200;box-shadow:0 4px 12px -4px rgba(251,191,36,.9)}
   .ri-rank.silver{background:linear-gradient(135deg,#cbd5e1,#94a3b8);color:#1a1e25}
   .ri-rank.bronze{background:linear-gradient(135deg,#d97706,#92400e);color:#fff}
@@ -895,37 +883,24 @@
   .ri-score.blue{color:#60a5fa}
   .records-empty{padding:50px 20px;text-align:center;color:var(--muted);display:flex;flex-direction:column;align-items:center;gap:10px}
   .records-empty .txt{font-size:13.5px;line-height:1.5}
-  .records-footer{
-    display:flex;justify-content:space-between;align-items:center;
-    margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
-    font-size:11px;color:#5a5a70;
-  }
-  .records-footer button{
-    background:transparent;border:none;color:#8b8b9e;font:inherit;
-    font-size:11.5px;font-weight:600;cursor:pointer;padding:6px 10px;border-radius:99px;
-    transition:background .18s, color .18s;
-  }
+  .records-footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:11px;color:#5a5a70}
+  .records-footer button{background:transparent;border:none;color:#8b8b9e;font:inherit;font-size:11.5px;font-weight:600;cursor:pointer;padding:6px 10px;border-radius:99px;transition:background .18s, color .18s}
   .records-footer button:hover{background:rgba(239,68,68,.15);color:#f87171}
 
   /* History */
   .history-list{display:flex;flex-direction:column;gap:6px}
-  .history-item{
-    display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;
-    background:rgba(255,255,255,.025);border:1px solid var(--border);
-    border-left:3px solid transparent;
-  }
+  .history-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-left:3px solid transparent}
   .history-item.tournament{border-left-color:#60a5fa}
   .history-item.chronology{border-left-color:#c4b5fd}
   .history-item.odd{border-left-color:#f9a8d4}
   .history-item.compare{border-left-color:#93c5fd}
+  .history-item.line{border-left-color:#86efac}
   .history-item .hi-body{flex:1;min-width:0}
   .history-item .hi-label{font-size:13.5px;font-weight:700;color:#eaeaf3;line-height:1.2}
   .history-item .hi-detail{font-size:11.5px;color:var(--muted);margin-top:3px}
   .history-item .hi-points{font-size:15px;font-weight:800;color:#c4b5fd;font-variant-numeric:tabular-nums;flex-shrink:0}
 
-  @media (max-width:900px){
-    .chrono-layout{grid-template-columns:1fr;grid-template-rows:minmax(200px, 42vh) 1fr;min-height:auto}
-  }
+  @media (max-width:900px){.chrono-layout{grid-template-columns:1fr;grid-template-rows:minmax(200px, 42vh) 1fr;min-height:auto}}
   @media (max-width:700px){
     .arena{flex-direction:column;gap:14px}
     .card{width:100%;max-width:340px}
@@ -991,6 +966,10 @@
       <button class="mode-card" data-mode="compare">
         <div class="mc-title">Что больше?</div>
         <div class="mc-sub">Угадай, где значение выше</div>
+      </button>
+      <button class="mode-card" data-mode="line">
+        <div class="mc-title">Откуда строчка</div>
+        <div class="mc-sub">Угадай трек по строке</div>
       </button>
     </div>
 
@@ -1109,6 +1088,35 @@
     <div class="cmp-grid" id="cmpGrid"></div>
   </section>
 
+  <section class="screen" id="screen-line">
+    <header class="game-header">
+      <h1 class="game-title" id="lineTitle">Откуда строчка · Выбор</h1>
+      <div class="status-row">
+        <div class="sub" id="lineInfo">Раунд 1 / 30</div>
+        <div class="timer-pill" id="lineTimerPill">
+          <span class="dot"></span>
+          <span id="lineTimer">00:00</span>
+        </div>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="lineProgressBar"></div></div>
+        <span class="progress-percent" id="lineProgressPercent">0%</span>
+      </div>
+    </header>
+
+    <div class="line-prompt">
+      <div class="line-prompt-text" id="linePromptText">Загрузка…</div>
+    </div>
+    <div class="line-hint" id="lineHint">Из какого трека эта строка?</div>
+
+    <div class="line-options" id="lineOptions"></div>
+    <div class="line-search" id="lineSearch" style="display:none">
+      <input type="text" class="line-search-input" id="lineSearchInput" placeholder="Начни вводить название или артиста..." autocomplete="off">
+      <div class="line-search-hint">Нажми на трек из списка, чтобы ответить</div>
+      <div class="line-search-list" id="lineSearchList"></div>
+    </div>
+  </section>
+
 </div>
 
 <!-- МОДАЛКА ПРАВИЛ -->
@@ -1124,9 +1132,10 @@
       <h3>Как играть</h3>
       <ul>
         <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион. Расслабляющий режим на 20–35 минут.</li>
-        <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра, обычно 30–50 минут, требует внимания.</li>
-        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты. Два режима: обложки и названия.</li>
-        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше: прослушиваний или длительности. После клика цифры внутри карточек растут от нуля до реального значения, а выбранная подсвечивается зелёным или красным.</li>
+        <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым. Долгая игра, требует внимания.</li>
+        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра. Два режима: обложки и названия.</li>
+        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше: прослушиваний или длительности.</li>
+        <li><b>Откуда строчка.</b> 30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно. В режиме «Выбор» даны 4 варианта, в режиме «Ввод» — надо найти трек через поиск.</li>
         <li>Результаты всех игр сохраняются в статистике, последние 10 партий — в истории (кнопка справа вверху в меню).</li>
       </ul>
     </div>
@@ -1134,14 +1143,16 @@
     <div class="tab-content" data-content="points">
       <h3>Баллы</h3>
       <ul>
-        <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b> (+ фиксированный бонус за режим, если есть).</li>
+        <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b> (+ бонус режима, если есть).</li>
         <li><b>Множитель точности</b> (квадратичный): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 70% → ×0.49, 50% → ×0.25, 30% → ×0.09. То есть 50% даёт в 4 раза меньше, чем 100%.</li>
         <li><b>Множитель времени.</b> У каждой игры свой ориентир. Быстрее — до ×1.60, медленнее — штраф до ×0.20.</li>
         <li><b>Турнир</b> — ровно <b>25 баллов</b>. Без множителей.</li>
-        <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>. Итог: от 1 до ~640.</li>
-        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия), ориентир <b>2 минуты</b>. Итог: от 1 до ~53.</li>
-        <li><b>Что больше · Прослушивания</b> — база <b>50</b>, ориентир <b>2 минуты 30 секунд</b>. Итог: от 1 до ~80.</li>
-        <li><b>Что больше · Длительность</b> — база <b>75</b> (в 1.5 раза выше), ориентир <b>2 минуты 30 секунд</b>. Итог: от 1 до ~120.</li>
+        <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>.</li>
+        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия), ориентир <b>2 минуты</b>.</li>
+        <li><b>Что больше · Прослушивания</b> — база <b>50</b>, ориентир <b>2:30</b>.</li>
+        <li><b>Что больше · Длительность</b> — база <b>75</b>, ориентир <b>2:30</b>.</li>
+        <li><b>Откуда строчка · Выбор</b> — база <b>90</b>, ориентир <b>3:30</b>.</li>
+        <li><b>Откуда строчка · Ввод</b> — база <b>315</b> (в 3.5 раза выше), ориентир <b>6:00</b>.</li>
         <li>После каждой партии показывается полная разбивка: база, множители и итоговая сумма.</li>
       </ul>
     </div>
@@ -1242,6 +1253,29 @@
   </div>
 </div>
 
+<!-- МОДАЛКА РЕЗУЛЬТАТОВ ОТКУДА СТРОЧКА -->
+<div class="modal" id="lineResultsModal">
+  <div class="modal-content wide no-x">
+    <div class="results-hero">
+      <div class="results-percent" id="lineResultPercent">0%</div>
+      <div class="results-percent-label">Точность</div>
+    </div>
+    <div class="results-grid" style="grid-template-columns:repeat(5,1fr)">
+      <div class="rg-item"><div class="rg-value green" id="lineRgCorrect">0</div><div class="rg-label">Верно</div></div>
+      <div class="rg-item"><div class="rg-value red" id="lineRgIncorrect">0</div><div class="rg-label">Ошибок</div></div>
+      <div class="rg-item"><div class="rg-value purple" id="lineRgTotal">00:00</div><div class="rg-label">Всего</div></div>
+      <div class="rg-item"><div class="rg-value blue" id="lineRgAvg">0.00с</div><div class="rg-label">Среднее</div></div>
+      <div class="rg-item"><div class="rg-value orange" id="lineRgRange">—</div><div class="rg-label">Мин/макс</div></div>
+    </div>
+    <div id="lineRgPointsWrap" style="text-align:center;padding:12px 0 0"></div>
+    <div class="odd-details" id="lineDetails"></div>
+    <div class="results-actions">
+      <button class="btn-primary" id="linePlayAgain">Играть снова</button>
+      <button class="btn-secondary" id="lineToMenu">В меню</button>
+    </div>
+  </div>
+</div>
+
 <!-- МОДАЛКА СТАТИСТИКИ -->
 <div class="modal" id="recordsModal">
   <div class="modal-content">
@@ -1254,6 +1288,7 @@
         <button data-rtab="chronology">Хронология</button>
         <button data-rtab="odd">Кто лишний</button>
         <button data-rtab="compare">Что больше</button>
+        <button data-rtab="line">Откуда строчка</button>
       </div>
       <div class="records-body" id="recordsBody"></div>
       <div class="records-footer">
@@ -1286,14 +1321,6 @@ Kai Angel - Madonna - madonna.png - 1.13M - 01:57
 Kai Angel - Korea Graves - koreagraves.png - 1.39M - 02:16
 Kai Angel - i need to chill - 1.75M - 02:16
 Kai Angel - SKULL - 724K - 01:52
------
---- SHADOW FREESTYLE - shadow.png
-Kai Angel - SHADOW FREESTYLE - shadow.png - 523K - 02:24
-Kai Angel - SILVER CP - shadow.png - 240K - 01:50
---- kAiCoRe - kaicore.png
-Kai Angel - what's uppppppxddDDD - kaicore.png - 2.5M - 01:39
-Kai Angel - ~boo~ - kaicore.png - 377K - 02:13
-Kai Angel - rain (hEaVy) - kaicore.png - 240K - 02:10
 `;
 
 /* ====================== DOM ====================== */
@@ -1305,6 +1332,7 @@ const screens = {
   chronology: document.getElementById('screen-chronology'),
   odd:        document.getElementById('screen-odd'),
   compare:    document.getElementById('screen-compare'),
+  line:       document.getElementById('screen-line'),
 };
 
 const arena       = document.getElementById('arena');
@@ -1355,6 +1383,19 @@ const cmpTimerPill = document.getElementById('cmpTimerPill');
 const cmpProgressBar = document.getElementById('cmpProgressBar');
 const cmpProgressPercent = document.getElementById('cmpProgressPercent');
 
+const linePromptText = document.getElementById('linePromptText');
+const lineHint = document.getElementById('lineHint');
+const lineOptionsEl = document.getElementById('lineOptions');
+const lineSearchEl = document.getElementById('lineSearch');
+const lineSearchInput = document.getElementById('lineSearchInput');
+const lineSearchList = document.getElementById('lineSearchList');
+const lineInfo = document.getElementById('lineInfo');
+const lineTitleEl = document.getElementById('lineTitle');
+const lineTimerEl = document.getElementById('lineTimer');
+const lineTimerPill = document.getElementById('lineTimerPill');
+const lineProgressBar = document.getElementById('lineProgressBar');
+const lineProgressPercent = document.getElementById('lineProgressPercent');
+
 /* ====================== СОСТОЯНИЕ ====================== */
 let allTracks = [];
 let trackStructure = { singles: [], albums: [] };
@@ -1400,9 +1441,29 @@ let cmpTimerInterval = null;
 let cmpCards = [];
 let cmpUsedIds = new Set();
 
+// Line game
+const LINE_ROUNDS = 30;
+let lineRoundIndex = 0;
+let lineRoundStartTime = 0;
+let lineRoundTimes = [];
+let lineRoundResults = [];
+let lineCorrectCount = 0;
+let lineGameActive = false;
+let lineLocked = false;
+let lineCurrentWinner = null; // track object
+let lineUsedIds = new Set();
+let lineMode = 'choice';
+let lineTimerStart = 0;
+let lineTimerInterval = null;
+let lineRoundChoices = [];
+let lyricsDB = {}; // key -> {artist, title, lines: []}
+let lyricEntries = []; // [{key, artist, title, lines}]
+let lyricsReady = false;
+
 let selectedMode = null;
 let selectedOddSubmode = 'covers';
 let selectedCmpSubmode = 'plays';
+let selectedLineSubmode = 'choice';
 
 /* ====================== УТИЛИТЫ ====================== */
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -1463,18 +1524,9 @@ function formatRelative(ts){
 }
 function formatBigNum(n){
   n = Math.max(0, Math.round(n));
-  if (n >= 1000000000){
-    const v = n / 1000000000;
-    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'B';
-  }
-  if (n >= 1000000){
-    const v = n / 1000000;
-    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'M';
-  }
-  if (n >= 1000){
-    const v = n / 1000;
-    return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1).replace(/\.0$/,'')) + 'K';
-  }
+  if (n >= 1000000000){ const v = n / 1000000000; return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'B'; }
+  if (n >= 1000000){ const v = n / 1000000; return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(2).replace(/\.?0+$/,'')) + 'M'; }
+  if (n >= 1000){ const v = n / 1000; return (v % 1 === 0 ? v.toFixed(0) : v.toFixed(1).replace(/\.0$/,'')) + 'K'; }
   return String(n);
 }
 function formatMmSs(sec){
@@ -1488,84 +1540,58 @@ function formatMmSs(sec){
 const POINTS_FIXED_TOURNAMENT = 25;
 
 function calcTournamentBreakdown(){
-  return {
-    base: POINTS_FIXED_TOURNAMENT,
-    accuracyMultiplier: 1,
-    speedMultiplier: 1,
-    total: POINTS_FIXED_TOURNAMENT,
-    midTimeSec: 0,
-    modeBonus: 0,
-  };
+  return { base: POINTS_FIXED_TOURNAMENT, accuracyMultiplier: 1, speedMultiplier: 1, total: POINTS_FIXED_TOURNAMENT, midTimeSec: 0, modeBonus: 0 };
 }
-
 function calcChronologyBreakdown(timeSec, percent){
   const base = 400;
   const acc = Math.max(0, Math.min(100, percent)) / 100;
   const accuracyMultiplier = acc * acc;
   const MID_TIME = 35 * 60;
   let speedMultiplier;
-  if (timeSec <= MID_TIME){
-    speedMultiplier = 1 + (MID_TIME - timeSec) / MID_TIME * 0.6;
-  } else {
-    speedMultiplier = Math.max(0.2, 1 - (timeSec - MID_TIME) / MID_TIME * 0.8);
-  }
-  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier));
-  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus: 0 };
+  if (timeSec <= MID_TIME) speedMultiplier = 1 + (MID_TIME - timeSec) / MID_TIME * 0.6;
+  else speedMultiplier = Math.max(0.2, 1 - (timeSec - MID_TIME) / MID_TIME * 0.8);
+  return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
 }
-
 function calcOddBreakdown(totalTime, accuracy, mode){
   const base = 30;
   const acc = Math.max(0, Math.min(100, accuracy)) / 100;
   const accuracyMultiplier = acc * acc;
   const MID_TIME = 120;
   let speedMultiplier;
-  if (totalTime <= MID_TIME){
-    speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
-  } else {
-    speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 180 * 0.8);
-  }
+  if (totalTime <= MID_TIME) speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
+  else speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 180 * 0.8);
   const modeBonus = mode === 'titles' ? 5 : 0;
-  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier) + modeBonus);
-  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus };
+  return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier) + modeBonus), midTimeSec: MID_TIME, modeBonus };
 }
-
 function calcCompareBreakdown(totalTime, accuracy, mode){
-  // Ориентир — 2:30 (150 сек) для обеих категорий
   const MID_TIME = 150;
   const base = mode === 'duration' ? 75 : 50;
   const acc = Math.max(0, Math.min(100, accuracy)) / 100;
   const accuracyMultiplier = acc * acc;
   let speedMultiplier;
-  if (totalTime <= MID_TIME){
-    speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
-  } else {
-    speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 120 * 0.8);
-  }
-  const total = Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier));
-  return { base, accuracyMultiplier, speedMultiplier, total, midTimeSec: MID_TIME, modeBonus: 0 };
+  if (totalTime <= MID_TIME) speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
+  else speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 120 * 0.8);
+  return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
+}
+function calcLineBreakdown(totalTime, accuracy, mode){
+  // choice: 3.5 min = 210 sec. input: 6 min = 360 sec.
+  const MID_TIME = mode === 'input' ? 360 : 210;
+  const base = mode === 'input' ? 315 : 90;
+  const acc = Math.max(0, Math.min(100, accuracy)) / 100;
+  const accuracyMultiplier = acc * acc;
+  let speedMultiplier;
+  if (totalTime <= MID_TIME) speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
+  else speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 120 * 0.8);
+  return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
 }
 
 function renderPointsBreakdownHTML(bd, opts = {}){
   const fmtMult = x => '×' + x.toFixed(2);
-
   const accuracyRow = (opts.showAccuracy === false) ? '' : `
-    <div class="pb-row">
-      <span>Точность: ${opts.percentLabel || '—'}</span>
-      <b>${fmtMult(bd.accuracyMultiplier)}</b>
-    </div>`;
-
+    <div class="pb-row"><span>Точность: ${opts.percentLabel || '—'}</span><b>${fmtMult(bd.accuracyMultiplier)}</b></div>`;
   const speedRow = (opts.showSpeed === false) ? '' : `
-    <div class="pb-row">
-      <span>Время: ${opts.timeLabel || '—'}</span>
-      <b>${fmtMult(bd.speedMultiplier)}</b>
-    </div>`;
-
-  const modeRow = bd.modeBonus ? `
-    <div class="pb-row">
-      <span>Бонус режима:</span>
-      <b>+${bd.modeBonus}</b>
-    </div>` : '';
-
+    <div class="pb-row"><span>Время: ${opts.timeLabel || '—'}</span><b>${fmtMult(bd.speedMultiplier)}</b></div>`;
+  const modeRow = bd.modeBonus ? `<div class="pb-row"><span>Бонус режима:</span><b>+${bd.modeBonus}</b></div>` : '';
   return `<div class="points-breakdown">
     <div class="pb-total-hero">
       <span class="pb-th-label">Итого</span>
@@ -1644,10 +1670,7 @@ function makeTypo(title){
   for (let attempt = 0; attempt < 25; attempt++){
     let r = Math.random() * totalWeight;
     let picked = transforms[0];
-    for (const t of transforms){
-      r -= (t.weight || 1);
-      if (r <= 0){ picked = t; break; }
-    }
+    for (const t of transforms){ r -= (t.weight || 1); if (r <= 0){ picked = t; break; } }
     let result = title;
     switch(picked.type){
       case 'remove': result = title.slice(0, picked.i) + title.slice(picked.i + 1); break;
@@ -1661,7 +1684,7 @@ function makeTypo(title){
   return null;
 }
 
-/* ====================== ПАРСЕР ====================== */
+/* ====================== ПАРСЕР tracks.txt ====================== */
 const IMG_EXT_RE = /\.(png|jpe?g|webp|gif|avif|bmp|svg)$/i;
 const COVER_TAIL_RE = /^(.*?)\s+-\s+(\S+\.(?:png|jpe?g|webp|gif|avif|bmp|svg))\s*$/i;
 const DURATION_RE = /^(\d{1,2}):(\d{2})$/;
@@ -1689,7 +1712,6 @@ function resolveCover(cover){
 function parseOneTrack(line){
   const parts = line.split(/\s+-\s+/).map(s => s.trim()).filter(Boolean);
   let plays = null, duration = null, cover = null;
-
   if (parts.length){
     const d = parseDurationStr(parts[parts.length - 1]);
     if (d !== null){ duration = d; parts.pop(); }
@@ -1702,25 +1724,12 @@ function parseOneTrack(line){
     const last = parts[parts.length - 1];
     if (IMG_EXT_RE.test(last)){ cover = last; parts.pop(); }
   }
-
   let artist = '', title = '';
-  if (parts.length >= 2){
-    artist = parts[0];
-    title = parts.slice(1).join(' - ');
-  } else if (parts.length === 1){
-    title = parts[0];
-  }
+  if (parts.length >= 2){ artist = parts[0]; title = parts.slice(1).join(' - '); }
+  else if (parts.length === 1){ title = parts[0]; }
   if (!title) return null;
-
   const c = colorsFor(title + artist);
-  return {
-    id: nextTrackId++,
-    title,
-    artist: artist || '—',
-    cover: resolveCover(cover),
-    c1: c.c1, c2: c.c2,
-    plays, duration,
-  };
+  return { id: nextTrackId++, title, artist: artist || '—', cover: resolveCover(cover), c1: c.c1, c2: c.c2, plays, duration };
 }
 function parseTracks(text){
   const lines = text.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
@@ -1728,7 +1737,6 @@ function parseTracks(text){
   const structure = { singles: [], albums: [] };
   let section = 'singles';
   let currentAlbum = null;
-
   for (const line of lines){
     const sepMatch = line.match(/^-{3,}\s*(.*)$/);
     if (sepMatch){
@@ -1745,9 +1753,8 @@ function parseTracks(text){
     const track = parseOneTrack(line);
     if (!track) continue;
     flat.push(track);
-    if (section === 'singles'){
-      structure.singles.push(track);
-    } else {
+    if (section === 'singles') structure.singles.push(track);
+    else {
       if (currentAlbum) currentAlbum.tracks.push(track);
       else {
         if (!structure.albums.length || structure.albums[structure.albums.length - 1].name !== 'Без альбома'){
@@ -1759,6 +1766,42 @@ function parseTracks(text){
   }
   return { flat, structure };
 }
+
+/* ====================== ПАРСЕР texts.txt ====================== */
+function parseLyricsText(text){
+  const lines = text.split('\n');
+  const entries = [];
+  const byKey = {};
+  let current = null;
+
+  for (const raw of lines){
+    const line = raw.replace(/\r$/, '');
+    const trimmed = line.trim();
+    if (!trimmed) continue;
+
+    // Заголовок: "- Artist - Title"
+    if (trimmed.startsWith('- ')){
+      const body = trimmed.slice(2);
+      const idx = body.indexOf(' - ');
+      if (idx !== -1){
+        const artist = body.slice(0, idx).trim();
+        const title = body.slice(idx + 3).trim();
+        const key = `${artist}||${title}`;
+        current = { key, artist, title, lines: [] };
+        entries.push(current);
+        byKey[key] = current;
+        continue;
+      }
+    }
+
+    if (current) current.lines.push(trimmed);
+  }
+
+  // Удаляем треки без строк
+  const valid = entries.filter(e => e.lines.length > 0);
+  return { entries: valid, byKey };
+}
+
 async function loadTracks(){
   try {
     const res = await fetch('tracks.txt', { cache: 'no-store' });
@@ -1770,6 +1813,24 @@ async function loadTracks(){
   } catch (e) {
     console.warn('Fallback:', e.message);
     return parseTracks(DEFAULT_TRACKS_TEXT);
+  }
+}
+
+async function loadLyrics(){
+  try {
+    const res = await fetch('texts.txt', { cache: 'no-store' });
+    if (!res.ok) throw new Error('texts.txt не найден');
+    const text = await res.text();
+    const { entries, byKey } = parseLyricsText(text);
+    lyricEntries = entries;
+    lyricsDB = byKey;
+    lyricsReady = entries.length > 0;
+    console.log(`Загружено текстов: ${entries.length}`);
+  } catch (e) {
+    console.warn('Не удалось загрузить texts.txt:', e.message);
+    lyricEntries = [];
+    lyricsDB = {};
+    lyricsReady = false;
   }
 }
 
@@ -1808,46 +1869,41 @@ helloModal.addEventListener('click', e => { if (e.target === helloModal) closeMo
 const MODE_DESCRIPTIONS = {
   tournament: {
     title: 'Турнир',
-    text: 'Треки играют парами на выбывание: выбираешь лучший из двух — победитель идёт дальше, пока не останется один чемпион. Расслабляющий режим примерно на 20–35 минут.',
-    reward: 'Награда: <b>ровно 25 баллов</b> за завершение, независимо от времени и результата.',
+    text: 'Треки играют парами на выбывание: выбираешь лучший из двух — победитель идёт дальше, пока не останется один чемпион.',
+    reward: 'Награда: <b>ровно 25 баллов</b> за завершение.',
   },
   chronology: {
     title: 'Хронология',
-    text: 'Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра, обычно 30–50 минут, требует внимания.',
-    reward: 'Награда: <b>база 400</b>. Множитель точности: 100% → ×1.00, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир 35 минут, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~640 баллов.',
+    text: 'Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра.',
+    reward: 'Награда: <b>база 400</b>, ориентир 35 минут.',
   },
   odd: {
     title: 'Кто лишний',
-    text: '30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра на 1–3 минуты.',
-    reward: 'Выбери подкатегорию ниже, чтобы увидеть точную формулу баллов.',
+    text: '30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох.',
+    reward: 'Выбери подкатегорию ниже.',
   },
   compare: {
     title: 'Что больше?',
-    text: '30 раундов по две карточки. Нужно угадать, где значение выше. После клика цифра внутри квадрата растёт от нуля до реального значения, а карточка подсвечивается.',
-    reward: 'Выбери подкатегорию ниже, чтобы увидеть точную формулу баллов.',
+    text: '30 раундов по две карточки. Нужно угадать, где значение выше.',
+    reward: 'Выбери подкатегорию ниже.',
+  },
+  line: {
+    title: 'Откуда строчка',
+    text: '30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно.',
+    reward: 'Выбери подкатегорию ниже.',
   },
 };
-
 const ODD_SUBMODE_DESCRIPTIONS = {
-  covers: {
-    text: 'У трёх треков обложки правильные, у одного — подменённая на чужую из папки pics. Ищи трек с неправильной обложкой.',
-    reward: 'Награда: <b>база 30</b>. Множитель точности (квадратично): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир 2 минуты, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~48 баллов.',
-  },
-  titles: {
-    text: 'У трёх треков названия правильные, у одного — с незаметной опечаткой (убрана, удвоена или переставлена буква). Ищи трек с ошибкой.',
-    reward: 'Награда: <b>база 30 + 5 бонус</b> за режим «Названия». Множитель точности такой же квадратичный, ориентир времени — 2 минуты. Итог: от 1 до ~53 баллов.',
-  },
+  covers: { text: 'У трёх треков обложки правильные, у одного — подменённая на чужую из папки pics.', reward: 'Награда: <b>база 30</b>, ориентир 2 минуты.' },
+  titles: { text: 'У трёх треков названия правильные, у одного — с незаметной опечаткой.', reward: 'Награда: <b>база 30 + 5</b>, ориентир 2 минуты.' },
 };
-
 const CMP_SUBMODE_DESCRIPTIONS = {
-  plays: {
-    text: 'Угадываешь, у какого из двух треков больше прослушиваний. После клика цифры растут от нуля до реального значения.',
-    reward: 'Награда: <b>база 50</b>. Множитель точности (квадратично): 100% → ×1.00, 80% → ×0.64, 50% → ×0.25. Множитель времени: ориентир <b>2 минуты 30 секунд</b>, быстрее → до ×1.60, медленнее → до ×0.20. Итог: от 1 до ~80 баллов.',
-  },
-  duration: {
-    text: 'Угадываешь, какой из двух треков длиннее. После клика цифры растут от нуля до реальной длины трека.',
-    reward: 'Награда: <b>база 75</b> (в 1.5 раза выше, чем за прослушивания). Ориентир времени — <b>2 минуты 30 секунд</b>. Множители точности и времени работают так же. Итог: от 1 до ~120 баллов.',
-  },
+  plays: { text: 'Угадываешь, у какого из двух треков больше прослушиваний.', reward: 'Награда: <b>база 50</b>, ориентир 2:30.' },
+  duration: { text: 'Угадываешь, какой из двух треков длиннее.', reward: 'Награда: <b>база 75</b>, ориентир 2:30.' },
+};
+const LINE_SUBMODE_DESCRIPTIONS = {
+  choice: { text: 'Даны 4 варианта трека — нужно выбрать, из какого эта строка.', reward: 'Награда: <b>база 90</b>, ориентир <b>3:30</b>.' },
+  input: { text: 'Нужно найти и выбрать трек через поиск.', reward: 'Награда: <b>база 315</b> (в 3.5 раза больше), ориентир <b>6:00</b>.' },
 };
 
 function renderModeDescription(){
@@ -1857,16 +1913,23 @@ function renderModeDescription(){
     btnModeStart.disabled = true;
     return;
   }
-
   let data = MODE_DESCRIPTIONS[selectedMode];
 
   if (selectedMode === 'odd'){
-    const sub = ODD_SUBMODE_DESCRIPTIONS[selectedOddSubmode];
-    data = { ...data, text: sub.text, reward: sub.reward };
+    const s = ODD_SUBMODE_DESCRIPTIONS[selectedOddSubmode];
+    data = { ...data, text: s.text, reward: s.reward };
   }
   if (selectedMode === 'compare'){
-    const sub = CMP_SUBMODE_DESCRIPTIONS[selectedCmpSubmode];
-    data = { ...data, text: sub.text, reward: sub.reward };
+    const s = CMP_SUBMODE_DESCRIPTIONS[selectedCmpSubmode];
+    data = { ...data, text: s.text, reward: s.reward };
+  }
+  if (selectedMode === 'line'){
+    const s = LINE_SUBMODE_DESCRIPTIONS[selectedLineSubmode];
+    data = { ...data, text: s.text, reward: s.reward };
+    if (!lyricsReady){
+      data.text = 'Не удалось загрузить texts.txt. Положи файл texts.txt рядом с index.html — без него этот режим недоступен.';
+      data.reward = 'Режим временно отключён.';
+    }
   }
 
   modeDescEl.className = 'mode-desc has-content';
@@ -1888,20 +1951,23 @@ function renderModeDescription(){
       <button class="mode-submode-btn ${selectedCmpSubmode === 'duration' ? 'active' : ''}" data-csubmode="duration">Длительность</button>
     </div>`;
   }
+  if (selectedMode === 'line'){
+    html += `<div class="mode-submodes">
+      <button class="mode-submode-btn ${selectedLineSubmode === 'choice' ? 'active' : ''}" data-lsubmode="choice" ${!lyricsReady?'disabled':''}>Выбор из 4</button>
+      <button class="mode-submode-btn ${selectedLineSubmode === 'input' ? 'active' : ''}" data-lsubmode="input" ${!lyricsReady?'disabled':''}>Ввод через поиск</button>
+    </div>`;
+  }
   modeDescEl.innerHTML = html;
-  btnModeStart.disabled = false;
+  btnModeStart.disabled = !!(selectedMode === 'line' && !lyricsReady);
 
   modeDescEl.querySelectorAll('.mode-submode-btn[data-submode]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      selectedOddSubmode = btn.dataset.submode;
-      renderModeDescription();
-    });
+    btn.addEventListener('click', () => { selectedOddSubmode = btn.dataset.submode; renderModeDescription(); });
   });
   modeDescEl.querySelectorAll('.mode-submode-btn[data-csubmode]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      selectedCmpSubmode = btn.dataset.csubmode;
-      renderModeDescription();
-    });
+    btn.addEventListener('click', () => { selectedCmpSubmode = btn.dataset.csubmode; renderModeDescription(); });
+  });
+  modeDescEl.querySelectorAll('.mode-submode-btn[data-lsubmode]').forEach(btn => {
+    btn.addEventListener('click', () => { selectedLineSubmode = btn.dataset.lsubmode; renderModeDescription(); });
   });
 }
 
@@ -1921,12 +1987,14 @@ btnModeStart.addEventListener('click', () => {
   else if (selectedMode === 'chronology') runChronologyFlow();
   else if (selectedMode === 'odd') runOddFlow(selectedOddSubmode);
   else if (selectedMode === 'compare') runCompareFlow(selectedCmpSubmode);
+  else if (selectedMode === 'line') runLineFlow(selectedLineSubmode);
 });
 
 btnModeBack.addEventListener('click', () => {
   selectedMode = null;
   selectedOddSubmode = 'covers';
   selectedCmpSubmode = 'plays';
+  selectedLineSubmode = 'choice';
   modeCardsEl.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
   renderModeDescription();
   showScreen('menu');
@@ -1936,6 +2004,7 @@ document.getElementById('btnStart').addEventListener('click', () => {
   selectedMode = null;
   selectedOddSubmode = 'covers';
   selectedCmpSubmode = 'plays';
+  selectedLineSubmode = 'choice';
   modeCardsEl.querySelectorAll('.mode-card').forEach(c => c.classList.remove('selected'));
   renderModeDescription();
   showScreen('modes');
@@ -1948,16 +2017,11 @@ document.getElementById('closeHistoryX').addEventListener('click', () => closeMo
 historyModal.addEventListener('click', e => { if (e.target === historyModal) closeModal('historyModal'); });
 
 /* ====================== RECORDS ====================== */
-const RECORDS_KEY = 'kaiAngelTracksGame_records_v9';
+const RECORDS_KEY = 'kaiAngelTracksGame_records_v10';
 const LEGACY_KEYS = [
-  'kaiAngelTracksGame_records_v8',
-  'kaiAngelTracksGame_records_v7',
-  'kaiAngelTracksGame_records_v6',
-  'kaiAngelTracksGame_records_v5',
-  'kaiAngelTracksGame_records_v4',
-  'kaiAngelTracksGame_records_v3',
-  'kaiAngelTracksGame_records_v2',
-  'kaiAngelTracksGame_records_v1',
+  'kaiAngelTracksGame_records_v9','kaiAngelTracksGame_records_v8','kaiAngelTracksGame_records_v7',
+  'kaiAngelTracksGame_records_v6','kaiAngelTracksGame_records_v5','kaiAngelTracksGame_records_v4',
+  'kaiAngelTracksGame_records_v3','kaiAngelTracksGame_records_v2','kaiAngelTracksGame_records_v1',
 ];
 const MAX_LIST = 20;
 const MAX_HISTORY = 10;
@@ -1971,6 +2035,7 @@ function defaultRecords(){
     chronologyRatio: [],
     oddOneOut: [],
     comparisonResults: [],
+    lineResults: [],
     totalPoints: 0,
     history: [],
   };
@@ -1985,6 +2050,7 @@ function normalizeRecords(raw){
     chronologyRatio: Array.isArray(r.chronologyRatio) ? r.chronologyRatio : [],
     oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
     comparisonResults: Array.isArray(r.comparisonResults) ? r.comparisonResults : [],
+    lineResults: Array.isArray(r.lineResults) ? r.lineResults : [],
     totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
     history: Array.isArray(r.history) ? r.history : [],
   };
@@ -1992,9 +2058,7 @@ function normalizeRecords(raw){
 function loadRecords(){
   try {
     const raw = localStorage.getItem(RECORDS_KEY);
-    if (raw){
-      try { return normalizeRecords(JSON.parse(raw)); } catch {}
-    }
+    if (raw){ try { return normalizeRecords(JSON.parse(raw)); } catch {} }
     for (const key of LEGACY_KEYS){
       const legacyRaw = localStorage.getItem(key);
       if (legacyRaw){
@@ -2008,9 +2072,7 @@ function loadRecords(){
     return defaultRecords();
   } catch { return defaultRecords(); }
 }
-function saveRecords(r){
-  try { localStorage.setItem(RECORDS_KEY, JSON.stringify(r)); } catch(e){ console.warn(e); }
-}
+function saveRecords(r){ try { localStorage.setItem(RECORDS_KEY, JSON.stringify(r)); } catch(e){ console.warn(e); } }
 function addPointsToHistory(points, type, label, detail){
   const r = loadRecords();
   r.totalPoints = (r.totalPoints || 0) + points;
@@ -2027,10 +2089,7 @@ function renderHistoryModal(){
   const r = loadRecords();
   const body = document.getElementById('historyBody');
   const hist = r.history || [];
-  if (!hist.length){
-    body.innerHTML = `<div class="records-empty"><div class="txt">Ещё нет сыгранных игр</div></div>`;
-    return;
-  }
+  if (!hist.length){ body.innerHTML = `<div class="records-empty"><div class="txt">Ещё нет сыгранных игр</div></div>`; return; }
   let html = `<div class="history-list">`;
   hist.forEach(h => {
     html += `<div class="history-item ${h.type}">
@@ -2045,9 +2104,9 @@ function renderHistoryModal(){
   body.innerHTML = html;
 }
 
+/* --- сохранения --- */
 function computeTrackPoints(bracket, totalTracks){
-  const survived = {};
-  const info = {};
+  const survived = {}, info = {};
   const keyOf = t => `${t.artist}||${t.title}`;
   bracket.forEach(round => {
     round.matches.forEach(m => {
@@ -2069,10 +2128,7 @@ function computeTrackPoints(bracket, totalTracks){
   arr.forEach((item, i) => {
     if (lastV !== null && item.survived !== lastV) currentRank = i + 1;
     lastV = item.survived;
-    result[item.key] = {
-      title: item.title, artist: item.artist,
-      points: Math.max(1, totalTracks + 1 - currentRank),
-    };
+    result[item.key] = { title: item.title, artist: item.artist, points: Math.max(1, totalTracks + 1 - currentRank) };
   });
   return result;
 }
@@ -2091,15 +2147,9 @@ function saveTournamentResult(timeSec, trackPoints){
 function saveChronologyResult(timeSec, percent, correct, total, albumCorrect, totalAlbums){
   const r = loadRecords();
   const entry = { time: timeSec, percent, correct, total, albumCorrect, totalAlbums, tracks: allTracks.length, date: Date.now() };
-  r.chronologyTimes.push(entry);
-  r.chronologyTimes.sort((a, b) => a.time - b.time);
-  r.chronologyTimes = r.chronologyTimes.slice(0, MAX_LIST);
-  r.chronologyAccuracy.push(entry);
-  r.chronologyAccuracy.sort((a, b) => b.percent - a.percent || a.time - b.time);
-  r.chronologyAccuracy = r.chronologyAccuracy.slice(0, MAX_LIST);
-  r.chronologyRatio.push({ ...entry, ratio: percent / (timeSec + 1) });
-  r.chronologyRatio.sort((a, b) => b.ratio - a.ratio);
-  r.chronologyRatio = r.chronologyRatio.slice(0, MAX_LIST);
+  r.chronologyTimes.push(entry); r.chronologyTimes.sort((a,b)=>a.time-b.time); r.chronologyTimes = r.chronologyTimes.slice(0, MAX_LIST);
+  r.chronologyAccuracy.push(entry); r.chronologyAccuracy.sort((a,b)=>b.percent-a.percent||a.time-b.time); r.chronologyAccuracy = r.chronologyAccuracy.slice(0, MAX_LIST);
+  r.chronologyRatio.push({ ...entry, ratio: percent / (timeSec + 1) }); r.chronologyRatio.sort((a,b)=>b.ratio-a.ratio); r.chronologyRatio = r.chronologyRatio.slice(0, MAX_LIST);
   saveRecords(r);
 }
 function saveOddResult(entry){
@@ -2116,6 +2166,13 @@ function saveCompareResult(entry){
   r.comparisonResults = r.comparisonResults.slice(0, MAX_LIST);
   saveRecords(r);
 }
+function saveLineResult(entry){
+  const r = loadRecords();
+  r.lineResults.push(entry);
+  r.lineResults.sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime);
+  r.lineResults = r.lineResults.slice(0, MAX_LIST);
+  saveRecords(r);
+}
 
 /* ====================== ОБЩАЯ СТАТИСТИКА ====================== */
 function renderGeneralStatsHTML(r){
@@ -2123,29 +2180,15 @@ function renderGeneralStatsHTML(r){
   const chronoCount = r.chronologyTimes.length;
   const oddCount = r.oddOneOut.length;
   const cmpCount = r.comparisonResults.length;
-  const totalGames = tournCount + chronoCount + oddCount + cmpCount;
+  const lineCount = r.lineResults.length;
+  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount;
 
   const tournTime = r.tournamentTimes.reduce((a, e) => a + e.time, 0);
   const chronoTime = r.chronologyTimes.reduce((a, e) => a + e.time, 0);
   const oddTime = r.oddOneOut.reduce((a, e) => a + (e.totalTime || 0), 0);
   const cmpTime = r.comparisonResults.reduce((a, e) => a + (e.totalTime || 0), 0);
-  const totalTime = tournTime + chronoTime + oddTime + cmpTime;
-
-  const avgTourn = tournCount ? tournTime / tournCount : 0;
-  const avgChrono = chronoCount ? chronoTime / chronoCount : 0;
-  const avgOdd = oddCount ? oddTime / oddCount : 0;
-  const avgCmp = cmpCount ? cmpTime / cmpCount : 0;
-
-  const avgChronoAcc = chronoCount ? r.chronologyTimes.reduce((a, e) => a + e.percent, 0) / chronoCount : 0;
-  const avgOddAcc = oddCount ? r.oddOneOut.reduce((a, e) => a + e.accuracy, 0) / oddCount : 0;
-  const avgCmpAcc = cmpCount ? r.comparisonResults.reduce((a, e) => a + e.accuracy, 0) / cmpCount : 0;
-
-  const totalAccuracySamples = chronoCount + oddCount + cmpCount;
-  const totalAccuracySum =
-    (chronoCount ? r.chronologyTimes.reduce((a, e) => a + e.percent, 0) : 0) +
-    (oddCount ? r.oddOneOut.reduce((a, e) => a + e.accuracy, 0) : 0) +
-    (cmpCount ? r.comparisonResults.reduce((a, e) => a + e.accuracy, 0) : 0);
-  const avgAccuracy = totalAccuracySamples ? totalAccuracySum / totalAccuracySamples : 0;
+  const lineTime = r.lineResults.reduce((a, e) => a + (e.totalTime || 0), 0);
+  const totalTime = tournTime + chronoTime + oddTime + cmpTime + lineTime;
 
   const totalPoints = r.totalPoints || 0;
 
@@ -2164,57 +2207,51 @@ function renderGeneralStatsHTML(r){
       <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">${totalGames}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Общее время</span><span class="stats-hero-value">${formatDuration(totalTime)}</span></div>
-      <div class="stats-hero-item"><span class="stats-hero-label">Средняя точность</span><span class="stats-hero-value">${totalAccuracySamples ? avgAccuracy.toFixed(1) + '%' : '—'}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount].filter(x=>x>0).length} / 5</span></div>
     </div>
-
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Турнир</div><div class="stats-block-count">${tournCount}</div></div>
       <div class="stats-block-rows">
         ${tournCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(tournTime)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Среднее время</span><b>${formatDuration(avgTourn)}</b></div>
           <div class="stats-block-row"><span class="lbl">Лучшее время</span><b>${formatTime(r.tournamentTimes[0]?.time || 0)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Разных треков в топе</span><b>${Object.keys(r.trackPoints).length}</b></div>
-        ` : `<div class="stats-block-empty">Ещё не сыграно ни одного турнира</div>`}
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
-
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Хронология</div><div class="stats-block-count">${chronoCount}</div></div>
       <div class="stats-block-rows">
         ${chronoCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(chronoTime)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Среднее время</span><b>${formatDuration(avgChrono)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Лучшее время</span><b>${formatTime(r.chronologyTimes[0]?.time || 0)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Средняя точность</span><b>${avgChronoAcc.toFixed(1)}%</b></div>
           <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.chronologyAccuracy[0]?.percent || 0).toFixed(2)}%</b></div>
-        ` : `<div class="stats-block-empty">Ещё не сыграно ни одной хронологии</div>`}
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
-
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Кто лишний</div><div class="stats-block-count">${oddCount}</div></div>
       <div class="stats-block-rows">
         ${oddCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(oddTime)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Среднее время</span><b>${formatDuration(avgOdd)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Средняя точность</span><b>${avgOddAcc.toFixed(1)}%</b></div>
           <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.oddOneOut.reduce((m, e) => Math.max(m, e.accuracy), 0)).toFixed(2)}%</b></div>
-          <div class="stats-block-row"><span class="lbl">Лучшее время</span><b>${formatTime(Math.min(...r.oddOneOut.map(e => e.totalTime)))}</b></div>
-        ` : `<div class="stats-block-empty">Ещё не сыграно ни одной партии «Кто лишний»</div>`}
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
-
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Что больше</div><div class="stats-block-count">${cmpCount}</div></div>
       <div class="stats-block-rows">
         ${cmpCount ? `
           <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(cmpTime)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Среднее время</span><b>${formatDuration(avgCmp)}</b></div>
-          <div class="stats-block-row"><span class="lbl">Средняя точность</span><b>${avgCmpAcc.toFixed(1)}%</b></div>
           <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.comparisonResults.reduce((m, e) => Math.max(m, e.accuracy), 0)).toFixed(2)}%</b></div>
-          <div class="stats-block-row"><span class="lbl">Лучшее время</span><b>${formatTime(Math.min(...r.comparisonResults.map(e => e.totalTime)))}</b></div>
-        ` : `<div class="stats-block-empty">Ещё не сыграно ни одной партии «Что больше»</div>`}
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
+      </div>
+    </div>
+    <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">Откуда строчка</div><div class="stats-block-count">${lineCount}</div></div>
+      <div class="stats-block-rows">
+        ${lineCount ? `
+          <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(lineTime)}</b></div>
+          <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.lineResults.reduce((m, e) => Math.max(m, e.accuracy), 0)).toFixed(2)}%</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
   </div>`;
@@ -2224,12 +2261,13 @@ let recordsTab = 'general';
 let oddSubtab = 'all';
 let tournSubtab = 'records';
 let cmpSubtab = 'all';
+let lineSubtab = 'all';
 
 function renderRecords(){
   const r = loadRecords();
   const body = document.getElementById('recordsBody');
   const count = document.getElementById('recordsCount');
-  const total = r.tournamentTimes.length + r.chronologyTimes.length + r.oddOneOut.length + r.comparisonResults.length;
+  const total = r.tournamentTimes.length + r.chronologyTimes.length + r.oddOneOut.length + r.comparisonResults.length + r.lineResults.length;
 
   if (recordsTab === 'general'){
     count.textContent = `Всего баллов: ${(r.totalPoints || 0).toLocaleString('ru-RU')}`;
@@ -2237,67 +2275,43 @@ function renderRecords(){
     return;
   }
 
-  count.textContent = `Турниров: ${r.tournamentTimes.length} · Хронологий: ${r.chronologyTimes.length} · Кто лишний: ${r.oddOneOut.length} · Что больше: ${r.comparisonResults.length}`;
+  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length}`;
 
   if (recordsTab === 'tournament'){
     const subtabsHtml = `<div class="records-subtabs">
       <button data-tstab="records" class="${tournSubtab === 'records' ? 'active' : ''}">Рекорды</button>
       <button data-tstab="tracks" class="${tournSubtab === 'tracks' ? 'active' : ''}">Топ треков</button>
     </div>`;
-
     if (tournSubtab === 'records'){
-      if (!r.tournamentTimes.length){
-        body.innerHTML = subtabsHtml + emptyRecordsHTML('Сыграй турнир до конца, чтобы поставить рекорд по времени.');
-        bindTournSubtabs();
-        return;
-      }
-      let html = subtabsHtml;
-      html += `<div class="record-section"><div class="record-section-title">Самое быстрое прохождение</div><div class="record-list">`;
+      if (!r.tournamentTimes.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Сыграй турнир до конца.'); bindTournSubtabs(); return; }
+      let html = subtabsHtml + `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
       r.tournamentTimes.slice(0, 10).forEach((e, i) => {
         const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-        html += `<div class="record-item">
-          <div class="ri-rank ${rc}">${i + 1}</div>
-          <div class="ri-info"><div class="ri-title">${formatTime(e.time)}</div><div class="ri-sub">${e.tracks} треков · ${formatDate(e.date)}</div></div>
-        </div>`;
+        html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${formatTime(e.time)}</div><div class="ri-sub">${e.tracks} треков · ${formatDate(e.date)}</div></div></div>`;
       });
       html += `</div></div>`;
-      body.innerHTML = html;
-      bindTournSubtabs();
-      return;
+      body.innerHTML = html; bindTournSubtabs(); return;
     }
     const arr = Object.values(r.trackPoints).sort((a, b) => b.points - a.points).slice(0, 20);
-    if (!arr.length){
-      body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет данных. Сыграй турнир, чтобы собрать статистику треков.');
-      bindTournSubtabs();
-      return;
-    }
+    if (!arr.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет данных.'); bindTournSubtabs(); return; }
     let html = subtabsHtml + `<div class="record-list">`;
     arr.forEach((t, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${esc(t.title)}</div><div class="ri-sub">${esc(t.artist)} · ${t.games} ${t.games === 1 ? 'игра' : 'игр'}</div></div>
-        <div class="ri-score">${t.points}</div>
-      </div>`;
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${esc(t.title)}</div><div class="ri-sub">${esc(t.artist)} · ${t.games} игр</div></div><div class="ri-score">${t.points}</div></div>`;
     });
     html += `</div>`;
-    body.innerHTML = html;
-    bindTournSubtabs();
-    return;
+    body.innerHTML = html; bindTournSubtabs(); return;
   }
 
   if (recordsTab === 'chronology'){
     const hasAny = r.chronologyTimes.length || r.chronologyAccuracy.length || r.chronologyRatio.length;
-    if (!hasAny){ body.innerHTML = emptyRecordsHTML('Пройди хронологию до конца, чтобы попасть в рекорды.'); return; }
+    if (!hasAny){ body.innerHTML = emptyRecordsHTML('Пройди хронологию.'); return; }
     let html = '';
     if (r.chronologyTimes.length){
       html += `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
       r.chronologyTimes.slice(0, 5).forEach((e, i) => {
         const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-        html += `<div class="record-item">
-          <div class="ri-rank ${rc}">${i + 1}</div>
-          <div class="ri-info"><div class="ri-title">${formatTime(e.time)}</div><div class="ri-sub">${e.percent.toFixed(2)}% · ${e.tracks} треков</div></div>
-        </div>`;
+        html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${formatTime(e.time)}</div><div class="ri-sub">${e.percent.toFixed(2)}% · ${e.tracks} треков</div></div></div>`;
       });
       html += `</div></div>`;
     }
@@ -2305,23 +2319,7 @@ function renderRecords(){
       html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
       r.chronologyAccuracy.slice(0, 5).forEach((e, i) => {
         const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-        html += `<div class="record-item">
-          <div class="ri-rank ${rc}">${i + 1}</div>
-          <div class="ri-info"><div class="ri-title">${e.percent.toFixed(2)}%</div><div class="ri-sub">${formatTime(e.time)} · ${e.tracks} треков</div></div>
-          <div class="ri-score green">${e.correct}/${e.total}</div>
-        </div>`;
-      });
-      html += `</div></div>`;
-    }
-    if (r.chronologyRatio.length){
-      html += `<div class="record-section"><div class="record-section-title">Лучший баланс скорость / точность</div><div class="record-list">`;
-      r.chronologyRatio.slice(0, 5).forEach((e, i) => {
-        const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-        html += `<div class="record-item">
-          <div class="ri-rank ${rc}">${i + 1}</div>
-          <div class="ri-info"><div class="ri-title">${e.percent.toFixed(2)}% за ${formatTime(e.time)}</div><div class="ri-sub">${e.tracks} треков</div></div>
-          <div class="ri-score blue">${e.ratio.toFixed(2)}</div>
-        </div>`;
+        html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.percent.toFixed(2)}%</div><div class="ri-sub">${formatTime(e.time)} · ${e.tracks} треков</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
       });
       html += `</div></div>`;
     }
@@ -2334,70 +2332,18 @@ function renderRecords(){
       <button data-ostab="covers" class="${oddSubtab === 'covers' ? 'active' : ''}">Обложки</button>
       <button data-ostab="titles" class="${oddSubtab === 'titles' ? 'active' : ''}">Названия</button>
     </div>`;
-
-    const filtered = r.oddOneOut.filter(e => {
-      const m = e.mode || 'covers';
-      return oddSubtab === 'all' ? true : m === oddSubtab;
-    });
-
-    if (!filtered.length){
-      body.innerHTML = subtabsHtml + emptyRecordsHTML(
-        oddSubtab === 'covers' ? 'Нет результатов в режиме «Обложки».'
-        : oddSubtab === 'titles' ? 'Нет результатов в режиме «Названия».'
-        : 'Пока нет ни одного результата в «Кто лишний».'
-      );
-      bindOddSubtabs();
-      return;
-    }
-
+    const filtered = r.oddOneOut.filter(e => oddSubtab === 'all' ? true : (e.mode || 'covers') === oddSubtab);
+    if (!filtered.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет результатов.'); bindOddSubtabs(); return; }
     let html = subtabsHtml;
-    const modeBadge = (m) => {
-      const label = m === 'titles' ? 'Названия' : 'Обложки';
-      return `<span class="ri-mode ${m === 'titles' ? 'titles' : 'covers'}">${label}</span>`;
-    };
-
+    const modeBadge = (m) => `<span class="ri-mode ${m === 'titles' ? 'titles' : 'covers'}">${m === 'titles' ? 'Названия' : 'Обложки'}</span>`;
     const byAccuracy = filtered.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 5);
     html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
     byAccuracy.forEach((e, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'covers';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${oddSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
-        <div class="ri-score green">${e.correct}/${e.total}</div>
-      </div>`;
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${oddSubtab === 'all' ? modeBadge(e.mode || 'covers') : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
     });
     html += `</div></div>`;
-
-    const byTime = filtered.slice().sort((a, b) => a.totalTime - b.totalTime || b.accuracy - a.accuracy).slice(0, 5);
-    html += `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
-    byTime.forEach((e, i) => {
-      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'covers';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${formatTime(e.totalTime)} ${oddSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.accuracy.toFixed(2)}% · ср. ${formatSeconds(e.avgTime)} · макс ${formatSeconds(e.maxTime)}</div></div>
-        <div class="ri-score blue">${e.accuracy.toFixed(0)}%</div>
-      </div>`;
-    });
-    html += `</div></div>`;
-
-    const byRatio = filtered.slice().map(e => ({ ...e, ratio: e.accuracy / (e.totalTime + 1) }))
-      .sort((a, b) => b.ratio - a.ratio).slice(0, 5);
-    html += `<div class="record-section"><div class="record-section-title">Лучший баланс скорость / точность</div><div class="record-list">`;
-    byRatio.forEach((e, i) => {
-      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'covers';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% за ${formatTime(e.totalTime)} ${oddSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
-        <div class="ri-score blue">${e.ratio.toFixed(2)}</div>
-      </div>`;
-    });
-    html += `</div></div>`;
-
-    body.innerHTML = html;
-    bindOddSubtabs();
+    body.innerHTML = html; bindOddSubtabs();
   }
 
   else if (recordsTab === 'compare'){
@@ -2406,112 +2352,69 @@ function renderRecords(){
       <button data-cstab="plays" class="${cmpSubtab === 'plays' ? 'active' : ''}">Прослушивания</button>
       <button data-cstab="duration" class="${cmpSubtab === 'duration' ? 'active' : ''}">Длительность</button>
     </div>`;
-
-    const filtered = r.comparisonResults.filter(e => {
-      const m = e.mode || 'plays';
-      return cmpSubtab === 'all' ? true : m === cmpSubtab;
-    });
-
-    if (!filtered.length){
-      body.innerHTML = subtabsHtml + emptyRecordsHTML(
-        cmpSubtab === 'plays' ? 'Нет результатов в режиме «Прослушивания».'
-        : cmpSubtab === 'duration' ? 'Нет результатов в режиме «Длительность».'
-        : 'Пока нет ни одного результата в «Что больше».'
-      );
-      bindCmpSubtabs();
-      return;
-    }
-
+    const filtered = r.comparisonResults.filter(e => cmpSubtab === 'all' ? true : (e.mode || 'plays') === cmpSubtab);
+    if (!filtered.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет результатов.'); bindCmpSubtabs(); return; }
     let html = subtabsHtml;
-    const modeBadge = (m) => {
-      const label = m === 'duration' ? 'Длительность' : 'Прослушивания';
-      return `<span class="ri-mode ${m === 'duration' ? 'duration' : 'plays'}">${label}</span>`;
-    };
-
+    const modeBadge = (m) => `<span class="ri-mode ${m === 'duration' ? 'duration' : 'plays'}">${m === 'duration' ? 'Длительность' : 'Прослушивания'}</span>`;
     const byAccuracy = filtered.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 5);
     html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
     byAccuracy.forEach((e, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'plays';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
-        <div class="ri-score green">${e.correct}/${e.total}</div>
-      </div>`;
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${cmpSubtab === 'all' ? modeBadge(e.mode || 'plays') : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
     });
     html += `</div></div>`;
+    body.innerHTML = html; bindCmpSubtabs();
+  }
 
+  else if (recordsTab === 'line'){
+    const subtabsHtml = `<div class="records-subtabs">
+      <button data-lstab="all" class="${lineSubtab === 'all' ? 'active' : ''}">Все</button>
+      <button data-lstab="choice" class="${lineSubtab === 'choice' ? 'active' : ''}">Выбор из 4</button>
+      <button data-lstab="input" class="${lineSubtab === 'input' ? 'active' : ''}">Ввод через поиск</button>
+    </div>`;
+    const filtered = r.lineResults.filter(e => lineSubtab === 'all' ? true : (e.mode || 'choice') === lineSubtab);
+    if (!filtered.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Сыграй «Откуда строчка».'); bindLineSubtabs(); return; }
+    let html = subtabsHtml;
+    const modeBadge = (m) => `<span class="ri-mode ${m === 'input' ? 'line-input' : 'line-choice'}">${m === 'input' ? 'Ввод' : 'Выбор'}</span>`;
+    const byAccuracy = filtered.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 5);
+    html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
+    byAccuracy.forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${lineSubtab === 'all' ? modeBadge(e.mode || 'choice') : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
+    });
+    html += `</div></div>`;
     const byTime = filtered.slice().sort((a, b) => a.totalTime - b.totalTime || b.accuracy - a.accuracy).slice(0, 5);
     html += `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
     byTime.forEach((e, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'plays';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${formatTime(e.totalTime)} ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.accuracy.toFixed(2)}% · ср. ${formatSeconds(e.avgTime)} · макс ${formatSeconds(e.maxTime)}</div></div>
-        <div class="ri-score blue">${e.accuracy.toFixed(0)}%</div>
-      </div>`;
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${formatTime(e.totalTime)} ${lineSubtab === 'all' ? modeBadge(e.mode || 'choice') : ''}</div><div class="ri-sub">${e.accuracy.toFixed(2)}% · ${e.correct}/${e.total}</div></div><div class="ri-score blue">${e.accuracy.toFixed(0)}%</div></div>`;
     });
     html += `</div></div>`;
-
-    const byRatio = filtered.slice().map(e => ({ ...e, ratio: e.accuracy / (e.totalTime + 1) }))
-      .sort((a, b) => b.ratio - a.ratio).slice(0, 5);
-    html += `<div class="record-section"><div class="record-section-title">Лучший баланс скорость / точность</div><div class="record-list">`;
-    byRatio.forEach((e, i) => {
-      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      const m = e.mode || 'plays';
-      html += `<div class="record-item">
-        <div class="ri-rank ${rc}">${i + 1}</div>
-        <div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% за ${formatTime(e.totalTime)} ${cmpSubtab === 'all' ? modeBadge(m) : ''}</div><div class="ri-sub">${e.correct}/${e.total} · ср. ${formatSeconds(e.avgTime)}</div></div>
-        <div class="ri-score blue">${e.ratio.toFixed(2)}</div>
-      </div>`;
-    });
-    html += `</div></div>`;
-
-    body.innerHTML = html;
-    bindCmpSubtabs();
+    body.innerHTML = html; bindLineSubtabs();
   }
 }
 
 function bindOddSubtabs(){
-  const wrap = document.querySelector('.records-subtabs');
-  if (!wrap) return;
-  wrap.querySelectorAll('button[data-ostab]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      oddSubtab = btn.dataset.ostab;
-      renderRecords();
-    });
-  });
+  const wrap = document.querySelector('.records-subtabs'); if (!wrap) return;
+  wrap.querySelectorAll('button[data-ostab]').forEach(btn => btn.addEventListener('click', () => { oddSubtab = btn.dataset.ostab; renderRecords(); }));
 }
 function bindTournSubtabs(){
-  const wrap = document.querySelector('.records-subtabs');
-  if (!wrap) return;
-  wrap.querySelectorAll('button[data-tstab]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      tournSubtab = btn.dataset.tstab;
-      renderRecords();
-    });
-  });
+  const wrap = document.querySelector('.records-subtabs'); if (!wrap) return;
+  wrap.querySelectorAll('button[data-tstab]').forEach(btn => btn.addEventListener('click', () => { tournSubtab = btn.dataset.tstab; renderRecords(); }));
 }
 function bindCmpSubtabs(){
-  const wrap = document.querySelector('.records-subtabs');
-  if (!wrap) return;
-  wrap.querySelectorAll('button[data-cstab]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      cmpSubtab = btn.dataset.cstab;
-      renderRecords();
-    });
-  });
+  const wrap = document.querySelector('.records-subtabs'); if (!wrap) return;
+  wrap.querySelectorAll('button[data-cstab]').forEach(btn => btn.addEventListener('click', () => { cmpSubtab = btn.dataset.cstab; renderRecords(); }));
 }
-function emptyRecordsHTML(msg){
-  return `<div class="records-empty"><div class="txt">${esc(msg)}</div></div>`;
+function bindLineSubtabs(){
+  const wrap = document.querySelector('.records-subtabs'); if (!wrap) return;
+  wrap.querySelectorAll('button[data-lstab]').forEach(btn => btn.addEventListener('click', () => { lineSubtab = btn.dataset.lstab; renderRecords(); }));
 }
+function emptyRecordsHTML(msg){ return `<div class="records-empty"><div class="txt">${esc(msg)}</div></div>`; }
 
 document.getElementById('btnRecords').addEventListener('click', () => { renderRecords(); openModal('recordsModal'); });
 document.getElementById('closeRecordsX').addEventListener('click', () => closeModal('recordsModal'));
-document.getElementById('recordsModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('recordsModal')) closeModal('recordsModal');
-});
+document.getElementById('recordsModal').addEventListener('click', e => { if (e.target === document.getElementById('recordsModal')) closeModal('recordsModal'); });
 document.querySelectorAll('.records-tabs button').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.records-tabs button').forEach(b => b.classList.remove('active'));
@@ -2521,7 +2424,7 @@ document.querySelectorAll('.records-tabs button').forEach(btn => {
   });
 });
 document.getElementById('clearRecordsBtn').addEventListener('click', () => {
-  if (confirm('Очистить всю статистику и баллы? Это действие нельзя отменить.')){
+  if (confirm('Очистить всю статистику и баллы?')){
     saveRecords(defaultRecords());
     refreshPointsBadge();
     renderRecords();
@@ -2580,10 +2483,7 @@ function coverHTML(track, big){
 function cardHTML(track, side){
   return `<button class="card ${side}" data-side="${side}">
     ${coverHTML(track, false)}
-    <div class="meta">
-      <div class="title">${esc(track.title)}</div>
-      <div class="artist">${esc(track.artist)}</div>
-    </div>
+    <div class="meta"><div class="title">${esc(track.title)}</div><div class="artist">${esc(track.artist)}</div></div>
   </button>`;
 }
 function renderMatch(){
@@ -2652,15 +2552,11 @@ function showChampion(){
   progressBar.style.width = '100%';
   if (progressPercentEl) progressPercentEl.textContent = '100%';
   roundInfo.textContent = 'Турнир завершён';
-
   const trackPoints = computeTrackPoints(bracket, allTracks.length);
   saveTournamentResult(totalSeconds, trackPoints);
-
   const bd = calcTournamentBreakdown();
   addPointsToHistory(bd.total, 'tournament', 'Турнир', `${formatTime(totalSeconds)} · ${allTracks.length} треков`);
-
   const totalAfter = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
-
   arena.className = 'arena champion-screen';
   arena.innerHTML = `
     <div class="champion-summary" style="--c1:${t.c1}">
@@ -2672,7 +2568,7 @@ function showChampion(){
       <div class="pb-total-line">Всего: <b>${totalAfter}</b></div>
     </div>
     <div class="bracket-wrap">
-      <div class="bracket-title">Сетка турнира · все места</div>
+      <div class="bracket-title">Сетка турнира</div>
       <div class="bracket-hint">Зажми ЛКМ и тяни · колесо мыши — зум · двойной клик — сброс</div>
       <div class="bracket-viewport" id="bracketViewport">
         <div class="bracket-canvas" id="bracketCanvas">${renderBracket(t)}</div>
@@ -2704,13 +2600,11 @@ function setupBracketPanZoom(){
   function apply(){ canvas.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`; zoomLabel.textContent = Math.round(scale * 100) + '%'; }
   function clampScale(v){ return Math.max(MIN_SCALE, Math.min(MAX_SCALE, v)); }
   function zoomTo(newScale, cx, cy){
-    newScale = clampScale(newScale);
-    if (newScale === scale) return;
+    newScale = clampScale(newScale); if (newScale === scale) return;
     const rect = viewport.getBoundingClientRect();
     const px = cx - rect.left, py = cy - rect.top;
     const wx = (px - tx) / scale, wy = (py - ty) / scale;
-    scale = newScale;
-    tx = px - wx * scale; ty = py - wy * scale;
+    scale = newScale; tx = px - wx * scale; ty = py - wy * scale;
     apply();
   }
   function fitToViewport(){
@@ -2725,9 +2619,7 @@ function setupBracketPanZoom(){
     if (e.button !== 0) return;
     if (e.target.closest('.bracket-zoom')) return;
     isDown = true; startX = e.clientX; startY = e.clientY; startTx = tx; startTy = ty;
-    canvas.style.willChange = 'transform';
-    viewport.classList.add('dragging');
-    e.preventDefault();
+    canvas.style.willChange = 'transform'; viewport.classList.add('dragging'); e.preventDefault();
   });
   window.addEventListener('mousemove', (e) => {
     if (!isDown) return;
@@ -2735,9 +2627,7 @@ function setupBracketPanZoom(){
   });
   window.addEventListener('mouseup', () => {
     if (!isDown) return;
-    isDown = false;
-    viewport.classList.remove('dragging');
-    canvas.style.willChange = '';
+    isDown = false; viewport.classList.remove('dragging'); canvas.style.willChange = '';
   });
   viewport.addEventListener('wheel', (e) => { e.preventDefault(); zoomTo(scale * Math.exp(-e.deltaY * 0.0015), e.clientX, e.clientY); }, { passive: false });
   viewport.addEventListener('dblclick', (e) => { if (e.target.closest('.bracket-zoom')) return; fitToViewport(); });
@@ -2773,17 +2663,13 @@ function buildChronoBoard(){
 
   let html = '';
   if (trackStructure.singles.length){
-    html += `<div class="chrono-section">
-      <div class="chrono-section-title">Синглы</div>
-      <div class="album-slots">
-        ${trackStructure.singles.map(t => `<div class="slot" data-correct-id="${t.id}"></div>`).join('')}
-      </div>
-    </div>`;
+    html += `<div class="chrono-section"><div class="chrono-section-title">Синглы</div><div class="album-slots">
+      ${trackStructure.singles.map(t => `<div class="slot" data-correct-id="${t.id}"></div>`).join('')}
+    </div></div>`;
   }
   if (trackStructure.albums.length){
     const shuffledAlbums = shuffle(trackStructure.albums.map((a, i) => ({ album: a, idx: i })));
-    html += `<div class="chrono-section">
-      <div class="chrono-section-title">Альбомы · расставь в правильном порядке</div>`;
+    html += `<div class="chrono-section"><div class="chrono-section-title">Альбомы · расставь в правильном порядке</div>`;
     shuffledAlbums.forEach(({ album, idx }) => {
       const coverPath = album.cover || '';
       html += `<div class="album-block" data-album-idx="${idx}">
@@ -2795,9 +2681,7 @@ function buildChronoBoard(){
           </div>
           <div class="album-name">${esc(album.name)}</div>
         </div>
-        <div class="album-slots">
-          ${album.tracks.map(t => `<div class="slot" data-correct-id="${t.id}"></div>`).join('')}
-        </div>
+        <div class="album-slots">${album.tracks.map(t => `<div class="slot" data-correct-id="${t.id}"></div>`).join('')}</div>
       </div>`;
     });
     html += `</div>`;
@@ -2815,35 +2699,23 @@ function startChronoTimer(){
 function updateChronoTimer(){ chronoTimerEl.textContent = formatTime(Math.floor((Date.now() - chronoStartTime) / 1000)); }
 function stopChronoTimer(){ if (chronoTimerInterval) clearInterval(chronoTimerInterval); chronoTimerInterval = null; chronoTimerPill.classList.add('stopped'); }
 function getChronoElapsed(){ return Math.floor((Date.now() - chronoStartTime) / 1000); }
-function startChronology(){
-  buildChronoBoard();
-  startChronoTimer();
-  chronoInfo.textContent = 'Перетащи треки в нужные разделы';
-  showScreen('chronology');
-}
+function startChronology(){ buildChronoBoard(); startChronoTimer(); chronoInfo.textContent = 'Перетащи треки в нужные разделы'; showScreen('chronology'); }
 function fillSlot(slot, trackId){
-  const t = allTracks.find(x => x.id === trackId);
-  if (!t) return;
-  slot.dataset.trackId = trackId;
-  slot.classList.add('filled');
+  const t = allTracks.find(x => x.id === trackId); if (!t) return;
+  slot.dataset.trackId = trackId; slot.classList.add('filled');
   slot.classList.remove('correct','incorrect','empty-incorrect');
   slot.innerHTML = `<div class="slot-title">${esc(t.title)}</div><div class="slot-artist">${esc(t.artist)}</div>`;
-  updateAlbumCovers();
-  updatePlacedCount();
+  updateAlbumCovers(); updatePlacedCount();
 }
 function clearSlot(slot){
   delete slot.dataset.trackId;
   slot.classList.remove('filled','correct','incorrect','empty-incorrect');
-  slot.innerHTML = '';
-  updateAlbumCovers();
-  updatePlacedCount();
+  slot.innerHTML = ''; updateAlbumCovers(); updatePlacedCount();
 }
 function addToPool(trackId, prepend = false){
-  const t = allTracks.find(x => x.id === trackId);
-  if (!t) return;
+  const t = allTracks.find(x => x.id === trackId); if (!t) return;
   const el = document.createElement('div');
-  el.className = 'pool-item';
-  el.dataset.id = trackId;
+  el.className = 'pool-item'; el.dataset.id = trackId;
   el.innerHTML = `<div class="pi-title">${esc(t.title)}</div><div class="pi-artist">${esc(t.artist)}</div>`;
   if (prepend && poolEl.firstChild) poolEl.insertBefore(el, poolEl.firstChild);
   else poolEl.appendChild(el);
@@ -2854,36 +2726,27 @@ function updatePlacedCount(){
   const filled = chronoBoardEl.querySelectorAll('.slot.filled').length;
   const total = slots.length;
   placedCountEl.textContent = filled;
-
   const allItems = [...poolEl.querySelectorAll('.pool-item')];
   const visibleItems = allItems.filter(el => !el.classList.contains('hidden-search'));
   poolCountEl.textContent = visibleItems.length;
-
   updatePoolEmptyPlaceholder(visibleItems.length === 0 && !!poolSearchEl.value.trim());
-
   const pct = total ? (filled / total * 100) : 0;
   chronoProgressBar.style.width = pct + '%';
   if (chronoProgressPercentEl) chronoProgressPercentEl.textContent = pct.toFixed(0) + '%';
-
   const allFilled = filled === total && total > 0;
   finishBtn.disabled = !allFilled;
   finishBtn.textContent = allFilled ? 'Закончить' : `Заполни все (${filled} / ${total})`;
 }
 function updatePoolEmptyPlaceholder(show){
   let el = poolEl.querySelector('.pool-empty');
-  if (show && !el){
-    el = document.createElement('div');
-    el.className = 'pool-empty';
-    el.textContent = 'Ничего не найдено';
-    poolEl.appendChild(el);
-  } else if (!show && el) el.remove();
+  if (show && !el){ el = document.createElement('div'); el.className = 'pool-empty'; el.textContent = 'Ничего не найдено'; poolEl.appendChild(el); }
+  else if (!show && el) el.remove();
 }
 function updateAlbumCovers(){
   chronoBoardEl.querySelectorAll('.album-block').forEach(block => {
     const hasTracks = block.querySelector('.slot.filled') !== null;
     block.classList.toggle('has-tracks', hasTracks);
-    const coverEl = block.querySelector('.album-cover');
-    if (!coverEl) return;
+    const coverEl = block.querySelector('.album-cover'); if (!coverEl) return;
     const img = coverEl.querySelector('img');
     if (hasTracks && img) coverEl.classList.add('revealed');
     else if (!hasTracks) coverEl.classList.remove('revealed');
@@ -2893,9 +2756,8 @@ function applyPoolFilter(){
   if (!poolSearchEl) return;
   const q = poolSearchEl.value.trim().toLowerCase();
   const items = poolEl.querySelectorAll('.pool-item');
-  if (!q){
-    items.forEach(el => el.classList.remove('hidden-search'));
-  } else {
+  if (!q){ items.forEach(el => el.classList.remove('hidden-search')); }
+  else {
     items.forEach(el => {
       const t = allTracks.find(x => x.id === +el.dataset.id);
       if (!t){ el.classList.add('hidden-search'); return; }
@@ -2909,59 +2771,45 @@ poolSearchEl.addEventListener('input', applyPoolFilter);
 
 let dragging = null;
 const DRAG_THRESHOLD = 4;
-
 function onPointerDown(e){
   if (chronoFinished) return;
   if (e.button !== 0) return;
   if (e.target.closest('button')) return;
   if (e.target.closest('.pool-search')) return;
   if (e.target.closest('input')) return;
+  if (e.target.closest('.line-search')) return;
+  if (e.target.closest('.line-search-input')) return;
+  if (e.target.closest('.line-search-list')) return;
 
   const albumHead = e.target.closest('.album-head');
   const slot = e.target.closest('.slot.filled');
   const poolItem = e.target.closest('.pool-item');
 
   let sourceType, sourceEl, trackId;
-  if (albumHead){
-    const block = albumHead.closest('.album-block');
-    if (!block) return;
-    sourceType = 'album'; sourceEl = block;
-  } else if (slot){
-    sourceType = 'slot'; sourceEl = slot; trackId = +slot.dataset.trackId;
-  } else if (poolItem){
-    sourceType = 'pool'; sourceEl = poolItem; trackId = +poolItem.dataset.id;
-  } else return;
+  if (albumHead){ const block = albumHead.closest('.album-block'); if (!block) return; sourceType = 'album'; sourceEl = block; }
+  else if (slot){ sourceType = 'slot'; sourceEl = slot; trackId = +slot.dataset.trackId; }
+  else if (poolItem){ sourceType = 'pool'; sourceEl = poolItem; trackId = +poolItem.dataset.id; }
+  else return;
 
   const rect = sourceEl.getBoundingClientRect();
   const ghost = sourceEl.cloneNode(true);
   ghost.classList.add('drag-ghost');
   if (sourceType === 'album') ghost.classList.add('album-ghost');
-  ghost.style.left = rect.left + 'px';
-  ghost.style.top = rect.top + 'px';
-  ghost.style.width = rect.width + 'px';
-  ghost.style.height = rect.height + 'px';
+  ghost.style.left = rect.left + 'px'; ghost.style.top = rect.top + 'px';
+  ghost.style.width = rect.width + 'px'; ghost.style.height = rect.height + 'px';
   document.body.appendChild(ghost);
-
   sourceEl.classList.add('dragging-source');
-
-  dragging = {
-    sourceType, sourceEl, trackId, ghost,
-    offsetX: e.clientX - rect.left, offsetY: e.clientY - rect.top,
-    moved: false, startX: e.clientX, startY: e.clientY,
-  };
+  dragging = { sourceType, sourceEl, trackId, ghost, offsetX: e.clientX - rect.left, offsetY: e.clientY - rect.top, moved: false, startX: e.clientX, startY: e.clientY };
   e.preventDefault();
 }
 function onPointerMove(e){
   if (!dragging) return;
-  const dx = e.clientX - dragging.startX;
-  const dy = e.clientY - dragging.startY;
+  const dx = e.clientX - dragging.startX, dy = e.clientY - dragging.startY;
   if (!dragging.moved && (Math.abs(dx) > DRAG_THRESHOLD || Math.abs(dy) > DRAG_THRESHOLD)) dragging.moved = true;
   dragging.ghost.style.left = (e.clientX - dragging.offsetX) + 'px';
   dragging.ghost.style.top = (e.clientY - dragging.offsetY) + 'px';
-
   document.querySelectorAll('.slot.highlight').forEach(s => s.classList.remove('highlight'));
   document.querySelectorAll('.album-block.target').forEach(s => s.classList.remove('target'));
-
   if (dragging.sourceType === 'album'){
     const t = document.elementFromPoint(e.clientX, e.clientY)?.closest('.album-block');
     if (t && t !== dragging.sourceEl) t.classList.add('target');
@@ -2972,63 +2820,40 @@ function onPointerMove(e){
 }
 function onPointerUp(e){
   if (!dragging) return;
-  const d = dragging;
-  dragging = null;
-
+  const d = dragging; dragging = null;
   document.querySelectorAll('.slot.highlight').forEach(s => s.classList.remove('highlight'));
   document.querySelectorAll('.album-block.target').forEach(s => s.classList.remove('target'));
   d.ghost.remove();
-
   if (!d.moved){
     if (d.sourceType === 'slot'){ clearSlot(d.sourceEl); addToPool(d.trackId); }
-    d.sourceEl.classList.remove('dragging-source');
-    return;
+    d.sourceEl.classList.remove('dragging-source'); return;
   }
-
   const el = document.elementFromPoint(e.clientX, e.clientY);
-
   if (d.sourceType === 'album'){
     const targetAlbum = el?.closest('.album-block');
     if (targetAlbum && targetAlbum !== d.sourceEl) swapAlbumBlocks(d.sourceEl, targetAlbum);
-    d.sourceEl.classList.remove('dragging-source');
-    return;
+    d.sourceEl.classList.remove('dragging-source'); return;
   }
-
   const targetSlot = el?.closest('.slot');
   const inPool = el?.closest('.pool');
-
   if (targetSlot && targetSlot !== d.sourceEl){
     if (d.sourceType === 'pool'){
-      if (targetSlot.classList.contains('filled')){
-        const occupantId = +targetSlot.dataset.trackId;
-        clearSlot(targetSlot); addToPool(occupantId);
-      }
-      d.sourceEl.remove();
-      fillSlot(targetSlot, d.trackId);
+      if (targetSlot.classList.contains('filled')){ const occupantId = +targetSlot.dataset.trackId; clearSlot(targetSlot); addToPool(occupantId); }
+      d.sourceEl.remove(); fillSlot(targetSlot, d.trackId);
     } else {
       const sourceSlot = d.sourceEl;
       if (targetSlot.classList.contains('filled')){
         const occupantId = +targetSlot.dataset.trackId;
-        fillSlot(sourceSlot, occupantId);
-        fillSlot(targetSlot, d.trackId);
-      } else {
-        clearSlot(sourceSlot);
-        fillSlot(targetSlot, d.trackId);
-      }
+        fillSlot(sourceSlot, occupantId); fillSlot(targetSlot, d.trackId);
+      } else { clearSlot(sourceSlot); fillSlot(targetSlot, d.trackId); }
     }
-  } else if (inPool && d.sourceType === 'slot'){
-    clearSlot(d.sourceEl); addToPool(d.trackId);
-  }
+  } else if (inPool && d.sourceType === 'slot'){ clearSlot(d.sourceEl); addToPool(d.trackId); }
   d.sourceEl.classList.remove('dragging-source');
 }
 function swapAlbumBlocks(a, b){
-  const aHTML = a.innerHTML;
-  const bHTML = b.innerHTML;
-  a.innerHTML = bHTML;
-  b.innerHTML = aHTML;
-  const aIdx = a.dataset.albumIdx;
-  a.dataset.albumIdx = b.dataset.albumIdx;
-  b.dataset.albumIdx = aIdx;
+  const aHTML = a.innerHTML, bHTML = b.innerHTML;
+  a.innerHTML = bHTML; b.innerHTML = aHTML;
+  const aIdx = a.dataset.albumIdx; a.dataset.albumIdx = b.dataset.albumIdx; b.dataset.albumIdx = aIdx;
   updateAlbumCovers();
 }
 function finishChronology(){
@@ -3036,64 +2861,43 @@ function finishChronology(){
   const slots = chronoBoardEl.querySelectorAll('.slot');
   const filled = chronoBoardEl.querySelectorAll('.slot.filled').length;
   if (filled < slots.length) return;
-
-  chronoFinished = true;
-  stopChronoTimer();
+  chronoFinished = true; stopChronoTimer();
   const elapsed = getChronoElapsed();
-
   const slotData = [];
   slots.forEach(slot => {
     const placedId = slot.dataset.trackId ? +slot.dataset.trackId : null;
     const correctId = +slot.dataset.correctId;
     const albumBlock = slot.closest('.album-block');
-    const section = albumBlock
-      ? (albumBlock.querySelector('.album-name')?.textContent?.trim() || 'Альбом')
-      : 'Синглы';
+    const section = albumBlock ? (albumBlock.querySelector('.album-name')?.textContent?.trim() || 'Альбом') : 'Синглы';
     slotData.push({ slot, placedId, correctId, section });
   });
-
   let correct = 0, incorrect = 0;
   const details = [];
   slotData.forEach(d => {
     const placedTrack = d.placedId ? allTracks.find(t => t.id === d.placedId) : null;
     const correctTrack = allTracks.find(t => t.id === d.correctId);
-    if (d.placedId === d.correctId){
-      d.slot.classList.add('correct');
-      correct++;
-      details.push({ ok: true, placed: placedTrack, correct: correctTrack, section: d.section });
-    } else {
-      if (d.placedId === null) d.slot.classList.add('empty-incorrect');
-      else d.slot.classList.add('incorrect');
-      incorrect++;
-      details.push({ ok: false, placed: placedTrack, correct: correctTrack, section: d.section });
-    }
+    if (d.placedId === d.correctId){ d.slot.classList.add('correct'); correct++; details.push({ ok: true, placed: placedTrack, correct: correctTrack, section: d.section }); }
+    else { if (d.placedId === null) d.slot.classList.add('empty-incorrect'); else d.slot.classList.add('incorrect'); incorrect++; details.push({ ok: false, placed: placedTrack, correct: correctTrack, section: d.section }); }
   });
-
   const albumBlocksArr = [...chronoBoardEl.querySelectorAll('.album-block')];
   const albumOrder = albumBlocksArr.map((block, currentIdx) => {
     const correctIdx = +block.dataset.albumIdx;
     const album = trackStructure.albums[correctIdx];
     return { name: album ? album.name : '—', correctIdx, currentIdx, ok: currentIdx === correctIdx };
   });
-
   albumBlocksArr.forEach((block, i) => {
     const origIdx = +block.dataset.albumIdx;
-    if (origIdx === i) block.classList.add('correct');
-    else block.classList.add('incorrect');
+    if (origIdx === i) block.classList.add('correct'); else block.classList.add('incorrect');
   });
-
   const correctAlbums = albumOrder.filter(a => a.ok).length;
   const totalAlbums = albumOrder.length;
   const totalAnswers = slotData.length + totalAlbums;
   const totalCorrect = correct + correctAlbums;
   const totalIncorrect = incorrect + (totalAlbums - correctAlbums);
   const percent = totalAnswers ? (totalCorrect / totalAnswers * 100) : 0;
-
   saveChronologyResult(elapsed, percent, totalCorrect, totalAnswers, correctAlbums, totalAlbums);
-
   const bd = calcChronologyBreakdown(elapsed, percent);
   addPointsToHistory(bd.total, 'chronology', 'Хронология', `${formatTime(elapsed)} · ${percent.toFixed(1)}%`);
-
   lastResults = { percent, correct: totalCorrect, incorrect: totalIncorrect, total: totalAnswers, elapsed, correctAlbums, totalAlbums, earnedBreakdown: bd, details, albumOrder };
   chronoInfo.textContent = 'Результат';
   openResultsModal(lastResults);
@@ -3106,16 +2910,10 @@ function openResultsModal(r){
   document.getElementById('rgIncorrect').textContent = r.incorrect;
   document.getElementById('rgTime').textContent = formatTime(r.elapsed);
   document.getElementById('rgAlbums').textContent = `${r.correctAlbums}/${r.totalAlbums}`;
-
   const wrap = document.getElementById('rgPointsWrap');
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
   const target = r.earnedBreakdown.midTimeSec ? formatTime(r.earnedBreakdown.midTimeSec) : '';
-  const timeValue = target ? `${formatTime(r.elapsed)} / ${target}` : formatTime(r.elapsed);
-  wrap.innerHTML = `${renderPointsBreakdownHTML(r.earnedBreakdown, {
-    percentLabel: r.percent.toFixed(1) + '%',
-    timeLabel: timeValue,
-  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
-
+  wrap.innerHTML = `${renderPointsBreakdownHTML(r.earnedBreakdown, { percentLabel: r.percent.toFixed(1) + '%', timeLabel: target ? `${formatTime(r.elapsed)} / ${target}` : formatTime(r.elapsed) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
   resultTab = 'all';
   document.querySelectorAll('.results-tabs button').forEach(b => b.classList.toggle('active', b.dataset.rtab === 'all'));
   renderResultsList();
@@ -3128,39 +2926,23 @@ function renderResultsList(){
   const items = resultTab === 'errors' ? r.details.filter(d => !d.ok) : r.details;
   const allAlbumsOk = r.albumOrder.every(a => a.ok);
   if (resultTab === 'errors' && items.length === 0 && allAlbumsOk){
-    list.innerHTML = `<div class="results-perfect"><div class="rp-text">Идеально! Ни одной ошибки</div></div>`;
-    return;
+    list.innerHTML = `<div class="results-perfect"><div class="rp-text">Идеально!</div></div>`; return;
   }
   const groups = new Map();
-  items.forEach(d => {
-    if (!groups.has(d.section)) groups.set(d.section, []);
-    groups.get(d.section).push(d);
-  });
-  let html = '';
-  let globalIdx = 0;
+  items.forEach(d => { if (!groups.has(d.section)) groups.set(d.section, []); groups.get(d.section).push(d); });
+  let html = '', globalIdx = 0;
   groups.forEach((sectionItems, sectionName) => {
     const okCount = sectionItems.filter(i => i.ok).length;
     const totalCount = sectionItems.length;
     const countCls = okCount === totalCount ? 'all-correct' : 'has-errors';
-    html += `<div class="rl-section">
-      <div class="rl-section-header">
-        <div class="rl-section-name">${esc(sectionName)}</div>
-        <div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div>
-      </div>`;
+    html += `<div class="rl-section"><div class="rl-section-header"><div class="rl-section-name">${esc(sectionName)}</div><div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div></div>`;
     sectionItems.forEach(item => {
       globalIdx++;
       const cls = item.ok ? 'correct' : 'wrong';
       const placedTitle = item.placed ? item.placed.title : '— пусто —';
       const placedArtist = item.placed ? item.placed.artist : '';
       const hint = !item.ok ? `<span class="rl-correct"><span class="arrow">→</span>${esc(item.correct.title)}</span>` : '';
-      html += `<div class="rl-row ${cls}">
-        <span class="rl-num">${globalIdx}</span>
-        <span class="rl-line">
-          <span class="rl-title">${esc(placedTitle)}</span>
-          ${placedArtist ? `<span class="rl-artist">${esc(placedArtist)}</span>` : ''}
-        </span>
-        ${hint}
-      </div>`;
+      html += `<div class="rl-row ${cls}"><span class="rl-num">${globalIdx}</span><span class="rl-line"><span class="rl-title">${esc(placedTitle)}</span>${placedArtist ? `<span class="rl-artist">${esc(placedArtist)}</span>` : ''}</span>${hint}</div>`;
     });
     html += `</div>`;
   });
@@ -3168,19 +2950,11 @@ function renderResultsList(){
     const okCount = r.albumOrder.filter(a => a.ok).length;
     const totalCount = r.albumOrder.length;
     const countCls = okCount === totalCount ? 'all-correct' : 'has-errors';
-    html += `<div class="rl-section">
-      <div class="rl-section-header">
-        <div class="rl-section-name">Порядок альбомов</div>
-        <div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div>
-      </div>`;
+    html += `<div class="rl-section"><div class="rl-section-header"><div class="rl-section-name">Порядок альбомов</div><div class="rl-section-count ${countCls}">${okCount}/${totalCount}</div></div>`;
     r.albumOrder.forEach((a, i) => {
       const cls = a.ok ? 'correct' : 'wrong';
       const hint = !a.ok ? `<span class="rl-correct"><span class="arrow">→</span>должен быть на ${a.correctIdx + 1} месте</span>` : '';
-      html += `<div class="rl-row ${cls}">
-        <span class="rl-num">${i + 1}</span>
-        <span class="rl-line"><span class="rl-title">${esc(a.name)}</span></span>
-        ${hint}
-      </div>`;
+      html += `<div class="rl-row ${cls}"><span class="rl-num">${i + 1}</span><span class="rl-line"><span class="rl-title">${esc(a.name)}</span></span>${hint}</div>`;
     });
     html += `</div>`;
   }
@@ -3211,22 +2985,13 @@ function updateOddTimer(){
   const s = String(Math.floor(el % 60)).padStart(2,'0');
   oddTimerEl.textContent = `${m}:${s}`;
 }
-function stopOddTimer(){
-  if (oddTimerInterval) clearInterval(oddTimerInterval);
-  oddTimerInterval = null;
-  oddTimerPill.classList.add('stopped');
-}
+function stopOddTimer(){ if (oddTimerInterval) clearInterval(oddTimerInterval); oddTimerInterval = null; oddTimerPill.classList.add('stopped'); }
 function startOddGame(mode){
   oddMode = mode;
-  oddRoundIndex = 0;
-  oddRoundTimes = [];
-  oddRoundResults = [];
-  oddCorrectCount = 0;
-  oddLocked = false;
-  oddGameActive = true;
+  oddRoundIndex = 0; oddRoundTimes = []; oddRoundResults = [];
+  oddCorrectCount = 0; oddLocked = false; oddGameActive = true;
   oddUsedIds = new Set();
-  oddProgressBar.style.width = '0%';
-  oddProgressPercent.textContent = '0%';
+  oddProgressBar.style.width = '0%'; oddProgressPercent.textContent = '0%';
   oddInfo.textContent = `Раунд 1 / ${ODD_ROUNDS}`;
   oddTitleEl.textContent = mode === 'covers' ? 'Кто лишний · Обложки' : 'Кто лишний · Названия';
   startOddTimer();
@@ -3234,9 +2999,7 @@ function startOddGame(mode){
 }
 function nextOddRound(){
   if (oddRoundIndex >= ODD_ROUNDS){ finishOddGame(); return; }
-
   oddLocked = false;
-
   oddInfo.textContent = `Раунд ${oddRoundIndex + 1} / ${ODD_ROUNDS}`;
   const roundPct = (oddRoundIndex / ODD_ROUNDS) * 100;
   oddProgressBar.style.width = roundPct + '%';
@@ -3245,15 +3008,10 @@ function nextOddRound(){
   if (oddMode === 'covers'){
     const tracksWithCovers = allTracks.filter(t => t.cover);
     if (tracksWithCovers.length < 4){ oddRoundIndex = ODD_ROUNDS; finishOddGame(); return; }
-
     const coverGroups = {};
-    tracksWithCovers.forEach(t => {
-      if (!coverGroups[t.cover]) coverGroups[t.cover] = [];
-      coverGroups[t.cover].push(t);
-    });
+    tracksWithCovers.forEach(t => { if (!coverGroups[t.cover]) coverGroups[t.cover] = []; coverGroups[t.cover].push(t); });
     const coverKeys = Object.keys(coverGroups);
     if (coverKeys.length < 5){ oddRoundIndex++; nextOddRound(); return; }
-
     const selectedCovers = shuffle(coverKeys).slice(0, 4);
     let picks = selectedCovers.map(c => {
       const arr = coverGroups[c];
@@ -3261,64 +3019,37 @@ function nextOddRound(){
       const arr2 = fresh.length ? fresh : arr;
       return arr2[Math.floor(Math.random() * arr2.length)];
     });
-
     const ids = new Set(picks.map(t => t.id));
     if (ids.size < picks.length){
       oddUsedIds = new Set();
-      picks = selectedCovers.map(c => {
-        const arr = coverGroups[c];
-        return arr[Math.floor(Math.random() * arr.length)];
-      });
+      picks = selectedCovers.map(c => { const arr = coverGroups[c]; return arr[Math.floor(Math.random() * arr.length)]; });
     }
-
     const oddIndex = Math.floor(Math.random() * 4);
     const oddTrack = picks[oddIndex];
     const otherCovers = picks.filter((_, i) => i !== oddIndex).map(t => t.cover);
     const availableFakeCovers = coverKeys.filter(c => c !== oddTrack.cover && !otherCovers.includes(c));
     if (availableFakeCovers.length === 0){ oddRoundIndex++; nextOddRound(); return; }
-
     picks.forEach(t => oddUsedIds.add(t.id));
-
     const fakeCover = availableFakeCovers[Math.floor(Math.random() * availableFakeCovers.length)];
-    const cards = shuffle(picks.map((t, i) => ({
-      track: t,
-      isOdd: i === oddIndex,
-      displayCover: i === oddIndex ? fakeCover : t.cover,
-      displayTitle: t.title
-    })));
-
-    oddCards = cards;
-    oddCurrentOddId = oddTrack.id;
+    const cards = shuffle(picks.map((t, i) => ({ track: t, isOdd: i === oddIndex, displayCover: i === oddIndex ? fakeCover : t.cover, displayTitle: t.title })));
+    oddCards = cards; oddCurrentOddId = oddTrack.id;
     renderOddRound(cards);
     oddRoundStartTime = Date.now();
-  }
-  else {
+  } else {
     const tracksWithCovers = allTracks.filter(t => t.cover);
     if (tracksWithCovers.length < 4){ oddRoundIndex = ODD_ROUNDS; finishOddGame(); return; }
-
     for (let attempt = 0; attempt < 40; attempt++){
       let pool = tracksWithCovers.filter(t => !oddUsedIds.has(t.id));
       if (pool.length < 4){ oddUsedIds = new Set(); pool = tracksWithCovers; }
-
       const picks = shuffle(pool).slice(0, 4);
       if (new Set(picks.map(t => t.id)).size < 4) continue;
-
       const oddIndex = Math.floor(Math.random() * 4);
       const oddTrack = picks[oddIndex];
       const typo = makeTypo(oddTrack.title);
       if (!typo) continue;
-
       picks.forEach(t => oddUsedIds.add(t.id));
-
-      const cards = shuffle(picks.map((t, i) => ({
-        track: t,
-        isOdd: i === oddIndex,
-        displayCover: t.cover,
-        displayTitle: i === oddIndex ? typo : t.title
-      })));
-
-      oddCards = cards;
-      oddCurrentOddId = oddTrack.id;
+      const cards = shuffle(picks.map((t, i) => ({ track: t, isOdd: i === oddIndex, displayCover: t.cover, displayTitle: i === oddIndex ? typo : t.title })));
+      oddCards = cards; oddCurrentOddId = oddTrack.id;
       renderOddRound(cards);
       oddRoundStartTime = Date.now();
       return;
@@ -3332,68 +3063,48 @@ function renderOddRound(cards){
     const letter = esc((t.title[0] || '♪').toUpperCase());
     const img = c.displayCover ? `<img src="${esc(c.displayCover)}" alt="" onerror="this.remove()">` : '';
     return `<div class="odd-card" data-id="${t.id}" style="--c1:${t.c1};--c2:${t.c2}">
-      <div class="odd-letter">${letter}</div>
-      ${img}
-      <div class="odd-label">
-        <div class="odd-title">${esc(c.displayTitle)}</div>
-        <div class="odd-artist">${esc(t.artist)}</div>
-      </div>
+      <div class="odd-letter">${letter}</div>${img}
+      <div class="odd-label"><div class="odd-title">${esc(c.displayTitle)}</div><div class="odd-artist">${esc(t.artist)}</div></div>
     </div>`;
   }).join('');
 }
 oddGrid.addEventListener('click', (e) => {
   if (!oddGameActive || oddLocked) return;
-  const card = e.target.closest('.odd-card');
-  if (!card) return;
-
+  const card = e.target.closest('.odd-card'); if (!card) return;
   oddLocked = true;
   const clickedId = +card.dataset.id;
   const isCorrect = clickedId === oddCurrentOddId;
   const roundTime = Date.now() - oddRoundStartTime;
-
-  oddRoundTimes.push(roundTime);
-  oddRoundResults.push(isCorrect);
+  oddRoundTimes.push(roundTime); oddRoundResults.push(isCorrect);
   if (isCorrect) oddCorrectCount++;
-
   oddGrid.querySelectorAll('.odd-card').forEach(c => c.classList.add('disabled'));
   card.classList.add('selected');
-
   setTimeout(() => { oddRoundIndex++; nextOddRound(); }, 220);
 });
 function finishOddGame(){
-  oddGameActive = false;
-  stopOddTimer();
-
-  // ВАЖНО: используем wall-clock (Date.now() - oddTimerStart), чтобы совпадало с таймером на экране
+  oddGameActive = false; stopOddTimer();
   const totalTimeMs = Date.now() - oddTimerStart;
   const avgTimeMs = oddRoundTimes.length ? (oddRoundTimes.reduce((a, b) => a + b, 0)) / oddRoundTimes.length : 0;
   const maxTimeMs = oddRoundTimes.length ? Math.max(...oddRoundTimes) : 0;
   const minTimeMs = oddRoundTimes.length ? Math.min(...oddRoundTimes) : 0;
   const accuracy = oddRoundResults.length ? (oddCorrectCount / oddRoundResults.length * 100) : 0;
-
-  oddProgressBar.style.width = '100%';
-  oddProgressPercent.textContent = '100%';
+  oddProgressBar.style.width = '100%'; oddProgressPercent.textContent = '100%';
   oddInfo.textContent = 'Игра завершена';
-
   const entry = {
     totalTime: +(totalTimeMs / 1000).toFixed(2),
     avgTime: +(avgTimeMs / 1000).toFixed(2),
     maxTime: +(maxTimeMs / 1000).toFixed(2),
     minTime: +(minTimeMs / 1000).toFixed(2),
     accuracy: +accuracy.toFixed(2),
-    correct: oddCorrectCount,
-    total: oddRoundResults.length,
+    correct: oddCorrectCount, total: oddRoundResults.length,
     mode: oddMode,
     rounds: oddRoundTimes.map((t, i) => ({ time: +(t / 1000).toFixed(2), correct: oddRoundResults[i] })),
     date: Date.now(),
   };
-
   saveOddResult(entry);
-
   const bd = calcOddBreakdown(entry.totalTime, entry.accuracy, oddMode);
   const modeLabel = oddMode === 'titles' ? 'Названия' : 'Обложки';
   addPointsToHistory(bd.total, 'odd', `Кто лишний · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
-
   entry.earnedBreakdown = bd;
   showOddResults(entry);
 }
@@ -3406,25 +3117,14 @@ function showOddResults(e){
   document.getElementById('oddRgTotal').textContent = formatTime(e.totalTime);
   document.getElementById('oddRgAvg').textContent = formatSeconds(e.avgTime);
   document.getElementById('oddRgRange').textContent = formatSeconds(e.minTime) + ' / ' + formatSeconds(e.maxTime);
-
   const wrap = document.getElementById('oddRgPointsWrap');
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
   const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
-  const timeValue = target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime);
-  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, {
-    percentLabel: e.accuracy.toFixed(1) + '%',
-    timeLabel: timeValue,
-  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
-
-  let html = `<div class="odd-details-title">Все раунды · режим: ${e.mode === 'titles' ? 'Названия' : 'Обложки'}</div><div class="odd-details-list">`;
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, { percentLabel: e.accuracy.toFixed(1) + '%', timeLabel: target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
+  let html = `<div class="odd-details-title">Все раунды · ${e.mode === 'titles' ? 'Названия' : 'Обложки'}</div><div class="odd-details-list">`;
   e.rounds.forEach((r, i) => {
     const cls = r.correct ? 'correct' : 'wrong';
-    const icon = r.correct ? '✓' : '✗';
-    html += `<div class="odd-detail-row ${cls}">
-      <span class="odd-detail-num">${i + 1}</span>
-      <span class="odd-detail-icon">${icon}</span>
-      <span class="odd-detail-time">${formatSeconds(r.time)}</span>
-    </div>`;
+    html += `<div class="odd-detail-row ${cls}"><span class="odd-detail-num">${i + 1}</span><span class="odd-detail-icon">${r.correct ? '✓' : '✗'}</span><span class="odd-detail-time">${formatSeconds(r.time)}</span></div>`;
   });
   html += `</div>`;
   document.getElementById('oddDetails').innerHTML = html;
@@ -3447,22 +3147,13 @@ function updateCmpTimer(){
   const s = String(Math.floor(el % 60)).padStart(2,'0');
   cmpTimerEl.textContent = `${m}:${s}`;
 }
-function stopCmpTimer(){
-  if (cmpTimerInterval) clearInterval(cmpTimerInterval);
-  cmpTimerInterval = null;
-  cmpTimerPill.classList.add('stopped');
-}
+function stopCmpTimer(){ if (cmpTimerInterval) clearInterval(cmpTimerInterval); cmpTimerInterval = null; cmpTimerPill.classList.add('stopped'); }
 function startCompareGame(mode){
   cmpMode = mode;
-  cmpRoundIndex = 0;
-  cmpRoundTimes = [];
-  cmpRoundResults = [];
-  cmpCorrectCount = 0;
-  cmpLocked = false;
-  cmpGameActive = true;
+  cmpRoundIndex = 0; cmpRoundTimes = []; cmpRoundResults = [];
+  cmpCorrectCount = 0; cmpLocked = false; cmpGameActive = true;
   cmpUsedIds = new Set();
-  cmpProgressBar.style.width = '0%';
-  cmpProgressPercent.textContent = '0%';
+  cmpProgressBar.style.width = '0%'; cmpProgressPercent.textContent = '0%';
   cmpInfo.textContent = `Раунд 1 / ${COMPARE_ROUNDS}`;
   cmpTitleEl.textContent = mode === 'duration' ? 'Что больше? · Длительность' : 'Что больше? · Прослушивания';
   cmpPrompt.textContent = mode === 'duration' ? 'Какой трек длиннее?' : 'Где больше прослушиваний?';
@@ -3472,51 +3163,35 @@ function startCompareGame(mode){
 function pickCmpPair(field){
   let pool = allTracks.filter(t => t[field] !== null && t[field] !== undefined && t[field] > 0);
   let available = pool.filter(t => !cmpUsedIds.has(t.id));
-
-  if (available.length < 2){
-    cmpUsedIds = new Set();
-    available = pool;
-  }
+  if (available.length < 2){ cmpUsedIds = new Set(); available = pool; }
   if (available.length < 2) return null;
-
   for (let attempt = 0; attempt < 30; attempt++){
     const shuffled = shuffle(available);
     if (shuffled.length < 2) return null;
     const a = shuffled[0], b = shuffled[1];
     if (a[field] === b[field]) continue;
-    cmpUsedIds.add(a.id);
-    cmpUsedIds.add(b.id);
+    cmpUsedIds.add(a.id); cmpUsedIds.add(b.id);
     return [a, b];
   }
-
   const shuffled = shuffle(available);
   if (shuffled.length < 2) return null;
   const a = shuffled[0], b = shuffled[1];
-  cmpUsedIds.add(a.id);
-  cmpUsedIds.add(b.id);
+  cmpUsedIds.add(a.id); cmpUsedIds.add(b.id);
   return [a, b];
 }
 function nextCmpRound(){
   if (cmpRoundIndex >= COMPARE_ROUNDS){ finishCmpGame(); return; }
-
   cmpLocked = false;
-
   cmpInfo.textContent = `Раунд ${cmpRoundIndex + 1} / ${COMPARE_ROUNDS}`;
   const roundPct = (cmpRoundIndex / COMPARE_ROUNDS) * 100;
   cmpProgressBar.style.width = roundPct + '%';
   cmpProgressPercent.textContent = Math.round(roundPct) + '%';
-
   const field = cmpMode === 'duration' ? 'duration' : 'plays';
   const pair = pickCmpPair(field);
-
-  if (!pair){
-    cmpRoundIndex = COMPARE_ROUNDS; finishCmpGame(); return;
-  }
-
+  if (!pair){ cmpRoundIndex = COMPARE_ROUNDS; finishCmpGame(); return; }
   const [a, b] = pair;
   cmpCards = [a, b];
   cmpCurrentWinnerId = (a[field] > b[field]) ? a.id : b.id;
-
   renderCmpRound([a, b]);
   cmpRoundStartTime = Date.now();
 }
@@ -3527,14 +3202,10 @@ function renderCmpRound(cards){
     const img = t.cover ? `<img src="${esc(t.cover)}" alt="" onerror="this.remove()">` : '';
     return `<div class="cmp-card" data-id="${t.id}">
       <div class="cmp-cover" style="--c1:${t.c1};--c2:${t.c2}">
-        <span class="cmp-cover-letter">${letter}</span>
-        ${img}
+        <span class="cmp-cover-letter">${letter}</span>${img}
         <div class="cmp-value" data-value="${t[field]}">0</div>
       </div>
-      <div class="cmp-info">
-        <div class="cmp-title">${esc(t.title)}</div>
-        <div class="cmp-artist">${esc(t.artist)}</div>
-      </div>
+      <div class="cmp-info"><div class="cmp-title">${esc(t.title)}</div><div class="cmp-artist">${esc(t.artist)}</div></div>
     </div>`;
   }).join('');
 }
@@ -3544,89 +3215,54 @@ function animateCmpValue(el, target, formatter, duration = 1300){
     function frame(now){
       const t = Math.min(1, (now - startTime) / duration);
       const eased = 1 - Math.pow(1 - t, 3);
-      const value = Math.round(target * eased);
-      el.textContent = formatter(value);
-      if (t < 1) requestAnimationFrame(frame);
-      else resolve();
+      el.textContent = formatter(Math.round(target * eased));
+      if (t < 1) requestAnimationFrame(frame); else resolve();
     }
     requestAnimationFrame(frame);
   });
 }
 cmpGrid.addEventListener('click', (e) => {
   if (!cmpGameActive || cmpLocked) return;
-  const card = e.target.closest('.cmp-card');
-  if (!card) return;
-
+  const card = e.target.closest('.cmp-card'); if (!card) return;
   cmpLocked = true;
   const clickedId = +card.dataset.id;
   const isCorrect = clickedId === cmpCurrentWinnerId;
   const roundTime = Date.now() - cmpRoundStartTime;
-
-  cmpRoundTimes.push(roundTime);
-  cmpRoundResults.push(isCorrect);
+  cmpRoundTimes.push(roundTime); cmpRoundResults.push(isCorrect);
   if (isCorrect) cmpCorrectCount++;
-
   const valueEls = cmpGrid.querySelectorAll('.cmp-value');
   const formatter = cmpMode === 'duration' ? formatMmSs : formatBigNum;
   valueEls.forEach(el => el.classList.add('visible'));
-
-  const animations = [...valueEls].map(el => {
-    const target = +el.dataset.value;
-    return animateCmpValue(el, target, formatter, 1300);
-  });
-
-  cmpGrid.querySelectorAll('.cmp-card').forEach(c => c.classList.add('disabled'));
-
-  Promise.all(animations).then(() => {
+  Promise.all([...valueEls].map(el => animateCmpValue(el, +el.dataset.value, formatter, 1300))).then(() => {
     const selectedCard = cmpGrid.querySelector(`.cmp-card[data-id="${clickedId}"]`);
     const correctCard = cmpGrid.querySelector(`.cmp-card[data-id="${cmpCurrentWinnerId}"]`);
-    if (selectedCard){
-      if (isCorrect) selectedCard.classList.add('selected-correct');
-      else selectedCard.classList.add('selected-wrong');
-    }
-    if (!isCorrect && correctCard){
-      correctCard.classList.add('reveal-correct');
-    }
-    setTimeout(() => {
-      cmpRoundIndex++;
-      nextCmpRound();
-    }, 750);
+    if (selectedCard){ isCorrect ? selectedCard.classList.add('selected-correct') : selectedCard.classList.add('selected-wrong'); }
+    if (!isCorrect && correctCard) correctCard.classList.add('reveal-correct');
+    setTimeout(() => { cmpRoundIndex++; nextCmpRound(); }, 750);
   });
+  cmpGrid.querySelectorAll('.cmp-card').forEach(c => c.classList.add('disabled'));
 });
 function finishCmpGame(){
-  cmpGameActive = false;
-  stopCmpTimer();
-
-  // ВАЖНО: используем wall-clock, чтобы совпадало с таймером на экране
+  cmpGameActive = false; stopCmpTimer();
   const totalTimeMs = Date.now() - cmpTimerStart;
   const avgTimeMs = cmpRoundTimes.length ? (cmpRoundTimes.reduce((a, b) => a + b, 0)) / cmpRoundTimes.length : 0;
   const maxTimeMs = cmpRoundTimes.length ? Math.max(...cmpRoundTimes) : 0;
   const minTimeMs = cmpRoundTimes.length ? Math.min(...cmpRoundTimes) : 0;
   const accuracy = cmpRoundResults.length ? (cmpCorrectCount / cmpRoundResults.length * 100) : 0;
-
-  cmpProgressBar.style.width = '100%';
-  cmpProgressPercent.textContent = '100%';
+  cmpProgressBar.style.width = '100%'; cmpProgressPercent.textContent = '100%';
   cmpInfo.textContent = 'Игра завершена';
-
   const entry = {
-    totalTime: +(totalTimeMs / 1000).toFixed(2),
-    avgTime: +(avgTimeMs / 1000).toFixed(2),
-    maxTime: +(maxTimeMs / 1000).toFixed(2),
-    minTime: +(minTimeMs / 1000).toFixed(2),
-    accuracy: +accuracy.toFixed(2),
-    correct: cmpCorrectCount,
-    total: cmpRoundResults.length,
+    totalTime: +(totalTimeMs / 1000).toFixed(2), avgTime: +(avgTimeMs / 1000).toFixed(2),
+    maxTime: +(maxTimeMs / 1000).toFixed(2), minTime: +(minTimeMs / 1000).toFixed(2),
+    accuracy: +accuracy.toFixed(2), correct: cmpCorrectCount, total: cmpRoundResults.length,
     mode: cmpMode,
     rounds: cmpRoundTimes.map((t, i) => ({ time: +(t / 1000).toFixed(2), correct: cmpRoundResults[i] })),
     date: Date.now(),
   };
-
   saveCompareResult(entry);
-
   const bd = calcCompareBreakdown(entry.totalTime, entry.accuracy, cmpMode);
   const modeLabel = cmpMode === 'duration' ? 'Длительность' : 'Прослушивания';
   addPointsToHistory(bd.total, 'compare', `Что больше · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
-
   entry.earnedBreakdown = bd;
   showCmpResults(entry);
 }
@@ -3639,25 +3275,14 @@ function showCmpResults(e){
   document.getElementById('cmpRgTotal').textContent = formatTime(e.totalTime);
   document.getElementById('cmpRgAvg').textContent = formatSeconds(e.avgTime);
   document.getElementById('cmpRgRange').textContent = formatSeconds(e.minTime) + ' / ' + formatSeconds(e.maxTime);
-
   const wrap = document.getElementById('cmpRgPointsWrap');
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
   const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
-  const timeValue = target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime);
-  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, {
-    percentLabel: e.accuracy.toFixed(1) + '%',
-    timeLabel: timeValue,
-  })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
-
-  let html = `<div class="odd-details-title">Все раунды · режим: ${e.mode === 'duration' ? 'Длительность' : 'Прослушивания'}</div><div class="odd-details-list">`;
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, { percentLabel: e.accuracy.toFixed(1) + '%', timeLabel: target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
+  let html = `<div class="odd-details-title">Все раунды · ${e.mode === 'duration' ? 'Длительность' : 'Прослушивания'}</div><div class="odd-details-list">`;
   e.rounds.forEach((r, i) => {
     const cls = r.correct ? 'correct' : 'wrong';
-    const icon = r.correct ? '✓' : '✗';
-    html += `<div class="odd-detail-row ${cls}">
-      <span class="odd-detail-num">${i + 1}</span>
-      <span class="odd-detail-icon">${icon}</span>
-      <span class="odd-detail-time">${formatSeconds(r.time)}</span>
-    </div>`;
+    html += `<div class="odd-detail-row ${cls}"><span class="odd-detail-num">${i + 1}</span><span class="odd-detail-icon">${r.correct ? '✓' : '✗'}</span><span class="odd-detail-time">${formatSeconds(r.time)}</span></div>`;
   });
   html += `</div>`;
   document.getElementById('cmpDetails').innerHTML = html;
@@ -3665,6 +3290,243 @@ function showCmpResults(e){
 }
 document.getElementById('cmpPlayAgain').addEventListener('click', () => { closeModal('cmpResultsModal'); runCompareFlow(cmpMode); });
 document.getElementById('cmpToMenu').addEventListener('click', () => { closeModal('cmpResultsModal'); showScreen('menu'); });
+
+/* ====================== ОТКУДА СТРОЧКА ====================== */
+function startLineTimer(){
+  stopLineTimer();
+  lineTimerStart = Date.now();
+  lineTimerPill.classList.remove('stopped');
+  updateLineTimer();
+  lineTimerInterval = setInterval(updateLineTimer, 100);
+}
+function updateLineTimer(){
+  const el = (Date.now() - lineTimerStart) / 1000;
+  const m = String(Math.floor(el / 60)).padStart(2,'0');
+  const s = String(Math.floor(el % 60)).padStart(2,'0');
+  lineTimerEl.textContent = `${m}:${s}`;
+}
+function stopLineTimer(){ if (lineTimerInterval) clearInterval(lineTimerInterval); lineTimerInterval = null; lineTimerPill.classList.add('stopped'); }
+
+function startLineGame(mode){
+  lineMode = mode;
+  lineRoundIndex = 0;
+  lineRoundTimes = []; lineRoundResults = [];
+  lineCorrectCount = 0; lineLocked = false; lineGameActive = true;
+  lineUsedIds = new Set();
+  lineProgressBar.style.width = '0%'; lineProgressPercent.textContent = '0%';
+  lineInfo.textContent = `Раунд 1 / ${LINE_ROUNDS}`;
+  lineTitleEl.textContent = mode === 'input' ? 'Откуда строчка · Ввод' : 'Откуда строчка · Выбор';
+  lineHint.textContent = mode === 'input' ? 'Найди трек через поиск' : 'Из какого трека эта строка?';
+  startLineTimer();
+  nextLineRound();
+}
+
+function nextLineRound(){
+  if (lineRoundIndex >= LINE_ROUNDS){ finishLineGame(); return; }
+
+  lineLocked = false;
+  lineInfo.textContent = `Раунд ${lineRoundIndex + 1} / ${LINE_ROUNDS}`;
+  const roundPct = (lineRoundIndex / LINE_ROUNDS) * 100;
+  lineProgressBar.style.width = roundPct + '%';
+  lineProgressPercent.textContent = Math.round(roundPct) + '%';
+
+  // Пул треков с текстами
+  let pool = lyricEntries.filter(e => !lineUsedIds.has(e.key));
+  if (pool.length < 1){ lineUsedIds = new Set(); pool = lyricEntries; }
+  if (pool.length < 1){ lineRoundIndex = LINE_ROUNDS; finishLineGame(); return; }
+
+  const winner = pool[Math.floor(Math.random() * pool.length)];
+  lineUsedIds.add(winner.key);
+  lineCurrentWinner = winner;
+
+  // Берём случайную строку
+  const line = winner.lines[Math.floor(Math.random() * winner.lines.length)];
+  linePromptText.textContent = line;
+
+  if (lineMode === 'choice'){
+    // 3 дистрактора
+    const others = [];
+    const available = lyricEntries.filter(e => e.key !== winner.key);
+    const shuffled = shuffle(available);
+    for (let i = 0; i < 3 && i < shuffled.length; i++) others.push(shuffled[i]);
+
+    const choices = shuffle([winner, ...others]);
+    lineRoundChoices = choices;
+
+    lineSearchEl.style.display = 'none';
+    lineOptionsEl.style.display = '';
+    lineOptionsEl.innerHTML = choices.map(e => {
+      const track = allTracks.find(t => t.title === e.title && t.artist === e.artist);
+      const c1 = track ? track.c1 : 'hsl(260, 60%, 45%)';
+      const c2 = track ? track.c2 : 'hsl(300, 50%, 25%)';
+      const img = track && track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
+      const letter = esc((e.title[0] || '♪').toUpperCase());
+      return `<button class="line-option" data-key="${esc(e.key)}" style="--c1:${c1};--c2:${c2}">
+        <div class="line-option-cover">
+          <span class="line-option-letter">${letter}</span>
+          ${img}
+        </div>
+        <div class="line-option-title">${esc(e.title)}</div>
+        <div class="line-option-artist">${esc(e.artist)}</div>
+      </button>`;
+    }).join('');
+  } else {
+    // Режим поиска
+    lineOptionsEl.style.display = 'none';
+    lineOptionsEl.innerHTML = '';
+    lineSearchEl.style.display = '';
+    lineSearchInput.value = '';
+    lineSearchInput.disabled = false;
+    renderLineSearchList('');
+    setTimeout(() => lineSearchInput.focus(), 60);
+  }
+
+  lineRoundStartTime = Date.now();
+}
+
+function renderLineSearchList(q){
+  const query = (q || '').trim().toLowerCase();
+  let items = lyricEntries;
+  if (query){
+    items = items.filter(e => (e.title + ' ' + e.artist).toLowerCase().includes(query));
+  }
+  // Ограничим до 40
+  const shown = items.slice(0, 40);
+
+  if (!shown.length){
+    lineSearchList.innerHTML = `<div class="line-search-empty">Ничего не найдено</div>`;
+    return;
+  }
+
+  lineSearchList.innerHTML = shown.map(e => `
+    <button class="line-search-item" data-key="${esc(e.key)}">
+      <span class="lsi-title">${esc(e.title)}</span>
+      <span class="lsi-artist">${esc(e.artist)}</span>
+    </button>`).join('');
+}
+
+lineSearchInput.addEventListener('input', () => {
+  if (!lineGameActive || lineLocked) return;
+  renderLineSearchList(lineSearchInput.value);
+});
+
+lineOptionsEl.addEventListener('click', (e) => {
+  if (!lineGameActive || lineLocked) return;
+  const opt = e.target.closest('.line-option');
+  if (!opt) return;
+  submitLineAnswer(opt.dataset.key, opt);
+});
+
+lineSearchList.addEventListener('click', (e) => {
+  if (!lineGameActive || lineLocked) return;
+  const item = e.target.closest('.line-search-item');
+  if (!item) return;
+  submitLineAnswer(item.dataset.key, item);
+});
+
+function submitLineAnswer(key, el){
+  if (!lineGameActive || lineLocked) return;
+  lineLocked = true;
+
+  const isCorrect = key === lineCurrentWinner.key;
+  const roundTime = Date.now() - lineRoundStartTime;
+  lineRoundTimes.push(roundTime);
+  lineRoundResults.push(isCorrect);
+  if (isCorrect) lineCorrectCount++;
+
+  if (lineMode === 'choice'){
+    // Подсветка
+    const all = lineOptionsEl.querySelectorAll('.line-option');
+    all.forEach(c => c.classList.add('disabled'));
+    el.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+    if (!isCorrect){
+      const correctEl = lineOptionsEl.querySelector(`.line-option[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
+      if (correctEl) correctEl.classList.add('reveal-correct');
+    }
+    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 900);
+  } else {
+    // Режим ввода
+    lineSearchInput.disabled = true;
+    const all = lineSearchList.querySelectorAll('.line-search-item');
+    all.forEach(c => c.classList.add('disabled'));
+    el.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+    if (!isCorrect){
+      // Найдём правильный трек в списке и подсветим
+      let correctEl = lineSearchList.querySelector(`.line-search-item[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
+      if (!correctEl){
+        // Не отображается в текущем фильтре — покажем отдельно
+        const correctHTML = `<button class="line-search-item reveal-correct" disabled>
+          <span class="lsi-title">${esc(lineCurrentWinner.title)}</span>
+          <span class="lsi-artist">${esc(lineCurrentWinner.artist)}</span>
+        </button>`;
+        lineSearchList.insertAdjacentHTML('afterbegin', correctHTML);
+        correctEl = lineSearchList.querySelector('.line-search-item.reveal-correct');
+      } else {
+        correctEl.classList.add('reveal-correct');
+      }
+      if (correctEl) correctEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    }
+    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 1400);
+  }
+}
+
+function finishLineGame(){
+  lineGameActive = false; stopLineTimer();
+  const totalTimeMs = Date.now() - lineTimerStart;
+  const avgTimeMs = lineRoundTimes.length ? (lineRoundTimes.reduce((a, b) => a + b, 0)) / lineRoundTimes.length : 0;
+  const maxTimeMs = lineRoundTimes.length ? Math.max(...lineRoundTimes) : 0;
+  const minTimeMs = lineRoundTimes.length ? Math.min(...lineRoundTimes) : 0;
+  const accuracy = lineRoundResults.length ? (lineCorrectCount / lineRoundResults.length * 100) : 0;
+
+  lineProgressBar.style.width = '100%'; lineProgressPercent.textContent = '100%';
+  lineInfo.textContent = 'Игра завершена';
+
+  const entry = {
+    totalTime: +(totalTimeMs / 1000).toFixed(2),
+    avgTime: +(avgTimeMs / 1000).toFixed(2),
+    maxTime: +(maxTimeMs / 1000).toFixed(2),
+    minTime: +(minTimeMs / 1000).toFixed(2),
+    accuracy: +accuracy.toFixed(2),
+    correct: lineCorrectCount,
+    total: lineRoundResults.length,
+    mode: lineMode,
+    rounds: lineRoundTimes.map((t, i) => ({ time: +(t / 1000).toFixed(2), correct: lineRoundResults[i] })),
+    date: Date.now(),
+  };
+  saveLineResult(entry);
+  const bd = calcLineBreakdown(entry.totalTime, entry.accuracy, lineMode);
+  const modeLabel = lineMode === 'input' ? 'Ввод' : 'Выбор';
+  addPointsToHistory(bd.total, 'line', `Откуда строчка · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
+  entry.earnedBreakdown = bd;
+  showLineResults(entry);
+}
+
+function showLineResults(e){
+  const pctEl = document.getElementById('lineResultPercent');
+  pctEl.textContent = e.accuracy.toFixed(2) + '%';
+  pctEl.className = 'results-percent ' + (e.accuracy >= 90 ? 'good' : e.accuracy >= 60 ? 'mid' : 'bad');
+  document.getElementById('lineRgCorrect').textContent = e.correct;
+  document.getElementById('lineRgIncorrect').textContent = e.total - e.correct;
+  document.getElementById('lineRgTotal').textContent = formatTime(e.totalTime);
+  document.getElementById('lineRgAvg').textContent = formatSeconds(e.avgTime);
+  document.getElementById('lineRgRange').textContent = formatSeconds(e.minTime) + ' / ' + formatSeconds(e.maxTime);
+  const wrap = document.getElementById('lineRgPointsWrap');
+  const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
+  const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, { percentLabel: e.accuracy.toFixed(1) + '%', timeLabel: target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
+
+  let html = `<div class="odd-details-title">Все раунды · ${e.mode === 'input' ? 'Ввод' : 'Выбор из 4'}</div><div class="odd-details-list">`;
+  e.rounds.forEach((r, i) => {
+    const cls = r.correct ? 'correct' : 'wrong';
+    html += `<div class="odd-detail-row ${cls}"><span class="odd-detail-num">${i + 1}</span><span class="odd-detail-icon">${r.correct ? '✓' : '✗'}</span><span class="odd-detail-time">${formatSeconds(r.time)}</span></div>`;
+  });
+  html += `</div>`;
+  document.getElementById('lineDetails').innerHTML = html;
+  openModal('lineResultsModal');
+}
+
+document.getElementById('linePlayAgain').addEventListener('click', () => { closeModal('lineResultsModal'); runLineFlow(lineMode); });
+document.getElementById('lineToMenu').addEventListener('click', () => { closeModal('lineResultsModal'); showScreen('menu'); });
 
 /* ====================== ПОТОКИ ====================== */
 function runShuffleFlow(title, sub, callback){
@@ -3679,19 +3541,17 @@ function runShuffleFlow(title, sub, callback){
   bar.style.width = '100%';
   setTimeout(callback, 4050);
 }
-function runTournamentFlow(){
-  runShuffleFlow('Перемешиваем треки…', 'Готовим сетку турнира', () => { startTournament(); showScreen('tournament'); });
-}
-function runChronologyFlow(){
-  runShuffleFlow('Перемешиваем треки…', 'Готовим игровое поле', () => { startChronology(); });
-}
-function runOddFlow(mode){
-  const sub = mode === 'titles' ? 'Подбираем названия для 30 раундов' : 'Подбираем обложки для 30 раундов';
-  runShuffleFlow('Готовим раунды…', sub, () => { startOddGame(mode); showScreen('odd'); });
-}
-function runCompareFlow(mode){
-  const sub = mode === 'duration' ? 'Сравниваем длительности треков' : 'Сравниваем прослушивания';
-  runShuffleFlow('Готовим раунды…', sub, () => { startCompareGame(mode); showScreen('compare'); });
+function runTournamentFlow(){ runShuffleFlow('Перемешиваем треки…', 'Готовим сетку турнира', () => { startTournament(); showScreen('tournament'); }); }
+function runChronologyFlow(){ runShuffleFlow('Перемешиваем треки…', 'Готовим игровое поле', () => { startChronology(); }); }
+function runOddFlow(mode){ const sub = mode === 'titles' ? 'Подбираем названия' : 'Подбираем обложки'; runShuffleFlow('Готовим раунды…', sub, () => { startOddGame(mode); showScreen('odd'); }); }
+function runCompareFlow(mode){ const sub = mode === 'duration' ? 'Сравниваем длительности' : 'Сравниваем прослушивания'; runShuffleFlow('Готовим раунды…', sub, () => { startCompareGame(mode); showScreen('compare'); }); }
+function runLineFlow(mode){
+  if (!lyricsReady){
+    alert('Файл texts.txt не найден или пуст. Положи его рядом с index.html.');
+    return;
+  }
+  const sub = mode === 'input' ? 'Готовим тексты для ввода' : 'Готовим тексты для выбора';
+  runShuffleFlow('Готовим раунды…', sub, () => { startLineGame(mode); showScreen('line'); });
 }
 
 /* ====================== ИНИЦИАЛИЗАЦИЯ ====================== */
@@ -3700,12 +3560,15 @@ async function init(){
   allTracks = parsed.flat;
   trackStructure = parsed.structure;
 
+  await loadLyrics();
+
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 4 режима`;
+    menuSub.textContent = `${allTracks.length} треков · 5 режимов`;
     menuStats.innerHTML =
       `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
-      `Всего треков: <b>${allTracks.length}</b>`;
+      `Всего треков: <b>${allTracks.length}</b><br>` +
+      `Текстов: <b>${lyricEntries.length}</b>`;
     btnStart.disabled = false;
     btnRecords.disabled = false;
   } else {
