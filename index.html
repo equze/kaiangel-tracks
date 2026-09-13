@@ -576,61 +576,88 @@
   .cmp-artist{font-size:11.5px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   @media (max-width:700px){.cmp-grid{grid-template-columns:1fr;max-width:340px}}
 
-  /* LINE GAME */
-  #screen-line{width:100%;gap:20px}
-  .line-prompt{
-    width:100%;max-width:640px;margin:0 auto;
-    padding:28px 26px;
-    border-radius:20px;
-    background:linear-gradient(135deg, rgba(139,92,246,.14), rgba(236,72,153,.08));
-    border:1px solid rgba(139,92,246,.4);
-    box-shadow:0 16px 44px -20px rgba(139,92,246,.9);
+  /* ================================================== */
+  /* LINE GAME (ОТКУДА СТРОЧКА) — ПЕРЕДЕЛАНО */
+  /* ================================================== */
+  #screen-line{width:100%;gap:18px}
+
+  .line-hint{
     text-align:center;
+    font-size:13px;
+    color:#8b8b9e;
+    letter-spacing:.02em;
+    margin-top:-4px;
+  }
+
+  .line-game-area{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:18px;
+  }
+
+  /* --- CHOICE MODE: центральный prompt + квадраты по углам --- */
+  .line-stage{
+    width:100%;
+    max-width:720px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1fr 1.3fr 1fr;
+    grid-template-rows: 1fr 1.3fr 1fr;
+    gap:14px;
+    min-height:520px;
+    align-items:stretch;
+    animation:screenIn .35s cubic-bezier(.2,.8,.2,1);
+  }
+
+  .line-stage .slot-tl{grid-column:1;grid-row:1}
+  .line-stage .slot-tr{grid-column:3;grid-row:1}
+  .line-stage .slot-bl{grid-column:1;grid-row:3}
+  .line-stage .slot-br{grid-column:3;grid-row:3}
+
+  .line-center{
+    grid-column:2;grid-row:2;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px 18px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(236,72,153,.09));
+    border:1px solid rgba(139,92,246,.45);
+    box-shadow:0 16px 44px -20px rgba(139,92,246,.9), inset 0 0 60px rgba(139,92,246,.05);
     position:relative;
-    animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both;
+    text-align:center;
+    animation:cardIn .4s cubic-bezier(.2,.8,.2,1) both;
   }
-  .line-prompt::before{
+  .line-center::before{
     content:'"';
-    position:absolute;top:-6px;left:14px;
-    font-size:64px;font-weight:800;line-height:1;
-    color:rgba(196,181,253,.35);
+    position:absolute;top:-8px;left:10px;
+    font-size:48px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.4);
     pointer-events:none;
   }
-  .line-prompt::after{
+  .line-center::after{
     content:'"';
-    position:absolute;bottom:-34px;right:14px;
-    font-size:64px;font-weight:800;line-height:1;
-    color:rgba(196,181,253,.35);
+    position:absolute;bottom:-28px;right:10px;
+    font-size:48px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.4);
     pointer-events:none;
   }
-  .line-prompt-text{
-    font-size:clamp(17px,2.4vw,22px);
+  .line-center .line-prompt-text{
+    font-size:clamp(14px, 1.7vw, 18px);
     font-weight:700;
     line-height:1.45;
     letter-spacing:-.005em;
     color:#fff;
     position:relative;z-index:1;
-  }
-  .line-hint{
-    text-align:center;
-    font-size:13px;
-    color:#8b8b9e;
-    margin-top:-8px;
-    letter-spacing:.02em;
+    max-width:100%;
+    word-break:break-word;
   }
 
-  /* Mode 1: 4 options */
-  .line-options{
-    display:grid;
-    grid-template-columns:repeat(2, minmax(0, 1fr));
-    gap:14px;
-    width:100%;
-    max-width:640px;
-    margin:0 auto;
-  }
   .line-option{
     display:flex;flex-direction:column;gap:8px;
-    padding:14px;
+    padding:10px;
     border-radius:16px;
     background:var(--card);
     border:2px solid var(--border);
@@ -639,6 +666,7 @@
                border-color .2s, box-shadow .2s, background .2s, opacity .3s;
     animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both;
     min-width:0;
+    overflow:hidden;
   }
   .line-option:nth-child(1){animation-delay:0s}
   .line-option:nth-child(2){animation-delay:.04s}
@@ -646,32 +674,74 @@
   .line-option:nth-child(4){animation-delay:.12s}
   .line-option:hover:not(.disabled){
     transform:translateY(-4px);
-    border-color:rgba(255,255,255,.2);
+    border-color:rgba(255,255,255,.22);
     box-shadow:0 20px 50px -22px rgba(139,92,246,1);
   }
   .line-option:active:not(.disabled){transform:translateY(-2px) scale(.99)}
   .line-option.disabled{pointer-events:none}
   .line-option.selected-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e, 0 20px 60px -20px rgba(34,197,94,.9)}
   .line-option.selected-wrong{border-color:#ef4444;box-shadow:0 0 0 2px #ef4444, 0 20px 60px -20px rgba(239,68,68,.9)}
-  .line-option.reveal-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e;opacity:.85}
+  .line-option.reveal-correct{border-color:#22c55e;box-shadow:0 0 0 2px #22c55e;opacity:.9}
   .line-option-cover{
     position:relative;
-    aspect-ratio:16/9;
+    aspect-ratio:1/1;
+    width:100%;
     border-radius:10px;
     background:linear-gradient(135deg,var(--c1),var(--c2));
     display:grid;place-items:center;
     overflow:hidden;
-    font-size:38px;font-weight:800;color:#fff;
+    font-size:32px;font-weight:800;color:#fff;
+    flex-shrink:0;
   }
   .line-option-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.15),transparent 60%);pointer-events:none;z-index:2}
   .line-option-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
   .line-option-letter{position:relative;z-index:0}
-  .line-option-title{font-size:13.5px;font-weight:700;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .line-option-artist{font-size:11.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-option-title{font-size:12.5px;font-weight:700;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .line-option-artist{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
-  /* Mode 2: search */
+  /* --- SEARCH MODE --- */
+  .line-search-wrap{
+    width:100%;max-width:620px;margin:0 auto;
+    display:flex;flex-direction:column;gap:16px;
+    align-items:stretch;
+    animation:screenIn .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .line-search-wrap .line-prompt{
+    width:100%;
+    padding:26px 24px;
+    border-radius:20px;
+    background:linear-gradient(135deg, rgba(139,92,246,.16), rgba(236,72,153,.09));
+    border:1px solid rgba(139,92,246,.45);
+    box-shadow:0 16px 44px -20px rgba(139,92,246,.9);
+    text-align:center;
+    position:relative;
+  }
+  .line-search-wrap .line-prompt::before{
+    content:'"';
+    position:absolute;top:-8px;left:12px;
+    font-size:52px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.4);
+    pointer-events:none;
+  }
+  .line-search-wrap .line-prompt::after{
+    content:'"';
+    position:absolute;bottom:-30px;right:12px;
+    font-size:52px;font-weight:800;line-height:1;
+    color:rgba(196,181,253,.4);
+    pointer-events:none;
+  }
+  .line-search-wrap .line-prompt-text{
+    font-size:clamp(15px, 2vw, 19px);
+    font-weight:700;
+    line-height:1.45;
+    letter-spacing:-.005em;
+    color:#fff;
+    position:relative;z-index:1;
+    word-break:break-word;
+  }
+
   .line-search{
-    width:100%;max-width:640px;margin:0 auto;
+    width:100%;
     display:flex;flex-direction:column;gap:10px;
   }
   .line-search-input{
@@ -689,8 +759,17 @@
     background:rgba(139,92,246,.06);
     box-shadow:0 0 0 3px rgba(139,92,246,.12);
   }
+  .line-search-input:disabled{opacity:.55}
+  .line-search-hint{
+    font-size:11.5px;
+    color:#6a6a7c;
+    text-align:center;
+    letter-spacing:.02em;
+    padding:0 4px;
+    min-height:14px;
+  }
   .line-search-list{
-    max-height:340px;
+    max-height:360px;
     overflow-y:auto;
     display:flex;flex-direction:column;gap:4px;
     padding:4px;
@@ -698,6 +777,7 @@
     background:rgba(255,255,255,.02);
     border:1px solid var(--border);
   }
+  .line-search-list:empty{display:none}
   .line-search-list::-webkit-scrollbar{width:6px}
   .line-search-list::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
   .line-search-list::-webkit-scrollbar-thumb{background:rgba(139,92,246,.6);border-radius:99px}
@@ -716,14 +796,28 @@
   .line-search-item.selected-correct{background:rgba(34,197,94,.18);border-color:#22c55e;box-shadow:0 0 0 1px #22c55e}
   .line-search-item.selected-wrong{background:rgba(239,68,68,.18);border-color:#ef4444;box-shadow:0 0 0 1px #ef4444}
   .line-search-item.reveal-correct{background:rgba(34,197,94,.14);border-color:#22c55e}
+  .line-search-item.disabled{pointer-events:none}
   .line-search-item .lsi-title{font-size:13px;font-weight:600;color:#eaeaf3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .line-search-item .lsi-artist{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .line-search-empty{padding:20px;text-align:center;color:var(--muted);font-size:12.5px}
-  .line-search-hint{font-size:11.5px;color:#6a6a7c;text-align:center;letter-spacing:.02em;padding:4px 0}
 
   @media (max-width:700px){
-    .line-options{grid-template-columns:1fr;max-width:340px}
-    .line-prompt{padding:22px 20px}
+    .line-stage{
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap:10px;
+      min-height:auto;
+      max-width:100%;
+    }
+    .line-stage .line-center{grid-column:1/-1;grid-row:1}
+    .line-stage .slot-tl{grid-column:1;grid-row:2}
+    .line-stage .slot-tr{grid-column:2;grid-row:2}
+    .line-stage .slot-bl{grid-column:1;grid-row:3}
+    .line-stage .slot-br{grid-column:2;grid-row:3}
+    .line-option{padding:8px}
+    .line-option-cover{font-size:26px}
+    .line-option-title{font-size:11.5px}
+    .line-option-artist{font-size:10px}
   }
 
   /* МОДАЛКИ */
@@ -1104,17 +1198,9 @@
       </div>
     </header>
 
-    <div class="line-prompt">
-      <div class="line-prompt-text" id="linePromptText">Загрузка…</div>
-    </div>
     <div class="line-hint" id="lineHint">Из какого трека эта строка?</div>
 
-    <div class="line-options" id="lineOptions"></div>
-    <div class="line-search" id="lineSearch" style="display:none">
-      <input type="text" class="line-search-input" id="lineSearchInput" placeholder="Начни вводить название или артиста..." autocomplete="off">
-      <div class="line-search-hint">Нажми на трек из списка, чтобы ответить</div>
-      <div class="line-search-list" id="lineSearchList"></div>
-    </div>
+    <div class="line-game-area" id="lineGameArea"></div>
   </section>
 
 </div>
@@ -1383,12 +1469,8 @@ const cmpTimerPill = document.getElementById('cmpTimerPill');
 const cmpProgressBar = document.getElementById('cmpProgressBar');
 const cmpProgressPercent = document.getElementById('cmpProgressPercent');
 
-const linePromptText = document.getElementById('linePromptText');
+const lineGameArea = document.getElementById('lineGameArea');
 const lineHint = document.getElementById('lineHint');
-const lineOptionsEl = document.getElementById('lineOptions');
-const lineSearchEl = document.getElementById('lineSearch');
-const lineSearchInput = document.getElementById('lineSearchInput');
-const lineSearchList = document.getElementById('lineSearchList');
 const lineInfo = document.getElementById('lineInfo');
 const lineTitleEl = document.getElementById('lineTitle');
 const lineTimerEl = document.getElementById('lineTimer');
@@ -1450,14 +1532,12 @@ let lineRoundResults = [];
 let lineCorrectCount = 0;
 let lineGameActive = false;
 let lineLocked = false;
-let lineCurrentWinner = null; // track object
-let lineUsedIds = new Set();
+let lineCurrentWinner = null;
 let lineMode = 'choice';
 let lineTimerStart = 0;
 let lineTimerInterval = null;
-let lineRoundChoices = [];
-let lyricsDB = {}; // key -> {artist, title, lines: []}
-let lyricEntries = []; // [{key, artist, title, lines}]
+let lyricsDB = {};
+let lyricEntries = [];
 let lyricsReady = false;
 
 let selectedMode = null;
@@ -1574,7 +1654,6 @@ function calcCompareBreakdown(totalTime, accuracy, mode){
   return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
 }
 function calcLineBreakdown(totalTime, accuracy, mode){
-  // choice: 3.5 min = 210 sec. input: 6 min = 360 sec.
   const MID_TIME = mode === 'input' ? 360 : 210;
   const base = mode === 'input' ? 315 : 90;
   const acc = Math.max(0, Math.min(100, accuracy)) / 100;
@@ -1779,7 +1858,6 @@ function parseLyricsText(text){
     const trimmed = line.trim();
     if (!trimmed) continue;
 
-    // Заголовок: "- Artist - Title"
     if (trimmed.startsWith('- ')){
       const body = trimmed.slice(2);
       const idx = body.indexOf(' - ');
@@ -1797,7 +1875,6 @@ function parseLyricsText(text){
     if (current) current.lines.push(trimmed);
   }
 
-  // Удаляем треки без строк
   const valid = entries.filter(e => e.lines.length > 0);
   return { entries: valid, byKey };
 }
@@ -3312,13 +3389,50 @@ function startLineGame(mode){
   lineRoundIndex = 0;
   lineRoundTimes = []; lineRoundResults = [];
   lineCorrectCount = 0; lineLocked = false; lineGameActive = true;
-  lineUsedIds = new Set();
   lineProgressBar.style.width = '0%'; lineProgressPercent.textContent = '0%';
   lineInfo.textContent = `Раунд 1 / ${LINE_ROUNDS}`;
   lineTitleEl.textContent = mode === 'input' ? 'Откуда строчка · Ввод' : 'Откуда строчка · Выбор';
   lineHint.textContent = mode === 'input' ? 'Найди трек через поиск' : 'Из какого трека эта строка?';
   startLineTimer();
   nextLineRound();
+}
+
+/* Тру рандом: сначала шафлим очередь целиком, при исчерпании — заново (с защитой от повторов подряд) */
+let lineQueue = [];
+let lineLastKey = null;
+
+function buildLineQueue(){
+  lineQueue = shuffle(lyricEntries.slice());
+}
+
+function popLineEntry(){
+  if (!lineQueue.length) buildLineQueue();
+  // защита от повтора подряд
+  if (lineQueue.length > 1 && lineQueue[0].key === lineLastKey){
+    const tmp = lineQueue[0];
+    lineQueue[0] = lineQueue[1];
+    lineQueue[1] = tmp;
+  }
+  const e = lineQueue.shift();
+  lineLastKey = e ? e.key : null;
+  return e;
+}
+
+function pickDistractors(winner, count){
+  const others = [];
+  const used = new Set([winner.key]);
+  const total = lyricEntries.length;
+  if (total <= 1) return others;
+  let attempts = 0;
+  const maxAttempts = Math.max(60, total * 4);
+  while (others.length < count && attempts < maxAttempts){
+    attempts++;
+    const e = lyricEntries[Math.floor(Math.random() * total)];
+    if (used.has(e.key)) continue;
+    used.add(e.key);
+    others.push(e);
+  }
+  return others;
 }
 
 function nextLineRound(){
@@ -3330,101 +3444,121 @@ function nextLineRound(){
   lineProgressBar.style.width = roundPct + '%';
   lineProgressPercent.textContent = Math.round(roundPct) + '%';
 
-  // Пул треков с текстами
-  let pool = lyricEntries.filter(e => !lineUsedIds.has(e.key));
-  if (pool.length < 1){ lineUsedIds = new Set(); pool = lyricEntries; }
-  if (pool.length < 1){ lineRoundIndex = LINE_ROUNDS; finishLineGame(); return; }
+  if (!lyricEntries.length){ lineRoundIndex = LINE_ROUNDS; finishLineGame(); return; }
 
-  const winner = pool[Math.floor(Math.random() * pool.length)];
-  lineUsedIds.add(winner.key);
+  const winner = popLineEntry();
+  if (!winner || !winner.lines.length){ lineRoundIndex++; nextLineRound(); return; }
   lineCurrentWinner = winner;
 
-  // Берём случайную строку
-  const line = winner.lines[Math.floor(Math.random() * winner.lines.length)];
-  linePromptText.textContent = line;
+  // случайная строка
+  const lineText = winner.lines[Math.floor(Math.random() * winner.lines.length)];
 
   if (lineMode === 'choice'){
-    // 3 дистрактора
-    const others = [];
-    const available = lyricEntries.filter(e => e.key !== winner.key);
-    const shuffled = shuffle(available);
-    for (let i = 0; i < 3 && i < shuffled.length; i++) others.push(shuffled[i]);
-
-    const choices = shuffle([winner, ...others]);
-    lineRoundChoices = choices;
-
-    lineSearchEl.style.display = 'none';
-    lineOptionsEl.style.display = '';
-    lineOptionsEl.innerHTML = choices.map(e => {
-      const track = allTracks.find(t => t.title === e.title && t.artist === e.artist);
-      const c1 = track ? track.c1 : 'hsl(260, 60%, 45%)';
-      const c2 = track ? track.c2 : 'hsl(300, 50%, 25%)';
-      const img = track && track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
-      const letter = esc((e.title[0] || '♪').toUpperCase());
-      return `<button class="line-option" data-key="${esc(e.key)}" style="--c1:${c1};--c2:${c2}">
-        <div class="line-option-cover">
-          <span class="line-option-letter">${letter}</span>
-          ${img}
-        </div>
-        <div class="line-option-title">${esc(e.title)}</div>
-        <div class="line-option-artist">${esc(e.artist)}</div>
-      </button>`;
-    }).join('');
+    const distractors = pickDistractors(winner, 3);
+    // если по какой-то причине не набралось 3 — добираем ещё раз
+    while (distractors.length < 3){
+      const e = lyricEntries[Math.floor(Math.random() * lyricEntries.length)];
+      if (e.key !== winner.key && !distractors.find(d => d.key === e.key)) distractors.push(e);
+      if (distractors.length + 1 >= lyricEntries.length) break;
+    }
+    const choices = shuffle([winner, ...distractors]);
+    renderLineChoiceRound(choices, lineText);
   } else {
-    // Режим поиска
-    lineOptionsEl.style.display = 'none';
-    lineOptionsEl.innerHTML = '';
-    lineSearchEl.style.display = '';
-    lineSearchInput.value = '';
-    lineSearchInput.disabled = false;
-    renderLineSearchList('');
-    setTimeout(() => lineSearchInput.focus(), 60);
+    renderLineSearchRound(lineText);
   }
 
   lineRoundStartTime = Date.now();
 }
 
-function renderLineSearchList(q){
-  const query = (q || '').trim().toLowerCase();
-  let items = lyricEntries;
-  if (query){
-    items = items.filter(e => (e.title + ' ' + e.artist).toLowerCase().includes(query));
-  }
-  // Ограничим до 40
-  const shown = items.slice(0, 40);
+function optionHTML(entry){
+  const track = allTracks.find(t => t.title === entry.title && t.artist === entry.artist);
+  const c1 = track ? track.c1 : 'hsl(260, 60%, 45%)';
+  const c2 = track ? track.c2 : 'hsl(300, 50%, 25%)';
+  const img = track && track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
+  const letter = esc((entry.title[0] || '♪').toUpperCase());
+  return `
+    <div class="line-option-cover" style="--c1:${c1};--c2:${c2}">
+      <span class="line-option-letter">${letter}</span>
+      ${img}
+    </div>
+    <div class="line-option-title">${esc(entry.title)}</div>
+    <div class="line-option-artist">${esc(entry.artist)}</div>
+  `;
+}
 
-  if (!shown.length){
-    lineSearchList.innerHTML = `<div class="line-search-empty">Ничего не найдено</div>`;
+function renderLineChoiceRound(choices, lineText){
+  const slots = ['slot-tl', 'slot-tr', 'slot-bl', 'slot-br'];
+  lineGameArea.innerHTML = `
+    <div class="line-stage">
+      ${choices.slice(0, 4).map((c, i) => `<button class="line-option ${slots[i]}" data-key="${esc(c.key)}">${optionHTML(c)}</button>`).join('')}
+      <div class="line-center">
+        <div class="line-prompt-text">${esc(lineText)}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderLineSearchRound(lineText){
+  lineGameArea.innerHTML = `
+    <div class="line-search-wrap">
+      <div class="line-prompt">
+        <div class="line-prompt-text">${esc(lineText)}</div>
+      </div>
+      <div class="line-search">
+        <input type="text" class="line-search-input" id="lineSearchInput" placeholder="Начни вводить название или исполнителя..." autocomplete="off">
+        <div class="line-search-hint" id="lineSearchHint">Список появится, как только ты начнёшь вводить</div>
+        <div class="line-search-list" id="lineSearchList"></div>
+      </div>
+    </div>
+  `;
+  const input = document.getElementById('lineSearchInput');
+  const list = document.getElementById('lineSearchList');
+  const hint = document.getElementById('lineSearchHint');
+  input.addEventListener('input', () => {
+    if (lineLocked) return;
+    renderLineSearchList(input.value, list, hint);
+  });
+  setTimeout(() => input.focus(), 60);
+}
+
+function renderLineSearchList(q, listEl, hintEl){
+  const query = (q || '').trim().toLowerCase();
+  if (!query){
+    listEl.innerHTML = '';
+    if (hintEl) hintEl.textContent = 'Список появится, как только ты начнёшь вводить';
     return;
   }
-
-  lineSearchList.innerHTML = shown.map(e => `
+  const items = lyricEntries.filter(e => (e.title + ' ' + e.artist).toLowerCase().includes(query));
+  const shown = items.slice(0, 30);
+  if (!shown.length){
+    listEl.innerHTML = `<div class="line-search-empty">Ничего не найдено</div>`;
+    if (hintEl) hintEl.textContent = '';
+    return;
+  }
+  if (hintEl) hintEl.textContent = `Найдено: ${items.length}`;
+  listEl.innerHTML = shown.map(e => `
     <button class="line-search-item" data-key="${esc(e.key)}">
       <span class="lsi-title">${esc(e.title)}</span>
       <span class="lsi-artist">${esc(e.artist)}</span>
     </button>`).join('');
 }
 
-lineSearchInput.addEventListener('input', () => {
+lineGameArea.addEventListener('click', (e) => {
   if (!lineGameActive || lineLocked) return;
-  renderLineSearchList(lineSearchInput.value);
+  const option = e.target.closest('.line-option');
+  if (option){
+    submitLineAnswer(option.dataset.key, option, 'choice');
+    return;
+  }
+  const searchItem = e.target.closest('.line-search-item');
+  if (searchItem){
+    if (searchItem.classList.contains('disabled') || searchItem.hasAttribute('disabled')) return;
+    submitLineAnswer(searchItem.dataset.key, searchItem, 'search');
+    return;
+  }
 });
 
-lineOptionsEl.addEventListener('click', (e) => {
-  if (!lineGameActive || lineLocked) return;
-  const opt = e.target.closest('.line-option');
-  if (!opt) return;
-  submitLineAnswer(opt.dataset.key, opt);
-});
-
-lineSearchList.addEventListener('click', (e) => {
-  if (!lineGameActive || lineLocked) return;
-  const item = e.target.closest('.line-search-item');
-  if (!item) return;
-  submitLineAnswer(item.dataset.key, item);
-});
-
-function submitLineAnswer(key, el){
+function submitLineAnswer(key, el, source){
   if (!lineGameActive || lineLocked) return;
   lineLocked = true;
 
@@ -3434,39 +3568,39 @@ function submitLineAnswer(key, el){
   lineRoundResults.push(isCorrect);
   if (isCorrect) lineCorrectCount++;
 
-  if (lineMode === 'choice'){
-    // Подсветка
-    const all = lineOptionsEl.querySelectorAll('.line-option');
+  if (source === 'choice'){
+    const all = lineGameArea.querySelectorAll('.line-option');
     all.forEach(c => c.classList.add('disabled'));
     el.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
     if (!isCorrect){
-      const correctEl = lineOptionsEl.querySelector(`.line-option[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
+      const correctEl = lineGameArea.querySelector(`.line-option[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
       if (correctEl) correctEl.classList.add('reveal-correct');
     }
-    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 900);
+    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 950);
   } else {
-    // Режим ввода
-    lineSearchInput.disabled = true;
-    const all = lineSearchList.querySelectorAll('.line-search-item');
+    const input = document.getElementById('lineSearchInput');
+    if (input) input.disabled = true;
+    const all = lineGameArea.querySelectorAll('.line-search-item');
     all.forEach(c => c.classList.add('disabled'));
     el.classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
     if (!isCorrect){
-      // Найдём правильный трек в списке и подсветим
-      let correctEl = lineSearchList.querySelector(`.line-search-item[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
-      if (!correctEl){
-        // Не отображается в текущем фильтре — покажем отдельно
-        const correctHTML = `<button class="line-search-item reveal-correct" disabled>
-          <span class="lsi-title">${esc(lineCurrentWinner.title)}</span>
-          <span class="lsi-artist">${esc(lineCurrentWinner.artist)}</span>
-        </button>`;
-        lineSearchList.insertAdjacentHTML('afterbegin', correctHTML);
-        correctEl = lineSearchList.querySelector('.line-search-item.reveal-correct');
-      } else {
+      let correctEl = lineGameArea.querySelector(`.line-search-item[data-key="${CSS.escape(lineCurrentWinner.key)}"]`);
+      const list = document.getElementById('lineSearchList');
+      const hint = document.getElementById('lineSearchHint');
+      if (!correctEl && list){
+        if (hint) hint.textContent = 'Правильный ответ:';
+        list.insertAdjacentHTML('afterbegin', `
+          <button class="line-search-item reveal-correct" disabled>
+            <span class="lsi-title">${esc(lineCurrentWinner.title)}</span>
+            <span class="lsi-artist">${esc(lineCurrentWinner.artist)}</span>
+          </button>`);
+        correctEl = lineGameArea.querySelector('.line-search-item.reveal-correct');
+      } else if (correctEl){
         correctEl.classList.add('reveal-correct');
       }
       if (correctEl) correctEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
     }
-    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 1400);
+    setTimeout(() => { lineRoundIndex++; nextLineRound(); }, 1500);
   }
 }
 
@@ -3551,7 +3685,12 @@ function runLineFlow(mode){
     return;
   }
   const sub = mode === 'input' ? 'Готовим тексты для ввода' : 'Готовим тексты для выбора';
-  runShuffleFlow('Готовим раунды…', sub, () => { startLineGame(mode); showScreen('line'); });
+  runShuffleFlow('Готовим раунды…', sub, () => {
+    buildLineQueue();
+    lineLastKey = null;
+    startLineGame(mode);
+    showScreen('line');
+  });
 }
 
 /* ====================== ИНИЦИАЛИЗАЦИЯ ====================== */
