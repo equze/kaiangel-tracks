@@ -576,11 +576,8 @@
   .cmp-artist{font-size:11.5px;color:var(--muted);margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   @media (max-width:700px){.cmp-grid{grid-template-columns:1fr;max-width:340px}}
 
-  /* ================================================== */
-  /* LINE GAME (ОТКУДА СТРОЧКА) */
-  /* ================================================== */
+  /* LINE GAME */
   #screen-line{width:100%;gap:18px}
-
   .line-hint{
     text-align:center;
     font-size:13px;
@@ -588,7 +585,6 @@
     letter-spacing:.02em;
     margin-top:-4px;
   }
-
   .line-game-area{
     width:100%;
     display:flex;
@@ -596,8 +592,6 @@
     align-items:center;
     gap:18px;
   }
-
-  /* --- CHOICE MODE: строка сверху + 4 маленьких квадрата под ней --- */
   .line-choice-wrap{
     width:100%;
     max-width:640px;
@@ -607,7 +601,6 @@
     gap:16px;
     animation:screenIn .35s cubic-bezier(.2,.8,.2,1);
   }
-
   .line-choice-prompt{
     width:100%;
     padding:26px 24px;
@@ -642,13 +635,11 @@
     position:relative;z-index:1;
     word-break:break-word;
   }
-
   .line-choice-grid{
     display:grid;
     grid-template-columns:repeat(4, minmax(0, 1fr));
     gap:12px;
   }
-
   .line-option{
     display:flex;flex-direction:column;gap:8px;
     padding:10px;
@@ -692,8 +683,6 @@
   .line-option-letter{position:relative;z-index:0}
   .line-option-title{font-size:12px;font-weight:700;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .line-option-artist{font-size:10.5px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-
-  /* --- SEARCH MODE --- */
   .line-search-wrap{
     width:100%;max-width:620px;margin:0 auto;
     display:flex;flex-direction:column;gap:16px;
@@ -733,7 +722,6 @@
     position:relative;z-index:1;
     word-break:break-word;
   }
-
   .line-search{
     width:100%;
     display:flex;flex-direction:column;gap:10px;
@@ -794,7 +782,6 @@
   .line-search-item .lsi-title{font-size:13px;font-weight:600;color:#eaeaf3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .line-search-item .lsi-artist{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .line-search-empty{padding:20px;text-align:center;color:var(--muted);font-size:12.5px}
-
   @media (max-width:700px){
     .line-choice-grid{
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -805,6 +792,124 @@
     .line-option-cover{font-size:26px}
     .line-option-title{font-size:11px}
     .line-option-artist{font-size:10px}
+  }
+
+  /* ============================================ */
+  /* KEEP / DELETE */
+  /* ============================================ */
+  #screen-keepdelete{width:100%;gap:18px}
+  .kd-stats-bar{
+    display:flex;justify-content:center;gap:20px;
+    padding:10px 20px;border-radius:12px;
+    background:rgba(255,255,255,.03);border:1px solid var(--border);
+    font-size:12.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+  }
+  .kd-stats-bar span{font-variant-numeric:tabular-nums}
+  .kd-stats-bar .s-keep{color:#86efac}
+  .kd-stats-bar .s-del{color:#fca5a5}
+  .kd-layout{width:100%;max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+  .kd-top{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .kd-panel{
+    border-radius:16px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.02);
+    padding:12px 14px;
+    display:flex;flex-direction:column;gap:8px;
+    min-height:170px;
+  }
+  .kd-panel.keep{border-color:rgba(34,197,94,.4);background:rgba(34,197,94,.05)}
+  .kd-panel.delete{border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.05)}
+  .kd-panel-head{
+    display:flex;align-items:center;justify-content:space-between;
+    font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding-bottom:8px;border-bottom:1px dashed rgba(255,255,255,.08);
+  }
+  .kd-panel.keep .kd-panel-head{color:#86efac}
+  .kd-panel.delete .kd-panel-head{color:#fca5a5}
+  .kd-panel-count{
+    font-variant-numeric:tabular-nums;font-size:11px;font-weight:800;
+    padding:2px 9px;border-radius:99px;background:rgba(255,255,255,.07);
+    color:#eaeaf3;letter-spacing:.02em;text-transform:none;
+  }
+  .kd-list{display:flex;flex-direction:column;gap:4px;flex:1;overflow-y:auto;max-height:200px;padding-right:2px}
+  .kd-list::-webkit-scrollbar{width:5px}
+  .kd-list::-webkit-scrollbar-thumb{background:rgba(139,92,246,.5);border-radius:99px}
+  .kd-list-item{
+    display:flex;align-items:center;gap:8px;
+    padding:5px 8px;border-radius:8px;font-size:12px;line-height:1.2;
+    animation:cardIn .25s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .kd-panel.keep .kd-list-item{background:rgba(34,197,94,.12);color:#dcfce7}
+  .kd-panel.delete .kd-list-item{background:rgba(239,68,68,.12);color:#fee2e2}
+  .kd-list-thumb{
+    width:24px;height:24px;border-radius:6px;flex-shrink:0;overflow:hidden;position:relative;
+    display:grid;place-items:center;font-size:10px;font-weight:800;color:#fff;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+  }
+  .kd-list-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .kd-list-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;font-weight:600}
+  .kd-empty{color:#6a6a7c;font-size:11.5px;font-style:italic;padding:10px;text-align:center}
+
+  .kd-current-wrap{width:100%;display:flex;justify-content:center}
+  .kd-current{
+    width:100%;
+    padding:22px 20px;
+    border-radius:20px;
+    background:var(--card);
+    border:1px solid var(--border);
+    display:flex;flex-direction:column;align-items:center;gap:14px;
+    animation:cardIn .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .kd-current-cover{
+    position:relative;
+    width:140px;height:140px;
+    border-radius:16px;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+    display:grid;place-items:center;
+    font-size:56px;font-weight:800;color:#fff;
+    overflow:hidden;
+    box-shadow:inset 0 0 60px rgba(0,0,0,.3), 0 20px 44px -20px var(--c1);
+  }
+  .kd-current-cover::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(255,255,255,.18),transparent 48%);
+    pointer-events:none;z-index:2;
+  }
+  .kd-current-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .kd-current-cover .kd-letter{position:relative;z-index:0;line-height:1}
+  .kd-current-title{font-size:17px;font-weight:800;letter-spacing:-.01em;text-align:center;line-height:1.25;max-width:100%;word-break:break-word}
+  .kd-current-artist{font-size:12.5px;color:var(--muted);text-align:center;margin-top:-8px}
+  .kd-buttons{display:flex;gap:12px;width:100%;max-width:400px;justify-content:center;margin-top:4px}
+  .kd-btn{
+    flex:1;padding:15px 22px;border-radius:14px;border:none;
+    font:inherit;font-size:14px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    cursor:pointer;color:#fff;
+    transition:transform .18s, box-shadow .18s, filter .18s, opacity .18s;
+  }
+  .kd-btn.delete{background:linear-gradient(100deg,#ef4444,#b91c1c);box-shadow:0 12px 30px -12px rgba(239,68,68,.9)}
+  .kd-btn.keep{background:linear-gradient(100deg,#22c55e,#15803d);box-shadow:0 12px 30px -12px rgba(34,197,94,.9)}
+  .kd-btn:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.08)}
+  .kd-btn:active:not(:disabled){transform:translateY(0) scale(.98)}
+  .kd-btn:disabled{opacity:.3;cursor:not-allowed;transform:none;filter:none;box-shadow:none}
+
+  .kd-done{
+    width:100%;padding:32px 20px;border-radius:20px;
+    background:var(--card);border:1px solid var(--border);
+    display:flex;flex-direction:column;align-items:center;gap:12px;
+    animation:cardIn .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .kd-done h2{
+    font-size:22px;font-weight:800;letter-spacing:-.01em;
+    background:linear-gradient(100deg,#fff,#c4b5fd);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .kd-done p{font-size:13px;color:var(--muted);text-align:center}
+
+  @media (max-width:640px){
+    .kd-top{grid-template-columns:1fr}
+    .kd-current-cover{width:110px;height:110px;font-size:44px}
+    .kd-buttons{flex-direction:column;max-width:280px}
+    .kd-stats-bar{font-size:11px;padding:8px 14px;gap:14px}
   }
 
   /* МОДАЛКИ */
@@ -942,6 +1047,7 @@
   .ri-mode.duration{background:rgba(251,191,36,.18);color:#fcd34d}
   .ri-mode.line-choice{background:rgba(34,197,94,.20);color:#86efac}
   .ri-mode.line-input{background:rgba(168,85,247,.25);color:#e9d5ff}
+  .ri-mode.keepdelete{background:rgba(244,114,182,.20);color:#f9a8d4}
   .records-body{flex:1;overflow-y:auto;min-height:200px;max-height:56vh;padding-right:6px}
   .records-body::-webkit-scrollbar{width:6px}
   .records-body::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
@@ -976,6 +1082,7 @@
   .history-item.odd{border-left-color:#f9a8d4}
   .history-item.compare{border-left-color:#93c5fd}
   .history-item.line{border-left-color:#86efac}
+  .history-item.keepdelete{border-left-color:#f472b6}
   .history-item .hi-body{flex:1;min-width:0}
   .history-item .hi-label{font-size:13.5px;font-weight:700;color:#eaeaf3;line-height:1.2}
   .history-item .hi-detail{font-size:11.5px;color:var(--muted);margin-top:3px}
@@ -1051,6 +1158,10 @@
       <button class="mode-card" data-mode="line">
         <div class="mc-title">Откуда строчка</div>
         <div class="mc-sub">Угадай трек по строке</div>
+      </button>
+      <button class="mode-card" data-mode="keepdelete">
+        <div class="mc-title">Keep / Delete</div>
+        <div class="mc-sub">Оставь или удали треки</div>
       </button>
     </div>
 
@@ -1190,6 +1301,39 @@
     <div class="line-game-area" id="lineGameArea"></div>
   </section>
 
+  <!-- НОВАЯ ИГРА: KEEP / DELETE -->
+  <section class="screen" id="screen-keepdelete">
+    <header class="game-header">
+      <h1 class="game-title" id="kdTitle">Keep / Delete</h1>
+      <div class="status-row">
+        <div class="sub" id="kdAlbumName">—</div>
+      </div>
+      <div class="kd-stats-bar">
+        <span class="s-keep">KEEP: <span id="kdKeepCount">0 / 0</span></span>
+        <span class="s-del">DELETE: <span id="kdDelCount">0 / 0</span></span>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="kdProgressBar"></div></div>
+        <span class="progress-percent" id="kdProgressPercent">0%</span>
+      </div>
+    </header>
+
+    <div class="kd-layout">
+      <div class="kd-top">
+        <div class="kd-panel keep">
+          <div class="kd-panel-head"><span>Keep</span><span class="kd-panel-count" id="kdKeepPanelCount">0 / 0</span></div>
+          <div class="kd-list" id="kdKeepList"><div class="kd-empty">Пока пусто</div></div>
+        </div>
+        <div class="kd-panel delete">
+          <div class="kd-panel-head"><span>Delete</span><span class="kd-panel-count" id="kdDelPanelCount">0 / 0</span></div>
+          <div class="kd-list" id="kdDelList"><div class="kd-empty">Пока пусто</div></div>
+        </div>
+      </div>
+
+      <div class="kd-current-wrap" id="kdCurrentWrap"></div>
+    </div>
+  </section>
+
 </div>
 
 <!-- МОДАЛКА ПРАВИЛ -->
@@ -1204,12 +1348,13 @@
     <div class="tab-content active" data-content="general">
       <h3>Как играть</h3>
       <ul>
-        <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион. Расслабляющий режим на 20–35 минут.</li>
-        <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым. Долгая игра, требует внимания.</li>
-        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох. Быстрая игра. Два режима: обложки и названия.</li>
-        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше: прослушиваний или длительности.</li>
-        <li><b>Откуда строчка.</b> 30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно. В режиме «Выбор» даны 4 варианта, в режиме «Ввод» — надо найти трек через поиск.</li>
-        <li>Результаты всех игр сохраняются в статистике, последние 10 партий — в истории (кнопка справа вверху в меню).</li>
+        <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион.</li>
+        <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым.</li>
+        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох.</li>
+        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше.</li>
+        <li><b>Откуда строчка.</b> 30 раундов. Показывается строка из трека — нужно угадать, из какого. Есть режимы «Выбор из 4» и «Ввод через поиск».</li>
+        <li><b>Keep / Delete.</b> Выпадает случайный альбом и случайное число keep/delete. Показываются треки по одному, решаешь — оставить или удалить. Кипов всегда меньше.</li>
+        <li>Результаты всех игр сохраняются в статистике, последние 10 партий — в истории.</li>
       </ul>
     </div>
 
@@ -1217,16 +1362,16 @@
       <h3>Баллы</h3>
       <ul>
         <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b> (+ бонус режима, если есть).</li>
-        <li><b>Множитель точности</b> (квадратичный): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 70% → ×0.49, 50% → ×0.25, 30% → ×0.09. То есть 50% даёт в 4 раза меньше, чем 100%.</li>
+        <li><b>Множитель точности</b> (квадратичный): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 70% → ×0.49, 50% → ×0.25.</li>
         <li><b>Множитель времени.</b> У каждой игры свой ориентир. Быстрее — до ×1.60, медленнее — штраф до ×0.20.</li>
         <li><b>Турнир</b> — ровно <b>25 баллов</b>. Без множителей.</li>
         <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>.</li>
-        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия), ориентир <b>2 минуты</b>.</li>
-        <li><b>Что больше · Прослушивания</b> — база <b>50</b>, ориентир <b>2:30</b>.</li>
-        <li><b>Что больше · Длительность</b> — база <b>75</b>, ориентир <b>2:30</b>.</li>
-        <li><b>Откуда строчка · Выбор</b> — база <b>90</b>, ориентир <b>3:30</b>.</li>
-        <li><b>Откуда строчка · Ввод</b> — база <b>315</b> (в 3.5 раза выше), ориентир <b>6:00</b>.</li>
-        <li>После каждой партии показывается полная разбивка: база, множители и итоговая сумма.</li>
+        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия).</li>
+        <li><b>Что больше · Прослушивания</b> — база <b>50</b>.</li>
+        <li><b>Что больше · Длительность</b> — база <b>75</b>.</li>
+        <li><b>Откуда строчка · Выбор</b> — база <b>90</b>.</li>
+        <li><b>Откуда строчка · Ввод</b> — база <b>315</b>.</li>
+        <li><b>Keep / Delete</b> — <b>20 баллов</b> за завершение альбома.</li>
       </ul>
     </div>
 
@@ -1362,6 +1507,7 @@
         <button data-rtab="odd">Кто лишний</button>
         <button data-rtab="compare">Что больше</button>
         <button data-rtab="line">Откуда строчка</button>
+        <button data-rtab="keepdelete">Keep/Delete</button>
       </div>
       <div class="records-body" id="recordsBody"></div>
       <div class="records-footer">
@@ -1406,6 +1552,7 @@ const screens = {
   odd:        document.getElementById('screen-odd'),
   compare:    document.getElementById('screen-compare'),
   line:       document.getElementById('screen-line'),
+  keepdelete: document.getElementById('screen-keepdelete'),
 };
 
 const arena       = document.getElementById('arena');
@@ -1527,6 +1674,9 @@ let lyricsDB = {};
 let lyricEntries = [];
 let lyricsReady = false;
 
+// Keep / Delete game
+let kdState = null;
+
 let selectedMode = null;
 let selectedOddSubmode = 'covers';
 let selectedCmpSubmode = 'plays';
@@ -1605,6 +1755,7 @@ function formatMmSs(sec){
 
 /* ====================== БАЛЛЫ ====================== */
 const POINTS_FIXED_TOURNAMENT = 25;
+const POINTS_FIXED_KEEPDELETE = 20;
 
 function calcTournamentBreakdown(){
   return { base: POINTS_FIXED_TOURNAMENT, accuracyMultiplier: 1, speedMultiplier: 1, total: POINTS_FIXED_TOURNAMENT, midTimeSec: 0, modeBonus: 0 };
@@ -1956,6 +2107,11 @@ const MODE_DESCRIPTIONS = {
     text: '30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно.',
     reward: 'Выбери подкатегорию ниже.',
   },
+  keepdelete: {
+    title: 'Keep / Delete',
+    text: 'Выпадает случайный альбом. Показываются треки по одному — решаешь, оставить трек или удалить. Количество решений, кипов и делитов случайно, кипов всегда меньше.',
+    reward: 'Награда: <b>20 баллов</b> за завершение альбома.',
+  },
 };
 const ODD_SUBMODE_DESCRIPTIONS = {
   covers: { text: 'У трёх треков обложки правильные, у одного — подменённая на чужую из папки pics.', reward: 'Награда: <b>база 30</b>, ориентир 2 минуты.' },
@@ -2052,6 +2208,7 @@ btnModeStart.addEventListener('click', () => {
   else if (selectedMode === 'odd') runOddFlow(selectedOddSubmode);
   else if (selectedMode === 'compare') runCompareFlow(selectedCmpSubmode);
   else if (selectedMode === 'line') runLineFlow(selectedLineSubmode);
+  else if (selectedMode === 'keepdelete') runKeepDeleteFlow();
 });
 
 btnModeBack.addEventListener('click', () => {
@@ -2081,11 +2238,12 @@ document.getElementById('closeHistoryX').addEventListener('click', () => closeMo
 historyModal.addEventListener('click', e => { if (e.target === historyModal) closeModal('historyModal'); });
 
 /* ====================== RECORDS ====================== */
-const RECORDS_KEY = 'kaiAngelTracksGame_records_v10';
+const RECORDS_KEY = 'kaiAngelTracksGame_records_v11';
 const LEGACY_KEYS = [
-  'kaiAngelTracksGame_records_v9','kaiAngelTracksGame_records_v8','kaiAngelTracksGame_records_v7',
-  'kaiAngelTracksGame_records_v6','kaiAngelTracksGame_records_v5','kaiAngelTracksGame_records_v4',
-  'kaiAngelTracksGame_records_v3','kaiAngelTracksGame_records_v2','kaiAngelTracksGame_records_v1',
+  'kaiAngelTracksGame_records_v10','kaiAngelTracksGame_records_v9','kaiAngelTracksGame_records_v8',
+  'kaiAngelTracksGame_records_v7','kaiAngelTracksGame_records_v6','kaiAngelTracksGame_records_v5',
+  'kaiAngelTracksGame_records_v4','kaiAngelTracksGame_records_v3','kaiAngelTracksGame_records_v2',
+  'kaiAngelTracksGame_records_v1',
 ];
 const MAX_LIST = 20;
 const MAX_HISTORY = 10;
@@ -2100,6 +2258,7 @@ function defaultRecords(){
     oddOneOut: [],
     comparisonResults: [],
     lineResults: [],
+    keepDeleteResults: [],
     totalPoints: 0,
     history: [],
   };
@@ -2115,6 +2274,7 @@ function normalizeRecords(raw){
     oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
     comparisonResults: Array.isArray(r.comparisonResults) ? r.comparisonResults : [],
     lineResults: Array.isArray(r.lineResults) ? r.lineResults : [],
+    keepDeleteResults: Array.isArray(r.keepDeleteResults) ? r.keepDeleteResults : [],
     totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
     history: Array.isArray(r.history) ? r.history : [],
   };
@@ -2237,6 +2397,13 @@ function saveLineResult(entry){
   r.lineResults = r.lineResults.slice(0, MAX_LIST);
   saveRecords(r);
 }
+function saveKeepDeleteResult(entry){
+  const r = loadRecords();
+  r.keepDeleteResults.push(entry);
+  r.keepDeleteResults.sort((a, b) => b.date - a.date);
+  r.keepDeleteResults = r.keepDeleteResults.slice(0, MAX_LIST);
+  saveRecords(r);
+}
 
 /* ====================== ОБЩАЯ СТАТИСТИКА ====================== */
 function renderGeneralStatsHTML(r){
@@ -2245,7 +2412,8 @@ function renderGeneralStatsHTML(r){
   const oddCount = r.oddOneOut.length;
   const cmpCount = r.comparisonResults.length;
   const lineCount = r.lineResults.length;
-  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount;
+  const kdCount = (r.keepDeleteResults || []).length;
+  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount + kdCount;
 
   const tournTime = r.tournamentTimes.reduce((a, e) => a + e.time, 0);
   const chronoTime = r.chronologyTimes.reduce((a, e) => a + e.time, 0);
@@ -2271,7 +2439,7 @@ function renderGeneralStatsHTML(r){
       <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">${totalGames}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Общее время</span><span class="stats-hero-value">${formatDuration(totalTime)}</span></div>
-      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount].filter(x=>x>0).length} / 5</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount, kdCount].filter(x=>x>0).length} / 6</span></div>
     </div>
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Турнир</div><div class="stats-block-count">${tournCount}</div></div>
@@ -2318,6 +2486,14 @@ function renderGeneralStatsHTML(r){
         ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
+    <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">Keep / Delete</div><div class="stats-block-count">${kdCount}</div></div>
+      <div class="stats-block-rows">
+        ${kdCount ? `
+          <div class="stats-block-row"><span class="lbl">Всего альбомов</span><b>${kdCount}</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
+      </div>
+    </div>
   </div>`;
 }
 
@@ -2331,7 +2507,6 @@ function renderRecords(){
   const r = loadRecords();
   const body = document.getElementById('recordsBody');
   const count = document.getElementById('recordsCount');
-  const total = r.tournamentTimes.length + r.chronologyTimes.length + r.oddOneOut.length + r.comparisonResults.length + r.lineResults.length;
 
   if (recordsTab === 'general'){
     count.textContent = `Всего баллов: ${(r.totalPoints || 0).toLocaleString('ru-RU')}`;
@@ -2339,7 +2514,7 @@ function renderRecords(){
     return;
   }
 
-  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length}`;
+  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length} · KD: ${(r.keepDeleteResults||[]).length}`;
 
   if (recordsTab === 'tournament'){
     const subtabsHtml = `<div class="records-subtabs">
@@ -2455,6 +2630,18 @@ function renderRecords(){
     });
     html += `</div></div>`;
     body.innerHTML = html; bindLineSubtabs();
+  }
+
+  else if (recordsTab === 'keepdelete'){
+    const list = r.keepDeleteResults || [];
+    if (!list.length){ body.innerHTML = emptyRecordsHTML('Сыграй Keep / Delete.'); return; }
+    let html = `<div class="record-section"><div class="record-section-title">Последние партии</div><div class="record-list">`;
+    list.slice(0, MAX_LIST).forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${esc(e.albumName)}</div><div class="ri-sub">${e.keeps} keep · ${e.deletes} delete · ${formatDate(e.date)}</div></div><div class="ri-score green">+${e.points}</div></div>`;
+    });
+    html += `</div></div>`;
+    body.innerHTML = html;
   }
 }
 
@@ -3384,7 +3571,6 @@ function startLineGame(mode){
   nextLineRound();
 }
 
-/* Тру-рандом: шаффл-очередь из всех текстов + защита от повтора подряд */
 let lineQueue = [];
 let lineLastKey = null;
 
@@ -3645,6 +3831,193 @@ function showLineResults(e){
 document.getElementById('linePlayAgain').addEventListener('click', () => { closeModal('lineResultsModal'); runLineFlow(lineMode); });
 document.getElementById('lineToMenu').addEventListener('click', () => { closeModal('lineResultsModal'); showScreen('menu'); });
 
+/* ====================== KEEP / DELETE ====================== */
+function startKeepDeleteGame(){
+  // Берём только настоящие альбомы (не singles), у которых >= 4 трека
+  const eligible = trackStructure.albums.filter(a => a.tracks.length >= 4);
+  if (!eligible.length){
+    alert('Нужен хотя бы один альбом с 4+ треками в tracks.txt');
+    showScreen('menu');
+    return;
+  }
+  const album = eligible[Math.floor(Math.random() * eligible.length)];
+
+  // N — общее количество решений
+  const maxN = Math.min(album.tracks.length, 10);
+  const minN = 4;
+  const N = minN + Math.floor(Math.random() * (maxN - minN + 1));
+
+  // K — кипы, K < N/2  =>  K ∈ [1, floor((N-1)/2)]
+  const maxK = Math.floor((N - 1) / 2);
+  const K = 1 + Math.floor(Math.random() * maxK);
+  const D = N - K;
+
+  const queue = shuffle(album.tracks).slice(0, N);
+
+  kdState = {
+    album, N, K, D,
+    queue,
+    currentIndex: 0,
+    kept: [],
+    deleted: [],
+    currentTrack: null,
+    finished: false,
+  };
+
+  document.getElementById('kdTitle').textContent = 'Keep / Delete';
+  document.getElementById('kdAlbumName').textContent = album.name;
+  document.getElementById('kdKeepCount').textContent = `0 / ${K}`;
+  document.getElementById('kdDelCount').textContent = `0 / ${D}`;
+  document.getElementById('kdKeepPanelCount').textContent = `0 / ${K}`;
+  document.getElementById('kdDelPanelCount').textContent = `0 / ${D}`;
+  document.getElementById('kdProgressBar').style.width = '0%';
+  document.getElementById('kdProgressPercent').textContent = '0%';
+  document.getElementById('kdKeepList').innerHTML = '<div class="kd-empty">Пока пусто</div>';
+  document.getElementById('kdDelList').innerHTML = '<div class="kd-empty">Пока пусто</div>';
+
+  showScreen('keepdelete');
+  nextKdTrack();
+}
+
+function nextKdTrack(){
+  if (!kdState) return;
+
+  const doneKeeps = kdState.kept.length;
+  const doneDels = kdState.deleted.length;
+
+  // Все цели достигнуты?
+  if (doneKeeps >= kdState.K && doneDels >= kdState.D){ finishKeepDeleteGame(); return; }
+  // Закончились треки в очереди?
+  if (kdState.currentIndex >= kdState.queue.length){ finishKeepDeleteGame(); return; }
+
+  kdState.currentTrack = kdState.queue[kdState.currentIndex];
+  renderKdCurrent();
+  renderKdStats();
+}
+
+function renderKdCurrent(){
+  const t = kdState.currentTrack;
+  if (!t){ document.getElementById('kdCurrentWrap').innerHTML = ''; return; }
+  const letter = esc((t.title[0] || '♪').toUpperCase());
+  const img = t.cover ? `<img src="${esc(t.cover)}" alt="" onerror="this.remove()">` : '';
+  const keepDisabled = kdState.kept.length >= kdState.K;
+  const delDisabled = kdState.deleted.length >= kdState.D;
+  document.getElementById('kdCurrentWrap').innerHTML = `
+    <div class="kd-current" style="--c1:${t.c1};--c2:${t.c2}">
+      <div class="kd-current-cover" style="--c1:${t.c1};--c2:${t.c2}">
+        <span class="kd-letter">${letter}</span>${img}
+      </div>
+      <div class="kd-current-title">${esc(t.title)}</div>
+      <div class="kd-current-artist">${esc(t.artist)}</div>
+      <div class="kd-buttons">
+        <button class="kd-btn delete" id="kdDeleteBtn" ${delDisabled ? 'disabled' : ''}>Delete</button>
+        <button class="kd-btn keep" id="kdKeepBtn" ${keepDisabled ? 'disabled' : ''}>Keep</button>
+      </div>
+    </div>
+  `;
+  const delBtn = document.getElementById('kdDeleteBtn');
+  const keepBtn = document.getElementById('kdKeepBtn');
+  if (delBtn) delBtn.addEventListener('click', () => handleKdChoice('delete'));
+  if (keepBtn) keepBtn.addEventListener('click', () => handleKdChoice('keep'));
+}
+
+function kdListItemHTML(t){
+  const letter = esc((t.title[0] || '♪').toUpperCase());
+  const img = t.cover ? `<img src="${esc(t.cover)}" alt="" onerror="this.remove()">` : '';
+  return `<div class="kd-list-item">
+    <span class="kd-list-thumb" style="--c1:${t.c1};--c2:${t.c2}">${letter}${img}</span>
+    <span class="kd-list-title">${esc(t.title)}</span>
+  </div>`;
+}
+
+function renderKdStats(){
+  document.getElementById('kdKeepCount').textContent = `${kdState.kept.length} / ${kdState.K}`;
+  document.getElementById('kdDelCount').textContent = `${kdState.deleted.length} / ${kdState.D}`;
+  document.getElementById('kdKeepPanelCount').textContent = `${kdState.kept.length} / ${kdState.K}`;
+  document.getElementById('kdDelPanelCount').textContent = `${kdState.deleted.length} / ${kdState.D}`;
+
+  const total = kdState.N;
+  const done = kdState.kept.length + kdState.deleted.length;
+  const pct = total ? (done / total * 100) : 0;
+  document.getElementById('kdProgressBar').style.width = pct + '%';
+  document.getElementById('kdProgressPercent').textContent = Math.round(pct) + '%';
+
+  const keepList = document.getElementById('kdKeepList');
+  const delList = document.getElementById('kdDelList');
+  keepList.innerHTML = kdState.kept.length ? kdState.kept.map(kdListItemHTML).join('') : '<div class="kd-empty">Пока пусто</div>';
+  delList.innerHTML = kdState.deleted.length ? kdState.deleted.map(kdListItemHTML).join('') : '<div class="kd-empty">Пока пусто</div>';
+}
+
+function handleKdChoice(action){
+  if (!kdState || kdState.finished) return;
+  const t = kdState.currentTrack;
+  if (!t) return;
+  if (action === 'keep'){
+    if (kdState.kept.length >= kdState.K) return;
+    kdState.kept.push(t);
+  } else {
+    if (kdState.deleted.length >= kdState.D) return;
+    kdState.deleted.push(t);
+  }
+  kdState.currentIndex++;
+  kdState.currentTrack = null;
+  renderKdStats();
+
+  // Небольшая пауза для анимации
+  setTimeout(() => nextKdTrack(), 140);
+}
+
+function finishKeepDeleteGame(){
+  if (!kdState || kdState.finished) return;
+  kdState.finished = true;
+
+  const points = POINTS_FIXED_KEEPDELETE;
+
+  document.getElementById('kdCurrentWrap').innerHTML = `
+    <div class="kd-done">
+      <h2>Готово!</h2>
+      <p>Ты прошёл альбом «${esc(kdState.album.name)}»</p>
+      <p style="color:#c4b5fd;font-weight:800;font-size:18px;margin-top:4px">+${points} баллов</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px">
+        <button class="btn-primary" id="kdPlayAgain" style="width:auto;padding:12px 26px;font-size:14px">Сыграть снова</button>
+        <button class="btn-secondary" id="kdToMenu" style="width:auto;padding:12px 26px;font-size:14px">В меню</button>
+      </div>
+    </div>
+  `;
+  document.getElementById('kdProgressBar').style.width = '100%';
+  document.getElementById('kdProgressPercent').textContent = '100%';
+
+  const r = loadRecords();
+  r.totalPoints = (r.totalPoints || 0) + points;
+  r.history.unshift({
+    type: 'keepdelete',
+    label: 'Keep / Delete',
+    detail: `${kdState.album.name} · ${kdState.kept.length} keep / ${kdState.deleted.length} delete`,
+    points,
+    date: Date.now(),
+  });
+  r.history = r.history.slice(0, MAX_HISTORY);
+  if (!Array.isArray(r.keepDeleteResults)) r.keepDeleteResults = [];
+  r.keepDeleteResults.push({
+    albumName: kdState.album.name,
+    keeps: kdState.kept.length,
+    deletes: kdState.deleted.length,
+    total: kdState.N,
+    targetKeep: kdState.K,
+    targetDel: kdState.D,
+    points,
+    date: Date.now(),
+  });
+  r.keepDeleteResults = r.keepDeleteResults.slice(0, MAX_LIST);
+  saveRecords(r);
+  refreshPointsBadge();
+
+  const again = document.getElementById('kdPlayAgain');
+  const menuBtn = document.getElementById('kdToMenu');
+  if (again) again.addEventListener('click', () => runKeepDeleteFlow());
+  if (menuBtn) menuBtn.addEventListener('click', () => showScreen('menu'));
+}
+
 /* ====================== ПОТОКИ ====================== */
 function runShuffleFlow(title, sub, callback){
   document.getElementById('shuffleTitle').textContent = title;
@@ -3675,6 +4048,9 @@ function runLineFlow(mode){
     showScreen('line');
   });
 }
+function runKeepDeleteFlow(){
+  runShuffleFlow('Выбираем альбом…', 'Готовим треки', () => { startKeepDeleteGame(); });
+}
 
 /* ====================== ИНИЦИАЛИЗАЦИЯ ====================== */
 async function init(){
@@ -3685,7 +4061,7 @@ async function init(){
   await loadLyrics();
 
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 5 режимов`;
+    menuSub.textContent = `${allTracks.length} треков · 6 режимов`;
     menuStats.innerHTML =
       `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
