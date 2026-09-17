@@ -170,6 +170,7 @@
   .mode-submode-btn.active{
     background:rgba(139,92,246,.20);border-color:rgba(139,92,246,.55);color:#fff;
   }
+  .mode-submode-btn:disabled{opacity:.4;cursor:not-allowed}
   .mode-actions{
     display:flex;gap:12px;width:100%;max-width:900px;margin:14px auto 0;
     justify-content:center;flex-wrap:wrap;
@@ -912,6 +913,99 @@
     .kd-stats-bar{font-size:11px;padding:8px 14px;gap:14px}
   }
 
+  /* ============================================ */
+  /* MISSING WORD (ЧТО ПРОПУЩЕНО) */
+  /* ============================================ */
+  #screen-missing{width:100%;gap:18px}
+  .missing-card{
+    width:100%;max-width:720px;margin:0 auto;
+    padding:20px 22px;
+    border-radius:20px;
+    background:var(--card);border:1px solid var(--border);
+    display:flex;flex-direction:column;gap:16px;
+    animation:cardIn .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .missing-track-info{
+    display:flex;align-items:center;gap:14px;
+    padding-bottom:14px;border-bottom:1px dashed rgba(255,255,255,.08);
+  }
+  .missing-cover{
+    width:56px;height:56px;border-radius:12px;
+    background:linear-gradient(135deg,var(--c1),var(--c2));
+    display:grid;place-items:center;
+    font-size:22px;font-weight:800;color:#fff;
+    overflow:hidden;position:relative;flex-shrink:0;
+    box-shadow:inset 0 0 40px rgba(0,0,0,.3);
+  }
+  .missing-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+  .missing-cover span{position:relative;z-index:0}
+  .missing-track-text{flex:1;min-width:0}
+  .missing-track-title{font-size:15px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:-.01em}
+  .missing-track-artist{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+  .missing-lines{display:flex;flex-direction:column;gap:12px}
+  .missing-line{
+    font-size:15.5px;line-height:2.1;
+    color:#eaeaf3;
+    padding:12px 14px;border-radius:12px;
+    background:rgba(255,255,255,.025);
+    border:1px solid rgba(255,255,255,.06);
+    word-break:break-word;
+  }
+  .missing-input{
+    display:inline-block;
+    min-width:64px;
+    padding:4px 10px;
+    border-radius:8px;
+    border:1.5px solid rgba(139,92,246,.5);
+    background:rgba(139,92,246,.12);
+    color:#fff;font:inherit;font-size:14px;font-weight:600;
+    outline:none;
+    margin:0 3px;
+    text-align:center;
+    vertical-align:baseline;
+    transition:border-color .18s, background .18s, box-shadow .18s;
+  }
+  .missing-input::placeholder{color:rgba(196,181,253,.5);font-weight:500}
+  .missing-input:focus{
+    border-color:rgba(139,92,246,.9);
+    background:rgba(139,92,246,.22);
+    box-shadow:0 0 0 3px rgba(139,92,246,.18);
+  }
+  .missing-input.correct{
+    border-color:#22c55e;background:rgba(34,197,94,.18);color:#bbf7d0;
+  }
+  .missing-input.wrong{
+    border-color:#ef4444;background:rgba(239,68,68,.18);color:#fca5a5;
+  }
+  .missing-input:disabled{cursor:default}
+  .missing-correction{
+    display:inline-block;
+    padding:2px 8px;
+    margin:0 3px 0 2px;
+    border-radius:8px;
+    background:rgba(34,197,94,.18);
+    border:1px solid rgba(34,197,94,.5);
+    color:#86efac;font-size:12px;font-weight:800;
+    letter-spacing:.01em;
+    animation:cardIn .25s cubic-bezier(.2,.8,.2,1) both;
+  }
+  .missing-actions{
+    display:flex;justify-content:center;
+    padding-top:12px;border-top:1px dashed rgba(255,255,255,.08);
+  }
+  .missing-actions .btn-primary{
+    width:auto;padding:14px 48px;font-size:15px;
+    min-width:200px;
+  }
+  .missing-actions .btn-primary:disabled{
+    cursor:not-allowed;
+  }
+  .missing-round-result{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    font-size:13px;color:#c4b5fd;font-weight:800;letter-spacing:.02em;
+    padding:8px 0;
+  }
+
   /* МОДАЛКИ */
   .modal{
     position:fixed;inset:0;background:rgba(5,5,12,.82);
@@ -1048,6 +1142,7 @@
   .ri-mode.line-choice{background:rgba(34,197,94,.20);color:#86efac}
   .ri-mode.line-input{background:rgba(168,85,247,.25);color:#e9d5ff}
   .ri-mode.keepdelete{background:rgba(244,114,182,.20);color:#f9a8d4}
+  .ri-mode.missing{background:rgba(20,184,166,.22);color:#5eead4}
   .records-body{flex:1;overflow-y:auto;min-height:200px;max-height:56vh;padding-right:6px}
   .records-body::-webkit-scrollbar{width:6px}
   .records-body::-webkit-scrollbar-track{background:rgba(255,255,255,.04);border-radius:99px}
@@ -1083,6 +1178,7 @@
   .history-item.compare{border-left-color:#93c5fd}
   .history-item.line{border-left-color:#86efac}
   .history-item.keepdelete{border-left-color:#f472b6}
+  .history-item.missing{border-left-color:#5eead4}
   .history-item .hi-body{flex:1;min-width:0}
   .history-item .hi-label{font-size:13.5px;font-weight:700;color:#eaeaf3;line-height:1.2}
   .history-item .hi-detail{font-size:11.5px;color:var(--muted);margin-top:3px}
@@ -1104,6 +1200,10 @@
     .odd-grid{gap:10px;max-width:100%}
     .odd-details-list{grid-template-columns:1fr}
     .stats-general-hero{grid-template-columns:1fr}
+    .missing-card{padding:16px 14px}
+    .missing-line{font-size:14px;line-height:2}
+    .missing-input{font-size:13px;min-width:56px;padding:3px 8px}
+    .missing-actions .btn-primary{width:100%;min-width:0}
   }
 </style>
 </head>
@@ -1158,6 +1258,10 @@
       <button class="mode-card" data-mode="line">
         <div class="mc-title">Откуда строчка</div>
         <div class="mc-sub">Угадай трек по строке</div>
+      </button>
+      <button class="mode-card" data-mode="missing">
+        <div class="mc-title">Что пропущено</div>
+        <div class="mc-sub">Впиши пропущенные слова</div>
       </button>
       <button class="mode-card" data-mode="keepdelete">
         <div class="mc-title">Keep / Delete</div>
@@ -1301,7 +1405,27 @@
     <div class="line-game-area" id="lineGameArea"></div>
   </section>
 
-  <!-- НОВАЯ ИГРА: KEEP / DELETE -->
+  <!-- НОВАЯ ИГРА: ЧТО ПРОПУЩЕНО -->
+  <section class="screen" id="screen-missing">
+    <header class="game-header">
+      <h1 class="game-title" id="msTitle">Что пропущено</h1>
+      <div class="status-row">
+        <div class="sub" id="msInfo">Раунд 1 / 20</div>
+        <div class="timer-pill" id="msTimerPill">
+          <span class="dot"></span>
+          <span id="msTimer">00:00</span>
+        </div>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="msProgressBar"></div></div>
+        <span class="progress-percent" id="msProgressPercent">0%</span>
+      </div>
+    </header>
+
+    <div class="missing-card" id="msCard"></div>
+  </section>
+
+  <!-- KEEP / DELETE -->
   <section class="screen" id="screen-keepdelete">
     <header class="game-header">
       <h1 class="game-title" id="kdTitle">Keep / Delete</h1>
@@ -1353,6 +1477,7 @@
         <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох.</li>
         <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше.</li>
         <li><b>Откуда строчка.</b> 30 раундов. Показывается строка из трека — нужно угадать, из какого. Есть режимы «Выбор из 4» и «Ввод через поиск».</li>
+        <li><b>Что пропущено.</b> 20 раундов. Показывается трек (обложка + название) и 2 или 4 строчки из него, но часть слов пропущена. Нужно вручную вписать эти слова. В одной строчке 1 пропуск (или 2, если строчка длинная). Регистр букв и знаки препинания не важны.</li>
         <li><b>Keep / Delete.</b> Выпадает случайный альбом и случайное число keep/delete. Показываются треки по одному, решаешь — оставить или удалить. Кипов всегда меньше.</li>
         <li>Результаты всех игр сохраняются в статистике, последние 10 партий — в истории.</li>
       </ul>
@@ -1364,13 +1489,14 @@
         <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b> (+ бонус режима, если есть).</li>
         <li><b>Множитель точности</b> (квадратичный): 100% → ×1.00, 90% → ×0.81, 80% → ×0.64, 70% → ×0.49, 50% → ×0.25.</li>
         <li><b>Множитель времени.</b> У каждой игры свой ориентир. Быстрее — до ×1.60, медленнее — штраф до ×0.20.</li>
-        <li><b>Турнир</b> — ровно <b>25 баллов</b>. Без множителей.</li>
+        <li><b>Турнир</b> — ровно <b>25 баллов</b>.</li>
         <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>.</li>
         <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия).</li>
         <li><b>Что больше · Прослушивания</b> — база <b>50</b>.</li>
         <li><b>Что больше · Длительность</b> — база <b>75</b>.</li>
         <li><b>Откуда строчка · Выбор</b> — база <b>90</b>.</li>
         <li><b>Откуда строчка · Ввод</b> — база <b>315</b>.</li>
+        <li><b>Что пропущено</b> — база <b>120</b>, ориентир <b>5 минут</b>.</li>
         <li><b>Keep / Delete</b> — <b>20 баллов</b> за завершение альбома.</li>
       </ul>
     </div>
@@ -1494,6 +1620,29 @@
   </div>
 </div>
 
+<!-- МОДАЛКА РЕЗУЛЬТАТОВ ЧТО ПРОПУЩЕНО -->
+<div class="modal" id="msResultsModal">
+  <div class="modal-content wide no-x">
+    <div class="results-hero">
+      <div class="results-percent" id="msResultPercent">0%</div>
+      <div class="results-percent-label">Точность слов</div>
+    </div>
+    <div class="results-grid" style="grid-template-columns:repeat(5,1fr)">
+      <div class="rg-item"><div class="rg-value green" id="msRgCorrect">0</div><div class="rg-label">Верно</div></div>
+      <div class="rg-item"><div class="rg-value red" id="msRgIncorrect">0</div><div class="rg-label">Ошибок</div></div>
+      <div class="rg-item"><div class="rg-value purple" id="msRgTotal">00:00</div><div class="rg-label">Всего</div></div>
+      <div class="rg-item"><div class="rg-value blue" id="msRgAvg">0.00с</div><div class="rg-label">Среднее</div></div>
+      <div class="rg-item"><div class="rg-value orange" id="msRgRange">—</div><div class="rg-label">Мин/макс</div></div>
+    </div>
+    <div id="msRgPointsWrap" style="text-align:center;padding:12px 0 0"></div>
+    <div class="odd-details" id="msDetails"></div>
+    <div class="results-actions">
+      <button class="btn-primary" id="msPlayAgain">Играть снова</button>
+      <button class="btn-secondary" id="msToMenu">В меню</button>
+    </div>
+  </div>
+</div>
+
 <!-- МОДАЛКА СТАТИСТИКИ -->
 <div class="modal" id="recordsModal">
   <div class="modal-content">
@@ -1507,6 +1656,7 @@
         <button data-rtab="odd">Кто лишний</button>
         <button data-rtab="compare">Что больше</button>
         <button data-rtab="line">Откуда строчка</button>
+        <button data-rtab="missing">Что пропущено</button>
         <button data-rtab="keepdelete">Keep/Delete</button>
       </div>
       <div class="records-body" id="recordsBody"></div>
@@ -1552,6 +1702,7 @@ const screens = {
   odd:        document.getElementById('screen-odd'),
   compare:    document.getElementById('screen-compare'),
   line:       document.getElementById('screen-line'),
+  missing:    document.getElementById('screen-missing'),
   keepdelete: document.getElementById('screen-keepdelete'),
 };
 
@@ -1611,6 +1762,14 @@ const lineTimerEl = document.getElementById('lineTimer');
 const lineTimerPill = document.getElementById('lineTimerPill');
 const lineProgressBar = document.getElementById('lineProgressBar');
 const lineProgressPercent = document.getElementById('lineProgressPercent');
+
+// Missing game DOM
+const msCard = document.getElementById('msCard');
+const msInfo = document.getElementById('msInfo');
+const msTimerEl = document.getElementById('msTimer');
+const msTimerPill = document.getElementById('msTimerPill');
+const msProgressBar = document.getElementById('msProgressBar');
+const msProgressPercent = document.getElementById('msProgressPercent');
 
 /* ====================== СОСТОЯНИЕ ====================== */
 let allTracks = [];
@@ -1674,7 +1833,23 @@ let lyricsDB = {};
 let lyricEntries = [];
 let lyricsReady = false;
 
-// Keep / Delete game
+// Missing game
+const MS_ROUNDS = 20;
+let msRoundIndex = 0;
+let msRoundStartTime = 0;
+let msRoundTimes = [];
+let msRoundResults = []; // {correct, total}
+let msCorrectWords = 0;
+let msTotalWords = 0;
+let msGameActive = false;
+let msLocked = false;
+let msCurrentEntry = null;
+let msCurrentGaps = [];
+let msTimerStart = 0;
+let msTimerInterval = null;
+let msUsedKeys = new Set();
+
+// Keep / Delete
 let kdState = null;
 
 let selectedMode = null;
@@ -1799,6 +1974,16 @@ function calcLineBreakdown(totalTime, accuracy, mode){
   let speedMultiplier;
   if (totalTime <= MID_TIME) speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
   else speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 120 * 0.8);
+  return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
+}
+function calcMissingBreakdown(totalTime, accuracy){
+  const MID_TIME = 300; // 5 минут
+  const base = 120;
+  const acc = Math.max(0, Math.min(100, accuracy)) / 100;
+  const accuracyMultiplier = acc * acc;
+  let speedMultiplier;
+  if (totalTime <= MID_TIME) speedMultiplier = 1 + (MID_TIME - totalTime) / MID_TIME * 0.6;
+  else speedMultiplier = Math.max(0.2, 1 - (totalTime - MID_TIME) / 180 * 0.8);
   return { base, accuracyMultiplier, speedMultiplier, total: Math.max(1, Math.round(base * accuracyMultiplier * speedMultiplier)), midTimeSec: MID_TIME, modeBonus: 0 };
 }
 
@@ -2107,6 +2292,11 @@ const MODE_DESCRIPTIONS = {
     text: '30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно.',
     reward: 'Выбери подкатегорию ниже.',
   },
+  missing: {
+    title: 'Что пропущено',
+    text: '20 раундов. Показывается трек (обложка + название) и 2 или 4 строчки из него, но некоторые слова пропущены. Нужно вручную вписать эти слова. В одной строчке обычно 1 пропуск, а в длинной — до 2. Регистр букв и знаки препинания не важны.',
+    reward: 'Награда: <b>база 120</b>, ориентир <b>5 минут</b>.',
+  },
   keepdelete: {
     title: 'Keep / Delete',
     text: 'Выпадает случайный альбом. Показываются треки по одному — решаешь, оставить трек или удалить. Количество решений, кипов и делитов случайно, кипов всегда меньше.',
@@ -2151,6 +2341,12 @@ function renderModeDescription(){
       data.reward = 'Режим временно отключён.';
     }
   }
+  if (selectedMode === 'missing'){
+    if (!lyricsReady){
+      data.text = 'Не удалось загрузить texts.txt. Положи файл texts.txt рядом с index.html — без него этот режим недоступен.';
+      data.reward = 'Режим временно отключён.';
+    }
+  }
 
   modeDescEl.className = 'mode-desc has-content';
   let html = `
@@ -2178,7 +2374,9 @@ function renderModeDescription(){
     </div>`;
   }
   modeDescEl.innerHTML = html;
-  btnModeStart.disabled = !!(selectedMode === 'line' && !lyricsReady);
+  btnModeStart.disabled = !!(
+    (selectedMode === 'line' || selectedMode === 'missing') && !lyricsReady
+  );
 
   modeDescEl.querySelectorAll('.mode-submode-btn[data-submode]').forEach(btn => {
     btn.addEventListener('click', () => { selectedOddSubmode = btn.dataset.submode; renderModeDescription(); });
@@ -2208,6 +2406,7 @@ btnModeStart.addEventListener('click', () => {
   else if (selectedMode === 'odd') runOddFlow(selectedOddSubmode);
   else if (selectedMode === 'compare') runCompareFlow(selectedCmpSubmode);
   else if (selectedMode === 'line') runLineFlow(selectedLineSubmode);
+  else if (selectedMode === 'missing') runMissingFlow();
   else if (selectedMode === 'keepdelete') runKeepDeleteFlow();
 });
 
@@ -2238,12 +2437,12 @@ document.getElementById('closeHistoryX').addEventListener('click', () => closeMo
 historyModal.addEventListener('click', e => { if (e.target === historyModal) closeModal('historyModal'); });
 
 /* ====================== RECORDS ====================== */
-const RECORDS_KEY = 'kaiAngelTracksGame_records_v11';
+const RECORDS_KEY = 'kaiAngelTracksGame_records_v12';
 const LEGACY_KEYS = [
-  'kaiAngelTracksGame_records_v10','kaiAngelTracksGame_records_v9','kaiAngelTracksGame_records_v8',
-  'kaiAngelTracksGame_records_v7','kaiAngelTracksGame_records_v6','kaiAngelTracksGame_records_v5',
-  'kaiAngelTracksGame_records_v4','kaiAngelTracksGame_records_v3','kaiAngelTracksGame_records_v2',
-  'kaiAngelTracksGame_records_v1',
+  'kaiAngelTracksGame_records_v11','kaiAngelTracksGame_records_v10','kaiAngelTracksGame_records_v9',
+  'kaiAngelTracksGame_records_v8','kaiAngelTracksGame_records_v7','kaiAngelTracksGame_records_v6',
+  'kaiAngelTracksGame_records_v5','kaiAngelTracksGame_records_v4','kaiAngelTracksGame_records_v3',
+  'kaiAngelTracksGame_records_v2','kaiAngelTracksGame_records_v1',
 ];
 const MAX_LIST = 20;
 const MAX_HISTORY = 10;
@@ -2258,6 +2457,7 @@ function defaultRecords(){
     oddOneOut: [],
     comparisonResults: [],
     lineResults: [],
+    missingResults: [],
     keepDeleteResults: [],
     totalPoints: 0,
     history: [],
@@ -2274,6 +2474,7 @@ function normalizeRecords(raw){
     oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
     comparisonResults: Array.isArray(r.comparisonResults) ? r.comparisonResults : [],
     lineResults: Array.isArray(r.lineResults) ? r.lineResults : [],
+    missingResults: Array.isArray(r.missingResults) ? r.missingResults : [],
     keepDeleteResults: Array.isArray(r.keepDeleteResults) ? r.keepDeleteResults : [],
     totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
     history: Array.isArray(r.history) ? r.history : [],
@@ -2397,6 +2598,13 @@ function saveLineResult(entry){
   r.lineResults = r.lineResults.slice(0, MAX_LIST);
   saveRecords(r);
 }
+function saveMissingResult(entry){
+  const r = loadRecords();
+  r.missingResults.push(entry);
+  r.missingResults.sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime);
+  r.missingResults = r.missingResults.slice(0, MAX_LIST);
+  saveRecords(r);
+}
 function saveKeepDeleteResult(entry){
   const r = loadRecords();
   r.keepDeleteResults.push(entry);
@@ -2412,15 +2620,17 @@ function renderGeneralStatsHTML(r){
   const oddCount = r.oddOneOut.length;
   const cmpCount = r.comparisonResults.length;
   const lineCount = r.lineResults.length;
+  const msCount = (r.missingResults || []).length;
   const kdCount = (r.keepDeleteResults || []).length;
-  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount + kdCount;
+  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount + msCount + kdCount;
 
   const tournTime = r.tournamentTimes.reduce((a, e) => a + e.time, 0);
   const chronoTime = r.chronologyTimes.reduce((a, e) => a + e.time, 0);
   const oddTime = r.oddOneOut.reduce((a, e) => a + (e.totalTime || 0), 0);
   const cmpTime = r.comparisonResults.reduce((a, e) => a + (e.totalTime || 0), 0);
   const lineTime = r.lineResults.reduce((a, e) => a + (e.totalTime || 0), 0);
-  const totalTime = tournTime + chronoTime + oddTime + cmpTime + lineTime;
+  const msTime = (r.missingResults || []).reduce((a, e) => a + (e.totalTime || 0), 0);
+  const totalTime = tournTime + chronoTime + oddTime + cmpTime + lineTime + msTime;
 
   const totalPoints = r.totalPoints || 0;
 
@@ -2439,7 +2649,7 @@ function renderGeneralStatsHTML(r){
       <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">${totalGames}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Общее время</span><span class="stats-hero-value">${formatDuration(totalTime)}</span></div>
-      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount, kdCount].filter(x=>x>0).length} / 6</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount, msCount, kdCount].filter(x=>x>0).length} / 7</span></div>
     </div>
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Турнир</div><div class="stats-block-count">${tournCount}</div></div>
@@ -2487,6 +2697,15 @@ function renderGeneralStatsHTML(r){
       </div>
     </div>
     <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">Что пропущено</div><div class="stats-block-count">${msCount}</div></div>
+      <div class="stats-block-rows">
+        ${msCount ? `
+          <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(msTime)}</b></div>
+          <div class="stats-block-row"><span class="lbl">Лучшая точность</span><b>${(r.missingResults.reduce((m, e) => Math.max(m, e.accuracy), 0)).toFixed(2)}%</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
+      </div>
+    </div>
+    <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Keep / Delete</div><div class="stats-block-count">${kdCount}</div></div>
       <div class="stats-block-rows">
         ${kdCount ? `
@@ -2502,6 +2721,7 @@ let oddSubtab = 'all';
 let tournSubtab = 'records';
 let cmpSubtab = 'all';
 let lineSubtab = 'all';
+let msSubtab = 'all';
 
 function renderRecords(){
   const r = loadRecords();
@@ -2514,7 +2734,7 @@ function renderRecords(){
     return;
   }
 
-  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length} · KD: ${(r.keepDeleteResults||[]).length}`;
+  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length} · П: ${(r.missingResults||[]).length} · KD: ${(r.keepDeleteResults||[]).length}`;
 
   if (recordsTab === 'tournament'){
     const subtabsHtml = `<div class="records-subtabs">
@@ -2630,6 +2850,25 @@ function renderRecords(){
     });
     html += `</div></div>`;
     body.innerHTML = html; bindLineSubtabs();
+  }
+
+  else if (recordsTab === 'missing'){
+    const list = r.missingResults || [];
+    if (!list.length){ body.innerHTML = emptyRecordsHTML('Сыграй «Что пропущено».'); return; }
+    let html = `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
+    list.slice(0, 5).forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% <span class="ri-mode missing">Слова</span></div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
+    });
+    html += `</div></div>`;
+    const byTime = list.slice().sort((a, b) => a.totalTime - b.totalTime || b.accuracy - a.accuracy).slice(0, 5);
+    html += `<div class="record-section"><div class="record-section-title">Самое быстрое</div><div class="record-list">`;
+    byTime.forEach((e, i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${formatTime(e.totalTime)}</div><div class="ri-sub">${e.accuracy.toFixed(2)}% · ${e.correct}/${e.total}</div></div><div class="ri-score blue">${e.accuracy.toFixed(0)}%</div></div>`;
+    });
+    html += `</div></div>`;
+    body.innerHTML = html;
   }
 
   else if (recordsTab === 'keepdelete'){
@@ -3831,9 +4070,327 @@ function showLineResults(e){
 document.getElementById('linePlayAgain').addEventListener('click', () => { closeModal('lineResultsModal'); runLineFlow(lineMode); });
 document.getElementById('lineToMenu').addEventListener('click', () => { closeModal('lineResultsModal'); showScreen('menu'); });
 
+/* ====================== ЧТО ПРОПУЩЕНО ====================== */
+function startMsTimer(){
+  stopMsTimer();
+  msTimerStart = Date.now();
+  msTimerPill.classList.remove('stopped');
+  updateMsTimer();
+  msTimerInterval = setInterval(updateMsTimer, 100);
+}
+function updateMsTimer(){
+  const el = (Date.now() - msTimerStart) / 1000;
+  const m = String(Math.floor(el / 60)).padStart(2,'0');
+  const s = String(Math.floor(el % 60)).padStart(2,'0');
+  msTimerEl.textContent = `${m}:${s}`;
+}
+function stopMsTimer(){
+  if (msTimerInterval) clearInterval(msTimerInterval);
+  msTimerInterval = null;
+  msTimerPill.classList.add('stopped');
+}
+
+// Нормализация слова: убираем пунктуацию, приводим к нижнему регистру
+function normalizeWord(s){
+  return String(s || '')
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+let msQueue = [];
+let msLastKey = null;
+
+function buildMsQueue(){
+  // Только треки, где есть минимум 2 строки и каждая строка минимум 3 слова
+  msQueue = shuffle(lyricEntries.filter(e =>
+    e.lines.length >= 2 &&
+    e.lines.some(l => l.split(/\s+/).filter(Boolean).length >= 3)
+  ));
+}
+function popMsEntry(){
+  if (!msQueue.length) buildMsQueue();
+  if (msQueue.length > 1 && msQueue[0].key === msLastKey){
+    const tmp = msQueue[0];
+    msQueue[0] = msQueue[1];
+    msQueue[1] = tmp;
+  }
+  const e = msQueue.shift();
+  msLastKey = e ? e.key : null;
+  return e;
+}
+
+function startMissingGame(){
+  msRoundIndex = 0;
+  msRoundTimes = [];
+  msRoundResults = [];
+  msCorrectWords = 0;
+  msTotalWords = 0;
+  msGameActive = true;
+  msLocked = false;
+  msUsedKeys = new Set();
+  buildMsQueue();
+  msLastKey = null;
+  msProgressBar.style.width = '0%';
+  msProgressPercent.textContent = '0%';
+  msInfo.textContent = `Раунд 1 / ${MS_ROUNDS}`;
+  startMsTimer();
+  nextMissingRound();
+}
+
+function nextMissingRound(){
+  if (msRoundIndex >= MS_ROUNDS){ finishMissingGame(); return; }
+  msLocked = false;
+  msInfo.textContent = `Раунд ${msRoundIndex + 1} / ${MS_ROUNDS}`;
+  const roundPct = (msRoundIndex / MS_ROUNDS) * 100;
+  msProgressBar.style.width = roundPct + '%';
+  msProgressPercent.textContent = Math.round(roundPct) + '%';
+
+  if (!lyricEntries.length){ msRoundIndex = MS_ROUNDS; finishMissingGame(); return; }
+
+  const entry = popMsEntry();
+  if (!entry || !entry.lines.length){ msRoundIndex++; nextMissingRound(); return; }
+
+  // Фильтруем строки: минимум 3 слова
+  const eligibleLineIdxs = entry.lines
+    .map((l, i) => ({ l, i }))
+    .filter(x => x.l.split(/\s+/).filter(Boolean).length >= 3)
+    .map(x => x.i);
+
+  if (eligibleLineIdxs.length < 2){
+    // Мало годных строк — пропускаем, но не выкидываем навсегда
+    msRoundIndex++; nextMissingRound(); return;
+  }
+
+  msCurrentEntry = entry;
+
+  // Выбираем 2 или 4 строки
+  const numLines = Math.random() < 0.55 ? 2 : 4;
+  const actualNum = Math.min(numLines, eligibleLineIdxs.length);
+  const lineIndices = shuffle(eligibleLineIdxs).slice(0, actualNum).sort((a, b) => a - b);
+
+  const linesData = lineIndices.map(lineIdx => {
+    const lineText = entry.lines[lineIdx];
+    const words = lineText.split(/\s+/).filter(Boolean);
+    const charLen = lineText.length;
+
+    // Определяем число пропусков: 1 по умолчанию, 2 если строка длинная
+    let numGaps = 1;
+    if (charLen > 40 && words.length >= 4 && Math.random() < 0.6){
+      numGaps = 2;
+    }
+    numGaps = Math.min(numGaps, Math.max(1, words.length - 1));
+
+    // Кандидаты: слова длиной >= 2 (без пунктуации)
+    let eligibleIdxs = words
+      .map((w, i) => ({ w, i, clean: w.replace(/[^\p{L}\p{N}]/gu, '') }))
+      .filter(x => x.clean.length >= 2)
+      .map(x => x.i);
+    if (!eligibleIdxs.length) eligibleIdxs = words.map((_, i) => i);
+
+    // Выбираем не соседние
+    const picked = [];
+    const shuffledIdxs = shuffle(eligibleIdxs);
+    for (const i of shuffledIdxs){
+      if (picked.length >= numGaps) break;
+      if (picked.some(p => Math.abs(p - i) <= 1)) continue;
+      picked.push(i);
+    }
+    // Если получилось меньше из-за соседства — добираем без проверки
+    if (picked.length < numGaps){
+      for (const i of shuffledIdxs){
+        if (picked.length >= numGaps) break;
+        if (picked.includes(i)) continue;
+        picked.push(i);
+      }
+    }
+    return { lineText, words, gapIdxs: picked.sort((a, b) => a - b) };
+  });
+
+  const gaps = [];
+  linesData.forEach((ld, li) => {
+    ld.gapIdxs.forEach(wi => {
+      gaps.push({ lineIdx: li, wordIdx: wi, expected: ld.words[wi] });
+    });
+  });
+  msCurrentGaps = gaps;
+
+  renderMissingRound(linesData);
+  msRoundStartTime = Date.now();
+}
+
+function renderMissingRound(linesData){
+  const entry = msCurrentEntry;
+  const track = allTracks.find(t => t.title === entry.title && t.artist === entry.artist);
+  const c1 = track ? track.c1 : 'hsl(260, 60%, 45%)';
+  const c2 = track ? track.c2 : 'hsl(300, 50%, 25%)';
+  const img = track && track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
+  const letter = esc((entry.title[0] || '♪').toUpperCase());
+
+  let gapCounter = 0;
+  const linesHTML = linesData.map(ld => {
+    let html = '';
+    ld.words.forEach((w, i) => {
+      if (ld.gapIdxs.includes(i)){
+        const clean = w.replace(/[^\p{L}\p{N}]/gu, '');
+        const inputWidth = Math.max(70, Math.min(200, clean.length * 11 + 24));
+        html += `<input type="text" class="missing-input" data-gap-idx="${gapCounter}" style="width:${inputWidth}px" autocomplete="off" spellcheck="false" placeholder="?">`;
+        gapCounter++;
+      } else {
+        html += esc(w);
+      }
+      if (i < ld.words.length - 1) html += ' ';
+    });
+    return `<div class="missing-line">${html}</div>`;
+  }).join('');
+
+  msCard.innerHTML = `
+    <div class="missing-track-info">
+      <div class="missing-cover" style="--c1:${c1};--c2:${c2}">
+        <span>${letter}</span>${img}
+      </div>
+      <div class="missing-track-text">
+        <div class="missing-track-title">${esc(entry.title)}</div>
+        <div class="missing-track-artist">${esc(entry.artist)}</div>
+      </div>
+    </div>
+    <div class="missing-lines">${linesHTML}</div>
+    <div class="missing-actions">
+      <button class="btn-primary" id="msCheckBtn">Проверить</button>
+    </div>
+  `;
+
+  document.getElementById('msCheckBtn').addEventListener('click', checkMissingAnswer);
+
+  const inputs = msCard.querySelectorAll('.missing-input');
+  // Enter — перейти к следующему или отправить
+  inputs.forEach((input, idx) => {
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter'){
+        e.preventDefault();
+        if (idx < inputs.length - 1) inputs[idx + 1].focus();
+        else checkMissingAnswer();
+      }
+    });
+  });
+  if (inputs[0]) setTimeout(() => inputs[0].focus(), 80);
+}
+
+function checkMissingAnswer(){
+  if (!msGameActive || msLocked) return;
+  msLocked = true;
+
+  const inputs = msCard.querySelectorAll('.missing-input');
+  let correct = 0;
+  let total = 0;
+
+  inputs.forEach(input => {
+    const idx = +input.dataset.gapIdx;
+    const gap = msCurrentGaps[idx];
+    if (!gap) return;
+    total++;
+    const expectedNorm = normalizeWord(gap.expected);
+    const givenNorm = normalizeWord(input.value);
+
+    if (givenNorm && givenNorm === expectedNorm){
+      input.classList.add('correct');
+      correct++;
+    } else {
+      input.classList.add('wrong');
+      // Добавим плашку с правильным ответом
+      const correction = document.createElement('span');
+      correction.className = 'missing-correction';
+      correction.textContent = gap.expected;
+      input.insertAdjacentElement('afterend', correction);
+    }
+    input.disabled = true;
+  });
+
+  msCorrectWords += correct;
+  msTotalWords += total;
+
+  const roundTime = Date.now() - msRoundStartTime;
+  msRoundTimes.push(roundTime);
+  msRoundResults.push({ correct, total });
+
+  const btn = document.getElementById('msCheckBtn');
+  btn.disabled = true;
+  btn.textContent = `${correct} / ${total}`;
+
+  const correctRatio = total ? correct / total : 0;
+  const resultColor = correctRatio === 1 ? '#22c55e' : correctRatio >= 0.5 ? '#f59e0b' : '#ef4444';
+  btn.style.background = `linear-gradient(100deg, ${resultColor}, ${resultColor}99)`;
+
+  const delay = correctRatio === 1 ? 900 : 1600;
+  setTimeout(() => { msRoundIndex++; nextMissingRound(); }, delay);
+}
+
+function finishMissingGame(){
+  msGameActive = false;
+  stopMsTimer();
+
+  const totalTimeMs = Date.now() - msTimerStart;
+  const avgTimeMs = msRoundTimes.length ? (msRoundTimes.reduce((a, b) => a + b, 0)) / msRoundTimes.length : 0;
+  const maxTimeMs = msRoundTimes.length ? Math.max(...msRoundTimes) : 0;
+  const minTimeMs = msRoundTimes.length ? Math.min(...msRoundTimes) : 0;
+  const accuracy = msTotalWords ? (msCorrectWords / msTotalWords * 100) : 0;
+
+  msProgressBar.style.width = '100%';
+  msProgressPercent.textContent = '100%';
+  msInfo.textContent = 'Игра завершена';
+
+  const entry = {
+    totalTime: +(totalTimeMs / 1000).toFixed(2),
+    avgTime: +(avgTimeMs / 1000).toFixed(2),
+    maxTime: +(maxTimeMs / 1000).toFixed(2),
+    minTime: +(minTimeMs / 1000).toFixed(2),
+    accuracy: +accuracy.toFixed(2),
+    correct: msCorrectWords,
+    total: msTotalWords,
+    rounds: msRoundTimes.map((t, i) => ({ time: +(t / 1000).toFixed(2), correct: msRoundResults[i].correct, total: msRoundResults[i].total })),
+    date: Date.now(),
+  };
+  saveMissingResult(entry);
+  const bd = calcMissingBreakdown(entry.totalTime, entry.accuracy);
+  addPointsToHistory(bd.total, 'missing', 'Что пропущено', `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
+  entry.earnedBreakdown = bd;
+  showMissingResults(entry);
+}
+
+function showMissingResults(e){
+  const pctEl = document.getElementById('msResultPercent');
+  pctEl.textContent = e.accuracy.toFixed(2) + '%';
+  pctEl.className = 'results-percent ' + (e.accuracy >= 90 ? 'good' : e.accuracy >= 60 ? 'mid' : 'bad');
+  document.getElementById('msRgCorrect').textContent = e.correct;
+  document.getElementById('msRgIncorrect').textContent = e.total - e.correct;
+  document.getElementById('msRgTotal').textContent = formatTime(e.totalTime);
+  document.getElementById('msRgAvg').textContent = formatSeconds(e.avgTime);
+  document.getElementById('msRgRange').textContent = formatSeconds(e.minTime) + ' / ' + formatSeconds(e.maxTime);
+
+  const wrap = document.getElementById('msRgPointsWrap');
+  const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
+  const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
+  wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, { percentLabel: e.accuracy.toFixed(1) + '%', timeLabel: target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
+
+  let html = `<div class="odd-details-title">Все раунды · слова</div><div class="odd-details-list">`;
+  e.rounds.forEach((r, i) => {
+    const okAll = r.correct === r.total;
+    const cls = okAll ? 'correct' : 'wrong';
+    const icon = okAll ? '✓' : '✗';
+    const extra = `<span style="color:#8b8b9e;font-size:11px;margin-left:6px">${r.correct}/${r.total}</span>`;
+    html += `<div class="odd-detail-row ${cls}"><span class="odd-detail-num">${i + 1}</span><span class="odd-detail-icon">${icon}</span>${extra}<span class="odd-detail-time">${formatSeconds(r.time)}</span></div>`;
+  });
+  html += `</div>`;
+  document.getElementById('msDetails').innerHTML = html;
+  openModal('msResultsModal');
+}
+
+document.getElementById('msPlayAgain').addEventListener('click', () => { closeModal('msResultsModal'); runMissingFlow(); });
+document.getElementById('msToMenu').addEventListener('click', () => { closeModal('msResultsModal'); showScreen('menu'); });
+
 /* ====================== KEEP / DELETE ====================== */
 function startKeepDeleteGame(){
-  // Берём только настоящие альбомы (не singles), у которых >= 4 трека
   const eligible = trackStructure.albums.filter(a => a.tracks.length >= 4);
   if (!eligible.length){
     alert('Нужен хотя бы один альбом с 4+ треками в tracks.txt');
@@ -3842,12 +4399,10 @@ function startKeepDeleteGame(){
   }
   const album = eligible[Math.floor(Math.random() * eligible.length)];
 
-  // N — общее количество решений
   const maxN = Math.min(album.tracks.length, 10);
   const minN = 4;
   const N = minN + Math.floor(Math.random() * (maxN - minN + 1));
 
-  // K — кипы, K < N/2  =>  K ∈ [1, floor((N-1)/2)]
   const maxK = Math.floor((N - 1) / 2);
   const K = 1 + Math.floor(Math.random() * maxK);
   const D = N - K;
@@ -3885,9 +4440,7 @@ function nextKdTrack(){
   const doneKeeps = kdState.kept.length;
   const doneDels = kdState.deleted.length;
 
-  // Все цели достигнуты?
   if (doneKeeps >= kdState.K && doneDels >= kdState.D){ finishKeepDeleteGame(); return; }
-  // Закончились треки в очереди?
   if (kdState.currentIndex >= kdState.queue.length){ finishKeepDeleteGame(); return; }
 
   kdState.currentTrack = kdState.queue[kdState.currentIndex];
@@ -3962,8 +4515,6 @@ function handleKdChoice(action){
   kdState.currentIndex++;
   kdState.currentTrack = null;
   renderKdStats();
-
-  // Небольшая пауза для анимации
   setTimeout(() => nextKdTrack(), 140);
 }
 
@@ -4048,6 +4599,23 @@ function runLineFlow(mode){
     showScreen('line');
   });
 }
+function runMissingFlow(){
+  if (!lyricsReady){
+    alert('Файл texts.txt не найден или пуст. Положи его рядом с index.html.');
+    return;
+  }
+  const eligibleCount = lyricEntries.filter(e =>
+    e.lines.length >= 2 && e.lines.some(l => l.split(/\s+/).filter(Boolean).length >= 3)
+  ).length;
+  if (eligibleCount < 2){
+    alert('Недостаточно подходящих текстов для игры (нужно минимум 2 трека с 2+ строками по 3+ слова).');
+    return;
+  }
+  runShuffleFlow('Готовим раунды…', 'Ищем пропуски в текстах', () => {
+    startMissingGame();
+    showScreen('missing');
+  });
+}
 function runKeepDeleteFlow(){
   runShuffleFlow('Выбираем альбом…', 'Готовим треки', () => { startKeepDeleteGame(); });
 }
@@ -4061,7 +4629,7 @@ async function init(){
   await loadLyrics();
 
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 6 режимов`;
+    menuSub.textContent = `${allTracks.length} треков · 7 режимов`;
     menuStats.innerHTML =
       `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
