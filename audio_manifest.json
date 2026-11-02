@@ -1,0 +1,508 @@
+{
+  "start": [],
+  "random": [],
+  "beat": [],
+  "rewind": [],
+  "best": [
+    {
+      "file": "1/9mice,-Kai-Angel_Da-Vinci.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "Da Vinci"
+    },
+    {
+      "file": "1/9mice,-Kai-Angel_Fountainebleu.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "Fountainebleu"
+    },
+    {
+      "file": "1/9mice,-Kai-Angel_I-Wanna-Be-Your-Dog.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "I Wanna Be Your Dog"
+    },
+    {
+      "file": "1/9mice,-Kai-Angel_Murder-On-The-Dancefloor.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "Murder On The Dancefloor"
+    },
+    {
+      "file": "1/9mice,-Kai-Angel_So-Good.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "So Good"
+    },
+    {
+      "file": "1/9mice,-Kai-Angel_ur-the-moon.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "ur the moon"
+    },
+    {
+      "file": "1/9mice_Anora.mp3",
+      "artist": "9mice",
+      "title": "Anora"
+    },
+    {
+      "file": "1/AQUAKEY_Hunt-Season.mp3",
+      "artist": "AQUAKEY",
+      "title": "Hunt Season"
+    },
+    {
+      "file": "1/AQUAKEY_NO-TRUST.mp3",
+      "artist": "AQUAKEY",
+      "title": "NO TRUST"
+    },
+    {
+      "file": "1/AQUAKEY_Nympho.mp3",
+      "artist": "AQUAKEY",
+      "title": "Nympho"
+    },
+    {
+      "file": "2/AQUAKEY_SNOW-WHITE-MARBLE.mp3",
+      "artist": "AQUAKEY",
+      "title": "SNOW WHITE MARBLE"
+    },
+    {
+      "file": "2/BenjaminGotBenz_Moonlight-Angel.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "Moonlight Angel"
+    },
+    {
+      "file": "2/BenjaminGotBenz_¥$£-Luv.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "¥$£ Luv"
+    },
+    {
+      "file": "2/cardinparis_emo-star.mp3",
+      "artist": "cardinparis",
+      "title": "emo star"
+    },
+    {
+      "file": "2/cardinparis_буду-твоим-псом.mp3",
+      "artist": "cardinparis",
+      "title": "буду твоим псом"
+    },
+    {
+      "file": "2/cardinparis_мертвое-тело.mp3",
+      "artist": "cardinparis",
+      "title": "мертвое тело"
+    },
+    {
+      "file": "2/cardinparis_ногами.mp3",
+      "artist": "cardinparis",
+      "title": "ногами"
+    },
+    {
+      "file": "2/cardinparis_целуй-меня.mp3",
+      "artist": "cardinparis",
+      "title": "целуй меня"
+    },
+    {
+      "file": "2/cardinparis_я-не-в-порядке.mp3",
+      "artist": "cardinparis",
+      "title": "я не в порядке"
+    },
+    {
+      "file": "2/clout_АнГел-РейВ.mp3",
+      "artist": "clout",
+      "title": "АнГел РейВ"
+    },
+    {
+      "file": "3/clout_ДИЛЕР.mp3",
+      "artist": "clout",
+      "title": "ДИЛЕР"
+    },
+    {
+      "file": "3/clout_ИнОпЛаНетНый-ДвИж.mp3",
+      "artist": "clout",
+      "title": "ИнОпЛаНетНый ДвИж"
+    },
+    {
+      "file": "3/clout_тРи-пОлОсКи.mp3",
+      "artist": "clout",
+      "title": "тРи пОлОсКи"
+    },
+    {
+      "file": "3/clout_у-тРуПа.mp3",
+      "artist": "clout",
+      "title": "у тРуПа"
+    },
+    {
+      "file": "3/clout_ЭлЕктРоНный.mp3",
+      "artist": "clout",
+      "title": "ЭлЕктРоНный"
+    },
+    {
+      "file": "3/elyaplugg_рву-колготки.mp3",
+      "artist": "elyaplugg",
+      "title": "рву колготки"
+    },
+    {
+      "file": "3/funeral_looking-out-the-window.mp3",
+      "artist": "funeral",
+      "title": "looking out the window"
+    },
+    {
+      "file": "3/huzzy-b_BOY-LONDON.mp3",
+      "artist": "huzzy b",
+      "title": "BOY LONDON"
+    },
+    {
+      "file": "3/huzzy-b_morgue-fm.mp3",
+      "artist": "huzzy b",
+      "title": "morgue fm"
+    },
+    {
+      "file": "3/huzzy-b_красиво.mp3",
+      "artist": "huzzy b",
+      "title": "красиво"
+    },
+    {
+      "file": "4/Kai-Angel,-9mice_THRILLEЯ.mp3",
+      "artist": "Kai Angel, 9mice",
+      "title": "THRILLEЯ"
+    },
+    {
+      "file": "4/Kai-Angel_$$$.mp3",
+      "artist": "Kai Angel",
+      "title": "$$$"
+    },
+    {
+      "file": "4/Kai-Angel_101-ПРИЧИНА.mp3",
+      "artist": "Kai Angel",
+      "title": "101 ПРИЧИНА"
+    },
+    {
+      "file": "4/Kai-Angel_444.mp3",
+      "artist": "Kai Angel",
+      "title": "444"
+    },
+    {
+      "file": "4/Kai-Angel_aimed-u-up.mp3",
+      "artist": "Kai Angel",
+      "title": "aimed u up"
+    },
+    {
+      "file": "4/Kai-Angel_amy.mp3",
+      "artist": "Kai Angel",
+      "title": "amy"
+    },
+    {
+      "file": "4/Kai-Angel_ANGEL-MAY-CRY.mp3",
+      "artist": "Kai Angel",
+      "title": "ANGEL MAY CRY"
+    },
+    {
+      "file": "4/Kai-Angel_are-you-happy.mp3",
+      "artist": "Kai Angel",
+      "title": "are you happy"
+    },
+    {
+      "file": "4/Kai-Angel_BABY.mp3",
+      "artist": "Kai Angel",
+      "title": "BABY"
+    },
+    {
+      "file": "4/Kai-Angel_~boo~.mp3",
+      "artist": "Kai Angel",
+      "title": "~boo~"
+    },
+    {
+      "file": "5/Kai-Angel_BAD-BITCHES-ONLY.mp3",
+      "artist": "Kai Angel",
+      "title": "BAD BITCHES ONLY"
+    },
+    {
+      "file": "5/Kai-Angel_BALLERINA.mp3",
+      "artist": "Kai Angel",
+      "title": "BALLERINA"
+    },
+    {
+      "file": "5/Kai-Angel_body-double.mp3",
+      "artist": "Kai Angel",
+      "title": "body double"
+    },
+    {
+      "file": "5/Kai-Angel_boost-it.mp3",
+      "artist": "Kai Angel",
+      "title": "boost it"
+    },
+    {
+      "file": "5/Kai-Angel_chelsea-smile.mp3",
+      "artist": "Kai Angel",
+      "title": "chelsea smile"
+    },
+    {
+      "file": "5/Kai-Angel_DEAD-MEN-WALKING.mp3",
+      "artist": "Kai Angel",
+      "title": "DEAD MEN WALKING"
+    },
+    {
+      "file": "5/Kai-Angel_EUPHORIA.mp3",
+      "artist": "Kai Angel",
+      "title": "EUPHORIA"
+    },
+    {
+      "file": "5/Kai-Angel_freddy-krueger.mp3",
+      "artist": "Kai Angel",
+      "title": "freddy krueger"
+    },
+    {
+      "file": "5/Kai-Angel_FRIDAY-13.mp3",
+      "artist": "Kai Angel",
+      "title": "FRIDAY 13"
+    },
+    {
+      "file": "5/Kai-Angel_godmode.mp3",
+      "artist": "Kai Angel",
+      "title": "godmode"
+    },
+    {
+      "file": "6/Kai-Angel_hashira.mp3",
+      "artist": "Kai Angel",
+      "title": "hashira"
+    },
+    {
+      "file": "6/Kai-Angel_HELLRAISER.mp3",
+      "artist": "Kai Angel",
+      "title": "HELLRAISER"
+    },
+    {
+      "file": "6/Kai-Angel_i-hate-fashion-shows.mp3",
+      "artist": "Kai Angel",
+      "title": "i hate fashion shows"
+    },
+    {
+      "file": "6/Kai-Angel_in-all-blessed-the-fuck-up.mp3",
+      "artist": "Kai Angel",
+      "title": "in all blessed the fuck up"
+    },
+    {
+      "file": "6/Kai-Angel_jennifer's-body.mp3",
+      "artist": "Kai Angel",
+      "title": "jennifer's body"
+    },
+    {
+      "file": "6/Kai-Angel_john-galliano.mp3",
+      "artist": "Kai Angel",
+      "title": "john galliano"
+    },
+    {
+      "file": "6/Kai-Angel_JUMP!.mp3",
+      "artist": "Kai Angel",
+      "title": "JUMP!"
+    },
+    {
+      "file": "6/Kai-Angel_korea-graves.mp3",
+      "artist": "Kai Angel",
+      "title": "korea graves"
+    },
+    {
+      "file": "6/Kai-Angel_laperouse.mp3",
+      "artist": "Kai Angel",
+      "title": "laperouse"
+    },
+    {
+      "file": "6/Kai-Angel_Limousine-Music.mp3",
+      "artist": "Kai Angel",
+      "title": "Limousine Music"
+    },
+    {
+      "file": "7/Kai-Angel_Marilyn-Manson.mp3",
+      "artist": "Kai Angel",
+      "title": "Marilyn Manson"
+    },
+    {
+      "file": "7/Kai-Angel_mercede-benz.mp3",
+      "artist": "Kai Angel",
+      "title": "mercede benz"
+    },
+    {
+      "file": "7/Kai-Angel_metallica.mp3",
+      "artist": "Kai Angel",
+      "title": "metallica"
+    },
+    {
+      "file": "7/Kai-Angel_millions.mp3",
+      "artist": "Kai Angel",
+      "title": "millions"
+    },
+    {
+      "file": "7/Kai-Angel_MONROE-TEARS.mp3",
+      "artist": "Kai Angel",
+      "title": "MONROE TEARS"
+    },
+    {
+      "file": "7/Kai-Angel_MYSPACE.mp3",
+      "artist": "Kai Angel",
+      "title": "MYSPACE"
+    },
+    {
+      "file": "7/Kai-Angel_pornstar.mp3",
+      "artist": "Kai Angel",
+      "title": "pornstar"
+    },
+    {
+      "file": "7/Kai-Angel_quiet-turn-up.mp3",
+      "artist": "Kai Angel",
+      "title": "quiet turn up"
+    },
+    {
+      "file": "7/Kai-Angel_rain.mp3",
+      "artist": "Kai Angel",
+      "title": "rain"
+    },
+    {
+      "file": "7/Kai-Angel_RESTART.mp3",
+      "artist": "Kai Angel",
+      "title": "RESTART"
+    },
+    {
+      "file": "8/Kai-Angel_RIOT.mp3",
+      "artist": "Kai Angel",
+      "title": "RIOT"
+    },
+    {
+      "file": "8/Kai-Angel_say10.mp3",
+      "artist": "Kai Angel",
+      "title": "say10"
+    },
+    {
+      "file": "8/Kai-Angel_sirens.mp3",
+      "artist": "Kai Angel",
+      "title": "sirens"
+    },
+    {
+      "file": "8/Kai-Angel_slave-to-the-rhythm.mp3",
+      "artist": "Kai Angel",
+      "title": "slave to the rhythm"
+    },
+    {
+      "file": "8/Kai-Angel_slipknot.mp3",
+      "artist": "Kai Angel",
+      "title": "slipknot"
+    },
+    {
+      "file": "8/Kai-Angel_smirnoff-ice.mp3",
+      "artist": "Kai Angel",
+      "title": "smirnoff ice"
+    },
+    {
+      "file": "8/Kai-Angel_SPIDERR.mp3",
+      "artist": "Kai Angel",
+      "title": "SPIDERR"
+    },
+    {
+      "file": "8/Kai-Angel_STUPID.mp3",
+      "artist": "Kai Angel",
+      "title": "STUPID"
+    },
+    {
+      "file": "8/Kai-Angel_trinity.mp3",
+      "artist": "Kai Angel",
+      "title": "trinity"
+    },
+    {
+      "file": "8/Kai-Angel_welcome-to-forever.mp3",
+      "artist": "Kai Angel",
+      "title": "welcome to forever"
+    },
+    {
+      "file": "9/Kai-Angel_white-ferrari.mp3",
+      "artist": "Kai Angel",
+      "title": "white ferrari"
+    },
+    {
+      "file": "9/Kai-Angel_ХОЛОД.mp3",
+      "artist": "Kai Angel",
+      "title": "ХОЛОД"
+    },
+    {
+      "file": "9/madk1d,-тёмный-принц_ты-че-обиделась.mp3",
+      "artist": "madk1d, тёмный принц",
+      "title": "ты че обиделась"
+    },
+    {
+      "file": "9/madk1d_sexyswag2010.mp3",
+      "artist": "madk1d",
+      "title": "sexyswag2010"
+    },
+    {
+      "file": "9/madk1d_давно.mp3",
+      "artist": "madk1d",
+      "title": "давно"
+    },
+    {
+      "file": "9/madk1d_заправка.mp3",
+      "artist": "madk1d",
+      "title": "заправка"
+    },
+    {
+      "file": "9/madk1d_злая-зая-ХД.mp3",
+      "artist": "madk1d",
+      "title": "злая зая ХД"
+    },
+    {
+      "file": "9/madk1d_мориарти.mp3",
+      "artist": "madk1d",
+      "title": "мориарти"
+    },
+    {
+      "file": "9/madk1d_так-похуй.mp3",
+      "artist": "madk1d",
+      "title": "так похуй"
+    },
+    {
+      "file": "9/madk1d_я-пишу-тебе-сорян.mp3",
+      "artist": "madk1d",
+      "title": "я пишу тебе сорян"
+    },
+    {
+      "file": "10/n01r_Drake.mp3",
+      "artist": "n01r",
+      "title": "Drake"
+    },
+    {
+      "file": "10/n01r_Ливаю.mp3",
+      "artist": "n01r",
+      "title": "Ливаю"
+    },
+    {
+      "file": "10/королевский-XVII_1,5.mp3",
+      "artist": "королевский XVII",
+      "title": "1,5"
+    },
+    {
+      "file": "10/королевский-XVII_sad-amber-perfume.mp3",
+      "artist": "королевский XVII",
+      "title": "sad amber perfume"
+    },
+    {
+      "file": "10/королевский-XVII_грустные-губы.mp3",
+      "artist": "королевский XVII",
+      "title": "грустные губы"
+    },
+    {
+      "file": "10/Платина,-Og-BUDA_Групи.mp3",
+      "artist": "Платина, Og BUDA",
+      "title": "Групи"
+    },
+    {
+      "file": "10/Платина_фиолетовый-глоток.mp3",
+      "artist": "Платина",
+      "title": "фиолетовый глоток"
+    },
+    {
+      "file": "10/сlout_вирусы.mp3",
+      "artist": "сlout",
+      "title": "вирусы"
+    },
+    {
+      "file": "10/тёмный-принц,-madk1d_летник.mp3",
+      "artist": "тёмный принц, madk1d",
+      "title": "летник"
+    },
+    {
+      "file": "10/тёмный-принц_цветы.mp3",
+      "artist": "тёмный принц",
+      "title": "цветы"
+    }
+  ]
+}
