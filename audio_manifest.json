@@ -1003,6 +1003,666 @@
       "file": "20/королевский-XVII_слезы-сатоши.mp3",
       "artist": "королевский XVII",
       "title": "слезы сатоши"
+    },
+    {
+      "file": "21/benjamingotbenz_Seinfeld.mp3",
+      "artist": "benjamingotbenz",
+      "title": "Seinfeld"
+    },
+    {
+      "file": "21/CODE10_CherryFresh.mp3",
+      "artist": "CODE10",
+      "title": "CherryFresh"
+    },
+    {
+      "file": "21/CODE10_MobileFlow.mp3",
+      "artist": "CODE10",
+      "title": "MobileFlow"
+    },
+    {
+      "file": "21/cowboyclicker_gates.mp3",
+      "artist": "cowboyclicker",
+      "title": "gates"
+    },
+    {
+      "file": "21/huzzy-b_destroy.mp3",
+      "artist": "huzzy b",
+      "title": "destroy"
+    },
+    {
+      "file": "21/huzzy-b_любовь-война.mp3",
+      "artist": "huzzy b",
+      "title": "любовь война"
+    },
+    {
+      "file": "21/Smokedope2016_Eastbay.mp3",
+      "artist": "Smokedope2016",
+      "title": "Eastbay"
+    },
+    {
+      "file": "21/Smokedope2016_In-Da-Party.mp3",
+      "artist": "Smokedope2016",
+      "title": "In Da Party"
+    },
+    {
+      "file": "21/темный-принц_натура.mp3",
+      "artist": "темный принц",
+      "title": "натура"
+    },
+    {
+      "file": "21/тёмный-принц_tony-son.mp3",
+      "artist": "тёмный принц",
+      "title": "tony son"
+    },
+    {
+      "file": "22/9mice,-Kai-Angel_fire-alarm.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "fire alarm"
+    },
+    {
+      "file": "22/9mice,-Kai-Angel_homecomng.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "homecomng"
+    },
+    {
+      "file": "22/9mice,-Kai-Angel_ice-+-alabaster.mp3",
+      "artist": "9mice, Kai Angel",
+      "title": "ice + alabaster"
+    },
+    {
+      "file": "22/Aquakey_ALONE.mp3",
+      "artist": "Aquakey",
+      "title": "ALONE"
+    },
+    {
+      "file": "22/AQUAKEY_HOPES-AND-PILLS.mp3",
+      "artist": "AQUAKEY",
+      "title": "HOPES AND PILLS"
+    },
+    {
+      "file": "22/benjamingotbenz_cartier-bracelet.mp3",
+      "artist": "benjamingotbenz",
+      "title": "cartier bracelet"
+    },
+    {
+      "file": "22/BenjaminGotBenz_Number-Nine.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "Number Nine"
+    },
+    {
+      "file": "22/CODE10_PlayaStation.mp3",
+      "artist": "CODE10",
+      "title": "PlayaStation"
+    },
+    {
+      "file": "22/huzzy-b_я-люблю-красный.mp3",
+      "artist": "huzzy b",
+      "title": "я люблю красный"
+    },
+    {
+      "file": "22/Платина_На-грязном-(Диана).mp3",
+      "artist": "Платина",
+      "title": "На грязном (Диана)"
+    },
+    {
+      "file": "23/AQUAKEY_impossible-to-be-happy.mp3",
+      "artist": "AQUAKEY",
+      "title": "impossible to be happy"
+    },
+    {
+      "file": "23/BenjaminGotBenz_heavens-sent.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "heavens sent"
+    },
+    {
+      "file": "23/benjamingotbenz_on-vacation.mp3",
+      "artist": "benjamingotbenz",
+      "title": "on vacation"
+    },
+    {
+      "file": "23/BenjaminGotBenz_Сhainsaw-Man.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "Сhainsaw Man"
+    },
+    {
+      "file": "23/huzzy-b_12-шагов.mp3",
+      "artist": "huzzy b",
+      "title": "12 шагов"
+    },
+    {
+      "file": "23/huzzy-b_катафалк.mp3",
+      "artist": "huzzy b",
+      "title": "катафалк"
+    },
+    {
+      "file": "23/huzzy-b_фемме-фаталь.mp3",
+      "artist": "huzzy b",
+      "title": "фемме фаталь"
+    },
+    {
+      "file": "23/Kai-Angel_Sting.mp3",
+      "artist": "Kai Angel",
+      "title": "Sting"
+    },
+    {
+      "file": "23/Lucy-Bedroque_Knot-Me.mp3",
+      "artist": "Lucy Bedroque",
+      "title": "Knot Me"
+    },
+    {
+      "file": "23/SMOKEDOPE2016_Sleep.mp3",
+      "artist": "SMOKEDOPE2016",
+      "title": "Sleep"
+    },
+    {
+      "file": "24/clout_My-Bloody-Heart.mp3",
+      "artist": "clout",
+      "title": "My Bloody Heart"
+    },
+    {
+      "file": "24/clout_sEx-dOLL.mp3",
+      "artist": "clout",
+      "title": "sEx dOLL"
+    },
+    {
+      "file": "24/clout_пОлЕтАеМ.mp3",
+      "artist": "clout",
+      "title": "пОлЕтАеМ"
+    },
+    {
+      "file": "24/huzzy-b_кукла.mp3",
+      "artist": "huzzy b",
+      "title": "кукла"
+    },
+    {
+      "file": "24/huzzy-b_леша-череватый.mp3",
+      "artist": "huzzy b",
+      "title": "леша череватый"
+    },
+    {
+      "file": "24/huzzy-b_роттвейлер.mp3",
+      "artist": "huzzy b",
+      "title": "роттвейлер"
+    },
+    {
+      "file": "24/huzzy-b_салем.mp3",
+      "artist": "huzzy b",
+      "title": "салем"
+    },
+    {
+      "file": "24/huzzy-b_согрешить.mp3",
+      "artist": "huzzy b",
+      "title": "согрешить"
+    },
+    {
+      "file": "24/huzzy-b_тульпа.mp3",
+      "artist": "huzzy b",
+      "title": "тульпа"
+    },
+    {
+      "file": "24/Smokedope2016_Back2Back.mp3",
+      "artist": "Smokedope2016",
+      "title": "Back2Back"
+    },
+    {
+      "file": "25/3umph_000-thousand-times.mp3",
+      "artist": "3umph",
+      "title": "000 thousand times"
+    },
+    {
+      "file": "25/3umph_hysteric-glamour.mp3",
+      "artist": "3umph",
+      "title": "hysteric glamour"
+    },
+    {
+      "file": "25/3umph_Mereana-Mordegard.mp3",
+      "artist": "3umph",
+      "title": "Mereana Mordegard"
+    },
+    {
+      "file": "25/3umph_panic.mp3",
+      "artist": "3umph",
+      "title": "panic"
+    },
+    {
+      "file": "25/3umph_призрак-оперы.mp3",
+      "artist": "3umph",
+      "title": "призрак оперы"
+    },
+    {
+      "file": "25/Kai-Angel_designers-paradise.mp3",
+      "artist": "Kai Angel",
+      "title": "designers paradise"
+    },
+    {
+      "file": "25/Kai-Angel_parasocial-freestyle.mp3",
+      "artist": "Kai Angel",
+      "title": "parasocial freestyle"
+    },
+    {
+      "file": "25/Kai-Angel_Tainted-Love.mp3",
+      "artist": "Kai Angel",
+      "title": "Tainted Love"
+    },
+    {
+      "file": "25/королевский-XVII_кровопролитие.mp3",
+      "artist": "королевский XVII",
+      "title": "кровопролитие"
+    },
+    {
+      "file": "25/Платина_Притон.mp3",
+      "artist": "Платина",
+      "title": "Притон"
+    },
+    {
+      "file": "26/Kai-Angel_andy-warhol.mp3",
+      "artist": "Kai Angel",
+      "title": "andy warhol"
+    },
+    {
+      "file": "26/Kai-Angel_evil-icon-baby.mp3",
+      "artist": "Kai Angel",
+      "title": "evil icon baby"
+    },
+    {
+      "file": "26/Kai-Angel_Mulholland.mp3",
+      "artist": "Kai Angel",
+      "title": "Mulholland"
+    },
+    {
+      "file": "26/Kai-Angel_NAKED.mp3",
+      "artist": "Kai Angel",
+      "title": "NAKED"
+    },
+    {
+      "file": "26/Kai-Angel_pleasure.mp3",
+      "artist": "Kai Angel",
+      "title": "pleasure"
+    },
+    {
+      "file": "26/Kai-Angel_Razorblade-kiss.mp3",
+      "artist": "Kai Angel",
+      "title": "Razorblade kiss"
+    },
+    {
+      "file": "26/Kai-Angel_TV.mp3",
+      "artist": "Kai Angel",
+      "title": "TV"
+    },
+    {
+      "file": "26/madk1d_вредные-привычки.mp3",
+      "artist": "madk1d",
+      "title": "вредные привычки"
+    },
+    {
+      "file": "26/madk1d_мой-парень-в-тюрьме.mp3",
+      "artist": "madk1d",
+      "title": "мой парень в тюрьме"
+    },
+    {
+      "file": "26/madk1d_ты-ведешь-себя.mp3",
+      "artist": "madk1d",
+      "title": "ты ведешь себя"
+    },
+    {
+      "file": "27/CODE10_WakeUp.mp3",
+      "artist": "CODE10",
+      "title": "WakeUp"
+    },
+    {
+      "file": "27/Kai-Angel_1-more.mp3",
+      "artist": "Kai Angel",
+      "title": "1 more"
+    },
+    {
+      "file": "27/Kai-Angel_BABYLON.mp3",
+      "artist": "Kai Angel",
+      "title": "BABYLON"
+    },
+    {
+      "file": "27/Kai-Angel_does-it_hurt.mp3",
+      "artist": "Kai Angel",
+      "title": "does it_hurt"
+    },
+    {
+      "file": "27/Kai-Angel_Flowers.mp3",
+      "artist": "Kai Angel",
+      "title": "Flowers"
+    },
+    {
+      "file": "27/Kai-Angel_gladiator.mp3",
+      "artist": "Kai Angel",
+      "title": "gladiator"
+    },
+    {
+      "file": "27/Kai-Angel_le-royal-monceau-gatsby-sance.mp3",
+      "artist": "Kai Angel",
+      "title": "le royal monceau gatsby sance"
+    },
+    {
+      "file": "27/Kai-Angel_Leopard-Red.mp3",
+      "artist": "Kai Angel",
+      "title": "Leopard Red"
+    },
+    {
+      "file": "27/Kai-Angel_Madam-2.mp3",
+      "artist": "Kai Angel",
+      "title": "Madam 2"
+    },
+    {
+      "file": "27/Kai-Angel_шато.mp3",
+      "artist": "Kai Angel",
+      "title": "шато"
+    },
+    {
+      "file": "28/3g0th2002_она.mp3",
+      "artist": "3g0th2002",
+      "title": "она"
+    },
+    {
+      "file": "28/3umph_#1HP.mp3",
+      "artist": "3umph",
+      "title": "#1HP"
+    },
+    {
+      "file": "28/3umph_Moulin-Rouge.mp3",
+      "artist": "3umph",
+      "title": "Moulin Rouge"
+    },
+    {
+      "file": "28/Bladee_Obedient.mp3",
+      "artist": "Bladee",
+      "title": "Obedient"
+    },
+    {
+      "file": "28/elyaplugg_я-дурак-влюбился-в-дуру.mp3",
+      "artist": "elyaplugg",
+      "title": "я дурак влюбился в дуру"
+    },
+    {
+      "file": "28/Kai-Angel_chrome-hearts.mp3",
+      "artist": "Kai Angel",
+      "title": "chrome hearts"
+    },
+    {
+      "file": "28/OsamaSon_CHECK.mp3",
+      "artist": "OsamaSon",
+      "title": "CHECK"
+    },
+    {
+      "file": "28/tewiq_снайпер.mp3",
+      "artist": "tewiq",
+      "title": "снайпер"
+    },
+    {
+      "file": "28/tewiq_упадут-птицы.mp3",
+      "artist": "tewiq",
+      "title": "упадут птицы"
+    },
+    {
+      "file": "29/AQUAKEY_i-love-u.mp3",
+      "artist": "AQUAKEY",
+      "title": "i love u"
+    },
+    {
+      "file": "29/madk1d_забери.mp3",
+      "artist": "madk1d",
+      "title": "забери"
+    },
+    {
+      "file": "29/n01r_chateau_marmont.mp3",
+      "artist": "n01r",
+      "title": "chateau_marmont"
+    },
+    {
+      "file": "29/n01r_GPT.mp3",
+      "artist": "n01r",
+      "title": "GPT"
+    },
+    {
+      "file": "29/n01r_Pomada.mp3",
+      "artist": "n01r",
+      "title": "Pomada"
+    },
+    {
+      "file": "29/n01r_The-best.mp3",
+      "artist": "n01r",
+      "title": "The best"
+    },
+    {
+      "file": "29/n01r_VLAD.mp3",
+      "artist": "n01r",
+      "title": "VLAD"
+    },
+    {
+      "file": "29/n01r_Иуда.mp3",
+      "artist": "n01r",
+      "title": "Иуда"
+    },
+    {
+      "file": "29/quanic_sorry-days.mp3",
+      "artist": "quanic",
+      "title": "sorry days"
+    },
+    {
+      "file": "29/s.e.-lane_anywhere-is-heaven-with-you.mp3",
+      "artist": "s.e. lane",
+      "title": "anywhere is heaven with you"
+    },
+    {
+      "file": "30/3g0th2002_without-you.mp3",
+      "artist": "3g0th2002",
+      "title": "without you"
+    },
+    {
+      "file": "30/9mice_smokey-eyes.mp3",
+      "artist": "9mice",
+      "title": "smokey eyes"
+    },
+    {
+      "file": "30/n01r_Домосексуал.mp3",
+      "artist": "n01r",
+      "title": "Домосексуал"
+    },
+    {
+      "file": "30/n01r_Злодейка.mp3",
+      "artist": "n01r",
+      "title": "Злодейка"
+    },
+    {
+      "file": "30/Nettspend_Skipping-Class.mp3",
+      "artist": "Nettspend",
+      "title": "Skipping Class"
+    },
+    {
+      "file": "30/osamason_shooting-stars.mp3",
+      "artist": "osamason",
+      "title": "shooting stars"
+    },
+    {
+      "file": "30/zavet_Return-Me-to-the-Pale-Green-Walls.mp3",
+      "artist": "zavet",
+      "title": "Return Me to the Pale Green Walls"
+    },
+    {
+      "file": "30/zavet_В-баре-трибунал.mp3",
+      "artist": "zavet",
+      "title": "В баре трибунал"
+    },
+    {
+      "file": "30/zavet_Колыбельная.mp3",
+      "artist": "zavet",
+      "title": "Колыбельная"
+    },
+    {
+      "file": "30/zavet_Омут.mp3",
+      "artist": "zavet",
+      "title": "Омут"
+    },
+    {
+      "file": "31/Nettspend_ce.mp3",
+      "artist": "Nettspend",
+      "title": "ce"
+    },
+    {
+      "file": "31/Nettspend_crack.mp3",
+      "artist": "Nettspend",
+      "title": "crack"
+    },
+    {
+      "file": "31/Nettspend_halftime.mp3",
+      "artist": "Nettspend",
+      "title": "halftime"
+    },
+    {
+      "file": "31/Nettspend_like-me.mp3",
+      "artist": "Nettspend",
+      "title": "like me"
+    },
+    {
+      "file": "31/Nettspend_no-sleep.mp3",
+      "artist": "Nettspend",
+      "title": "no sleep"
+    },
+    {
+      "file": "31/Nettspend_paris-hilton.mp3",
+      "artist": "Nettspend",
+      "title": "paris hilton"
+    },
+    {
+      "file": "31/Nettspend_sick.mp3",
+      "artist": "Nettspend",
+      "title": "sick"
+    },
+    {
+      "file": "31/Nettspend_stab.mp3",
+      "artist": "Nettspend",
+      "title": "stab"
+    },
+    {
+      "file": "31/Nettspend_who-tf-is-u.mp3",
+      "artist": "Nettspend",
+      "title": "who tf is u"
+    },
+    {
+      "file": "31/Nettspend_you-ready.mp3",
+      "artist": "Nettspend",
+      "title": "you ready"
+    },
+    {
+      "file": "32/BenjaminGotBenz_Nike.mp3",
+      "artist": "BenjaminGotBenz",
+      "title": "Nike"
+    },
+    {
+      "file": "32/Bladee_BE-NICE-TO-ME.mp3",
+      "artist": "Bladee",
+      "title": "BE NICE TO ME"
+    },
+    {
+      "file": "32/Bladee_Side-by-Side.mp3",
+      "artist": "Bladee",
+      "title": "Side by Side"
+    },
+    {
+      "file": "32/Bladee_Snowmen.mp3",
+      "artist": "Bladee",
+      "title": "Snowmen"
+    },
+    {
+      "file": "32/Bladee_Vanilla-Sky.mp3",
+      "artist": "Bladee",
+      "title": "Vanilla Sky"
+    },
+    {
+      "file": "32/bleood_depression-doesnt-explain-how-i-feel.mp3",
+      "artist": "bleood",
+      "title": "depression doesnt explain how i feel"
+    },
+    {
+      "file": "32/bleood_gygjfacb.mp3",
+      "artist": "bleood",
+      "title": "gygjfacb"
+    },
+    {
+      "file": "32/bleood_i-kno-u-kno-wat-u-did.mp3",
+      "artist": "bleood",
+      "title": "i kno u kno wat u did"
+    },
+    {
+      "file": "32/Bleood_SANTA-LEFT-A-BODY.mp3",
+      "artist": "Bleood",
+      "title": "SANTA LEFT A BODY"
+    },
+    {
+      "file": "32/Nettspend_Hey,-hello.mp3",
+      "artist": "Nettspend",
+      "title": "Hey, hello"
+    },
+    {
+      "file": "33/Bladee_Deletee-Intro.mp3",
+      "artist": "Bladee",
+      "title": "Deletee Intro"
+    },
+    {
+      "file": "33/Bladee_Destroy-Me.mp3",
+      "artist": "Bladee",
+      "title": "Destroy Me"
+    },
+    {
+      "file": "33/Bladee_Dumpster-Baby.mp3",
+      "artist": "Bladee",
+      "title": "Dumpster Baby"
+    },
+    {
+      "file": "33/Bladee_SPECIAL-PLACE.mp3",
+      "artist": "Bladee",
+      "title": "SPECIAL PLACE"
+    },
+    {
+      "file": "33/Bladee_Sugar.mp3",
+      "artist": "Bladee",
+      "title": "Sugar"
+    },
+    {
+      "file": "33/bleood_cryn-innis-coupe.mp3",
+      "artist": "bleood",
+      "title": "cryn innis coupe"
+    },
+    {
+      "file": "33/bleood_girl-u-drive-me-crazy-i-might-crash.mp3",
+      "artist": "bleood",
+      "title": "girl u drive me crazy i might crash"
+    },
+    {
+      "file": "33/Yung-Lean,-Bladee_Hennessy-Sailor-Moon.mp3",
+      "artist": "Yung Lean, Bladee",
+      "title": "Hennessy Sailor Moon"
+    },
+    {
+      "file": "33/zatru_GlockintheRave.mp3",
+      "artist": "zatru",
+      "title": "GlockintheRave"
+    },
+    {
+      "file": "34/Bladee_First-Crush.mp3",
+      "artist": "Bladee",
+      "title": "First Crush"
+    },
+    {
+      "file": "34/Bladee_Ghosts.mp3",
+      "artist": "Bladee",
+      "title": "Ghosts"
+    },
+    {
+      "file": "34/Bladee_Who-Goes-There.mp3",
+      "artist": "Bladee",
+      "title": "Who Goes There"
+    },
+    {
+      "file": "34/ecco2k_Mirage.mp3",
+      "artist": "ecco2k",
+      "title": "Mirage"
     }
   ]
 }
