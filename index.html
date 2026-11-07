@@ -490,6 +490,7 @@
   }
   .odd-card .odd-title{font-size:13px;font-weight:700;color:#fff;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .odd-card .odd-artist{font-size:11px;color:rgba(255,255,255,.7);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .odd-card .odd-meta{font-size:10px;color:#d8b4fe;margin-top:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .odd-card.disabled{pointer-events:none}
   .odd-card.selected{
     border-color:#ffffff;
@@ -525,6 +526,30 @@
   .odd-detail-time{margin-left:auto;font-variant-numeric:tabular-nums;color:#c4b5fd;font-weight:700}
 
   #screen-compare{width:100%;gap:20px}
+  #screen-estimateplays{width:100%;gap:18px}
+  .ep-wrap{width:100%;max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+  .ep-track{display:flex;align-items:center;gap:16px;padding:16px;border-radius:18px;background:var(--card);border:1px solid var(--border)}
+  .ep-cover{width:104px;height:104px;flex:0 0 104px;border-radius:14px;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,var(--c1),var(--c2));font-size:34px;font-weight:900;color:#fff}
+  .ep-cover img{width:100%;height:100%;object-fit:cover}
+  .ep-meta{min-width:0;display:flex;flex-direction:column;gap:6px}
+  .ep-title{font-size:18px;font-weight:850;line-height:1.2;overflow-wrap:anywhere}
+  .ep-artist{font-size:13px;color:var(--muted)}
+  .ep-album{font-size:11px;color:#b8a8d8}
+  .ep-question{font-size:17px;font-weight:800;text-align:center;color:#eee8ff}
+  .ep-slider-card{padding:18px 20px;border-radius:18px;background:rgba(255,255,255,.035);border:1px solid var(--border);display:flex;flex-direction:column;gap:13px}
+  .ep-value{font-size:clamp(30px,6vw,42px);font-weight:950;color:#d8b4fe;text-align:center;font-variant-numeric:tabular-nums;line-height:1.1}
+  .ep-range{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;font-variant-numeric:tabular-nums}
+  .ep-slider{width:100%;accent-color:#a78bfa;cursor:pointer}
+  .ep-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .ep-actions button{max-width:340px}
+  .ep-feedback{padding:14px;border-radius:14px;text-align:center;background:rgba(139,92,246,.09);border:1px solid rgba(139,92,246,.24);color:#ddd1ff;font-size:13px;line-height:1.5}
+  .ep-feedback b{color:#fff}
+  .ep-result{width:100%;max-width:720px;margin:0 auto;padding:26px 20px;border-radius:20px;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;gap:14px;text-align:center;align-items:center}
+  .ep-result-score{font-size:clamp(52px,10vw,76px);font-weight:950;color:#c4b5fd;line-height:1;font-variant-numeric:tabular-nums}
+  .ep-result-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;width:100%}
+  .ep-result-stat{padding:12px 8px;border-radius:12px;background:rgba(255,255,255,.04)}
+  .ep-result-stat b{display:block;color:#fff;font-size:20px;margin-top:4px}
+  @media(max-width:600px){.ep-track{padding:12px;gap:12px}.ep-cover{width:82px;height:82px;flex-basis:82px}.ep-title{font-size:15px}.ep-result-grid{grid-template-columns:1fr 1fr 1fr}.ep-slider-card{padding:15px}}
   .cmp-prompt{text-align:center;font-size:16px;font-weight:700;color:#c4b5fd;letter-spacing:.01em;margin-top:-6px}
   .cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;max-width:600px;margin:0 auto}
   .cmp-card{
@@ -1075,6 +1100,47 @@
   .gt-result-stats b{color:#eaeaf3;font-weight:800;font-variant-numeric:tabular-nums}
   .gt-result-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:4px}
 
+  /* ====================== BLITZ ====================== */
+  #screen-blitz{width:100%;gap:14px}
+  .blitz-wrap{width:100%;max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:13px}
+  .blitz-hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;width:100%}
+  .blitz-stat{padding:11px 12px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);text-align:center;min-width:0}
+  .blitz-stat-label{font-size:9px;color:var(--muted);font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+  .blitz-stat-value{font-size:clamp(19px,3vw,25px);font-weight:900;color:#fff;font-variant-numeric:tabular-nums;line-height:1.2;margin-top:3px}
+  .blitz-stat-value.purple{color:#c4b5fd}.blitz-stat-value.green{color:#86efac}
+  .blitz-question-card{padding:clamp(16px,3vw,26px);border-radius:20px;background:linear-gradient(135deg,rgba(139,92,246,.13),rgba(236,72,153,.055));border:1px solid rgba(139,92,246,.28);text-align:center;min-height:136px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;animation:blitzIn .12s ease-out both}
+  .blitz-question-type{font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#c4b5fd}
+  .blitz-question-prompt{font-size:clamp(17px,2.7vw,23px);font-weight:850;line-height:1.3;color:#fff;max-width:760px;overflow-wrap:anywhere}
+  .blitz-question-visual{max-width:min(180px,52vw);max-height:116px;border-radius:13px;overflow:hidden;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 30px -20px #000}
+  .blitz-question-visual img{display:block;max-width:100%;max-height:116px;object-fit:contain}
+  .blitz-lyric{max-width:760px;padding:12px 16px;border-radius:12px;background:rgba(10,10,18,.38);border:1px solid rgba(196,181,253,.18);color:#e9d5ff;font-size:clamp(13px,2vw,16px);font-weight:650;line-height:1.45}
+  .blitz-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .blitz-option{position:relative;min-height:66px;padding:12px 14px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.045);color:#f2f2f7;font:inherit;text-align:left;display:flex;align-items:center;gap:11px;cursor:pointer;transition:background .1s,border-color .1s,transform .1s,opacity .1s;animation:blitzIn .12s ease-out both;}
+  .blitz-option:nth-child(2){animation-delay:12ms}.blitz-option:nth-child(3){animation-delay:24ms}.blitz-option:nth-child(4){animation-delay:36ms}
+  .blitz-option:hover:not(:disabled){background:rgba(139,92,246,.14);border-color:rgba(196,181,253,.55);transform:translateY(-1px)}
+  .blitz-option:active:not(:disabled){transform:scale(.985)}
+  .blitz-option:disabled{cursor:default}
+  .blitz-option.correct{border-color:rgba(34,197,94,.8);background:rgba(34,197,94,.15);box-shadow:inset 0 0 0 1px rgba(34,197,94,.25)}
+  .blitz-option.wrong{border-color:rgba(239,68,68,.72);background:rgba(239,68,68,.12)}
+  .blitz-option.dimmed{opacity:.48}
+  .blitz-letter{width:27px;height:27px;flex:0 0 27px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#c4b5fd;font-size:11px;font-weight:900}
+  .blitz-option.correct .blitz-letter{background:rgba(34,197,94,.22);color:#86efac}
+  .blitz-option.wrong .blitz-letter{background:rgba(239,68,68,.2);color:#fca5a5}
+  .blitz-option-copy{min-width:0;display:flex;flex-direction:column;gap:3px}
+  .blitz-option-main{font-size:13px;font-weight:800;line-height:1.25;overflow-wrap:anywhere}
+  .blitz-option-sub{font-size:10px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .blitz-feedback{height:20px;text-align:center;font-size:12px;font-weight:850;color:#c4b5fd}
+  .blitz-feedback.good{color:#86efac}.blitz-feedback.bad{color:#fca5a5}
+  .blitz-result{width:100%;max-width:760px;margin:0 auto;padding:28px 22px;border-radius:22px;background:var(--card);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;gap:15px;text-align:center;animation:blitzIn .15s ease-out both}
+  .blitz-result-title{font-size:28px;font-weight:900;background:linear-gradient(100deg,#fff,#c4b5fd,#f9a8d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .blitz-result-score{font-size:clamp(56px,10vw,78px);font-weight:950;line-height:1;color:#c4b5fd;font-variant-numeric:tabular-nums}
+  .blitz-result-stats{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;color:var(--muted);font-size:12px}
+  .blitz-result-stats b{display:block;margin-top:4px;color:#fff;font-size:19px;font-variant-numeric:tabular-nums}
+  .blitz-result-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;width:100%}
+  .blitz-result-actions .btn-primary,.blitz-result-actions .btn-secondary{width:auto;min-width:180px;padding:13px 24px;font-size:14px}
+  @keyframes blitzIn{from{opacity:.45;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:640px){.blitz-options{gap:7px}.blitz-option{padding:11px 9px;min-height:61px;gap:7px}.blitz-option-main{font-size:12px}.blitz-letter{width:24px;height:24px;flex-basis:24px}.blitz-result-actions{flex-direction:column}.blitz-result-actions .btn-primary,.blitz-result-actions .btn-secondary{width:100%}}
+
   /* ====================== GUESS THE SOUND ====================== */
   #screen-sound{width:100%;gap:18px}
   .sound-layout{width:100%;max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
@@ -1588,6 +1654,59 @@
     .missing-input{font-size:13px;min-width:56px;padding:3px 8px}
     .missing-actions .btn-primary{width:100%;min-width:0}
   }
+
+
+  /* ====================== COVER PUZZLE ====================== */
+  #screen-coverpuzzle{width:100%;gap:18px}
+  .puzzle-setup,.puzzle-game,.puzzle-complete{width:100%;display:flex;flex-direction:column;align-items:center;gap:16px}
+  .puzzle-panel{width:min(100%,960px);padding:18px;border:1px solid var(--border);border-radius:20px;background:rgba(255,255,255,.035)}
+  .puzzle-panel-title{font-size:14px;font-weight:800;color:#e9d5ff;margin-bottom:12px}
+  .puzzle-size-row{display:flex;gap:9px;flex-wrap:wrap}
+  .puzzle-size-btn{flex:1;min-width:100px;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#d6d3e3;font:inherit;font-size:13px;font-weight:750;cursor:pointer;transition:background .12s,border-color .12s,transform .12s}
+  .puzzle-size-btn:hover{background:rgba(139,92,246,.12);border-color:rgba(196,181,253,.4)}
+  .puzzle-size-btn.active{background:rgba(139,92,246,.22);border-color:rgba(167,139,250,.75);color:#fff;box-shadow:0 0 22px -12px #a78bfa}
+  .puzzle-cover-search{width:100%;margin-bottom:12px;padding:11px 14px;border-radius:12px;border:1px solid var(--border);background:rgba(0,0,0,.18);color:var(--text);font:inherit;outline:none}
+  .puzzle-cover-search:focus{border-color:rgba(167,139,250,.7)}
+  .puzzle-cover-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:10px;max-height:420px;overflow:auto;padding:2px}
+  .puzzle-cover-option{min-width:0;padding:8px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.035);color:var(--text);font:inherit;text-align:left;cursor:pointer;transition:border-color .12s,background .12s,transform .12s}
+  .puzzle-cover-option:hover{transform:translateY(-2px);background:rgba(255,255,255,.07)}
+  .puzzle-cover-option.selected{border-color:#a78bfa;background:rgba(139,92,246,.16);box-shadow:0 0 0 1px rgba(167,139,250,.25)}
+  .puzzle-cover-option img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:8px;margin-bottom:7px;background:#211a30}
+  .puzzle-cover-option .pco-title{font-size:11px;font-weight:750;line-height:1.3;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .puzzle-cover-option .pco-sub{font-size:10px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:3px}
+  .puzzle-setup-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;width:min(100%,960px)}
+  .puzzle-selected-label{font-size:12px;color:var(--muted)}
+  .puzzle-game-top{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+  .puzzle-stat-pill{padding:8px 13px;border:1px solid var(--border);border-radius:99px;background:rgba(255,255,255,.04);color:#d8d4e7;font-size:12px;font-weight:750;font-variant-numeric:tabular-nums}
+  .puzzle-board-wrap{width:100%;display:flex;align-items:center;justify-content:center;padding:4px}
+  .puzzle-board{--puzzle-gap:2px;width:min(94vw,760px);aspect-ratio:1;display:grid;gap:var(--puzzle-gap);padding:var(--puzzle-gap);border-radius:12px;border:1px solid rgba(196,181,253,.24);background:rgba(15,12,24,.95);box-shadow:0 18px 60px -30px rgba(139,92,246,.85);touch-action:none;user-select:none;overflow:hidden}
+  .puzzle-board.size-25{--puzzle-gap:.6px;padding:1px;border-radius:5px}
+  .puzzle-tile{display:block;min-width:0;min-height:0;border:1px solid rgba(255,255,255,.12);border-radius:2px;background-repeat:no-repeat;cursor:grab;touch-action:none;transition:filter .08s,outline-color .08s}
+  .puzzle-tile:active{cursor:grabbing}
+  .puzzle-tile.selected{outline:2px solid #f0abfc;outline-offset:-2px;z-index:2;filter:brightness(1.16)}
+  .puzzle-tile.drop-target{outline:2px solid #86efac;outline-offset:-2px;z-index:3}
+  .puzzle-tile.dragging{filter:brightness(1.2);opacity:.78}
+  .puzzle-help{max-width:760px;text-align:center;color:var(--muted);font-size:12px;line-height:1.5}
+  .puzzle-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+  .puzzle-controls .btn-secondary,.puzzle-controls .btn-primary{width:auto;min-width:150px}
+  .puzzle-complete-card{width:min(100%,560px);padding:26px;border:1px solid rgba(167,139,250,.35);border-radius:22px;background:linear-gradient(145deg,rgba(139,92,246,.12),rgba(236,72,153,.06));text-align:center}
+  .puzzle-complete-icon{font-size:38px;margin-bottom:8px}
+  .puzzle-complete-title{font-size:25px;font-weight:850;margin-bottom:8px;background:linear-gradient(100deg,#fff,#c4b5fd,#f9a8d4);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .puzzle-complete-sub{font-size:13px;color:var(--muted);margin-bottom:18px}
+  .puzzle-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0 20px}
+  .puzzle-result-stat{padding:13px;border-radius:13px;background:rgba(0,0,0,.18);border:1px solid var(--border)}
+  .puzzle-result-stat b{display:block;font-size:21px;font-variant-numeric:tabular-nums}
+  .puzzle-result-stat span{display:block;margin-top:3px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .puzzle-hidden{display:none!important}
+  @media(max-width:700px){
+    .puzzle-panel{padding:13px}
+    .puzzle-cover-grid{grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:7px;max-height:360px}
+    .puzzle-board{width:min(96vw,680px)}
+    .puzzle-controls{width:100%}
+    .puzzle-controls .btn-secondary,.puzzle-controls .btn-primary{flex:1;min-width:0;padding:12px 10px;font-size:12px}
+    .puzzle-size-btn{min-width:0}
+  }
+
 </style>
 </head>
 <body>
@@ -1638,6 +1757,10 @@
         <div class="mc-title">Что больше?</div>
         <div class="mc-sub">Угадай, где значение выше</div>
       </button>
+      <button class="mode-card" data-mode="estimateplays">
+        <div class="mc-title">Угадай прослушивания</div>
+        <div class="mc-sub">Оцени количество через ползунок</div>
+      </button>
       <button class="mode-card" data-mode="line">
         <div class="mc-title">Откуда строчка</div>
         <div class="mc-sub">Угадай трек по строке</div>
@@ -1654,6 +1777,10 @@
         <div class="mc-title">Угадай по звуку</div>
         <div class="mc-sub">Определи трек по аудиофрагменту</div>
       </button>
+      <button class="mode-card" data-mode="blitz">
+        <div class="mc-title">BLITZ</div>
+        <div class="mc-sub">Отвечай быстро за 60 секунд и держи серию</div>
+      </button>
       <button class="mode-card" data-mode="bestplaylist">
         <div class="mc-title">Оценка плейлиста SC</div>
         <div class="mc-sub">Выбирай лучший трек из своего SoundCloud-плейлиста</div>
@@ -1665,6 +1792,10 @@
       <button class="mode-card" data-mode="rating">
         <div class="mc-title">Оценка треков</div>
         <div class="mc-sub">Ползунок от 0 до 10</div>
+      </button>
+      <button class="mode-card" data-mode="coverpuzzle">
+        <div class="mc-title">Cover Puzzle</div>
+        <div class="mc-sub">Собери обложку и поверни каждый фрагмент</div>
       </button>
     </div>
 
@@ -1759,7 +1890,7 @@
         <span class="progress-percent" id="oddProgressPercent">0%</span>
       </div>
     </header>
-
+    <div class="cmp-prompt" id="oddPrompt">Найди один трек, который отличается от остальных.</div>
     <div class="odd-grid" id="oddGrid"></div>
   </section>
 
@@ -1781,6 +1912,21 @@
 
     <div class="cmp-prompt" id="cmpPrompt">Где больше прослушиваний?</div>
     <div class="cmp-grid" id="cmpGrid"></div>
+  </section>
+
+  <section class="screen" id="screen-estimateplays">
+    <header class="game-header">
+      <h1 class="game-title">Угадай прослушивания</h1>
+      <div class="status-row">
+        <div class="sub" id="epInfo">Раунд 1 / 10</div>
+        <div class="timer-pill stopped" id="epTimerPill"><span class="dot"></span><span id="epTimer">00:00</span></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="epProgressBar"></div></div>
+        <span class="progress-percent" id="epProgressPercent">0%</span>
+      </div>
+    </header>
+    <div class="ep-wrap" id="estimatePlaysArea"></div>
   </section>
 
   <section class="screen" id="screen-line">
@@ -1843,6 +1989,21 @@
       <div class="gt-attempts" id="gtAttempts"></div>
       <div class="gt-input-wrap" id="gtInputWrap"></div>
     </div>
+  </section>
+
+  <section class="screen" id="screen-blitz">
+    <header class="game-header">
+      <h1 class="game-title">BLITZ</h1>
+      <div class="status-row">
+        <div class="sub" id="blitzInfo">Быстрые вопросы</div>
+        <div class="timer-pill" id="blitzTimerPill"><span class="dot"></span><span id="blitzTimer">01:00</span></div>
+      </div>
+      <div class="progress-row">
+        <div class="progress"><div class="bar" id="blitzProgressBar"></div></div>
+        <span class="progress-percent" id="blitzProgressPercent">0%</span>
+      </div>
+    </header>
+    <div class="blitz-wrap" id="blitzArea"></div>
   </section>
 
   <section class="screen" id="screen-sound">
@@ -1910,6 +2071,68 @@
     </div>
   </section>
 
+  <section class="screen" id="screen-coverpuzzle">
+    <header class="game-header">
+      <h1 class="game-title">COVER PUZZLE</h1>
+      <div class="sub">Собери обложку из перемешанных фрагментов</div>
+    </header>
+
+    <div class="puzzle-setup" id="puzzleSetup">
+      <div class="puzzle-panel">
+        <div class="puzzle-panel-title">1. Выбери сложность</div>
+        <div class="puzzle-size-row">
+          <button class="puzzle-size-btn active" data-puzzle-size="5">5 × 5 · Легко</button>
+          <button class="puzzle-size-btn" data-puzzle-size="10">10 × 10 · Средне</button>
+          <button class="puzzle-size-btn" data-puzzle-size="25">25 × 25 · Сложно</button>
+        </div>
+      </div>
+      <div class="puzzle-panel">
+        <div class="puzzle-panel-title">2. Выбери обложку</div>
+        <input class="puzzle-cover-search" id="puzzleCoverSearch" type="search" placeholder="Поиск по названию трека или альбома…" autocomplete="off">
+        <div class="puzzle-cover-grid" id="puzzleCoverGrid"></div>
+      </div>
+      <div class="puzzle-setup-footer">
+        <div class="puzzle-selected-label" id="puzzleSelectedLabel">Обложка не выбрана</div>
+        <button class="btn-primary" id="puzzleStartBtn" disabled>Начать сборку</button>
+      </div>
+      <button class="btn-secondary" id="puzzleBackModes">Назад к режимам</button>
+    </div>
+
+    <div class="puzzle-game puzzle-hidden" id="puzzleGame">
+      <div class="puzzle-game-top">
+        <div class="puzzle-stat-pill" id="puzzleSizeLabel">5 × 5</div>
+        <div class="puzzle-stat-pill">Время: <span id="puzzleClock">00:00</span></div>
+        <div class="puzzle-stat-pill">Ходы: <span id="puzzleMoves">0</span></div>
+        <div class="puzzle-stat-pill">Повороты: <span id="puzzleRotations">0</span></div>
+      </div>
+      <div class="puzzle-board-wrap"><div class="puzzle-board" id="puzzleBoard"></div></div>
+      <div class="puzzle-help">Нажми на фрагмент, чтобы выбрать его. Перетащи его на другой фрагмент, чтобы поменять местами. Выбранный фрагмент можно вращать на 90° по или против часовой стрелки. Нужно правильно поставить все части и восстановить их ориентацию.</div>
+      <div class="puzzle-controls">
+        <button class="btn-secondary" id="puzzleRotateLeft" disabled>↶ Повернуть −90°</button>
+        <button class="btn-secondary" id="puzzleRotateRight" disabled>↻ Повернуть +90°</button>
+        <button class="btn-secondary" id="puzzleExitBtn">К выбору обложки</button>
+      </div>
+    </div>
+
+    <div class="puzzle-complete puzzle-hidden" id="puzzleComplete">
+      <div class="puzzle-complete-card">
+        <div class="puzzle-complete-icon">✦</div>
+        <div class="puzzle-complete-title">Обложка собрана!</div>
+        <div class="puzzle-complete-sub" id="puzzleCompleteSubtitle">Отличная работа.</div>
+        <div class="puzzle-result-grid">
+          <div class="puzzle-result-stat"><b id="puzzleResultTime">00:00</b><span>Время</span></div>
+          <div class="puzzle-result-stat"><b id="puzzleResultMoves">0</b><span>Ходов</span></div>
+          <div class="puzzle-result-stat"><b id="puzzleResultRotations">0</b><span>Поворотов</span></div>
+          <div class="puzzle-result-stat"><b id="puzzleResultPoints">0</b><span>Баллов</span></div>
+        </div>
+        <div class="puzzle-controls">
+          <button class="btn-primary" id="puzzleAgainBtn">Собрать ещё раз</button>
+          <button class="btn-secondary" id="puzzleChooseBtn">Выбрать другую обложку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="screen" id="screen-rating">
     <header class="game-header">
       <h1 class="game-title" id="ratingTitle">Оценка треков</h1>
@@ -1931,7 +2154,7 @@
 
 </div>
 
-<div class="version-footer">v1.6.0</div>
+<div class="version-footer">v1.7.0</div>
 
 <div class="modal" id="rulesModal">
   <div class="modal-content">
@@ -1946,14 +2169,16 @@
       <ul>
         <li><b>Турнир.</b> Треки играют парами на выбывание: выбираешь лучший из двух, пока не останется чемпион.</li>
         <li><b>Хронология.</b> Расставляешь треки и альбомы в правильном порядке — от старых к новым.</li>
-        <li><b>Кто лишний.</b> 30 раундов по 4 карточки — у трёх всё верно, у одной подвох.</li>
-        <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше.</li>
+        <li><b>Кто лишний.</b> 30 раундов по 4 карточки. Видны только обложки и названия — определи лишний трек по памяти о музыке.</li>
+        <li><b>Угадай прослушивания.</b> 10 раундов: выставь предполагаемое число прослушиваний на ползунке. Чем ближе оценка, тем больше баллов — до 1 000 за игру.</li>
+      <li><b>Что больше?</b> 30 раундов по две карточки. Нужно угадать, где значение выше.</li>
         <li><b>Откуда строчка.</b> 30 раундов. Показывается строка из трека — нужно угадать, из какого.</li>
         <li><b>Что пропущено.</b> 20 раундов. Показывается трек и строчки из него, где нужно вписать пропущенные слова.</li>
         <li><b>Угадай трек.</b> 6 попыток угадать случайный трек по подсказкам.</li>
         <li><b>Угадай по звуку.</b> 20 раундов: послушай аудиофрагмент и найди трек через поиск. Список треков берётся из audio_manifest.json, созданного из имён файлов в папках audios. Также есть отдельный турнир «Оценка плейлиста SC».</li>
         <li><b>Keep / Delete.</b> Выпадает случайный альбом, и ты решаешь — оставить трек или удалить.</li>
         <li><b>Оценка треков.</b> Выбери альбом или синглы в самом режиме и оцени каждый трек ползунком от 0 до 10. Цвет и название категории меняются от «Кошмара» до «Божественно».</li>
+        <li><b>Cover Puzzle.</b> Выбери обложку и собери её из фрагментов на поле 5 × 5, 10 × 10 или 25 × 25. Фрагменты нужно правильно расположить и повернуть на 0°, 90°, 180° или 270°.</li>
       </ul>
     </div>
 
@@ -1963,7 +2188,7 @@
         <li><b>Общая формула.</b> Итог = <b>База × Множитель точности × Множитель времени</b>.</li>
         <li><b>Турнир</b> — ровно <b>25 баллов</b>.</li>
         <li><b>Хронология</b> — база <b>400</b>, ориентир <b>35 минут</b>.</li>
-        <li><b>Кто лишний</b> — база <b>30</b> (обложки) или <b>30 + 5</b> (названия).</li>
+        <li><b>Кто лишний</b> — база <b>30</b>.</li>
         <li><b>Что больше · Прослушивания</b> — база <b>50</b>.</li>
         <li><b>Что больше · Длительность</b> — база <b>75</b>.</li>
         <li><b>Откуда строчка · Выбор</b> — база <b>90</b>.</li>
@@ -2122,10 +2347,12 @@
         <button data-rtab="chronology">Хронология</button>
         <button data-rtab="odd">Кто лишний</button>
         <button data-rtab="compare">Что больше</button>
+        <button data-rtab="estimateplays">Угадай прослушивания</button>
         <button data-rtab="line">Откуда строчка</button>
         <button data-rtab="missing">Что пропущено</button>
         <button data-rtab="guess">Угадай трек</button>
         <button data-rtab="sound">Угадай по звуку</button>
+        <button data-rtab="blitz">BLITZ</button>
         <button data-rtab="bestplaylist">Оценка плейлиста SC</button>
         <button data-rtab="keepdelete">Keep/Delete</button>
         <button data-rtab="rating">Оценка</button>
@@ -2193,13 +2420,16 @@ const screens = {
   chronology: document.getElementById('screen-chronology'),
   odd:        document.getElementById('screen-odd'),
   compare:    document.getElementById('screen-compare'),
+  estimateplays: document.getElementById('screen-estimateplays'),
   line:       document.getElementById('screen-line'),
   missing:    document.getElementById('screen-missing'),
   guess:      document.getElementById('screen-guess'),
+  blitz:      document.getElementById('screen-blitz'),
   sound:      document.getElementById('screen-sound'),
   bestplaylist: document.getElementById('screen-bestplaylist'),
   keepdelete: document.getElementById('screen-keepdelete'),
   rating:     document.getElementById('screen-rating'),
+  coverpuzzle: document.getElementById('screen-coverpuzzle'),
 };
 
 const arena       = document.getElementById('arena');
@@ -2242,6 +2472,13 @@ const oddProgressBar = document.getElementById('oddProgressBar');
 const oddProgressPercent = document.getElementById('oddProgressPercent');
 
 const cmpGrid = document.getElementById('cmpGrid');
+const oddPrompt = document.getElementById('oddPrompt');
+const estimatePlaysArea = document.getElementById('estimatePlaysArea');
+const epInfo = document.getElementById('epInfo');
+const epTimerEl = document.getElementById('epTimer');
+const epTimerPill = document.getElementById('epTimerPill');
+const epProgressBar = document.getElementById('epProgressBar');
+const epProgressPercent = document.getElementById('epProgressPercent');
 const cmpInfo = document.getElementById('cmpInfo');
 const cmpTitleEl = document.getElementById('cmpTitle');
 const cmpPrompt = document.getElementById('cmpPrompt');
@@ -2280,6 +2517,12 @@ const soundTimerPill = document.getElementById('soundTimerPill');
 const soundProgressBar = document.getElementById('soundProgressBar');
 const soundProgressPercent = document.getElementById('soundProgressPercent');
 const soundGameArea = document.getElementById('soundGameArea');
+const blitzArea = document.getElementById('blitzArea');
+const blitzInfo = document.getElementById('blitzInfo');
+const blitzTimerEl = document.getElementById('blitzTimer');
+const blitzTimerPill = document.getElementById('blitzTimerPill');
+const blitzProgressBar = document.getElementById('blitzProgressBar');
+const blitzProgressPercent = document.getElementById('blitzProgressPercent');
 const bestPlaylistInfo = document.getElementById('bestPlaylistInfo');
 const bestPlaylistTimerEl = document.getElementById('bestPlaylistTimer');
 const bestPlaylistTimerPill = document.getElementById('bestPlaylistTimerPill');
@@ -2322,8 +2565,24 @@ let oddCurrentOddId = null;
 let oddCards = [];
 let oddTimerStart = 0;
 let oddTimerInterval = null;
-let oddMode = 'covers';
+let oddMode = 'mixed';
+let oddRoundType = 'covers';
+let oddTypeQueue = [];
 let oddUsedIds = new Set();
+
+const ESTIMATE_PLAYS_ROUNDS = 10;
+let epRoundIndex = 0;
+let epRoundStartTime = 0;
+let epRoundTimes = [];
+let epRoundResults = [];
+let epTotalScore = 0;
+let epGameActive = false;
+let epLocked = false;
+let epCurrentTrack = null;
+let epCurrentMax = 0;
+let epTimerStart = 0;
+let epTimerInterval = null;
+let epUsedIds = new Set();
 
 const COMPARE_ROUNDS = 30;
 let cmpRoundIndex = 0;
@@ -2427,7 +2686,6 @@ let ratingTimerInterval = null;
 let ratingAnimFrame = null;
 
 let selectedMode = null;
-let selectedOddSubmode = 'covers';
 let selectedCmpSubmode = 'plays';
 let selectedLineSubmode = 'choice';
 let selectedRatingKey = '';
@@ -2953,19 +3211,18 @@ helloModal.addEventListener('click', e => { if (e.target === helloModal) closeMo
 const MODE_DESCRIPTIONS = {
   tournament: { title: 'Турнир', text: 'Треки играют парами на выбывание: выбираешь лучший из двух — победитель идёт дальше, пока не останется один чемпион.', reward: 'Награда: <b>ровно 25 баллов</b> за завершение.' },
   chronology: { title: 'Хронология', text: 'Расставляешь треки и альбомы в правильном порядке — от старых к новым. Самая долгая игра.', reward: 'Награда: <b>база 400</b>, ориентир 35 минут.' },
-  odd: { title: 'Кто лишний', text: '30 раундов, в каждом 4 карточки — у трёх всё верно, у одной подвох.', reward: 'Выбери подкатегорию ниже.' },
+  odd: { title: 'Кто лишний', text: '30 раундов. В каждом раунде четыре композиции. Найди ту, которая отличается от остальных, опираясь на знание музыки. Тип отличия и любые дополнительные данные не показываются.', reward: 'На карточках видны только обложка и название трека. Год выпуска, альбом, исполнитель и другие характеристики скрыты.' },
   compare: { title: 'Что больше?', text: '30 раундов по две карточки. Нужно угадать, где значение выше.', reward: 'Выбери подкатегорию ниже.' },
+  estimateplays: { title: 'Угадай прослушивания', text: '10 раундов. Показывается случайный трек и ползунок от нуля до максимального количества прослушиваний в базе. Выставь своё предположение и узнай, насколько близко ты попал.', reward: 'За каждый раунд — до <b>100 баллов</b>. Максимум за игру — <b>1 000 баллов</b>. Чем точнее оценка, тем больше награда.' },
   line: { title: 'Откуда строчка', text: '30 раундов. Показывается строка из какого-то трека — нужно угадать, из какого именно.', reward: 'Выбери подкатегорию ниже.' },
   missing: { title: 'Что пропущено', text: '20 раундов. Показывается трек (обложка + название) и 2 или 4 строчки из него, но некоторые слова пропущены. Нужно вручную вписать эти слова.', reward: 'Награда: <b>база 120</b>, ориентир <b>5 минут</b>.' },
   guess: { title: 'Угадай трек', text: 'У тебя 6 попыток угадать случайный трек. После каждой попытки показываются подсказки.', reward: 'Награда: <b>до 80 баллов</b> — чем меньше попыток, тем больше.' },
   sound: { title: 'Угадай по звуку', text: '20 раундов. Слушай аудиофрагмент и находи правильную композицию через поиск по всем MP3-файлам выбранной папки. В каждом раунде только одна попытка.', reward: 'Для «Рандомного отрывка»: <b>20 баллов за правильный ответ</b>, максимум <b>400 баллов</b> за партию.' },
+  blitz: { title: 'BLITZ', text: 'За 60 секунд ответь на максимум быстрых вопросов по Kai Angel: альбомы, исполнители, годы, тексты, обложки, прослушивания и длительность. Ошибка сбрасывает текущую серию, но игра продолжается.', reward: 'Счёт — количество правильных ответов. За каждый правильный ответ начисляется <b>2 балла</b>. В статистике сохраняются лучший и средний результат.' },
   bestplaylist: { title: 'Оценка плейлиста SC', text: 'Турнир на выбывание по трекам из папки audios/best. В каждом матче сравниваются два трека: можно прослушать лучший отрывок каждого и выбрать победителя. В конце останется чемпион всего плейлиста.', reward: 'Количество участников автоматически определяется по MP3-файлам в audio_manifest.json. После добавления или удаления треков обнови manifest скриптом generate_audio_manifest.py.' },
   keepdelete: { title: 'Keep / Delete', text: 'Выпадает случайный альбом. Показываются треки по одному — решаешь, оставить трек или удалить.', reward: 'Награда: <b>20 баллов</b> за завершение альбома.' },
   rating: { title: 'Оценка треков', text: 'Выбери альбом или все синглы прямо на экране игры и оцени каждый трек ползунком от 0 до 10 с шагом 0.1. Цвет ползунка плавно меняется от «Кошмара» к «Божественно». В конце — список всех оценок и общая оценка альбома.', reward: 'Награда: <b>ровно 30 баллов</b> за завершение.' },
-};
-const ODD_SUBMODE_DESCRIPTIONS = {
-  covers: { text: 'У трёх треков обложки правильные, у одного — подменённая на чужую из папки pics.', reward: 'Награда: <b>база 30</b>, ориентир 2 минуты.' },
-  titles: { text: 'У трёх треков названия правильные, у одного — с незаметной опечаткой.', reward: 'Награда: <b>база 30 + 5</b>, ориентир 2 минуты.' },
+  coverpuzzle: { title: 'Cover Puzzle', text: 'Выбери обложку и собери её из перемешанных квадратных фрагментов. Части изначально стоят в случайных местах и случайно повёрнуты.', reward: 'Три сложности: <b>5 × 5</b>, <b>10 × 10</b> и <b>25 × 25</b>. Нужно не только расставить фрагменты, но и повернуть каждый в правильную сторону: 0°, 90°, 180° или 270°.' },
 };
 const CMP_SUBMODE_DESCRIPTIONS = {
   plays: { text: 'Угадываешь, у какого из двух треков больше прослушиваний.', reward: 'Награда: <b>база 50</b>, ориентир 2:30.' },
@@ -2985,7 +3242,6 @@ function renderModeDescription(){
   }
   let data = MODE_DESCRIPTIONS[selectedMode];
 
-  if (selectedMode === 'odd'){ const s = ODD_SUBMODE_DESCRIPTIONS[selectedOddSubmode]; data = { ...data, text: s.text, reward: s.reward }; }
   if (selectedMode === 'compare'){ const s = CMP_SUBMODE_DESCRIPTIONS[selectedCmpSubmode]; data = { ...data, text: s.text, reward: s.reward }; }
   if (selectedMode === 'line'){
     const s = LINE_SUBMODE_DESCRIPTIONS[selectedLineSubmode];
@@ -3003,12 +3259,6 @@ function renderModeDescription(){
     <div class="mode-desc-reward">${data.reward}</div>
   `;
 
-  if (selectedMode === 'odd'){
-    html += `<div class="mode-submodes">
-      <button class="mode-submode-btn ${selectedOddSubmode === 'covers' ? 'active' : ''}" data-submode="covers">Обложки</button>
-      <button class="mode-submode-btn ${selectedOddSubmode === 'titles' ? 'active' : ''}" data-submode="titles">Названия</button>
-    </div>`;
-  }
   if (selectedMode === 'compare'){
     html += `<div class="mode-submodes">
       <button class="mode-submode-btn ${selectedCmpSubmode === 'plays' ? 'active' : ''}" data-csubmode="plays">Прослушивания</button>
@@ -3042,7 +3292,6 @@ function renderModeDescription(){
   if (selectedMode === 'bestplaylist') updateBestPlaylistModeCount();
 
   modeDescEl.querySelectorAll('.mode-submode-btn[data-submode]').forEach(btn => {
-    btn.addEventListener('click', () => { selectedOddSubmode = btn.dataset.submode; renderModeDescription(); });
   });
   modeDescEl.querySelectorAll('.mode-submode-btn[data-csubmode]').forEach(btn => {
     btn.addEventListener('click', () => { selectedCmpSubmode = btn.dataset.csubmode; renderModeDescription(); });
@@ -3069,20 +3318,22 @@ btnModeStart.addEventListener('click', () => {
   if (!selectedMode) return;
   if (selectedMode === 'tournament') runTournamentFlow();
   else if (selectedMode === 'chronology') runChronologyFlow();
-  else if (selectedMode === 'odd') runOddFlow(selectedOddSubmode);
+  else if (selectedMode === 'odd') runOddFlow();
   else if (selectedMode === 'compare') runCompareFlow(selectedCmpSubmode);
+  else if (selectedMode === 'estimateplays') runEstimatePlaysFlow();
   else if (selectedMode === 'line') runLineFlow(selectedLineSubmode);
   else if (selectedMode === 'missing') runMissingFlow();
   else if (selectedMode === 'guess') runGuessFlow();
   else if (selectedMode === 'sound') runSoundFlow(selectedSoundMode);
+  else if (selectedMode === 'blitz') runBlitzGame();
   else if (selectedMode === 'bestplaylist') runBestPlaylistFlow();
   else if (selectedMode === 'keepdelete') runKeepDeleteFlow();
   else if (selectedMode === 'rating') showRatingSetup();
+  else if (selectedMode === 'coverpuzzle') runCoverPuzzleFlow();
 });
 
 btnModeBack.addEventListener('click', () => {
   selectedMode = null;
-  selectedOddSubmode = 'covers';
   selectedCmpSubmode = 'plays';
   selectedLineSubmode = 'choice';
   selectedSoundMode = 'random';
@@ -3094,7 +3345,6 @@ btnModeBack.addEventListener('click', () => {
 
 document.getElementById('btnStart').addEventListener('click', () => {
   selectedMode = null;
-  selectedOddSubmode = 'covers';
   selectedCmpSubmode = 'plays';
   selectedLineSubmode = 'choice';
   selectedSoundMode = 'random';
@@ -3111,8 +3361,9 @@ document.getElementById('closeHistoryX').addEventListener('click', () => closeMo
 historyModal.addEventListener('click', e => { if (e.target === historyModal) closeModal('historyModal'); });
 
 /* ====================== RECORDS ====================== */
-const RECORDS_KEY = 'kaiAngelTracksGame_records_v17';
+const RECORDS_KEY = 'kaiAngelTracksGame_records_v18';
 const LEGACY_KEYS = [
+  'kaiAngelTracksGame_records_v17',
   'kaiAngelTracksGame_records_v16', 'kaiAngelTracksGame_records_v15', 'kaiAngelTracksGame_records_v14', 'kaiAngelTracksGame_records_v13','kaiAngelTracksGame_records_v12','kaiAngelTracksGame_records_v11','kaiAngelTracksGame_records_v10',
   'kaiAngelTracksGame_records_v9','kaiAngelTracksGame_records_v8','kaiAngelTracksGame_records_v7',
   'kaiAngelTracksGame_records_v6','kaiAngelTracksGame_records_v5','kaiAngelTracksGame_records_v4',
@@ -3131,13 +3382,16 @@ function defaultRecords(){
     chronologyRatio: [],
     oddOneOut: [],
     comparisonResults: [],
+    estimatePlaysResults: [],
     lineResults: [],
     missingResults: [],
     guessResults: [],
     soundResults: [],
+    blitzResults: [],
     bestPlaylistResults: [],
     keepDeleteResults: [],
     ratingGames: [],
+    coverPuzzleResults: [],
     totalPoints: 0,
     history: [],
   };
@@ -3152,13 +3406,16 @@ function normalizeRecords(raw){
     chronologyRatio: Array.isArray(r.chronologyRatio) ? r.chronologyRatio : [],
     oddOneOut: Array.isArray(r.oddOneOut) ? r.oddOneOut : [],
     comparisonResults: Array.isArray(r.comparisonResults) ? r.comparisonResults : [],
+    estimatePlaysResults: Array.isArray(r.estimatePlaysResults) ? r.estimatePlaysResults : [],
     lineResults: Array.isArray(r.lineResults) ? r.lineResults : [],
     missingResults: Array.isArray(r.missingResults) ? r.missingResults : [],
     guessResults: Array.isArray(r.guessResults) ? r.guessResults : [],
     soundResults: Array.isArray(r.soundResults) ? r.soundResults : [],
+    blitzResults: Array.isArray(r.blitzResults) ? r.blitzResults : [],
     bestPlaylistResults: Array.isArray(r.bestPlaylistResults) ? r.bestPlaylistResults : [],
     keepDeleteResults: Array.isArray(r.keepDeleteResults) ? r.keepDeleteResults : [],
     ratingGames: Array.isArray(r.ratingGames) ? r.ratingGames : [],
+    coverPuzzleResults: Array.isArray(r.coverPuzzleResults) ? r.coverPuzzleResults : [],
     totalPoints: typeof r.totalPoints === 'number' ? r.totalPoints : 0,
     history: Array.isArray(r.history) ? r.history : [],
   };
@@ -3318,6 +3575,13 @@ function saveRatingResult(entry){
   r.ratingGames = r.ratingGames.slice(0, MAX_RATING_GAMES);
   saveRecords(r);
 }
+function saveCoverPuzzleResult(entry){
+  const r = loadRecords();
+  if (!Array.isArray(r.coverPuzzleResults)) r.coverPuzzleResults = [];
+  r.coverPuzzleResults.unshift(entry);
+  r.coverPuzzleResults = r.coverPuzzleResults.slice(0, MAX_RATING_GAMES);
+  saveRecords(r);
+}
 
 /* ====================== ОБЩАЯ СТАТИСТИКА ====================== */
 function renderGeneralStatsHTML(r){
@@ -3329,10 +3593,13 @@ function renderGeneralStatsHTML(r){
   const msCount = (r.missingResults || []).length;
   const gtCount = (r.guessResults || []).length;
   const soundCount = (r.soundResults || []).length;
+  const blitzCount = (r.blitzResults || []).length;
   const bestPlaylistCount = (r.bestPlaylistResults || []).length;
   const kdCount = (r.keepDeleteResults || []).length;
   const rateCount = (r.ratingGames || []).length;
-  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount + msCount + gtCount + soundCount + bestPlaylistCount + kdCount + rateCount;
+  const epCount = (r.estimatePlaysResults || []).length;
+  const puzzleCount = (r.coverPuzzleResults || []).length;
+  const totalGames = tournCount + chronoCount + oddCount + cmpCount + lineCount + msCount + gtCount + soundCount + blitzCount + bestPlaylistCount + kdCount + rateCount + epCount + puzzleCount;
 
   const tournTime = r.tournamentTimes.reduce((a, e) => a + e.time, 0);
   const chronoTime = r.chronologyTimes.reduce((a, e) => a + e.time, 0);
@@ -3341,9 +3608,12 @@ function renderGeneralStatsHTML(r){
   const lineTime = r.lineResults.reduce((a, e) => a + (e.totalTime || 0), 0);
   const msTime = (r.missingResults || []).reduce((a, e) => a + (e.totalTime || 0), 0);
   const soundTime = (r.soundResults || []).reduce((a, e) => a + (e.totalTime || 0), 0);
+  const blitzTime = blitzCount * 60;
   const bestPlaylistTime = (r.bestPlaylistResults || []).reduce((a, e) => a + (e.totalTime || 0), 0);
   const rateTime = (r.ratingGames || []).reduce((a, e) => a + (e.time || 0), 0);
-  const totalTime = tournTime + chronoTime + oddTime + cmpTime + lineTime + msTime + soundTime + bestPlaylistTime + rateTime;
+  const epTime = (r.estimatePlaysResults || []).reduce((a, e) => a + (e.totalTime || 0), 0);
+  const puzzleTime = (r.coverPuzzleResults || []).reduce((a, e) => a + (e.time || 0), 0);
+  const totalTime = tournTime + chronoTime + oddTime + cmpTime + lineTime + msTime + soundTime + blitzTime + bestPlaylistTime + rateTime + epTime + puzzleTime;
 
   const totalPoints = r.totalPoints || 0;
 
@@ -3369,7 +3639,7 @@ function renderGeneralStatsHTML(r){
       <div class="stats-hero-item"><span class="stats-hero-label">Всего баллов</span><span class="stats-hero-value purple">${totalPoints.toLocaleString('ru-RU')}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Всего игр</span><span class="stats-hero-value">${totalGames}</span></div>
       <div class="stats-hero-item"><span class="stats-hero-label">Общее время</span><span class="stats-hero-value">${formatDuration(totalTime)}</span></div>
-      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount, msCount, gtCount, soundCount, bestPlaylistCount, kdCount, rateCount].filter(x=>x>0).length} / 11</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Режимов сыграно</span><span class="stats-hero-value">${[tournCount, chronoCount, oddCount, cmpCount, lineCount, msCount, gtCount, soundCount, blitzCount, bestPlaylistCount, kdCount, rateCount, epCount, puzzleCount].filter(x=>x>0).length} / 14</span></div>
     </div>
     <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Турнир</div><div class="stats-block-count">${tournCount}</div></div>
@@ -3445,6 +3715,16 @@ function renderGeneralStatsHTML(r){
       </div>
     </div>
     <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">BLITZ</div><div class="stats-block-count">${blitzCount}</div></div>
+      <div class="stats-block-rows">
+        ${blitzCount ? `
+          <div class="stats-block-row"><span class="lbl">Лучший результат</span><b>${Math.max(...r.blitzResults.map(e => Number(e.correct)||0))} ответов</b></div>
+          <div class="stats-block-row"><span class="lbl">Средний результат</span><b>${(r.blitzResults.reduce((sum,e)=>sum+(Number(e.correct)||0),0)/blitzCount).toFixed(1)} ответов</b></div>
+          <div class="stats-block-row"><span class="lbl">Лучшая серия</span><b>${Math.max(...r.blitzResults.map(e => Number(e.bestStreak)||0))}</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
+      </div>
+    </div>
+    <div class="stats-block">
       <div class="stats-block-head"><div class="stats-block-title">Оценка плейлиста SC</div><div class="stats-block-count">${bestPlaylistCount}</div></div>
       <div class="stats-block-rows">
         ${bestPlaylistCount ? `
@@ -3458,6 +3738,16 @@ function renderGeneralStatsHTML(r){
       <div class="stats-block-rows">
         ${kdCount ? `
           <div class="stats-block-row"><span class="lbl">Всего альбомов</span><b>${kdCount}</b></div>
+        ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
+      </div>
+    </div>
+    <div class="stats-block">
+      <div class="stats-block-head"><div class="stats-block-title">Cover Puzzle</div><div class="stats-block-count">${puzzleCount}</div></div>
+      <div class="stats-block-rows">
+        ${puzzleCount ? `
+          <div class="stats-block-row"><span class="lbl">Общее время</span><b>${formatDuration(puzzleTime)}</b></div>
+          <div class="stats-block-row"><span class="lbl">Собрано обложек</span><b>${puzzleCount}</b></div>
+          ${[5,10,25].map(size => { const rows=(r.coverPuzzleResults||[]).filter(e=>e.size===size); return rows.length ? `<div class="stats-block-row"><span class="lbl">Лучшее ${size} × ${size}</span><b>${formatTime(Math.min(...rows.map(e=>e.time||0)))}</b></div>` : ''; }).join('')}
         ` : `<div class="stats-block-empty">Ещё не сыграно</div>`}
       </div>
     </div>
@@ -3490,7 +3780,7 @@ function renderRecords(){
     return;
   }
 
-  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length} · П: ${(r.missingResults||[]).length} · У: ${(r.guessResults||[]).length} · Зв: ${(r.soundResults||[]).length} · SC: ${(r.bestPlaylistResults||[]).length} · KD: ${(r.keepDeleteResults||[]).length} · О: ${(r.ratingGames||[]).length}`;
+  count.textContent = `Т: ${r.tournamentTimes.length} · Х: ${r.chronologyTimes.length} · К: ${r.oddOneOut.length} · Б: ${r.comparisonResults.length} · С: ${r.lineResults.length} · П: ${(r.missingResults||[]).length} · У: ${(r.guessResults||[]).length} · Зв: ${(r.soundResults||[]).length} · EP: ${(r.estimatePlaysResults||[]).length} · BL: ${(r.blitzResults||[]).length} · SC: ${(r.bestPlaylistResults||[]).length} · KD: ${(r.keepDeleteResults||[]).length} · О: ${(r.ratingGames||[]).length} · PZ: ${(r.coverPuzzleResults||[]).length}`;
 
   if (recordsTab === 'tournament'){
     const subtabsHtml = `<div class="records-subtabs">
@@ -3542,23 +3832,16 @@ function renderRecords(){
   }
 
   else if (recordsTab === 'odd'){
-    const subtabsHtml = `<div class="records-subtabs">
-      <button data-ostab="all" class="${oddSubtab === 'all' ? 'active' : ''}">Все</button>
-      <button data-ostab="covers" class="${oddSubtab === 'covers' ? 'active' : ''}">Обложки</button>
-      <button data-ostab="titles" class="${oddSubtab === 'titles' ? 'active' : ''}">Названия</button>
-    </div>`;
-    const filtered = r.oddOneOut.filter(e => oddSubtab === 'all' ? true : (e.mode || 'covers') === oddSubtab);
-    if (!filtered.length){ body.innerHTML = subtabsHtml + emptyRecordsHTML('Нет результатов.'); bindOddSubtabs(); return; }
-    let html = subtabsHtml;
-    const modeBadge = (m) => `<span class="ri-mode ${m === 'titles' ? 'titles' : 'covers'}">${m === 'titles' ? 'Названия' : 'Обложки'}</span>`;
-    const byAccuracy = filtered.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 5);
-    html += `<div class="record-section"><div class="record-section-title">Самое точное</div><div class="record-list">`;
+    const list = r.oddOneOut || [];
+    if (!list.length){ body.innerHTML = emptyRecordsHTML('Пройди «Кто лишний».'); return; }
+    const byAccuracy = list.slice().sort((a, b) => b.accuracy - a.accuracy || a.totalTime - b.totalTime).slice(0, 10);
+    let html = `<div class="record-section"><div class="record-section-title">Лучшие результаты · Кто лишний</div><div class="record-list">`;
     byAccuracy.forEach((e, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
-      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}% ${oddSubtab === 'all' ? modeBadge(e.mode || 'covers') : ''}</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.accuracy.toFixed(2)}%</div><div class="ri-sub">${formatTime(e.totalTime)} · ${e.correct}/${e.total} · ${formatDate(e.date)}</div></div><div class="ri-score green">${e.correct}/${e.total}</div></div>`;
     });
     html += `</div></div>`;
-    body.innerHTML = html; bindOddSubtabs();
+    body.innerHTML = html;
   }
 
   else if (recordsTab === 'compare'){
@@ -3648,6 +3931,47 @@ function renderRecords(){
     list.slice(0, MAX_LIST).forEach((e, i) => {
       const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
       html += `<div class="record-item"><div class="ri-rank ${rc}">${i + 1}</div><div class="ri-info"><div class="ri-title">${e.correct}/${e.total} <span class="ri-mode sound">${esc(e.modeLabel || 'Рандомный отрывок')}</span></div><div class="ri-sub">${e.accuracy.toFixed(1)}% · ${formatTime(e.totalTime)} · ${formatDate(e.date)}</div></div><div class="ri-score green">+${e.points}</div></div>`;
+    });
+    html += `</div></div>`;
+    body.innerHTML = html;
+  }
+
+  else if (recordsTab === 'estimateplays'){
+    const list = r.estimatePlaysResults || [];
+    if (!list.length){ body.innerHTML = emptyRecordsHTML('Сыграй «Угадай прослушивания», чтобы появилась статистика.'); return; }
+    const best = Math.max(...list.map(e => Number(e.score) || 0));
+    const avg = list.reduce((sum, e) => sum + (Number(e.score) || 0), 0) / list.length;
+    const avgPerTrack = list.reduce((sum, e) => sum + (Number(e.average) || 0), 0) / list.length;
+    let html = `<div class="stats-general-hero">
+      <div class="stats-hero-item"><span class="stats-hero-label">Лучший результат</span><span class="stats-hero-value purple">${best}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Средний счёт</span><span class="stats-hero-value">${avg.toFixed(1)}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">В среднем за трек</span><span class="stats-hero-value">${avgPerTrack.toFixed(1)}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Всего партий</span><span class="stats-hero-value">${list.length}</span></div>
+    </div><div class="record-section"><div class="record-section-title">Последние партии</div><div class="record-list">`;
+    list.slice(0, MAX_LIST).forEach((e,i) => { const rc=i===0?'gold':i===1?'silver':i===2?'bronze':''; html += `<div class="record-item"><div class="ri-rank ${rc}">${i+1}</div><div class="ri-info"><div class="ri-title">${e.score} баллов</div><div class="ri-sub">${e.total} треков · ${formatTime(e.totalTime)} · ${formatDate(e.date)}</div></div><div class="ri-score green">${Number(e.average||0).toFixed(1)}</div></div>`; });
+    html += `</div></div>`; body.innerHTML = html;
+  }
+
+  else if (recordsTab === 'blitz'){
+    const list = r.blitzResults || [];
+    if (!list.length){ body.innerHTML = emptyRecordsHTML('Сыграй BLITZ, чтобы появилась статистика.'); return; }
+    const best = Math.max(...list.map(e => Number(e.correct) || 0));
+    const avg = list.reduce((sum, e) => sum + (Number(e.correct) || 0), 0) / list.length;
+    const bestStreak = Math.max(...list.map(e => Number(e.bestStreak) || 0));
+    let html = `<div class="stats-general-hero">
+      <div class="stats-hero-item"><span class="stats-hero-label">Лучший результат</span><span class="stats-hero-value purple">${best}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Средний результат</span><span class="stats-hero-value">${avg.toFixed(1)}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Лучшая серия</span><span class="stats-hero-value">${bestStreak}</span></div>
+      <div class="stats-hero-item"><span class="stats-hero-label">Всего партий</span><span class="stats-hero-value">${list.length}</span></div>
+    </div>`;
+    html += `<div class="record-section"><div class="record-section-title">Лучшие результаты</div><div class="record-list">`;
+    list.slice().sort((a,b) => (b.correct||0)-(a.correct||0) || (b.bestStreak||0)-(a.bestStreak||0)).slice(0,5).forEach((e,i) => {
+      const rc = i === 0 ? 'gold' : i === 1 ? 'silver' : i === 2 ? 'bronze' : '';
+      html += `<div class="record-item"><div class="ri-rank ${rc}">${i+1}</div><div class="ri-info"><div class="ri-title">${e.correct} правильных ответов</div><div class="ri-sub">Серия ${e.bestStreak} · ${e.answered} ответов всего · ${formatDate(e.date)}</div></div><div class="ri-score green">${e.correct}</div></div>`;
+    });
+    html += `</div></div><div class="record-section"><div class="record-section-title">Последние партии</div><div class="record-list">`;
+    list.slice(0,MAX_LIST).forEach((e,i) => {
+      html += `<div class="record-item"><div class="ri-rank">${i+1}</div><div class="ri-info"><div class="ri-title">${e.correct} правильных · ${e.accuracy.toFixed(1)}%</div><div class="ri-sub">Лучшая серия ${e.bestStreak} · ${formatDate(e.date)}</div></div><div class="ri-score">+${e.points}</div></div>`;
     });
     html += `</div></div>`;
     body.innerHTML = html;
@@ -4372,14 +4696,18 @@ function updateOddTimer(){
   oddTimerEl.textContent = `${m}:${s}`;
 }
 function stopOddTimer(){ if (oddTimerInterval) clearInterval(oddTimerInterval); oddTimerInterval = null; oddTimerPill.classList.add('stopped'); }
-function startOddGame(mode){
-  oddMode = mode;
+function startOddGame(){
+  // Each round uses a randomly selected difference type; the type is never shown.
+  oddMode = 'mixed';
   oddRoundIndex = 0; oddRoundTimes = []; oddRoundResults = [];
   oddCorrectCount = 0; oddLocked = false; oddGameActive = true;
   oddUsedIds = new Set();
+  const types = ['covers', 'titles', 'album', 'year', 'artist'];
+  oddTypeQueue = shuffle(Array.from({length: ODD_ROUNDS}, (_, i) => types[i % types.length]));
   oddProgressBar.style.width = '0%'; oddProgressPercent.textContent = '0%';
   oddInfo.textContent = `Раунд 1 / ${ODD_ROUNDS}`;
-  oddTitleEl.textContent = mode === 'covers' ? 'Кто лишний · Обложки' : 'Кто лишний · Названия';
+  oddTitleEl.textContent = 'Кто лишний';
+  oddPrompt.textContent = 'Найди один трек, который отличается от остальных.';
   startOddTimer();
   nextOddRound();
 }
@@ -4390,8 +4718,10 @@ function nextOddRound(){
   const roundPct = (oddRoundIndex / ODD_ROUNDS) * 100;
   oddProgressBar.style.width = roundPct + '%';
   oddProgressPercent.textContent = Math.round(roundPct) + '%';
+  oddPrompt.textContent = 'Найди один трек, который отличается от остальных.';
+  oddRoundType = oddTypeQueue.shift() || 'artist';
 
-  if (oddMode === 'covers'){
+  if (oddRoundType === 'covers'){
     const tracksWithCovers = allTracks.filter(t => t.cover);
     if (tracksWithCovers.length < 4){ oddRoundIndex = ODD_ROUNDS; finishOddGame(); return; }
     const coverGroups = {};
@@ -4421,7 +4751,7 @@ function nextOddRound(){
     oddCards = cards; oddCurrentOddId = oddTrack.id;
     renderOddRound(cards);
     oddRoundStartTime = Date.now();
-  } else {
+  } else if (oddRoundType === 'titles') {
     const tracksWithCovers = allTracks.filter(t => t.cover && t.title.length >= 4);
     if (tracksWithCovers.length < 4){ oddRoundIndex = ODD_ROUNDS; finishOddGame(); return; }
     for (let attempt = 0; attempt < 40; attempt++){
@@ -4441,8 +4771,47 @@ function nextOddRound(){
       return;
     }
     oddRoundIndex++; nextOddRound();
+    return;
+  } else {
+    if (!buildAttributeOddRound(oddRoundType)) { oddRoundIndex++; nextOddRound(); }
   }
 }
+function buildAttributeOddRound(mode){
+  const fields = {
+    album: { field: 'albumName', label: t => t.albumName || 'Без альбома' },
+    year: { field: 'year', label: t => t.year ? String(t.year) : '—' },
+    artist: { field: 'artist', label: t => t.artist || '—' },
+  };
+  const cfg = fields[mode];
+  if (!cfg) return null;
+  const groups = new Map();
+  allTracks.forEach(t => {
+    const value = t[cfg.field];
+    if (value === null || value === undefined || String(value).trim() === '') return;
+    const key = String(value).trim();
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(t);
+  });
+  const bases = shuffle([...groups.entries()].filter(([, arr]) => arr.length >= 3));
+  for (const [baseValue, baseTracks] of bases){
+    const otherTracks = allTracks.filter(t => t.id !== undefined && String(t[cfg.field] ?? '').trim() !== baseValue);
+    if (otherTracks.length < 1) continue;
+    const basePicks = shuffle(baseTracks).slice(0, 3);
+    const oddPick = shuffle(otherTracks)[0];
+    const chosen = [...basePicks, oddPick];
+    if (new Set(chosen.map(t => t.id)).size !== 4) continue;
+    chosen.forEach(t => oddUsedIds.add(t.id));
+    const oddId = oddPick.id;
+    oddCurrentOddId = oddId;
+    const cards = shuffle(chosen.map(t => ({ track: t, isOdd: t.id === oddId, displayCover: t.cover, displayTitle: t.title })));
+    oddCards = cards;
+    renderOddRound(cards);
+    oddRoundStartTime = Date.now();
+    return cards;
+  }
+  return null;
+}
+
 function renderOddRound(cards){
   oddGrid.innerHTML = cards.map(c => {
     const t = c.track;
@@ -4450,7 +4819,7 @@ function renderOddRound(cards){
     const img = c.displayCover ? `<img src="${esc(c.displayCover)}" alt="" onerror="this.remove()">` : '';
     return `<div class="odd-card" data-id="${t.id}" style="--c1:${t.c1};--c2:${t.c2}">
       <div class="odd-letter">${letter}</div>${img}
-      <div class="odd-label"><div class="odd-title">${esc(c.displayTitle)}</div><div class="odd-artist">${esc(t.artist)}</div></div>
+      <div class="odd-label"><div class="odd-title">${esc(c.displayTitle)}</div></div>
     </div>`;
   }).join('');
 }
@@ -4489,8 +4858,7 @@ function finishOddGame(){
   };
   saveOddResult(entry);
   const bd = calcOddBreakdown(entry.totalTime, entry.accuracy, oddMode);
-  const modeLabel = oddMode === 'titles' ? 'Названия' : 'Обложки';
-  addPointsToHistory(bd.total, 'odd', `Кто лишний · ${modeLabel}`, `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
+  addPointsToHistory(bd.total, 'odd', 'Кто лишний', `${formatTime(entry.totalTime)} · ${entry.accuracy.toFixed(1)}%`);
   entry.earnedBreakdown = bd;
   showOddResults(entry);
 }
@@ -4507,7 +4875,7 @@ function showOddResults(e){
   const total = (loadRecords().totalPoints || 0).toLocaleString('ru-RU');
   const target = e.earnedBreakdown.midTimeSec ? formatTime(e.earnedBreakdown.midTimeSec) : '';
   wrap.innerHTML = `${renderPointsBreakdownHTML(e.earnedBreakdown, { percentLabel: e.accuracy.toFixed(1) + '%', timeLabel: target ? `${formatTime(e.totalTime)} / ${target}` : formatTime(e.totalTime) })}<div class="pb-total-line">Всего: <b>${total}</b></div>`;
-  let html = `<div class="odd-details-title">Все раунды · ${e.mode === 'titles' ? 'Названия' : 'Обложки'}</div><div class="odd-details-list">`;
+  let html = `<div class="odd-details-title">Все раунды</div><div class="odd-details-list">`;
   e.rounds.forEach((r, i) => {
     const cls = r.correct ? 'correct' : 'wrong';
     html += `<div class="odd-detail-row ${cls}"><span class="odd-detail-num">${i + 1}</span><span class="odd-detail-icon">${r.correct ? '✓' : '✗'}</span><span class="odd-detail-time">${formatSeconds(r.time)}</span></div>`;
@@ -4516,7 +4884,7 @@ function showOddResults(e){
   document.getElementById('oddDetails').innerHTML = html;
   openModal('oddResultsModal');
 }
-document.getElementById('oddPlayAgain').addEventListener('click', () => { closeModal('oddResultsModal'); runOddFlow(oddMode); });
+document.getElementById('oddPlayAgain').addEventListener('click', () => { closeModal('oddResultsModal'); runOddFlow(); });
 document.getElementById('oddToMenu').addEventListener('click', () => { closeModal('oddResultsModal'); showScreen('menu'); });
 
 /* ====================== ЧТО БОЛЬШЕ? ====================== */
@@ -4672,6 +5040,99 @@ function showCmpResults(e){
 }
 document.getElementById('cmpPlayAgain').addEventListener('click', () => { closeModal('cmpResultsModal'); runCompareFlow(cmpMode); });
 document.getElementById('cmpToMenu').addEventListener('click', () => { closeModal('cmpResultsModal'); showScreen('menu'); });
+
+/* ====================== УГАДАЙ ПРОСЛУШИВАНИЯ ====================== */
+function estimatePlaysEligible(){ return allTracks.filter(t => Number.isFinite(Number(t.plays)) && Number(t.plays) > 0); }
+function startEstimatePlaysTimer(){
+  stopEstimatePlaysTimer(); epTimerStart = Date.now(); epTimerPill.classList.remove('stopped');
+  const tick = () => { epTimerEl.textContent = formatTime((Date.now() - epTimerStart) / 1000); };
+  tick(); epTimerInterval = setInterval(tick, 250);
+}
+function stopEstimatePlaysTimer(){ if (epTimerInterval) clearInterval(epTimerInterval); epTimerInterval = null; epTimerPill.classList.add('stopped'); }
+function runEstimatePlaysFlow(){
+  const pool = estimatePlaysEligible();
+  if (pool.length < 4){ alert('Недостаточно треков с данными о прослушиваниях. Нужно минимум 4.'); return; }
+  runShuffleFlow('Готовим вопросы…', 'Подбираем треки с известным количеством прослушиваний', () => { startEstimatePlaysGame(); showScreen('estimateplays'); });
+}
+function startEstimatePlaysGame(){
+  epRoundIndex = 0; epRoundTimes = []; epRoundResults = []; epTotalScore = 0; epGameActive = true; epLocked = false; epUsedIds = new Set();
+  const pool = estimatePlaysEligible(); epCurrentMax = Math.max(...pool.map(t => Number(t.plays) || 0));
+  epCurrentMax = Math.max(1000, Math.ceil(epCurrentMax / 1000000) * 1000000);
+  epProgressBar.style.width = '0%'; epProgressPercent.textContent = '0%';
+  startEstimatePlaysTimer(); nextEstimatePlaysRound();
+}
+function nextEstimatePlaysRound(){
+  if (!epGameActive) return;
+  if (epRoundIndex >= ESTIMATE_PLAYS_ROUNDS){ finishEstimatePlaysGame(); return; }
+  epLocked = false; epInfo.textContent = `Раунд ${epRoundIndex + 1} / ${ESTIMATE_PLAYS_ROUNDS}`;
+  const pct = epRoundIndex / ESTIMATE_PLAYS_ROUNDS * 100; epProgressBar.style.width = pct + '%'; epProgressPercent.textContent = `${Math.round(pct)}%`;
+  const pool = estimatePlaysEligible().filter(t => !epUsedIds.has(t.id));
+  if (!pool.length){ finishEstimatePlaysGame(); return; }
+  epCurrentTrack = pool[Math.floor(Math.random() * pool.length)]; epUsedIds.add(epCurrentTrack.id);
+  const step = Math.max(100, Math.round(epCurrentMax / 1000 / 100) * 100);
+  const initial = Math.round(epCurrentMax / 2 / step) * step;
+  const cover = epCurrentTrack.cover ? `<img src="${esc(epCurrentTrack.cover)}" alt="" onerror="this.remove()">` : esc((epCurrentTrack.title[0] || '♪').toUpperCase());
+  estimatePlaysArea.innerHTML = `
+    <div class="ep-track" style="--c1:${epCurrentTrack.c1};--c2:${epCurrentTrack.c2}">
+      <div class="ep-cover">${cover}</div>
+      <div class="ep-meta"><div class="ep-title">${esc(epCurrentTrack.title)}</div><div class="ep-artist">${esc(epCurrentTrack.artist)}</div><div class="ep-album">${esc(epCurrentTrack.albumName || 'Сингл')}</div></div>
+    </div>
+    <div class="ep-question">Сколько прослушиваний у этого трека?</div>
+    <div class="ep-slider-card">
+      <div class="ep-value" id="epValue">${formatBigNum(initial)}</div>
+      <input class="ep-slider" id="epSlider" type="range" min="0" max="${epCurrentMax}" step="${step}" value="${initial}" aria-label="Предполагаемое количество прослушиваний">
+      <div class="ep-range"><span>0</span><span>${formatBigNum(epCurrentMax)}</span></div>
+      <div class="ep-actions"><button class="btn-primary" id="epSubmit">Подтвердить ответ</button></div>
+      <div class="ep-feedback" id="epFeedback" hidden></div>
+    </div>`;
+  const slider = document.getElementById('epSlider'); const value = document.getElementById('epValue');
+  slider.addEventListener('input', () => { value.textContent = Number(slider.value).toLocaleString('ru-RU'); });
+  document.getElementById('epSubmit').addEventListener('click', submitEstimatePlays);
+  epRoundStartTime = Date.now();
+}
+function submitEstimatePlays(){
+  if (!epGameActive || epLocked || !epCurrentTrack) return;
+  const slider = document.getElementById('epSlider'); if (!slider) return;
+  epLocked = true;
+  const guess = Number(slider.value), actual = Number(epCurrentTrack.plays) || 0;
+  const relativeError = actual > 0 ? Math.abs(guess - actual) / actual : 1;
+  const points = Math.max(0, Math.round(100 * (1 - Math.min(1, relativeError))));
+  const elapsed = Date.now() - epRoundStartTime;
+  epRoundTimes.push(elapsed); epRoundResults.push({ guess, actual, points, track: `${epCurrentTrack.artist} — ${epCurrentTrack.title}` }); epTotalScore += points;
+  slider.disabled = true; document.getElementById('epSubmit').disabled = true;
+  const feedback = document.getElementById('epFeedback'); feedback.hidden = false;
+  feedback.innerHTML = `На самом деле: <b>${formatBigNum(actual)} прослушиваний</b><br>Точность: <b>${points}%</b> · Получено: <b>+${points} баллов</b>`;
+  const btn = document.getElementById('epSubmit'); btn.textContent = epRoundIndex + 1 >= ESTIMATE_PLAYS_ROUNDS ? 'Завершить' : 'Следующий трек'; btn.disabled = false;
+  btn.addEventListener('click', () => { epRoundIndex++; nextEstimatePlaysRound(); }, { once: true });
+}
+function finishEstimatePlaysGame(){
+  epGameActive = false; stopEstimatePlaysTimer(); epProgressBar.style.width = '100%'; epProgressPercent.textContent = '100%'; epInfo.textContent = 'Игра завершена';
+  const total = epRoundResults.length;
+  const avg = total ? epTotalScore / total : 0;
+  const accuracy = avg;
+  const totalTime = (Date.now() - epTimerStart) / 1000;
+  const entry = { score: epTotalScore, average: +avg.toFixed(1), accuracy: +accuracy.toFixed(1), total, totalTime: +totalTime.toFixed(2), rounds: epRoundResults, date: Date.now() };
+  const r = loadRecords(); r.estimatePlaysResults.unshift(entry); r.estimatePlaysResults = r.estimatePlaysResults.slice(0, 100); saveRecords(r);
+  addPointsToHistory(epTotalScore, 'estimateplays', 'Угадай прослушивания', `${epTotalScore} баллов · ${total} треков`);
+  const best = Math.max(...r.estimatePlaysResults.map(x => Number(x.score) || 0));
+  const overallAvg = r.estimatePlaysResults.reduce((sum, x) => sum + (Number(x.score) || 0), 0) / r.estimatePlaysResults.length;
+  estimatePlaysArea.innerHTML = `
+    <div class="ep-result">
+      <div class="mode-desc-title">Результат завершён</div>
+      <div class="ep-result-score">${epTotalScore.toLocaleString('ru-RU')}</div>
+      <div class="sub">баллов из ${total * 100}</div>
+      <div class="ep-result-grid">
+        <div class="ep-result-stat"><span class="sub">Среднее за трек</span><b>${avg.toFixed(1)}</b></div>
+        <div class="ep-result-stat"><span class="sub">Лучший результат</span><b>${best}</b></div>
+        <div class="ep-result-stat"><span class="sub">Всего партий</span><b>${r.estimatePlaysResults.length}</b></div>
+      </div>
+      <div class="ep-feedback">Средний результат за все партии: <b>${overallAvg.toFixed(1)} балла</b><br>Время: <b>${formatTime(totalTime)}</b></div>
+      <div class="ep-actions"><button class="btn-primary" id="epAgain">Играть снова</button><button class="btn-secondary" id="epStats">Статистика</button><button class="btn-secondary" id="epMenu">В меню</button></div>
+    </div>`;
+  document.getElementById('epAgain').addEventListener('click', runEstimatePlaysFlow);
+  document.getElementById('epStats').addEventListener('click', () => { recordsTab='estimateplays'; document.querySelectorAll('.records-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.rtab==='estimateplays')); renderRecords(); openModal('recordsModal'); });
+  document.getElementById('epMenu').addEventListener('click', () => showScreen('menu'));
+}
 
 /* ====================== ОТКУДА СТРОЧКА ====================== */
 function startLineTimer(){
@@ -5953,6 +6414,231 @@ async function runSoundFlow(mode){
   showScreen('sound');
 }
 
+/* ====================== BLITZ ====================== */
+const BLITZ_DURATION_MS = 60000;
+const BLITZ_POINTS_PER_CORRECT = 2;
+let blitzState = null;
+let blitzTimerInterval = null;
+let blitzAdvanceTimeout = null;
+
+function blitzSample(items, count){
+  return shuffle(items).slice(0, Math.min(count, items.length));
+}
+function blitzUniqueOptions(correct, pool, getLabel, getSub){
+  const targetLabel = getLabel(correct);
+  const distractors = pool.filter(item => String(getLabel(item)) !== String(targetLabel));
+  const sampled = blitzSample(distractors, 3);
+  if (sampled.length < 3) return null;
+  const all = [correct, ...sampled];
+  return shuffle(all).map(item => ({ label: String(getLabel(item)), sub: getSub ? String(getSub(item) || '') : '', value: getLabel(item) }));
+}
+function blitzTrackOptions(correctTrack, pool){
+  const alternatives = pool.filter(t => t.id !== correctTrack.id && (t.title !== correctTrack.title || t.artist !== correctTrack.artist));
+  const picked = blitzSample(alternatives, 3);
+  if (picked.length < 3) return null;
+  return shuffle([correctTrack, ...picked]).map(t => ({ label: t.title, sub: t.artist, value: t.id }));
+}
+function blitzMakeQuestion(){
+  const tracks = allTracks.filter(t => t && t.title && t.artist);
+  if (tracks.length < 4) return null;
+  const generators = [];
+  const albums = [...new Set(tracks.map(t => t.albumName).filter(Boolean))];
+  const artists = [...new Set(tracks.map(t => t.artist).filter(Boolean))];
+  const years = [...new Set(tracks.map(t => Number(t.year)).filter(y => Number.isInteger(y) && y > 1900))];
+
+  if (albums.length >= 4){
+    generators.push(() => {
+      const candidates = tracks.filter(t => t.albumName);
+      const target = blitzSample(candidates,1)[0];
+      const opts = blitzUniqueOptions(target.albumName, albums, x=>x, x=>'Альбом');
+      return opts && {type:'Альбом',prompt:`С какого альбома трек «${target.title}»?`,options:opts,correct:opts.findIndex(o=>o.label===target.albumName),key:`album:${target.id}`};
+    });
+  }
+  if (artists.length >= 4){
+    generators.push(() => {
+      const target = blitzSample(tracks,1)[0];
+      const opts = blitzUniqueOptions(target.artist, artists, x=>x, x=>'Исполнитель');
+      return opts && {type:'Исполнитель',prompt:`Кто исполняет трек «${target.title}»?`,options:opts,correct:opts.findIndex(o=>o.label===target.artist),key:`artist:${target.id}`};
+    });
+  }
+  if (years.length >= 4){
+    generators.push(() => {
+      const candidates = tracks.filter(t => Number.isInteger(Number(t.year)) && Number(t.year)>1900);
+      const target = blitzSample(candidates,1)[0];
+      const opts = blitzUniqueOptions(Number(target.year), years, x=>String(x), x=>'Год релиза');
+      return opts && {type:'Год релиза',prompt:`В каком году вышел «${target.title}»?`,options:opts,correct:opts.findIndex(o=>o.label===String(target.year)),key:`year:${target.id}`};
+    });
+  }
+  const lyricCandidates = (lyricEntries || []).filter(e => e.lines && e.lines.length && tracks.some(t => t.artist===e.artist && t.title===e.title));
+  if (lyricCandidates.length >= 4){
+    generators.push(() => {
+      const entry = blitzSample(lyricCandidates,1)[0];
+      const target = tracks.find(t => t.artist===entry.artist && t.title===entry.title);
+      const line = blitzSample(entry.lines.filter(x=>String(x).trim().length>=12),1)[0] || entry.lines[0];
+      const opts = blitzTrackOptions(target, tracks);
+      const snippet = String(line).trim().length > 105 ? String(line).trim().slice(0,102)+'…' : String(line).trim();
+      return opts && {type:'Строчка',prompt:`Из какого трека эта строка?`,visual:`<div class="blitz-lyric">«${esc(snippet)}»</div>`,options:opts,correct:opts.findIndex(o=>o.value===target.id),key:`lyric:${entry.key}:${snippet}`};
+    });
+  }
+  const coverCandidates = tracks.filter(t => t.cover);
+  if (coverCandidates.length >= 4){
+    generators.push(() => {
+      const target = blitzSample(coverCandidates,1)[0];
+      const opts = blitzTrackOptions(target, tracks);
+      return opts && {type:'Обложка',prompt:'Как называется трек на этой обложке?',visual:`<div class="blitz-question-visual"><img src="${esc(target.cover)}" alt="Обложка трека" loading="eager"></div>`,options:opts,correct:opts.findIndex(o=>o.value===target.id),key:`cover:${target.id}`};
+    });
+  }
+  for (const field of ['plays','duration']){
+    const candidates = tracks.filter(t => Number(t[field]) > 0);
+    if (candidates.length >= 4){
+      generators.push(() => {
+        const group = blitzSample(candidates,4);
+        const correctTrack = group.reduce((best,t)=>Number(t[field])>Number(best[field])?t:best,group[0]);
+        const opts = group.map(t=>({label:t.title,sub:t.artist,value:t.id}));
+        return {type:field==='plays'?'Прослушивания':'Длительность',prompt:field==='plays'?'У какого трека больше прослушиваний?':'Какой трек длиннее?',options:shuffle(opts),correct:opts.findIndex(o=>o.value===correctTrack.id),key:`${field}:${group.map(t=>t.id).sort((a,b)=>a-b).join('-')}`};
+      });
+    }
+  }
+  if (!generators.length) return null;
+  for (let attempt=0; attempt<18; attempt++){
+    const q = blitzSample(generators,1)[0]();
+    if (q && q.correct >= 0 && !blitzState?.usedQuestions.has(q.key)) return q;
+  }
+  const q = blitzSample(generators,1)[0]();
+  return q && q.correct >= 0 ? q : null;
+}
+function blitzRenderQuestion(){
+  if (!blitzState || blitzState.finished) return;
+  const q = blitzMakeQuestion();
+  if (!q){ finishBlitzGame(); return; }
+  blitzState.question = q;
+  blitzState.usedQuestions.add(q.key);
+  blitzState.locked = false;
+  blitzArea.innerHTML = `
+    <div class="blitz-hud">
+      <div class="blitz-stat"><div class="blitz-stat-label">Правильные</div><div class="blitz-stat-value green" id="blitzCorrectValue">${blitzState.correct}</div></div>
+      <div class="blitz-stat"><div class="blitz-stat-label">Серия сейчас</div><div class="blitz-stat-value purple" id="blitzStreakValue">${blitzState.currentStreak}</div></div>
+      <div class="blitz-stat"><div class="blitz-stat-label">Лучшая серия</div><div class="blitz-stat-value" id="blitzBestStreakValue">${blitzState.bestStreak}</div></div>
+    </div>
+    <div class="blitz-question-card">
+      <div class="blitz-question-type">${esc(q.type)}</div>
+      <div class="blitz-question-prompt">${esc(q.prompt)}</div>
+      ${q.visual || ''}
+    </div>
+    <div class="blitz-options">
+      ${q.options.map((o,i)=>`<button class="blitz-option" data-blitz-answer="${i}"><span class="blitz-letter">${['A','B','C','D'][i]}</span><span class="blitz-option-copy"><span class="blitz-option-main">${esc(o.label)}</span>${o.sub?`<span class="blitz-option-sub">${esc(o.sub)}</span>`:''}</span></button>`).join('')}
+    </div>
+    <div class="blitz-feedback" id="blitzFeedback" aria-live="polite">Выбери правильный ответ как можно быстрее</div>`;
+  blitzInfo.textContent = `Вопрос ${blitzState.answered + 1} · 60 секунд`;
+}
+function blitzUpdateTimer(){
+  if (!blitzState || blitzState.finished) return;
+  const remaining = Math.max(0, BLITZ_DURATION_MS - (Date.now()-blitzState.startedAt));
+  const seconds = Math.ceil(remaining/1000);
+  blitzTimerEl.textContent = `00:${String(seconds).padStart(2,'0')}`;
+  const pct = Math.min(100,((BLITZ_DURATION_MS-remaining)/BLITZ_DURATION_MS)*100);
+  blitzProgressBar.style.width = `${pct}%`;
+  blitzProgressPercent.textContent = `${Math.floor(pct)}%`;
+  if (remaining <= 0) finishBlitzGame();
+}
+function startBlitzTimer(){
+  clearInterval(blitzTimerInterval);
+  blitzTimerPill.classList.remove('stopped');
+  blitzUpdateTimer();
+  blitzTimerInterval = setInterval(blitzUpdateTimer,100);
+}
+function answerBlitz(index){
+  if (!blitzState || blitzState.finished || blitzState.locked) return;
+  const q = blitzState.question;
+  if (!q || index<0 || index>=q.options.length) return;
+  blitzState.locked = true;
+  blitzState.answered++;
+  const correct = index === q.correct;
+  const buttons = blitzArea.querySelectorAll('[data-blitz-answer]');
+  buttons.forEach((btn,i)=>{
+    btn.disabled = true;
+    if (i===q.correct) btn.classList.add('correct');
+    else if (i===index) btn.classList.add('wrong');
+    else btn.classList.add('dimmed');
+  });
+  const feedback = document.getElementById('blitzFeedback');
+  if (correct){
+    blitzState.correct++;
+    blitzState.currentStreak++;
+    blitzState.bestStreak = Math.max(blitzState.bestStreak,blitzState.currentStreak);
+    blitzState.points += BLITZ_POINTS_PER_CORRECT;
+    if (feedback){feedback.textContent = `✓ Верно! Серия: ${blitzState.currentStreak}`;feedback.className='blitz-feedback good';}
+  } else {
+    blitzState.currentStreak = 0;
+    if (feedback){feedback.textContent = `✕ Серия прервана · правильный ответ: ${q.options[q.correct].label}`;feedback.className='blitz-feedback bad';}
+  }
+  const c=document.getElementById('blitzCorrectValue'); if(c)c.textContent=blitzState.correct;
+  const st=document.getElementById('blitzStreakValue'); if(st)st.textContent=blitzState.currentStreak;
+  const bs=document.getElementById('blitzBestStreakValue'); if(bs)bs.textContent=blitzState.bestStreak;
+  clearTimeout(blitzAdvanceTimeout);
+  blitzAdvanceTimeout=setTimeout(()=>{
+    if (!blitzState || blitzState.finished) return;
+    if (Date.now()-blitzState.startedAt>=BLITZ_DURATION_MS) finishBlitzGame();
+    else blitzRenderQuestion();
+  }, correct ? 115 : 235);
+}
+function runBlitzGame(){
+  if (allTracks.length<4){alert('Для BLITZ нужно минимум 4 трека в tracks.txt.');return;}
+  clearTimeout(blitzAdvanceTimeout);
+  clearInterval(blitzTimerInterval);
+  blitzState={startedAt:Date.now(),correct:0,answered:0,currentStreak:0,bestStreak:0,points:0,question:null,usedQuestions:new Set(),finished:false};
+  blitzInfo.textContent='Приготовься!';
+  blitzTimerEl.textContent='01:00';
+  blitzProgressBar.style.width='0%';
+  blitzProgressPercent.textContent='0%';
+  blitzTimerPill.classList.remove('stopped');
+  showScreen('blitz');
+  blitzRenderQuestion();
+  startBlitzTimer();
+}
+function finishBlitzGame(){
+  if (!blitzState || blitzState.finished) return;
+  blitzState.finished=true;
+  clearInterval(blitzTimerInterval); blitzTimerInterval=null;
+  clearTimeout(blitzAdvanceTimeout); blitzAdvanceTimeout=null;
+  blitzTimerEl.textContent='00:00';
+  blitzTimerPill.classList.add('stopped');
+  blitzProgressBar.style.width='100%'; blitzProgressPercent.textContent='100%';
+  blitzInfo.textContent='Время вышло';
+  const accuracy=blitzState.answered ? (blitzState.correct/blitzState.answered)*100 : 0;
+  const entry={correct:blitzState.correct,answered:blitzState.answered,bestStreak:blitzState.bestStreak,accuracy,points:blitzState.points,date:Date.now()};
+  const r=loadRecords();
+  r.blitzResults.unshift(entry); r.blitzResults=r.blitzResults.slice(0,1000); saveRecords(r);
+  if (blitzState.points>0) addPointsToHistory(blitzState.points,'blitz','BLITZ',`${blitzState.correct} правильных · серия ${blitzState.bestStreak}`);
+  const all=r.blitzResults;
+  const avg=all.reduce((sum,e)=>sum+(Number(e.correct)||0),0)/all.length;
+  const best=Math.max(...all.map(e=>Number(e.correct)||0));
+  blitzArea.innerHTML=`
+    <div class="blitz-result">
+      <div class="blitz-result-title">${blitzState.correct>=25?'Невероятная скорость!':blitzState.correct>=15?'Отличный результат!':blitzState.correct>=8?'Хорошая попытка!':'Время вышло!'}</div>
+      <div class="blitz-result-score">${blitzState.correct}</div>
+      <div class="blitz-result-stats">
+        <div>Правильные ответы<b>${blitzState.correct}</b></div>
+        <div>Лучшая серия<b>${blitzState.bestStreak}</b></div>
+        <div>Точность<b>${accuracy.toFixed(0)}%</b></div>
+        <div>Баллы<b>+${blitzState.points}</b></div>
+      </div>
+      <div class="blitz-player-note" style="color:var(--muted);font-size:12px">Твой рекорд: <b style="color:#c4b5fd">${best}</b> · Средний результат: <b style="color:#fff">${avg.toFixed(1)}</b></div>
+      <div class="blitz-result-actions">
+        <button class="btn-primary" id="blitzPlayAgain">Ещё раз</button>
+        <button class="btn-secondary" id="blitzOpenStats">Статистика</button>
+        <button class="btn-secondary" id="blitzToMenu">В меню</button>
+      </div>
+    </div>`;
+}
+blitzArea.addEventListener('click',event=>{
+  const answer=event.target.closest('[data-blitz-answer]');
+  if(answer){answerBlitz(Number(answer.dataset.blitzAnswer));return;}
+  if(event.target.closest('#blitzPlayAgain')){runBlitzGame();return;}
+  if(event.target.closest('#blitzOpenStats')){recordsTab='blitz';document.querySelectorAll('.records-tabs button').forEach(b=>b.classList.toggle('active',b.dataset.rtab==='blitz'));renderRecords();openModal('recordsModal');return;}
+  if(event.target.closest('#blitzToMenu')){showScreen('menu');return;}
+});
+
 /* ====================== ОЦЕНКА ПЛЕЙЛИСТА SOUNDCLOUD ====================== */
 let bestPlaylistState = null;
 let bestPlaylistAudio = null;
@@ -6754,6 +7440,300 @@ document.getElementById('ratingToMenu').addEventListener('click', () => {
   showScreen('menu');
 });
 
+/* ====================== COVER PUZZLE ====================== */
+const PUZZLE_SIZES = [5, 10, 25];
+let puzzleSize = 5;
+let puzzleCoverOptions = [];
+let puzzleSelectedCover = null;
+let puzzleTiles = [];
+let puzzleSelectedPos = -1;
+let puzzlePointerState = null;
+let puzzleStartedAt = 0;
+let puzzleTimer = null;
+let puzzleMovesCount = 0;
+let puzzleRotationsCount = 0;
+let puzzleFinished = false;
+let puzzleImageUrl = '';
+
+const puzzleSetupEl = document.getElementById('puzzleSetup');
+const puzzleGameEl = document.getElementById('puzzleGame');
+const puzzleCompleteEl = document.getElementById('puzzleComplete');
+const puzzleCoverGridEl = document.getElementById('puzzleCoverGrid');
+const puzzleStartBtnEl = document.getElementById('puzzleStartBtn');
+const puzzleBoardEl = document.getElementById('puzzleBoard');
+
+function getPuzzleCoverOptions(){
+  const byCover = new Map();
+  allTracks.forEach(track => {
+    if (!track.cover) return;
+    const key = String(track.cover).trim();
+    if (!key || byCover.has(key)) return;
+    byCover.set(key, {
+      cover: key,
+      title: track.albumName || track.title || 'Без названия',
+      artist: track.artist || ''
+    });
+  });
+  return [...byCover.values()].sort((a,b)=>a.title.localeCompare(b.title,'ru'));
+}
+
+function renderPuzzleCoverOptions(filter=''){
+  const q = String(filter||'').trim().toLocaleLowerCase('ru');
+  const options = puzzleCoverOptions.filter(item => !q || `${item.title} ${item.artist}`.toLocaleLowerCase('ru').includes(q));
+  if (!options.length){
+    puzzleCoverGridEl.innerHTML = '<div class="records-empty"><div class="txt">Обложки не найдены</div></div>';
+    return;
+  }
+  puzzleCoverGridEl.innerHTML = options.map(item => `
+    <button class="puzzle-cover-option ${puzzleSelectedCover?.cover===item.cover?'selected':''}" type="button" data-puzzle-cover="${esc(item.cover)}" title="${esc(item.title)}">
+      <img src="${esc(item.cover)}" loading="lazy" alt="" onerror="this.style.opacity='.18'">
+      <div class="pco-title">${esc(item.title)}</div>
+      <div class="pco-sub">${esc(item.artist)}</div>
+    </button>`).join('');
+}
+
+function runCoverPuzzleFlow(){
+  puzzleCoverOptions = getPuzzleCoverOptions();
+  puzzleSelectedCover = null;
+  puzzleSize = 5;
+  document.querySelectorAll('[data-puzzle-size]').forEach(btn=>btn.classList.toggle('active',Number(btn.dataset.puzzleSize)===puzzleSize));
+  document.getElementById('puzzleCoverSearch').value = '';
+  document.getElementById('puzzleSelectedLabel').textContent = 'Обложка не выбрана';
+  puzzleStartBtnEl.disabled = true;
+  puzzleSetupEl.classList.remove('puzzle-hidden');
+  puzzleGameEl.classList.add('puzzle-hidden');
+  puzzleCompleteEl.classList.add('puzzle-hidden');
+  renderPuzzleCoverOptions();
+  showScreen('coverpuzzle');
+  if (!puzzleCoverOptions.length){
+    puzzleCoverGridEl.innerHTML = '<div class="records-empty"><div class="txt">В tracks.txt не найдены обложки. Добавь файлы обложек и обнови страницу.</div></div>';
+  }
+}
+
+function selectPuzzleCover(cover){
+  puzzleSelectedCover = puzzleCoverOptions.find(item=>item.cover===cover) || null;
+  puzzleStartBtnEl.disabled = !puzzleSelectedCover;
+  document.getElementById('puzzleSelectedLabel').textContent = puzzleSelectedCover ? `Выбрано: ${puzzleSelectedCover.title}` : 'Обложка не выбрана';
+  renderPuzzleCoverOptions(document.getElementById('puzzleCoverSearch').value);
+}
+
+function buildPuzzleTiles(){
+  const total = puzzleSize * puzzleSize;
+  const order = shuffle(Array.from({length:total},(_,i)=>i));
+  if (order.every((v,i)=>v===i) && total>1) [order[0],order[1]]=[order[1],order[0]];
+  puzzleTiles = order.map(sourceIndex=>({sourceIndex,rotation:Math.floor(Math.random()*4)}));
+  if (puzzleTiles.every((tile,pos)=>tile.sourceIndex===pos && tile.rotation===0)) puzzleTiles[0].rotation=1;
+}
+
+function updatePuzzleTileElement(pos){
+  const tile = puzzleTiles[pos];
+  const el = puzzleBoardEl.children[pos];
+  if (!tile || !el) return;
+  const row = Math.floor(tile.sourceIndex / puzzleSize);
+  const col = tile.sourceIndex % puzzleSize;
+  const pctX = puzzleSize===1 ? 0 : (col/(puzzleSize-1))*100;
+  const pctY = puzzleSize===1 ? 0 : (row/(puzzleSize-1))*100;
+  el.style.backgroundPosition = `${pctX}% ${pctY}%`;
+  el.style.transform = `rotate(${tile.rotation*90}deg)`;
+  el.setAttribute('aria-label',`Фрагмент ${pos+1}, поворот ${tile.rotation*90} градусов`);
+  el.classList.toggle('selected',pos===puzzleSelectedPos);
+}
+
+function renderPuzzleBoard(){
+  puzzleBoardEl.innerHTML = '';
+  puzzleBoardEl.style.gridTemplateColumns = `repeat(${puzzleSize},minmax(0,1fr))`;
+  puzzleBoardEl.style.gridTemplateRows = `repeat(${puzzleSize},minmax(0,1fr))`;
+  puzzleBoardEl.className = `puzzle-board size-${puzzleSize}`;
+  const bgSize = `${puzzleSize*100}% ${puzzleSize*100}%`;
+  const safeUrl = puzzleImageUrl.replace(/"/g,'%22').replace(/[\r\n]/g,'');
+  const frag = document.createDocumentFragment();
+  for (let pos=0;pos<puzzleTiles.length;pos++){
+    const el = document.createElement('div');
+    el.className = 'puzzle-tile';
+    el.dataset.pos = String(pos);
+    el.style.backgroundImage = `url("${safeUrl}")`;
+    el.style.backgroundSize = bgSize;
+    el.style.backgroundRepeat = 'no-repeat';
+    el.style.backgroundColor = '#211a30';
+    el.draggable = false;
+    frag.appendChild(el);
+  }
+  puzzleBoardEl.appendChild(frag);
+  for (let pos=0;pos<puzzleTiles.length;pos++) updatePuzzleTileElement(pos);
+  updatePuzzleStatus();
+}
+
+function startPuzzleTimer(){
+  stopPuzzleTimer();
+  puzzleStartedAt = Date.now();
+  updatePuzzleClock();
+  puzzleTimer = setInterval(updatePuzzleClock,1000);
+}
+function updatePuzzleClock(){
+  const sec = Math.floor((Date.now()-puzzleStartedAt)/1000);
+  document.getElementById('puzzleClock').textContent = formatTime(sec);
+}
+function stopPuzzleTimer(){ if(puzzleTimer){clearInterval(puzzleTimer);puzzleTimer=null;} }
+function updatePuzzleStatus(){
+  document.getElementById('puzzleMoves').textContent = puzzleMovesCount;
+  document.getElementById('puzzleRotations').textContent = puzzleRotationsCount;
+  document.getElementById('puzzleSizeLabel').textContent = `${puzzleSize} × ${puzzleSize}`;
+  document.getElementById('puzzleRotateLeft').disabled = puzzleSelectedPos<0 || puzzleFinished;
+  document.getElementById('puzzleRotateRight').disabled = puzzleSelectedPos<0 || puzzleFinished;
+}
+
+async function startCoverPuzzle(){
+  if (!puzzleSelectedCover) return;
+  puzzleStartBtnEl.disabled = true;
+  const img = new Image();
+  const url = puzzleSelectedCover.cover;
+  img.onload = () => {
+    puzzleImageUrl = url;
+    puzzleSelectedPos = -1;
+    puzzleMovesCount = 0;
+    puzzleRotationsCount = 0;
+    puzzleFinished = false;
+    puzzlePointerState = null;
+    buildPuzzleTiles();
+    renderPuzzleBoard();
+    puzzleSetupEl.classList.add('puzzle-hidden');
+    puzzleCompleteEl.classList.add('puzzle-hidden');
+    puzzleGameEl.classList.remove('puzzle-hidden');
+    startPuzzleTimer();
+    puzzleStartBtnEl.disabled = false;
+  };
+  img.onerror = () => {
+    puzzleStartBtnEl.disabled = false;
+    alert('Не удалось загрузить эту обложку. Проверь путь к файлу на GitHub.');
+  };
+  img.src = url;
+}
+
+function rotateSelectedPuzzleTile(direction){
+  if (puzzleFinished || puzzleSelectedPos<0) return;
+  const tile = puzzleTiles[puzzleSelectedPos];
+  tile.rotation = (tile.rotation + direction + 4) % 4;
+  puzzleMovesCount++;
+  puzzleRotationsCount++;
+  updatePuzzleTileElement(puzzleSelectedPos);
+  updatePuzzleStatus();
+  checkCoverPuzzleSolved();
+}
+
+function swapPuzzleTiles(from,to){
+  if (puzzleFinished || from===to || from<0 || to<0) return;
+  const previousSelected = puzzleSelectedPos;
+  [puzzleTiles[from],puzzleTiles[to]]=[puzzleTiles[to],puzzleTiles[from]];
+  puzzleMovesCount++;
+  puzzleSelectedPos = to;
+  if (previousSelected>=0 && previousSelected!==from && previousSelected!==to) updatePuzzleTileElement(previousSelected);
+  updatePuzzleTileElement(from);
+  updatePuzzleTileElement(to);
+  updatePuzzleStatus();
+  checkCoverPuzzleSolved();
+}
+
+function checkCoverPuzzleSolved(){
+  if (puzzleFinished || !puzzleTiles.length) return;
+  const solved = puzzleTiles.every((tile,pos)=>tile.sourceIndex===pos && tile.rotation===0);
+  if (solved) finishCoverPuzzle();
+}
+
+function finishCoverPuzzle(){
+  if (puzzleFinished) return;
+  puzzleFinished = true;
+  stopPuzzleTimer();
+  const time = Math.max(0,Math.floor((Date.now()-puzzleStartedAt)/1000));
+  const points = puzzleSize===5 ? 25 : puzzleSize===10 ? 100 : 250;
+  const entry = {
+    size:puzzleSize,
+    cover:puzzleSelectedCover?.title || 'Обложка',
+    time,
+    moves:puzzleMovesCount,
+    rotations:puzzleRotationsCount,
+    points,
+    date:Date.now()
+  };
+  saveCoverPuzzleResult(entry);
+  addPointsToHistory(points,'coverpuzzle','Cover Puzzle',`${puzzleSize} × ${puzzleSize} · ${puzzleMovesCount} ходов · ${formatTime(time)}`);
+  document.getElementById('puzzleCompleteSubtitle').textContent = `${puzzleSelectedCover?.title || 'Обложка'} · ${puzzleSize} × ${puzzleSize}`;
+  document.getElementById('puzzleResultTime').textContent = formatTime(time);
+  document.getElementById('puzzleResultMoves').textContent = puzzleMovesCount;
+  document.getElementById('puzzleResultRotations').textContent = puzzleRotationsCount;
+  document.getElementById('puzzleResultPoints').textContent = `+${points}`;
+  puzzleGameEl.classList.add('puzzle-hidden');
+  puzzleCompleteEl.classList.remove('puzzle-hidden');
+}
+
+function returnToPuzzleSetup(){
+  stopPuzzleTimer();
+  puzzleFinished = true;
+  puzzleGameEl.classList.add('puzzle-hidden');
+  puzzleCompleteEl.classList.add('puzzle-hidden');
+  puzzleSetupEl.classList.remove('puzzle-hidden');
+  puzzleSelectedPos=-1;
+  puzzleStartBtnEl.disabled = !puzzleSelectedCover;
+}
+
+// Pick difficulty and cover.
+document.querySelectorAll('[data-puzzle-size]').forEach(btn=>btn.addEventListener('click',()=>{
+  puzzleSize=Number(btn.dataset.puzzleSize);
+  document.querySelectorAll('[data-puzzle-size]').forEach(b=>b.classList.toggle('active',b===btn));
+}));
+puzzleCoverGridEl.addEventListener('click',e=>{
+  const btn=e.target.closest('[data-puzzle-cover]');
+  if(btn) selectPuzzleCover(btn.dataset.puzzleCover);
+});
+document.getElementById('puzzleCoverSearch').addEventListener('input',e=>renderPuzzleCoverOptions(e.target.value));
+puzzleStartBtnEl.addEventListener('click',startCoverPuzzle);
+document.getElementById('puzzleBackModes').addEventListener('click',()=>showScreen('modes'));
+document.getElementById('puzzleRotateLeft').addEventListener('click',()=>rotateSelectedPuzzleTile(-1));
+document.getElementById('puzzleRotateRight').addEventListener('click',()=>rotateSelectedPuzzleTile(1));
+document.getElementById('puzzleExitBtn').addEventListener('click',returnToPuzzleSetup);
+document.getElementById('puzzleAgainBtn').addEventListener('click',startCoverPuzzle);
+document.getElementById('puzzleChooseBtn').addEventListener('click',returnToPuzzleSetup);
+
+// One delegated pointer handler keeps 25×25 mode lightweight. Click selects; drag swaps.
+puzzleBoardEl.addEventListener('pointerdown',e=>{
+  const tile=e.target.closest('.puzzle-tile');
+  if(!tile || puzzleFinished) return;
+  e.preventDefault();
+  puzzlePointerState={from:Number(tile.dataset.pos),startX:e.clientX,startY:e.clientY,moved:false,pointerId:e.pointerId};
+  tile.classList.add('dragging');
+  try{puzzleBoardEl.setPointerCapture(e.pointerId);}catch{}
+});
+puzzleBoardEl.addEventListener('pointermove',e=>{
+  if(!puzzlePointerState || puzzlePointerState.pointerId!==e.pointerId) return;
+  const dx=e.clientX-puzzlePointerState.startX,dy=e.clientY-puzzlePointerState.startY;
+  if(Math.hypot(dx,dy)>7) puzzlePointerState.moved=true;
+  puzzleBoardEl.querySelectorAll('.drop-target').forEach(el=>el.classList.remove('drop-target'));
+  if(puzzlePointerState.moved){
+    const under=document.elementFromPoint(e.clientX,e.clientY)?.closest('.puzzle-tile');
+    if(under && puzzleBoardEl.contains(under)) under.classList.add('drop-target');
+  }
+});
+function endPuzzlePointer(e){
+  if(!puzzlePointerState || puzzlePointerState.pointerId!==e.pointerId) return;
+  const state=puzzlePointerState;
+  puzzlePointerState=null;
+  const under=document.elementFromPoint(e.clientX,e.clientY)?.closest('.puzzle-tile');
+  const target=under && puzzleBoardEl.contains(under) ? Number(under.dataset.pos) : state.from;
+  puzzleBoardEl.querySelectorAll('.dragging,.drop-target').forEach(el=>el.classList.remove('dragging','drop-target'));
+  if(state.moved && Number.isInteger(target) && target!==state.from){
+    swapPuzzleTiles(state.from,target);
+  }else{
+    if(puzzleSelectedPos!==state.from){
+      const previous=puzzleSelectedPos;
+      puzzleSelectedPos=state.from;
+      if(previous>=0) updatePuzzleTileElement(previous);
+      updatePuzzleTileElement(puzzleSelectedPos);
+      updatePuzzleStatus();
+    }
+  }
+}
+puzzleBoardEl.addEventListener('pointerup',endPuzzlePointer);
+puzzleBoardEl.addEventListener('pointercancel',endPuzzlePointer);
+
 /* ====================== ПОТОКИ ====================== */
 function runShuffleFlow(title, sub, callback){
   document.getElementById('shuffleTitle').textContent = title;
@@ -6769,7 +7749,7 @@ function runShuffleFlow(title, sub, callback){
 }
 function runTournamentFlow(){ runShuffleFlow('Перемешиваем треки…', 'Готовим сетку турнира', () => { startTournament(); showScreen('tournament'); }); }
 function runChronologyFlow(){ runShuffleFlow('Перемешиваем треки…', 'Готовим игровое поле', () => { startChronology(); }); }
-function runOddFlow(mode){ const sub = mode === 'titles' ? 'Подбираем названия' : 'Подбираем обложки'; runShuffleFlow('Готовим раунды…', sub, () => { startOddGame(mode); showScreen('odd'); }); }
+function runOddFlow(){ runShuffleFlow('Готовим раунды…', 'Подбираем треки', () => { startOddGame(); showScreen('odd'); }); }
 function runCompareFlow(mode){ const sub = mode === 'duration' ? 'Сравниваем длительности' : 'Сравниваем прослушивания'; runShuffleFlow('Готовим раунды…', sub, () => { startCompareGame(mode); showScreen('compare'); }); }
 function runLineFlow(mode){
   if (!lyricsReady){
@@ -6836,7 +7816,7 @@ async function init(){
   await loadLyrics();
 
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 10 режимов`;
+    menuSub.textContent = `${allTracks.length} треков · 14 режимов`;
     menuStats.innerHTML =
       `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
