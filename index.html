@@ -341,6 +341,7 @@
   .bt-thumb{position:relative;width:20px;height:20px;border-radius:6px;background:linear-gradient(135deg,var(--c1),var(--c2));display:grid;place-items:center;font-size:10px;font-weight:700;color:#fff;overflow:hidden;flex-shrink:0}
   .bt-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .bracket-track .bt-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .bracket-track .extra-play-btn{padding:4px 7px;font-size:9px;margin-left:auto}
   .bracket-track.bw{background:rgba(34,197,94,.14);border-color:rgba(34,197,94,.4);color:#dcfce7;font-weight:600}
   .bracket-track.auto{opacity:.65;font-style:italic}
   .bracket-track.auto::after{content:'bye';font-size:9px;color:var(--muted);margin-left:auto;text-transform:uppercase;letter-spacing:.08em}
@@ -1707,6 +1708,115 @@
     .puzzle-size-btn{min-width:0}
   }
 
+
+  /* Дополнительные режимы: Track Order / Blind Ranking / Tier List / Reverse ID */
+  .extra-wrap{width:min(100%,900px);display:flex;flex-direction:column;gap:16px}
+  .extra-panel{padding:18px;border:1px solid var(--border);border-radius:18px;background:var(--card)}
+  .extra-muted{color:var(--muted);font-size:12px;line-height:1.5;text-align:center}
+  .extra-list{display:flex;flex-direction:column;gap:8px}
+  .extra-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.035)}
+  .extra-row .extra-name{flex:1;min-width:0;font-size:13px;font-weight:650;overflow-wrap:anywhere}
+  .extra-row .extra-artist{font-size:11px;color:var(--muted);font-weight:500}
+  .extra-row button,.extra-chip{border:1px solid var(--border);background:rgba(255,255,255,.06);color:#eee;font:inherit;border-radius:9px;padding:7px 10px;cursor:pointer}
+  .extra-row button:disabled{opacity:.25;cursor:default}
+  .extra-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  .extra-actions button{width:auto;min-width:150px}
+  .extra-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .extra-option{padding:14px;border:1px solid var(--border);border-radius:14px;background:rgba(255,255,255,.04);color:#fff;text-align:left;cursor:pointer;font:inherit;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both}
+  .extra-option:hover:not(:disabled){transform:translateY(-3px);border-color:rgba(196,181,253,.65);background:rgba(139,92,246,.13);box-shadow:0 16px 36px -22px rgba(139,92,246,.9)}
+  .extra-option:active:not(:disabled){transform:translateY(-1px) scale(.985)}
+  .extra-option:disabled{opacity:.55;cursor:default}
+  .extra-option.is-selected{border-color:rgba(196,181,253,.9);background:rgba(139,92,246,.2);box-shadow:0 0 0 2px rgba(139,92,246,.18);transform:scale(.985)}
+  .extra-option.is-correct{border-color:#22c55e;background:rgba(34,197,94,.13);box-shadow:0 0 0 2px rgba(34,197,94,.55),0 18px 42px -22px rgba(34,197,94,.9);animation:bestWinnerPulse .72s ease both}
+  .extra-option.is-wrong{border-color:#ef4444;background:rgba(239,68,68,.12);box-shadow:0 0 0 2px rgba(239,68,68,.45);animation:extraWrongShake .32s ease both}
+  @keyframes extraWrongShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+  .extra-track-card{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:6px 0 2px;animation:cardIn .35s cubic-bezier(.2,.8,.2,1) both}
+  .extra-track-line{display:flex;align-items:center;gap:9px;min-width:0;width:100%;padding:9px 10px;border:1px solid rgba(255,255,255,.07);border-radius:11px;background:rgba(255,255,255,.035)}
+  .extra-track-line.compact{padding:6px;gap:5px;flex-direction:column;align-items:stretch}
+  .extra-track-text{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1;text-align:left}
+  .extra-track-title{font-size:12px;line-height:1.25;font-weight:750;color:#f5f3ff;overflow-wrap:anywhere}
+  .extra-track-artist{font-size:10.5px;color:var(--muted);overflow-wrap:anywhere}
+  .extra-play-btn{flex-shrink:0;border:1px solid rgba(167,139,250,.35);border-radius:99px;background:rgba(139,92,246,.13);color:#e9d5ff;padding:7px 11px;font:inherit;font-size:10.5px;font-weight:750;cursor:pointer;transition:transform .18s,background .18s,border-color .18s}
+  .extra-play-btn:hover{transform:translateY(-1px);background:rgba(139,92,246,.25);border-color:rgba(196,181,253,.7)}
+  .extra-play-btn.playing{color:#fff;background:linear-gradient(100deg,#8b5cf6,#ec4899);border-color:transparent}
+  .bt-board-panel{overflow:hidden}
+  .bt-board-hint{margin:-4px 0 14px}
+  .tier-board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px}
+  .tier-col{position:relative;display:flex;flex-direction:column;align-items:stretch;min-height:168px;padding:11px 9px;border:1px solid var(--border);border-radius:15px;background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.018));cursor:pointer;outline:none;overflow:hidden;transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .22s,background .22s,box-shadow .22s}
+  .tier-col:hover,.tier-col:focus-visible{transform:translateY(-4px);border-color:var(--tier-glow,rgba(196,181,253,.7));background:linear-gradient(155deg,var(--tier-wash,rgba(139,92,246,.14)),rgba(255,255,255,.025));box-shadow:0 15px 32px -22px var(--tier-glow,rgba(196,181,253,.8))}
+  .tier-col:active{transform:translateY(-1px) scale(.985)}
+  .tier-col.is-targeted{border-color:var(--tier-glow,#c4b5fd);background:var(--tier-wash,rgba(139,92,246,.2));box-shadow:0 0 0 2px var(--tier-wash,rgba(139,92,246,.18)),0 15px 38px -20px var(--tier-glow,rgba(196,181,253,.8));animation:tierTargetPulse .34s ease both}
+  .tier-col[data-tier="S"]{--tier-glow:#f9a8d4;--tier-wash:rgba(249,168,212,.13)}
+  .tier-col[data-tier="A"]{--tier-glow:#c4b5fd;--tier-wash:rgba(196,181,253,.13)}
+  .tier-col[data-tier="B"]{--tier-glow:#93c5fd;--tier-wash:rgba(147,197,253,.13)}
+  .tier-col[data-tier="C"]{--tier-glow:#86efac;--tier-wash:rgba(134,239,172,.13)}
+  .tier-col[data-tier="D"]{--tier-glow:#fca5a5;--tier-wash:rgba(252,165,165,.13)}
+  .tier-col-head{display:flex;align-items:center;justify-content:space-between;gap:6px;margin-bottom:10px}
+  .tier-col h3{text-align:center;font-size:19px;line-height:1;margin:0;font-weight:900}
+  .tier-col[data-tier="S"] h3{color:#f9a8d4}.tier-col[data-tier="A"] h3{color:#c4b5fd}.tier-col[data-tier="B"] h3{color:#93c5fd}.tier-col[data-tier="C"] h3{color:#86efac}.tier-col[data-tier="D"] h3{color:#fca5a5}
+  .tier-count{min-width:23px;height:23px;display:inline-flex;align-items:center;justify-content:center;padding:0 6px;border-radius:99px;background:rgba(255,255,255,.07);color:var(--muted);font-size:10px;font-weight:850}
+  .tier-empty{display:flex;flex:1;align-items:center;justify-content:center;min-height:72px;padding:10px 5px;border:1px dashed rgba(255,255,255,.12);border-radius:10px;color:var(--muted);font-size:10px;text-align:center;line-height:1.4;transition:border-color .2s,color .2s,background .2s}
+  .tier-col:hover .tier-empty,.tier-col.is-targeted .tier-empty{border-color:var(--tier-glow);color:#fff;background:var(--tier-wash)}
+  .tier-track{font-size:10px;line-height:1.3;padding:6px;margin:4px 0;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.055);overflow-wrap:anywhere;animation:cardIn .32s ease both}
+  .tier-track.tier-track-new{animation:tierDropIn .55s cubic-bezier(.18,.85,.25,1.2) both;border-color:var(--tier-glow,rgba(196,181,253,.4));box-shadow:0 8px 24px -15px var(--tier-glow,rgba(196,181,253,.7))}
+  .tier-track .extra-track-title{font-size:10px}.tier-track .extra-track-artist{font-size:9px}.tier-track .extra-play-btn{width:100%;padding:5px 7px;font-size:9px}
+  @keyframes tierTargetPulse{0%{transform:scale(.985)}55%{transform:scale(1.025)}100%{transform:scale(1)}}
+  @keyframes tierDropIn{0%{opacity:0;transform:translateY(-18px) scale(.88);filter:blur(4px)}65%{opacity:1;transform:translateY(3px) scale(1.025);filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1)}}
+  .ri-option-card{display:flex;flex-direction:column;gap:10px;min-width:0;padding:14px;border:1px solid var(--border);border-radius:16px;background:rgba(255,255,255,.045);animation:cardIn .38s cubic-bezier(.2,.8,.2,1) both;transition:transform .22s,border-color .22s,background .22s,box-shadow .22s}
+  .ri-option-card:nth-child(2){animation-delay:.04s}.ri-option-card:nth-child(3){animation-delay:.08s}.ri-option-card:nth-child(4){animation-delay:.12s}
+  .ri-option-card.is-correct{border-color:rgba(34,197,94,.85);background:rgba(34,197,94,.1);box-shadow:0 0 0 1px rgba(34,197,94,.45),0 20px 50px -25px rgba(34,197,94,.75);animation:bestWinnerPulse .72s ease both}
+  .ri-option-card.is-wrong{border-color:rgba(239,68,68,.8);background:rgba(239,68,68,.08);animation:extraWrongShake .32s ease both}
+  .ri-option-title{font-size:13px;font-weight:800;line-height:1.25;color:#fff;overflow-wrap:anywhere}
+  .ri-option-artist{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+  .ri-option-actions{display:flex;gap:7px;margin-top:auto}
+  .ri-option-actions button{flex:1;min-width:0}
+  .ri-answer-btn{padding:8px 10px;border:0;border-radius:99px;background:linear-gradient(100deg,#8b5cf6,#ec4899);color:#fff;font:inherit;font-size:11px;font-weight:800;cursor:pointer;transition:transform .18s,filter .18s}
+  .ri-answer-btn:hover:not(:disabled){transform:translateY(-2px);filter:brightness(1.12)}
+  .ri-answer-btn:disabled{opacity:.45;cursor:default}
+  .extra-victory{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;width:100%;padding:8px 0 14px;animation:cardIn .55s cubic-bezier(.2,.8,.2,1) both;overflow:hidden}
+  .extra-victory .champion-summary{--c1:#8b5cf6;--c2:#ec4899}
+  .extra-victory-icon{font-size:46px;line-height:1;filter:drop-shadow(0 8px 20px rgba(196,181,253,.45));animation:extraTrophyPop .7s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes extraTrophyPop{0%{opacity:0;transform:translateY(18px) scale(.45) rotate(-18deg)}70%{transform:translateY(-4px) scale(1.12) rotate(5deg)}100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}}
+  .extra-confetti{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+  .extra-confetti span{position:absolute;top:-14px;width:7px;height:12px;border-radius:2px;background:var(--confetti);opacity:0;animation:extraConfettiFall 1.7s ease-out var(--delay) both}
+  @keyframes extraConfettiFall{0%{opacity:0;transform:translate3d(0,-10px,0) rotate(0)}12%{opacity:1}100%{opacity:0;transform:translate3d(var(--drift),430px,0) rotate(620deg)}}
+  .extra-audio{width:100%;display:flex;flex-direction:column;gap:12px;align-items:center}
+  .extra-audio button{width:auto;min-width:220px}
+  /* BEST BLIND RANKING — компактная сетка топа в две вертикальные колонки. */
+  .br-board-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+  .br-board-head .mode-desc-title{margin:0}
+  .br-board-progress{flex-shrink:0;color:var(--muted);font-size:11px;font-weight:800;font-variant-numeric:tabular-nums}
+  .br-ranking-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,minmax(74px,auto));grid-auto-flow:column;gap:9px}
+  .br-slot{position:relative;display:flex;align-items:center;gap:10px;min-width:0;min-height:74px;padding:11px;border:1px solid rgba(255,255,255,.10);border-radius:15px;background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.025));overflow:hidden;text-align:left}
+  .br-slot-button{width:100%;color:#fff;font:inherit;cursor:pointer;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+  .br-slot-button:hover:not(:disabled){transform:translateY(-3px);border-color:rgba(196,181,253,.65);background:linear-gradient(145deg,rgba(139,92,246,.18),rgba(255,255,255,.035));box-shadow:0 13px 30px -22px rgba(167,139,250,.95)}
+  .br-slot-button:active:not(:disabled){transform:scale(.98)}
+  .br-slot-button:focus-visible{outline:2px solid #c4b5fd;outline-offset:3px}
+  .br-slot-button:disabled{opacity:.55;cursor:default}
+  .br-rank-badge{width:34px;height:34px;flex:0 0 34px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.13);border-radius:11px;background:rgba(255,255,255,.07);color:#e5e7eb;font-size:14px;font-weight:950;font-variant-numeric:tabular-nums}
+  .br-slot-text{display:flex;flex-direction:column;gap:4px;min-width:0;flex:1}
+  .br-slot-text strong{font-size:12px;line-height:1.25;font-weight:850;overflow-wrap:anywhere;color:#f8fafc}
+  .br-slot-text span{font-size:10px;line-height:1.3;color:var(--muted);overflow-wrap:anywhere}
+  .br-slot-plus{width:25px;height:25px;flex:0 0 25px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(196,181,253,.28);background:rgba(139,92,246,.12);color:#ddd6fe;font-size:17px;font-weight:700;transition:transform .2s,background .2s}
+  .br-slot-button:hover .br-slot-plus{transform:rotate(90deg);background:rgba(139,92,246,.26)}
+  .br-slot-filled{background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));animation:brSlotFill .48s cubic-bezier(.2,.85,.25,1) both}
+  .br-slot-filled.is-new{animation:brSlotFill .58s cubic-bezier(.2,.85,.25,1) both}
+  .br-slot-filled .br-slot-text strong{font-size:11px}
+  .br-slot-filled .br-slot-text span{font-size:9.5px}
+  .br-slot-check{flex:0 0 auto;color:#86efac;font-size:14px;font-weight:950}
+  .br-slot:nth-child(1){border:1.5px solid rgba(250,204,21,.72);background:linear-gradient(145deg,rgba(250,204,21,.14),rgba(255,255,255,.025));box-shadow:inset 0 0 0 1px rgba(250,204,21,.08),0 9px 25px -22px rgba(250,204,21,.75)}
+  .br-slot:nth-child(1) .br-rank-badge{border-color:rgba(250,204,21,.65);background:rgba(250,204,21,.17);color:#fde68a}
+  .br-slot:nth-child(2){border:1.5px solid rgba(203,213,225,.62);background:linear-gradient(145deg,rgba(203,213,225,.12),rgba(255,255,255,.025));box-shadow:inset 0 0 0 1px rgba(203,213,225,.07),0 9px 25px -22px rgba(203,213,225,.7)}
+  .br-slot:nth-child(2) .br-rank-badge{border-color:rgba(203,213,225,.58);background:rgba(203,213,225,.15);color:#e2e8f0}
+  .br-slot:nth-child(3){border:1.5px solid rgba(217,150,104,.68);background:linear-gradient(145deg,rgba(217,150,104,.13),rgba(255,255,255,.025));box-shadow:inset 0 0 0 1px rgba(217,150,104,.07),0 9px 25px -22px rgba(217,150,104,.7)}
+  .br-slot:nth-child(3) .br-rank-badge{border-color:rgba(217,150,104,.6);background:rgba(217,150,104,.16);color:#fdba8c}
+  .br-slot-button:nth-child(-n+3) .br-slot-text strong{color:#fff7ed}
+  .br-next-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;padding:10px 12px;border:1px solid rgba(167,139,250,.2);border-radius:12px;background:rgba(139,92,246,.07);color:#ddd6fe;font-size:11px;font-weight:700;text-align:center}
+  .br-next-hint span{color:var(--muted);font-weight:500}
+  @keyframes brSlotFill{0%{opacity:.25;transform:translateY(12px) scale(.94);filter:blur(3px)}65%{opacity:1;transform:translateY(-2px) scale(1.015);filter:blur(0)}100%{opacity:1;transform:translateY(0) scale(1)}}
+  @media(max-width:650px){.br-ranking-grid{gap:7px;grid-template-rows:repeat(5,minmax(68px,auto))}.br-slot{min-height:68px;padding:8px;gap:7px}.br-rank-badge{width:29px;height:29px;flex-basis:29px;border-radius:9px;font-size:12px}.br-slot-text strong{font-size:10.5px}.br-slot-text span{font-size:9px}.br-slot-plus{width:21px;height:21px;flex-basis:21px}}
+  @media(max-width:650px){.tier-board{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.tier-col{min-height:145px;padding:9px 7px}.tier-col h3{font-size:17px}.extra-grid{grid-template-columns:1fr}.extra-row{align-items:flex-start}.extra-row button{padding:7px}.ri-option-actions{flex-direction:column}.extra-track-line{align-items:flex-start}.extra-play-btn{align-self:center}}
+
 </style>
 </head>
 <body>
@@ -1796,6 +1906,22 @@
       <button class="mode-card" data-mode="coverpuzzle">
         <div class="mc-title">Cover Puzzle</div>
         <div class="mc-sub">Собери обложку и поверни каждый фрагмент</div>
+      </button>
+      <button class="mode-card" data-mode="trackorder">
+        <div class="mc-title">TRACK ORDER</div>
+        <div class="mc-sub">Восстанови порядок треков в альбоме</div>
+      </button>
+      <button class="mode-card" data-mode="blindranking">
+        <div class="mc-title">BEST BLIND RANKING</div>
+        <div class="mc-sub">Составь слепой топ-10 из Best-треков</div>
+      </button>
+      <button class="mode-card" data-mode="besttiers">
+        <div class="mc-title">BEST CLASSIFICATION</div>
+        <div class="mc-sub">Распредели треки по уровням S–D</div>
+      </button>
+      <button class="mode-card" data-mode="reverseid">
+        <div class="mc-title">REVERSE ID</div>
+        <div class="mc-sub">Угадай трек по перевёрнутому аудио</div>
       </button>
     </div>
 
@@ -2152,9 +2278,37 @@
     <div class="rating-current-wrap" id="ratingCurrentWrap"></div>
   </section>
 
+  <section class="screen" id="screen-trackorder">
+    <header class="game-header"><h1 class="game-title">TRACK ORDER</h1><div class="sub" id="toInfo">Расставь треки по порядку</div></header>
+    <div class="extra-wrap"><div class="extra-panel"><div class="mode-desc-title" id="toAlbum">Альбом</div><div class="extra-muted">Используй стрелки, чтобы поставить треки в правильную последовательность альбома.</div><div class="extra-list" id="toList"></div></div><div class="extra-actions"><button class="btn-primary" id="toCheck">Проверить</button><button class="btn-secondary" id="toExit">В меню</button></div><div class="extra-panel extra-muted" id="toResult"></div></div>
+  </section>
+
+  <section class="screen" id="screen-blindranking">
+    <header class="game-header"><h1 class="game-title">BEST BLIND RANKING</h1><div class="sub" id="brInfo">Трек 1 / 10</div></header>
+    <div class="extra-wrap"><div class="extra-panel" id="brCurrent"></div><div class="extra-panel br-board-panel"><div class="br-board-head"><div class="mode-desc-title">ТВОЙ ТОП-10</div><div class="br-board-progress" id="brBoardProgress">0 / 10 мест</div></div><div class="extra-muted" style="margin:-4px 0 13px">Нажми на свободную позицию. Первые три места выделены отдельно.</div><div class="br-ranking-grid" id="brSlots"></div></div><div class="extra-actions"><button class="btn-secondary" id="brExit">В меню</button></div></div>
+  </section>
+
+  <section class="screen" id="screen-besttiers">
+    <header class="game-header"><h1 class="game-title">BEST CLASSIFICATION</h1><div class="sub" id="btInfo">Распредели треки по уровням</div></header>
+    <div class="extra-wrap">
+      <div class="extra-panel" id="btCurrent"></div>
+      <div class="extra-panel bt-board-panel">
+        <div class="mode-desc-title">Твоя классификация</div>
+        <div class="extra-muted bt-board-hint">Нажми на нужный тир — текущий трек плавно переместится в выбранную колонку.</div>
+        <div class="tier-board" id="btBoard"></div>
+      </div>
+      <div class="extra-actions"><button class="btn-secondary" id="btExit">В меню</button></div>
+    </div>
+  </section>
+
+  <section class="screen" id="screen-reverseid">
+    <header class="game-header"><h1 class="game-title">REVERSE ID</h1><div class="status-row"><div class="sub" id="riInfo">Раунд 1 / 10</div><div class="timer-pill" id="riStatus">Аудио готово</div></div></header>
+    <div class="extra-wrap"><div class="extra-panel extra-audio"><div class="mode-desc-title">Что это за трек?</div><div class="extra-muted">Фрагмент воспроизводится в обратном направлении.</div><button class="btn-primary" id="riPlay">▶ Прослушать наоборот</button><div class="extra-muted" id="riFeedback"></div></div><div class="extra-grid" id="riOptions"></div><div class="extra-actions"><button class="btn-secondary" id="riExit">В меню</button></div></div>
+  </section>
+
 </div>
 
-<div class="version-footer">v1.7.0</div>
+<div class="version-footer">v1.8.4</div>
 
 <div class="modal" id="rulesModal">
   <div class="modal-content">
@@ -2430,6 +2584,10 @@ const screens = {
   keepdelete: document.getElementById('screen-keepdelete'),
   rating:     document.getElementById('screen-rating'),
   coverpuzzle: document.getElementById('screen-coverpuzzle'),
+  trackorder: document.getElementById('screen-trackorder'),
+  blindranking: document.getElementById('screen-blindranking'),
+  besttiers: document.getElementById('screen-besttiers'),
+  reverseid: document.getElementById('screen-reverseid'),
 };
 
 const arena       = document.getElementById('arena');
@@ -2661,6 +2819,7 @@ function setAudioVolume(value){
   try { localStorage.setItem(AUDIO_VOLUME_KEY, String(audioVolume)); } catch {}
   if (soundAudio) soundAudio.volume = audioVolume;
   if (bestPlaylistAudio) bestPlaylistAudio.volume = audioVolume;
+  if (extraBestAudio) extraBestAudio.volume = audioVolume;
   document.querySelectorAll('[data-audio-volume]').forEach(input => { if (input.value !== String(audioVolume)) input.value = String(audioVolume); });
   document.querySelectorAll('[data-volume-value]').forEach(output => { output.textContent = `${Math.round(audioVolume * 100)}%`; });
 }
@@ -3223,6 +3382,10 @@ const MODE_DESCRIPTIONS = {
   keepdelete: { title: 'Keep / Delete', text: 'Выпадает случайный альбом. Показываются треки по одному — решаешь, оставить трек или удалить.', reward: 'Награда: <b>20 баллов</b> за завершение альбома.' },
   rating: { title: 'Оценка треков', text: 'Выбери альбом или все синглы прямо на экране игры и оцени каждый трек ползунком от 0 до 10 с шагом 0.1. Цвет ползунка плавно меняется от «Кошмара» к «Божественно». В конце — список всех оценок и общая оценка альбома.', reward: 'Награда: <b>ровно 30 баллов</b> за завершение.' },
   coverpuzzle: { title: 'Cover Puzzle', text: 'Выбери обложку и собери её из перемешанных квадратных фрагментов. Части изначально стоят в случайных местах и случайно повёрнуты.', reward: 'Три сложности: <b>5 × 5</b>, <b>10 × 10</b> и <b>25 × 25</b>. Нужно не только расставить фрагменты, но и повернуть каждый в правильную сторону: 0°, 90°, 180° или 270°.' },
+  trackorder: { title: 'TRACK ORDER', text: 'Выбери альбом и расставь его треки в исходном порядке. Для проверки используется последовательность треков в tracks.txt.', reward: 'Набор из 5–8 треков одного альбома. Порядок должен быть указан в tracks.txt.' },
+  blindranking: { title: 'BEST BLIND RANKING', text: '10 случайных треков из audios/best появляются по одному. Каждый нужно сразу поставить в свободную позицию топа — изменить решение после размещения нельзя.', reward: 'Слепой топ-10. Нужен audio_manifest.json с минимум 10 треками в разделе best.' },
+  besttiers: { title: 'BEST CLASSIFICATION', text: 'Оценивай случайные треки из audios/best и распределяй их по пяти уровням: S, A, B, C или D. Все решения останутся на общей доске.', reward: '15 треков за раунд. Нужен audio_manifest.json с минимум 15 треками в разделе best.' },
+  reverseid: { title: 'REVERSE ID', text: 'Слушай аудиофрагмент, который браузер декодирует и проигрывает в обратном направлении. Каждый раунд получает новую случайную четвёрку треков без повторов внутри игры.', reward: '10 раундов · 4 уникальных варианта в каждом · минимум 40 MP3 в audios/best.' },
 };
 const CMP_SUBMODE_DESCRIPTIONS = {
   plays: { text: 'Угадываешь, у какого из двух треков больше прослушиваний.', reward: 'Награда: <b>база 50</b>, ориентир 2:30.' },
@@ -3330,6 +3493,10 @@ btnModeStart.addEventListener('click', () => {
   else if (selectedMode === 'keepdelete') runKeepDeleteFlow();
   else if (selectedMode === 'rating') showRatingSetup();
   else if (selectedMode === 'coverpuzzle') runCoverPuzzleFlow();
+  else if (selectedMode === 'trackorder') runTrackOrder();
+  else if (selectedMode === 'blindranking') runBlindRanking();
+  else if (selectedMode === 'besttiers') runBestTiers();
+  else if (selectedMode === 'reverseid') runReverseId();
 });
 
 btnModeBack.addEventListener('click', () => {
@@ -4207,6 +4374,14 @@ arena.addEventListener('click', (e) => {
 });
 
 function trackLine(track, won){
+  const letter = esc((track.title[0] || '♪').toUpperCase());
+  const img = track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
+  return `<div class="bracket-track ${won ? 'bw' : ''}">
+    <span class="bt-thumb" style="--c1:${track.c1};--c2:${track.c2}">${letter}${img}</span>
+    <span class="bt-title">${esc(track.title)}</span>
+  </div>`;
+}
+function bestPlaylistTrackLine(track, won){
   const letter = esc((track.title[0] || '♪').toUpperCase());
   const img = track.cover ? `<img src="${esc(track.cover)}" alt="" onerror="this.remove()">` : '';
   return `<div class="bracket-track ${won ? 'bw' : ''}">
@@ -6672,6 +6847,7 @@ function stopBestPlaylistTimer(){
 }
 function startBestPlaylistGame(entries){
   stopBestPlaylistAudio();
+  stopExtraBestAudio();
   bestPlaylistState = {
     roundTracks: shuffle(entries),
     winners: [],
@@ -6836,8 +7012,8 @@ function renderBestPlaylistBracket(champion){
     html += '<div class="round-matches">';
     round.matches.forEach(match => {
       html += '<div class="bracket-match">';
-      html += trackLine(match.a, match.winner === match.a);
-      if (match.b) html += trackLine(match.b, match.winner === match.b);
+      html += bestPlaylistTrackLine(match.a, match.winner === match.a);
+      if (match.b) html += bestPlaylistTrackLine(match.b, match.winner === match.b);
       else html += `<div class="bracket-track auto"><span class="bt-thumb" style="--c1:#666;--c2:#333">›</span><span class="bt-title">проходит дальше</span></div>`;
       html += '</div>';
     });
@@ -6909,6 +7085,8 @@ async function runBestPlaylistFlow(){
     const manifest = await loadAudioManifest(true);
     const raw = Array.isArray(manifest.best) ? manifest.best : [];
     const entries = raw.map((entry, index) => makeManifestTrack(entry, index, 'best')).filter(Boolean);
+    extraBestTracksById.clear();
+    entries.forEach(track=>extraBestTracksById.set(Number(track.id),track));
     bar.style.width = '100%';
     if (entries.length < 2){
       showScreen('modes');
@@ -7734,6 +7912,336 @@ function endPuzzlePointer(e){
 puzzleBoardEl.addEventListener('pointerup',endPuzzlePointer);
 puzzleBoardEl.addEventListener('pointercancel',endPuzzlePointer);
 
+
+/* ====================== НОВЫЕ РЕЖИМЫ ====================== */
+const extraBestTracksById = new Map();
+let extraBestAudio = null;
+let extraBestAudioTrackId = null;
+async function getBestTracks(minimum=2){
+  const manifest = await loadAudioManifest(true);
+  const list = (Array.isArray(manifest.best) ? manifest.best : [])
+    .map((entry,index)=>makeManifestTrack(entry,index,'best')).filter(Boolean);
+  if(list.length<minimum) throw new Error(`В audios/best найдено ${list.length} треков, нужно минимум ${minimum}.`);
+  extraBestTracksById.clear();
+  list.forEach(track=>extraBestTracksById.set(Number(track.id),track));
+  return list;
+}
+function shuffleCopy(arr){ return shuffle([...arr]); }
+function extraTrackMarkup(track, compact=false){
+  return `<div class="extra-track-line${compact?' compact':''}"><div class="extra-track-text"><span class="extra-track-title">${esc(track.title)}</span><span class="extra-track-artist">${esc(track.artist)}</span></div><button class="extra-play-btn" type="button" data-extra-play="${Number(track.id)}">▶ Слушать</button></div>`;
+}
+function extraTrackTextMarkup(track, compact=false){
+  return `<div class="extra-track-line${compact?' compact':''}"><div class="extra-track-text"><span class="extra-track-title">${esc(track.title)}</span><span class="extra-track-artist">${esc(track.artist)}</span></div></div>`;
+}
+function extraCard(track){
+  return `<div class="extra-track-card"><div class="mode-desc-title">${esc(track.title)}</div><div class="extra-muted">${esc(track.artist)}</div>${extraTrackMarkup(track)}</div>`;
+}
+function syncExtraAudioButtons(){
+  document.querySelectorAll('[data-extra-play]').forEach(btn=>{
+    const isPlaying=extraBestAudio && !extraBestAudio.paused && Number(btn.dataset.extraPlay)===extraBestAudioTrackId;
+    btn.textContent=isPlaying?'Ⅱ Пауза':'▶ Слушать';
+    btn.classList.toggle('playing',!!isPlaying);
+  });
+}
+function stopExtraBestAudio(){
+  if(extraBestAudio){try{extraBestAudio.pause();extraBestAudio.currentTime=0;}catch{} }
+  extraBestAudio=null;extraBestAudioTrackId=null;syncExtraAudioButtons();
+}
+async function toggleExtraBestAudio(trackId){
+  const track=extraBestTracksById.get(Number(trackId));
+  if(!track)return;
+  if(extraBestAudio && extraBestAudioTrackId===Number(trackId)){
+    if(extraBestAudio.paused){try{await extraBestAudio.play();}catch{}}
+    else extraBestAudio.pause();
+    syncExtraAudioButtons();return;
+  }
+  stopExtraBestAudio();
+  const audio=new Audio(track.src);
+  extraBestAudio=audio;extraBestAudioTrackId=Number(trackId);
+  audio.volume=audioVolume;
+  audio.addEventListener('ended',()=>{if(extraBestAudio===audio){extraBestAudio=null;extraBestAudioTrackId=null;syncExtraAudioButtons();}});
+  audio.addEventListener('error',()=>{if(extraBestAudio===audio){extraBestAudio=null;extraBestAudioTrackId=null;syncExtraAudioButtons();alert(`Не удалось воспроизвести ${track.file}. Проверь наличие MP3 в audios/best.`);}});
+  try{await audio.play();syncExtraAudioButtons();}
+  catch(e){extraBestAudio=null;extraBestAudioTrackId=null;syncExtraAudioButtons();alert('Браузер не смог воспроизвести этот MP3. Проверь файл и попробуй ещё раз.');}
+}
+document.addEventListener('click',event=>{
+  const playButton=event.target.closest('[data-extra-play]');
+  if(!playButton)return;
+  event.preventDefault();event.stopPropagation();
+  toggleExtraBestAudio(playButton.dataset.extraPlay);
+});
+function extraVictoryMarkup(title, subtitle, score, maxScore){
+  const confetti=Array.from({length:24},(_,i)=>`<span style="left:${(i*37+7)%100}%;--delay:${(i%8)*.055}s;--drift:${((i*19)%110)-55}px;--confetti:${['#c4b5fd','#f9a8d4','#86efac','#93c5fd','#fcd34d'][i%5]}"></span>`).join('');
+  return `<div class="extra-victory"><div class="extra-confetti">${confetti}</div><div class="champion-summary"><div class="extra-victory-icon">🏆</div><h2>${esc(title)}</h2><p>${esc(subtitle)}</p><div class="badge">${esc(String(score))} / ${esc(String(maxScore))} баллов</div></div></div>`;
+}
+function extraExit(id){ document.getElementById(id).addEventListener('click',()=>{ stopExtraBestAudio(); if(reverseState)reverseState=null; if(window._reverseSource){try{window._reverseSource.stop()}catch{} window._reverseSource=null;} showScreen('modes'); }); }
+
+/* TRACK ORDER: исходный порядок альбома берётся из tracks.txt. */
+let trackOrderState=null;
+async function runTrackOrder(){
+  const eligible=trackStructure.albums.filter(a=>a.tracks.length>=5);
+  if(!eligible.length){alert('В tracks.txt нет альбомов минимум с 5 треками.');return;}
+  const album=eligible[Math.floor(Math.random()*eligible.length)];
+  const count=Math.min(album.tracks.length,8);
+  const start=Math.floor(Math.random()*(album.tracks.length-count+1));
+  const correct=album.tracks.slice(start,start+count);
+  trackOrderState={album,correct,items:shuffleCopy(correct),done:false};
+  document.getElementById('toAlbum').textContent=album.name;
+  document.getElementById('toInfo').textContent=`Расставь ${count} треков в исходном порядке`;
+  document.getElementById('toResult').textContent='';
+  renderTrackOrder();
+  showScreen('trackorder');
+}
+function renderTrackOrder(){
+  const el=document.getElementById('toList');
+  el.innerHTML=trackOrderState.items.map((t,i)=>`<div class="extra-row"><div class="extra-name">${esc(t.title)}<div class="extra-artist">${esc(t.artist)}</div></div><button data-to-up="${i}" ${i===0?'disabled':''}>↑</button><button data-to-down="${i}" ${i===trackOrderState.items.length-1?'disabled':''}>↓</button></div>`).join('');
+}
+document.getElementById('toList').addEventListener('click',e=>{
+  const up=e.target.closest('[data-to-up]'),down=e.target.closest('[data-to-down]');
+  if(!up&&!down||!trackOrderState||trackOrderState.done)return;
+  const i=Number((up||down).dataset[up?'toUp':'toDown']),j=i+(up?-1:1);
+  if(j<0||j>=trackOrderState.items.length)return;
+  [trackOrderState.items[i],trackOrderState.items[j]]=[trackOrderState.items[j],trackOrderState.items[i]];
+  renderTrackOrder();
+});
+document.getElementById('toCheck').addEventListener('click',()=>{
+  if(!trackOrderState||trackOrderState.done)return;
+  trackOrderState.done=true;
+  const correct=trackOrderState.items.filter((t,i)=>t.id===trackOrderState.correct[i].id).length;
+  const points=Math.round(correct/trackOrderState.items.length*100);
+  document.getElementById('toResult').innerHTML=`Результат: <b>${correct} / ${trackOrderState.items.length}</b> · ${points}%<br><br>Правильный порядок:<br>${trackOrderState.correct.map((t,i)=>`${i+1}. ${esc(t.title)}`).join('<br>')}`;
+  document.getElementById('toCheck').disabled=true;
+  addPointsToHistory(Math.round(points/4),'trackorder','TRACK ORDER',`${correct}/${trackOrderState.items.length} · ${trackOrderState.album.name}`);
+});
+extraExit('toExit');
+
+/* BEST BLIND RANKING: позиции фиксируются сразу после выбора. */
+let blindState=null;
+function blindRankLabel(index){return index===0?'🥇 1 МЕСТО':index===1?'🥈 2 МЕСТО':index===2?'🥉 3 МЕСТО':`${index+1} МЕСТО`;}
+function blindScore(state){return state.slots.reduce((sum,t,i)=>sum+(t?Math.max(0,10-i):0),0);}
+async function runBlindRanking(){
+  try{
+    stopExtraBestAudio();
+    const tracks=shuffleCopy(await getBestTracks(10)).slice(0,10);
+    blindState={tracks,step:0,slots:Array(10).fill(null),saved:false,animating:false,lastAddedIndex:null};
+    showScreen('blindranking');renderBlindRanking();
+  }catch(e){alert(e.message||'Не удалось загрузить Best-треки.');}
+}
+function renderBlindRanking(){
+  const st=blindState;if(!st)return;
+  const current=st.tracks[st.step];
+  const filled=st.slots.filter(Boolean).length;
+  const score=blindScore(st);
+  document.getElementById('brInfo').textContent=st.step<10?`Трек ${st.step+1} / 10`:'Топ-10 готов';
+  document.getElementById('brBoardProgress').textContent=`${filled} / 10 мест`;
+  const currentPanel=document.getElementById('brCurrent');
+  if(st.step<10){
+    currentPanel.innerHTML=`${extraCard(current)}<div class="br-next-hint">Выбери место для этого трека <span>· решение нельзя изменить</span></div>`;
+  }else{
+    currentPanel.innerHTML=`${extraVictoryMarkup('Твой слепой топ-10 готов','Все позиции заполнены. Посмотри, как ты распределил треки.',score,55)}<div class="extra-actions"><button class="btn-primary" id="brAgain">Составить новый топ</button></div>`;
+    document.getElementById('brAgain').addEventListener('click',runBlindRanking);
+    if(!st.saved){addPointsToHistory(score,'blindranking','BEST BLIND RANKING',`Топ-10 · ${score}/55`);st.saved=true;}
+  }
+  document.getElementById('brSlots').innerHTML=st.slots.map((track,i)=>{
+    const posClass=`br-slot br-slot-${i+1}`;
+    if(track){
+      const isNew=st.lastAddedIndex===i;
+      return `<div class="${posClass} br-slot-filled${isNew?' is-new':''}"><div class="br-rank-badge">${i+1}</div><div class="br-slot-text"><strong>${esc(track.title)}</strong><span>${esc(track.artist)}</span></div><span class="br-slot-check">✓</span></div>`;
+    }
+    return `<button class="${posClass} br-slot-button" type="button" data-br-slot="${i}" ${st.step>=10||st.animating?'disabled':''}><div class="br-rank-badge">${i+1}</div><div class="br-slot-text"><strong>${blindRankLabel(i)}</strong><span>Свободное место · нажми, чтобы выбрать</span></div><span class="br-slot-plus">+</span></button>`;
+  }).join('');
+  st.lastAddedIndex=null;
+}
+document.getElementById('brSlots').addEventListener('click',e=>{
+  const b=e.target.closest('[data-br-slot]');if(!b||!blindState||blindState.step>=10||blindState.animating)return;
+  const st=blindState;
+  const i=Number(b.dataset.brSlot);if(!Number.isInteger(i)||i<0||i>=10||st.slots[i])return;
+  st.animating=true;
+  b.classList.add('is-selected');
+  b.disabled=true;
+  const chosen=st.tracks[st.step];
+  setTimeout(()=>{
+    if(blindState!==st)return;
+    st.slots[i]=chosen;
+    st.step++;
+    st.lastAddedIndex=i;
+    st.animating=false;
+    renderBlindRanking();
+  },360);
+});
+extraExit('brExit');
+
+/* BEST CLASSIFICATION — нажатием на сам контейнер S/A/B/C/D. */
+let tierState=null;
+async function runBestTiers(){
+  try{
+    stopExtraBestAudio();
+    const tracks=shuffleCopy(await getBestTracks(15)).slice(0,15);
+    tierState={tracks,index:0,tiers:{S:[],A:[],B:[],C:[],D:[]},saved:false,animating:false,lastAdded:null};
+    showScreen('besttiers');renderBestTiers();
+  }catch(e){alert(e.message||'Не удалось загрузить Best-треки.');}
+}
+function renderBestTiers(){
+  const st=tierState;if(!st)return;
+  document.getElementById('btInfo').textContent=st.index<15?`Трек ${st.index+1} / 15`:'Все 15 треков распределены';
+  const current=document.getElementById('btCurrent');
+  if(st.index<15){
+    current.innerHTML=`${extraCard(st.tracks[st.index])}<div class="extra-muted" style="margin-top:10px">Выбери тир: нажми на большую колонку S, A, B, C или D ниже.</div>`;
+  }else{
+    current.innerHTML=`${extraVictoryMarkup('Классификация завершена','Все 15 треков распределены по уровням.',15,15)}<div class="extra-actions"><button class="btn-primary" id="btAgain" style="margin-top:8px">Новый набор</button></div>`;
+    document.getElementById('btAgain').addEventListener('click',runBestTiers);
+    if(!st.saved){addPointsToHistory(15,'besttiers','BEST CLASSIFICATION','Распределено 15 треков');st.saved=true;}
+  }
+  const tiers=['S','A','B','C','D'];
+  document.getElementById('btBoard').innerHTML=tiers.map(t=>{
+    const tracks=st.tiers[t];
+    const cards=tracks.map(x=>{
+      const isNew=st.lastAdded&&st.lastAdded.tier===t&&Number(st.lastAdded.id)===Number(x.id);
+      return `<div class="tier-track${isNew?' tier-track-new':''}">${extraTrackTextMarkup(x,true)}</div>`;
+    }).join('');
+    return `<div class="tier-col" data-tier="${t}" role="button" tabindex="0" aria-label="Добавить текущий трек в тир ${t}"><div class="tier-col-head"><h3>${t}</h3><span class="tier-count">${tracks.length}</span></div>${cards||'<div class="tier-empty">Нажми, чтобы добавить сюда трек</div>'}</div>`;
+  }).join('');
+  st.lastAdded=null;
+}
+function placeBestTierTrack(tier,container){
+  const st=tierState;
+  if(!st||st.index>=15||st.animating||!st.tiers[tier])return;
+  const chosen=st.tracks[st.index];
+  st.animating=true;
+  container.classList.add('is-targeted');
+  container.setAttribute('aria-disabled','true');
+  setTimeout(()=>{
+    if(tierState!==st)return;
+    st.tiers[tier].push(chosen);
+    st.lastAdded={tier,id:chosen.id};
+    st.index++;
+    st.animating=false;
+    renderBestTiers();
+  },260);
+}
+document.getElementById('btBoard').addEventListener('click',e=>{
+  if(e.target.closest('[data-extra-play]'))return;
+  const col=e.target.closest('[data-tier]');
+  if(!col||!tierState||tierState.index>=15||tierState.animating)return;
+  placeBestTierTrack(col.dataset.tier,col);
+});
+document.getElementById('btBoard').addEventListener('keydown',e=>{
+  if(e.key!=='Enter'&&e.key!==' ')return;
+  const col=e.target.closest('[data-tier]');
+  if(!col||!tierState||tierState.index>=15||tierState.animating)return;
+  e.preventDefault();placeBestTierTrack(col.dataset.tier,col);
+});
+extraExit('btExit');
+
+/* REVERSE ID: отдельный случайный пул для каждого раунда и анти-повтор между играми. */
+let reverseState=null, reverseContext=null;
+let reverseRecentTrackIds=[];
+function createReverseRounds(allTracks,roundCount=10){
+  const recent=new Set(reverseRecentTrackIds);
+  let targetPool=shuffleCopy(allTracks.filter(t=>!recent.has(Number(t.id))));
+  if(targetPool.length<roundCount)targetPool=shuffleCopy(allTracks);
+  const targets=targetPool.slice(0,roundCount);
+  const usedThisGame=new Set(targets.map(t=>Number(t.id)));
+  const rounds=[];
+  const shownIds=[];
+  targets.forEach(correct=>{
+    let distractorPool=shuffleCopy(allTracks.filter(t=>!recent.has(Number(t.id))&&!usedThisGame.has(Number(t.id))));
+    if(distractorPool.length<3)distractorPool=shuffleCopy(allTracks.filter(t=>!usedThisGame.has(Number(t.id))));
+    const distractors=distractorPool.slice(0,3);
+    distractors.forEach(t=>usedThisGame.add(Number(t.id)));
+    const options=shuffleCopy([correct,...distractors]);
+    options.forEach(t=>shownIds.push(Number(t.id)));
+    rounds.push({correct,options});
+  });
+  reverseRecentTrackIds=[...reverseRecentTrackIds,...shownIds].slice(-120);
+  return rounds;
+}
+async function runReverseId(){
+  try{
+    stopExtraBestAudio();
+    const allTracks=await getBestTracks(40);
+    const rounds=createReverseRounds(allTracks,10);
+    reverseState={rounds,index:0,locked:false,points:0,saved:false};
+    if(!reverseContext)reverseContext=new (window.AudioContext||window.webkitAudioContext)();
+    await reverseContext.resume();
+    showScreen('reverseid');renderReverseRound();
+  }catch(e){alert(e.message||'Не удалось загрузить аудио для Reverse ID.');}
+}
+async function loadReversedBuffer(track){
+  const response=await fetch(track.src,{cache:'no-store'});
+  if(!response.ok)throw new Error(`Не удалось загрузить ${track.file}`);
+  const data=await response.arrayBuffer();
+  const decoded=await reverseContext.decodeAudioData(data);
+  const reversed=reverseContext.createBuffer(decoded.numberOfChannels,decoded.length,decoded.sampleRate);
+  for(let ch=0;ch<decoded.numberOfChannels;ch++){
+    const src=decoded.getChannelData(ch),dst=reversed.getChannelData(ch);
+    for(let i=0,j=src.length-1;i<src.length;i++,j--)dst[i]=src[j];
+  }
+  return reversed;
+}
+async function playReversedClip(){
+  if(!reverseState||reverseState.locked)return;
+  const game=reverseState;
+  try{
+    stopExtraBestAudio();
+    if(window._reverseSource){try{window._reverseSource.stop()}catch{}window._reverseSource=null;}
+    const track=game.rounds[game.index].correct;
+    document.getElementById('riStatus').textContent='Подготавливаем аудио…';
+    const buffer=await loadReversedBuffer(track);
+    if(reverseState!==game||game.locked)return;
+    const source=reverseContext.createBufferSource();source.buffer=buffer;
+    const gain=reverseContext.createGain();gain.gain.value=audioVolume;
+    source.connect(gain);gain.connect(reverseContext.destination);source.start();
+    window._reverseSource=source;
+    document.getElementById('riStatus').textContent='Воспроизведение наоборот';
+    source.onended=()=>{if(document.getElementById('riStatus'))document.getElementById('riStatus').textContent='Фрагмент завершён';};
+  }catch(e){document.getElementById('riStatus').textContent='Ошибка аудио';document.getElementById('riFeedback').textContent=e.message||'Проверь MP3 и формат файла.';}
+}
+function renderReverseRound(){
+  const st=reverseState;if(!st)return;
+  if(st.index>=st.rounds.length){
+    stopExtraBestAudio();
+    document.getElementById('riInfo').textContent='Игра завершена';
+    document.getElementById('riStatus').textContent='Результат сохранён';
+    document.getElementById('riFeedback').textContent='';
+    document.getElementById('riPlay').disabled=true;
+    document.getElementById('riOptions').innerHTML=`${extraVictoryMarkup(st.points>=70?'Отличный результат!':'Игра завершена',`Правильных ответов: ${st.points/10} из 10`,st.points,100)}<div class="extra-actions"><button class="btn-primary" id="riAgain">Играть ещё раз</button></div>`;
+    document.getElementById('riAgain').addEventListener('click',runReverseId);
+    if(!st.saved){addPointsToHistory(st.points,'reverseid','REVERSE ID',`${st.points}/100 · 10 раундов`);st.saved=true;}
+    return;
+  }
+  st.locked=false;
+  const round=st.rounds[st.index];
+  document.getElementById('riInfo').textContent=`Раунд ${st.index+1} / ${st.rounds.length} · ${st.points} / 100`;
+  document.getElementById('riStatus').textContent='Аудио готово';
+  document.getElementById('riFeedback').textContent='';
+  document.getElementById('riPlay').disabled=false;
+  document.getElementById('riOptions').innerHTML=round.options.map((t,i)=>`<div class="ri-option-card"><div class="ri-option-title">${esc(t.title)}</div><div class="ri-option-artist">${esc(t.artist)}</div><div class="ri-option-actions"><button class="ri-answer-btn" type="button" data-ri-answer="${i}">Выбрать</button></div></div>`).join('');
+}
+document.getElementById('riPlay').addEventListener('click',playReversedClip);
+document.getElementById('riOptions').addEventListener('click',e=>{
+  const b=e.target.closest('[data-ri-answer]');if(!b||!reverseState||reverseState.locked)return;
+  const game=reverseState;
+  game.locked=true;
+  stopExtraBestAudio();
+  if(window._reverseSource){try{window._reverseSource.stop()}catch{}window._reverseSource=null;}
+  const round=game.rounds[game.index];
+  const chosen=round.options[Number(b.dataset.riAnswer)];
+  const ok=chosen.id===round.correct.id;if(ok)game.points+=10;
+  document.getElementById('riOptions').querySelectorAll('[data-ri-answer]').forEach(btn=>btn.disabled=true);
+  document.getElementById('riOptions').querySelectorAll('.ri-option-card').forEach(card=>{
+    const idx=Number(card.querySelector('[data-ri-answer]')?.dataset.riAnswer);
+    const option=round.options[idx];
+    if(option && option.id===round.correct.id)card.classList.add('is-correct');
+    else if(option && option.id===chosen.id)card.classList.add('is-wrong');
+  });
+  document.getElementById('riFeedback').innerHTML=ok?'<b style="color:#86efac">Верно! +10 баллов</b>':`Неверно. Правильный ответ: <b>${esc(round.correct.artist)} — ${esc(round.correct.title)}</b>`;
+  document.getElementById('riStatus').textContent=ok?'Правильно · +10':'Неверно';
+  document.getElementById('riInfo').textContent=`Раунд ${game.index+1} / ${game.rounds.length} · ${game.points} / 100`;
+  setTimeout(()=>{if(reverseState!==game)return;game.index++;renderReverseRound();},1450);
+});
+extraExit('riExit');
+
 /* ====================== ПОТОКИ ====================== */
 function runShuffleFlow(title, sub, callback){
   document.getElementById('shuffleTitle').textContent = title;
@@ -7816,7 +8324,7 @@ async function init(){
   await loadLyrics();
 
   if (allTracks.length >= 2){
-    menuSub.textContent = `${allTracks.length} треков · 14 режимов`;
+    menuSub.textContent = `${allTracks.length} треков · 18 режимов`;
     menuStats.innerHTML =
       `Синглов: <b>${trackStructure.singles.length}</b><br>` +
       `Альбомов: <b>${trackStructure.albums.length}</b><br>` +
