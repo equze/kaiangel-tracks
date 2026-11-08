@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Создаёт audio_manifest.json по MP3-файлам в audios/*.
+"""Создаёт audio_manifest.json по MP3-файлам в audios/* и отдельной папке unrealized.
 
 Ожидаемая структура (в каждой папке с режимом — подпапки по 10 треков):
     audios/
@@ -12,6 +12,9 @@
       rewind/1/*.mp3
       best/1/*.mp3
       best/2/*.mp3
+    audio/                      # либо audios/ вместо audio/
+      unrealized/1/*.mp3
+      unrealized/2/*.mp3
 
 Допускаются также MP3 прямо в папке режима для обратной совместимости.
 В манифест записывается путь относительно папки режима, например:
@@ -33,6 +36,7 @@ ROOT = Path(__file__).resolve().parent
 AUDIO_ROOT = ROOT / "audios"
 OUTPUT_FILE = ROOT / "audio_manifest.json"
 FOLDERS = ("start", "random", "beat", "rewind", "best")
+UNRELEASED_ROOT_CANDIDATES = (ROOT / "audio", ROOT / "audios")
 AUDIO_EXTENSIONS = {".mp3"}
 MAX_TRACKS_PER_NUMBERED_FOLDER = 10
 
@@ -71,8 +75,8 @@ def natural_path_key(path: Path, root: Path) -> tuple[tuple[int, object], ...]:
     return tuple(result)
 
 
-def scan_folder(folder_name: str) -> tuple[list[dict[str, str]], list[str]]:
-    folder = AUDIO_ROOT / folder_name
+def scan_folder(folder_name: str, audio_root: Path = AUDIO_ROOT) -> tuple[list[dict[str, str]], list[str]]:
+    folder = audio_root / folder_name
     entries: list[dict[str, str]] = []
     warnings: list[str] = []
 
@@ -94,7 +98,7 @@ def scan_folder(folder_name: str) -> tuple[list[dict[str, str]], list[str]]:
         relative = path.relative_to(folder)
         if len(relative.parts) == 1:
             warnings.append(
-                f"Файл лежит прямо в audios/{folder_name}. Для удобной загрузки перемести его в подпапку, например {folder_name}/1/: {path.name}"
+                f"Файл лежит прямо в {audio_root.name}/{folder_name}. Для удобной загрузки перемести его в подпапку, например {folder_name}/1/: {path.name}"
             )
         else:
             first_dir = relative.parts[0]
@@ -112,7 +116,7 @@ def scan_folder(folder_name: str) -> tuple[list[dict[str, str]], list[str]]:
     for number, count in sorted(numbered_counts.items(), key=lambda item: int(item[0])):
         if count > MAX_TRACKS_PER_NUMBERED_FOLDER:
             warnings.append(
-                f"В audios/{folder_name}/{number} находится {count} MP3; максимум по правилам проекта — {MAX_TRACKS_PER_NUMBERED_FOLDER}."
+                f"В {audio_root.name}/{folder_name}/{number} находится {count} MP3; максимум по правилам проекта — {MAX_TRACKS_PER_NUMBERED_FOLDER}."
             )
 
     seen: set[tuple[str, str]] = set()
@@ -128,7 +132,7 @@ def scan_folder(folder_name: str) -> tuple[list[dict[str, str]], list[str]]:
         key = (parsed["artist"].casefold(), parsed["title"].casefold())
         if key in seen:
             warnings.append(
-                f"Повтор пары исполнитель/трек в audios/{folder_name}: "
+                f"Повтор пары исполнитель/трек в {audio_root.name}/{folder_name}: "
                 f"{parsed['artist']} — {parsed['title']} ({relative_file})"
             )
         seen.add(key)
@@ -148,6 +152,35 @@ def main() -> int:
         total += len(entries)
         all_warnings.extend(warnings)
         print(f"audios/{folder_name}: {len(entries)} MP3")
+
+    # Папка анрелизов может называться как audio/unrealized (новый путь)
+    # или audios/unrealized (совместимость с основным каталогом проекта).
+    unrealized_entries: list[dict[str, str]] = []
+    unrealized_seen: set[tuple[str, str]] = set()
+    found_unrealized_root = False
+    for audio_root in UNRELEASED_ROOT_CANDIDATES:
+        folder = audio_root / "unrealized"
+        if not folder.is_dir():
+            continue
+        found_unrealized_root = True
+        entries, warnings = scan_folder("unrealized", audio_root)
+        all_warnings.extend(warnings)
+        for entry in entries:
+            key = (entry["artist"].casefold(), entry["title"].casefold())
+            if key in unrealized_seen:
+                all_warnings.append(
+                    f"Повтор анрелиза в разных audio-каталогах: {entry['artist']} — {entry['title']}"
+                )
+                continue
+            unrealized_seen.add(key)
+            # JS использует этот ключ, чтобы строить правильный URL к audio/ или audios/.
+            unrealized_entries.append({**entry, "root": audio_root.name})
+    if not found_unrealized_root:
+        all_warnings.append("Папка не найдена: audio/unrealized (или audios/unrealized)")
+    manifest["unrealized"] = unrealized_entries
+    manifest["_audio_roots"] = {"unrealized": unrealized_entries[0]["root"] if unrealized_entries else "audio"}
+    total += len(unrealized_entries)
+    print(f"unrealized: {len(unrealized_entries)} MP3")
 
     OUTPUT_FILE.write_text(
         json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
